@@ -1,0 +1,14 @@
+# molding_process_eda.ipynb
+# Python 3.12; versions used for the executed notebook.
+# Install in the environment selected as your VS Code/Jupyter kernel:
+# python -m pip install -r requirements.txt
+# Direct dependencies pinned; this is not a full transitive lockfile.
+
+numpy==2.3.5
+pandas==2.2.3
+scipy==1.17.0
+matplotlib==3.10.8
+seaborn==0.13.2
+PyMuPDF==1.26.6
+ipython==9.17.1
+ipykernel==7.3.0
