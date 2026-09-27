@@ -1,0 +1,3 @@
+type,patterns,rows,normal,defects
+conflicting,25,50,25,25
+normal_only,566,1132,1132,0

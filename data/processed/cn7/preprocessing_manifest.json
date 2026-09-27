@@ -1,0 +1,62 @@
+{
+  "feature_columns": [
+    "Injection_Time",
+    "Filling_Time",
+    "Plasticizing_Time",
+    "Cycle_Time",
+    "Clamp_Close_Time",
+    "Cushion_Position",
+    "Plasticizing_Position",
+    "Clamp_Open_Position",
+    "Max_Injection_Speed",
+    "Max_Screw_RPM",
+    "Average_Screw_RPM",
+    "Max_Injection_Pressure",
+    "Max_Switch_Over_Pressure",
+    "Max_Back_Pressure",
+    "Average_Back_Pressure",
+    "Barrel_Temperature_1",
+    "Barrel_Temperature_2",
+    "Barrel_Temperature_3",
+    "Barrel_Temperature_4",
+    "Barrel_Temperature_5",
+    "Barrel_Temperature_6",
+    "Hopper_Temperature",
+    "Mold_Temperature_3",
+    "Mold_Temperature_4"
+  ],
+  "target": "PassOrFail",
+  "label_meaning": {
+    "0": "normal",
+    "1": "defect"
+  },
+  "labeled_rows": 1211,
+  "unlabeled_rows": 35239,
+  "pattern_count": 606,
+  "constant_features_in_labeled": [
+    "Clamp_Open_Position"
+  ],
+  "row_policy": "Preserve original rows, labels, order and process values.",
+  "feature_policy": "All 24 process features; no ID, label-derived metadata or fold as input.",
+  "fit_policy": "Fit optional scaling, selection and resampling on training folds only.",
+  "group_policy": "Exact equality of all 24 labeled process features.",
+  "validation": {
+    "n_splits": 3,
+    "random_state": 42,
+    "method": "StratifiedKFold on unique patterns stratified by pattern_type",
+    "purpose": "Development validation on unseen input patterns, not a pristine holdout."
+  },
+  "source_sha256": {
+    "labeled": "f870b0c259297f20d503f2e2739966553e5db5ef1deb0cc7513eefa4bbfa2753",
+    "unlabeled": "110a2d408d6cb8002caf26f50c06d06e42998e067e708788a3e37e9d1769b978"
+  },
+  "artifact_sha256": {
+    "X_labeled.csv": "35aa290ded7e1d056bdab64980cc6c8efbd5d16ca2a57883cde8bebd89d99a4e",
+    "y_labeled.csv": "37bef3053d6547499604f605a80bf7d514c2d77787f474c57e5adfab2bc0c427",
+    "X_unlabeled.csv": "1749dcc3668fd01a1de840cc14fab75ae1e0cdec364f15cce9f770d10884a6b4",
+    "labeled_metadata.csv": "18f4494b2214c766917919eb679dcefa11f23b4d5b9b6d7722e05ca6f464e968",
+    "unlabeled_metadata.csv": "ffa943221a8cd6d0aecc8cf529632bb2d7d750fea0ddd14e6fc043dc078e8bf9",
+    "pattern_audit.csv": "6dab455b104e5859e356977ffd6a7e1ad67431f925dd8efdcee9748383c8d2e2",
+    "fold_summary.csv": "f872648bdf261a98404f9ae5f131ecf7d352f69f03a682e0dddf637a98fd8380"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "scope": "Unsupervised descriptive EDA; labels attached only after clustering.",
+  "primary_features": [
+    "Injection_Time",
+    "Filling_Time",
+    "Plasticizing_Time",
+    "Cycle_Time",
+    "Clamp_Close_Time",
+    "Cushion_Position",
+    "Plasticizing_Position",
+    "Max_Injection_Speed",
+    "Max_Screw_RPM",
+    "Average_Screw_RPM",
+    "Max_Injection_Pressure",
+    "Max_Switch_Over_Pressure",
+    "Max_Back_Pressure",
+    "Average_Back_Pressure",
+    "Barrel_Temperature_1",
+    "Barrel_Temperature_2",
+    "Barrel_Temperature_3",
+    "Barrel_Temperature_4",
+    "Barrel_Temperature_5",
+    "Barrel_Temperature_6",
+    "Hopper_Temperature",
+    "Mold_Temperature_3",
+    "Mold_Temperature_4"
+  ],
+  "reduced_rank_features": [
+    "Injection_Time",
+    "Filling_Time",
+    "Plasticizing_Time",
+    "Cycle_Time",
+    "Clamp_Close_Time",
+    "Cushion_Position",
+    "Plasticizing_Position",
+    "Max_Injection_Speed",
+    "Max_Screw_RPM",
+    "Average_Screw_RPM",
+    "Max_Injection_Pressure",
+    "Max_Switch_Over_Pressure",
+    "Max_Back_Pressure",
+    "Barrel_Temperature_1",
+    "Barrel_Temperature_2",
+    "Barrel_Temperature_3",
+    "Barrel_Temperature_4",
+    "Barrel_Temperature_5",
+    "Barrel_Temperature_6",
+    "Hopper_Temperature",
+    "Mold_Temperature_3"
+  ],
+  "k_candidates": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "selected_common_k": {
+    "rank_21": 2,
+    "rank_23": 2,
+    "supplied_23": 2
+  },
+  "selection": "Maximum mean silhouette across three methods within each representation, no labels.",
+  "Ward": "Euclidean Ward linkage",
+  "KMedoids": {
+    "algorithm": "alternate medoid update",
+    "n_init": 5,
+    "max_iter": 100,
+    "seed": 42
+  },
+  "KMeans": {
+    "n_init": 20,
+    "seed": 42
+  },
+  "stability": {
+    "sample_fraction": 0.8,
+    "trials": 10,
+    "sampling_seeds": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109
+    ]
+  },
+  "label_reference": "2000 within-condition-group randomizations reused from section 3.7",
+  "source_sha256": "14aab21476eea02c823ccb00f82800040280d805dbce5a3eb7c11b176a9e5aa4"
+}

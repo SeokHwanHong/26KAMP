@@ -1,0 +1,4 @@
+fold,train_rows,valid_rows,valid_normal,valid_defect,valid_patterns,valid_conflicting_patterns,valid_defect_only_patterns
+0,788,394,386,8,197,8,0
+1,788,394,386,8,197,8,0
+2,788,394,385,9,197,9,0

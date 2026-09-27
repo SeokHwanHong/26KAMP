@@ -1,0 +1,9 @@
+condition_group,focus_region,patterns,conflicting_patterns,original_rows,defect_rows,normal_rows,observed_defect_fraction
+G1,False,3,0,6,0,6,0.0
+G1,True,0,0,0,0,0,
+G2,False,146,3,292,3,289,0.010273972602739725
+G2,True,95,7,190,7,183,0.03684210526315789
+G3,False,328,13,656,13,643,0.019817073170731708
+G3,True,14,2,28,2,26,0.07142857142857142
+G4,False,5,0,10,0,10,0.0
+G4,True,0,0,0,0,0,

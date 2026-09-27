@@ -1,0 +1,10 @@
+representation,method_1,method_2,ARI
+supplied_23,Ward,KMedoids,0.2699141582576363
+supplied_23,Ward,KMeans,0.6783946150476977
+supplied_23,KMedoids,KMeans,0.4873726061103073
+rank_23,Ward,KMedoids,0.3111272039842141
+rank_23,Ward,KMeans,0.58684328628504
+rank_23,KMedoids,KMeans,0.6184216589974817
+rank_21,Ward,KMedoids,0.6453707230610901
+rank_21,Ward,KMeans,0.6184119507301044
+rank_21,KMedoids,KMeans,0.6508168050652785

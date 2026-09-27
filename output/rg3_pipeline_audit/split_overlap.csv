@@ -1,0 +1,7 @@
+scheme,fold,valid_rows,valid_defects,rows_with_seen_pattern,defects_with_seen_pattern
+row_stratified,0,394,8,270,7
+row_stratified,1,394,8,258,7
+row_stratified,2,394,9,266,8
+pattern_grouped,0,394,8,0,0
+pattern_grouped,1,394,8,0,0
+pattern_grouped,2,394,9,0,0
