@@ -1,0 +1,3 @@
+pattern_type,rows,TP,FN,FP,TN,recall,FPR,precision,F1,F2
+conflicting,5,5,0,0,0,1.0,0.0,1.0,1.0,1.0
+normal_only,114,0,0,89,25,0.0,0.7807017543859649,0.0,0.0,0.0

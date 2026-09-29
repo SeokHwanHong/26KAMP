@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": [
+    "591 unique patterns",
+    "566 normal and 25 risk patterns",
+    "all 1182 source rows mapped exactly once",
+    "all 25 defect rows retained in risk history",
+    "25 conflicting patterns labeled risk",
+    "24 input values reconstructed exactly",
+    "unlabeled patterns unique and all source inputs reconstructed exactly",
+    "unlabeled prediction mapping verified",
+    "all CSV round trips equal",
+    "labeled and unlabeled input schema equal"
+  ],
+  "source_files_unchanged": true
+}

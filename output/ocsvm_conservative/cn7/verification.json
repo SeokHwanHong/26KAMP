@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "artifact_sha256": {
+    "candidate_comparison.csv": "8dfce812e74f0bb5c86a76d3961e0005566ea3f9589e5b21a2e3d905ca13179a",
+    "candidate_fold_metrics.csv": "cb444a76da54bf35bb9f68ed1fb189cfee4ddba5940ff548d6cf7292cc58f46d",
+    "development_oof_evaluation.png": "410319315d76bf32beb364e64352bfae272d2f0d3fb18d33d03c9d5a8951090a",
+    "evaluation.csv": "655f0dcf8f95ecd47b20b55969e90a8fd8c5e3d0d120ec60a4a9823ae2aeaaef",
+    "model_config.json": "8c95ff2dafac71b93a06848f01c4e308316b4e9f7a456384b2dfb0f2834a96bd",
+    "pipeline.joblib": "b1f54caec7b09b51c802978ed3162426de23cb949b8e3135b2d4ca67805a4f06",
+    "predictions.csv": "5856f8b9d2cb103e2b6b86a96818b1f658a5f36b86e431e52390b6b382396ede",
+    "test_evaluation.png": "91b4759f0403c1cff91452833cd2be8cf579b87953105ece93487470c9dfc51f",
+    "threshold_search.csv": "e8916fc41567fdbeec71fd43909bf12d21d10c394996bef08178874c9bf2e8bb"
+  },
+  "pipeline_reload_predictions_equal": true,
+  "all_fits_converged": true,
+  "OOF_coverage_verified": true,
+  "test_excluded_from_selection": true
+}

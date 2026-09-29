@@ -1,0 +1,52 @@
+from pathlib import Path
+import json,uuid,hashlib
+ROOT=Path(__file__).resolve().parents[1]
+out=ROOT/'output/ocsvm_rg3_feature_scenarios'
+text='''## 17. 결과 해석과 후속 검증
+
+### 변수 구성과 선택
+
+6개 시나리오 × 300개 설정 × 4-fold, 총 7,200회 적합을 완료했습니다. 개발 평균 AP로 선택된 S1은 형체·전체 주기 3개 컬럼을 제외한 21개 입력입니다. nu=0.015, gamma=0.03/21, 개발 OOF F2 임계값은 -0.2079976371입니다. S1 평균 AP는 0.05223, 원변수 S0는 0.04852로 차이는 0.00371입니다. 4개 fold 중 3개에서 개선했지만 개선 폭이 작고, S1 fold 표준편차는 0.02502입니다. 파생변수 추가나 공정별 PCA가 기준선보다 높은 평균 AP를 만들지는 못했습니다. gamma 배수는 탐색 하한에 있지만 test를 본 뒤 범위를 바꿔 재선택하지 않았습니다.
+
+### 탐지 성과와 경보 부담
+
+개발 OOF는 위험 20개를 모두 탐지하는 대신 정상 452개 중 450개를 경보했습니다. F2=0.18182로 모두 위험이라 예측하는 단순 기준의 0.18116과 거의 같습니다. 따라서 높은 Recall은 구분 능력의 증거가 아닙니다.
+
+고정 test 119개 중 TP=3, FP=86, FN=2, TN=28입니다. Precision=0.03371, Recall=0.60, F1=0.06383, F2=0.13761, AP=0.10223, ROC-AUC=0.58246입니다. 정상 오탐률은 75.44%, 전체 경보 비율은 74.79%입니다. 모두 위험 기준의 test F2=0.17986보다도 낮습니다. 단순 기준은 비교용이며 운영 제안이 아닙니다. Test 위험이 5개뿐이라 한 개의 판정으로 Recall이 20%p 달라집니다.
+
+### 실패 원인의 근거
+
+1. **낮은 위험 순위 구분 능력:** test 위험의 순위는 8, 16, 17, 102, 110위입니다. 뒤쪽 두 위험까지 모두 포함하려면 정상 105개도 경보해야 합니다. 이는 test 라벨로 계산한 사후 비용 설명이며 새 임계값의 근거로 사용하지 않습니다.
+2. **학습 크기 변화에 따른 임계값 전이:** 각 fold는 정상 339개, 최종 모델은 정상 452개로 학습했습니다. 누락된 RG3_L_000231과 RG3_L_000447은 네 fold 모델 모두에서 선택 임계값보다 높은 점수였지만 최종 모델에서는 각각 -0.23374, -0.22349로 낮아져 임계값 아래로 이동했습니다. 재학습 점수 변화가 누락에 기여한 관측 근거입니다. 다만 test 전체에 대한 원시 점수 비교는 별도 성능 검증이 아니며, 입력 분포나 모델 경계 변화의 인과 기여율까지 구분하지는 못합니다.
+3. **기본 정상 경계와 위험 목표의 차이:** test 위험 5개는 모두 점수가 음수이며 기본 경계 0에서는 TP=0, FP=5입니다. 누락된 두 위험의 최근접 정상 거리 백분위는 약 64%, 61%이고 각각 21개 입력이 정상 관측 범위 내에 있습니다. 이는 정상 영역과의 겹침을 보조하지만 결합 분포의 정상성을 증명하지는 않습니다.
+4. **CN7과 다른 라벨 유형 구성:** RG3 개발 위험 20개와 test 위험 5개는 모두 원본에서 정상·불량이 공존한 입력 패턴입니다. CN7처럼 개발의 불량 전용 유형과 test 공존 유형 차이로 설명할 수 없습니다. 보수적 위험 라벨 정책을 유지하되, 정상 영역 이탈을 탐지하는 OCSVM 가정과 목표가 잘 맞는지 검토해야 합니다. 같은 입력이 학습과 test에 중복되었다는 의미는 아닙니다.
+
+### 변수 중요도의 해석
+
+선택된 S1 모델에서 원본 컬럼별 20회 × 4-fold, 총 1,920회 permutation 검증을 추가했습니다. 중요도는 검증 AP 감소로 측정하고 test는 사용하지 않았습니다. 상위 평균값만으로 공정 원인을 확정하지 않고 fold 표준편차와 양수 fold 수를 함께 확인해야 합니다. 모델 자체 성능이 낮아 중요도는 탐색 가설에 해당합니다. 상세 수치와 그래프는 16절에 있습니다.
+
+### 다음 실험
+
+- 동일 개발 분할에서 LR·RF로 위험 라벨을 직접 학습하여 AP와 경보량을 함께 비교합니다.
+- 현장의 오탐 허용량 또는 점검 가능량을 정의한 뒤 개발 데이터에서 해당 제약 아래 임계값을 선택합니다. F2 단독 최적화는 사실상 전량 경보를 선택할 수 있습니다.
+- OCSVM을 유지한다면 정상 참조 점수의 분위수 등 학습 크기에 덜 민감한 점수 표현을 별도 개발 실험으로 검증합니다. 이 과정의 참조 분포·보정은 각 학습 fold 내부에서 적합하고, 검증/test 라벨을 보정에 사용하지 않아야 합니다.
+- 기존 test를 이미 반복 관찰했으므로 향후 변경 모델의 같은 test 결과는 후속 평가로 표시하고, 새로운 로트·시간대의 독립 검증 자료를 확보합니다.
+
+모델·임계값·최종 예측은 실패 분석과 중요도 분석 중 변경하지 않았습니다. 비라벨 데이터 추론은 수행하지 않았습니다. PCA 그림은 분포 시각화이며 군집 학습 결과가 아닙니다.
+'''
+p=ROOT/'modeling/ocsvm_rg3_feature_scenarios.ipynb'
+n=json.loads(p.read_text(encoding='utf-8'))
+n['cells'].append({'cell_type':'markdown','id':uuid.uuid4().hex[:8],'metadata':{},'source':text.splitlines(keepends=True)})
+count=0
+for c in n['cells']:
+    if c['cell_type']=='code':
+        count+=1;c['execution_count']=count
+        compile(''.join(c['source']),f'cell_{count}','exec')
+        assert c['outputs'] or count in [1,3,4],count
+        assert not any(o.get('output_type')=='error' or o.get('name')=='stderr' for o in c['outputs'])
+assert count==18
+p.write_text(json.dumps(n,ensure_ascii=False,indent=1),encoding='utf-8')
+(out/'analysis_summary.md').write_text('# RG3 OCSVM 파생변수 및 최종 평가\n\n'+text,encoding='utf-8')
+checks={'all_code_cells_executed':True,'code_cells':count,'notebook_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'test_used_for_selection':False,'test_used_for_posthoc_analysis':True,'unlabeled_scored':False}
+(out/'notebook_verification.json').write_text(json.dumps(checks,indent=2),encoding='utf-8')
+print('Notebook and analysis summary verified.')

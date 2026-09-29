@@ -1,0 +1,10 @@
+{
+  "pca_fit": "development normal only after final feature transform",
+  "explained_variance_ratio": [
+    0.34555200637452793,
+    0.1800157223368502
+  ],
+  "threshold_unchanged": true,
+  "test_predictions_unchanged": true,
+  "is_clustering": false
+}

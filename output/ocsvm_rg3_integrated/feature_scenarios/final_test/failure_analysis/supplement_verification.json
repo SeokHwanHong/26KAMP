@@ -1,0 +1,12 @@
+{
+  "test_used_for_importance": false,
+  "permutation_evaluations": 1920,
+  "final_artifacts_unchanged": true,
+  "protected_hashes": {
+    "model_bundle.joblib": "efd917730b449b457a6cf4b6dbbf36af6f29b512969d0b9855784e67ea199357",
+    "test_predictions.csv": "e9dd2690d7c8ce35428f40a68bfecd4199963ebfabf4216be8ef622fe9b84836",
+    "test_metrics.csv": "1d7e1a8fe39f2fdabb078d0841066ac7eb104e4f70bad0b0d75028415e9c526b",
+    "final_manifest.json": "33b733a0bcd9c5bcb314c6af34da5a445bfaccb56d0f70b750d1364d1ee97192"
+  },
+  "sklearn_version": "1.9.0"
+}

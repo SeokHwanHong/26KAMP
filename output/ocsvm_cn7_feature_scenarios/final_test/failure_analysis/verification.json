@@ -1,0 +1,13 @@
+{
+  "final_model_and_predictions_unchanged": true,
+  "test_analysis_only": true,
+  "threshold_retuned": false,
+  "protected_hashes": {
+    "model_bundle.joblib": "93fff04d77d35a27892c1f99c0ffe115c41855871ad6c92d9e90f4822f2d73b9",
+    "test_predictions.csv": "7d20087543b420eb1a3d3e8fdb4bdef06eb16e9eb84b40d465709aedcdd27e51",
+    "test_metrics.csv": "d0b68428be24e7ac85da8e192510556e49e7a2935b04891a72693403571c81df",
+    "final_manifest.json": "86959a69610a3f5a06987443207e6822d897a1b4ee20f3befd96e7805a21b045"
+  },
+  "recomputed_score_max_absolute_difference": 0.0,
+  "runtime_sklearn": "1.9.0"
+}

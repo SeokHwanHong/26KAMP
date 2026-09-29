@@ -1,0 +1,2 @@
+scenario,rows,risk_patterns,AP,ROC_AUC,precision,recall,F1,F2,TP,FP,FN,TN
+S1,122,3,0.06943186012953455,0.7759103641456583,0.0,0.0,0.0,0.0,0,0,3,119

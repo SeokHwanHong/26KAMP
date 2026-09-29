@@ -1,0 +1,11 @@
+{
+  "all_fits_converged": true,
+  "reload_scores_equal": true,
+  "previous_final_artifacts_unchanged": true,
+  "selection_sha256": "1e1837fed71ce12e2e8582767a96d5048c25fdcf1317167240acbb4fa22d3caf",
+  "test_used_for_selection": false,
+  "test_previously_seen": true,
+  "sklearn_version": "1.9.0",
+  "importance_evaluations": 2880,
+  "candidate_count": 6
+}

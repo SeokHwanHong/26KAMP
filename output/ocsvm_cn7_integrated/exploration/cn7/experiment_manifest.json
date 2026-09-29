@@ -1,0 +1,107 @@
+{
+  "dataset": "cn7",
+  "development_only": true,
+  "test_scored": false,
+  "nu_values": [
+    0.005,
+    0.01,
+    0.015,
+    0.02,
+    0.025,
+    0.03,
+    0.035,
+    0.04,
+    0.045,
+    0.05,
+    0.055,
+    0.06,
+    0.065,
+    0.07,
+    0.075,
+    0.08,
+    0.085,
+    0.09,
+    0.095,
+    0.1
+  ],
+  "gamma_multipliers": [
+    0.03,
+    0.038538810670601456,
+    0.049507997596815526,
+    0.06359931153547553,
+    0.08170139420154304,
+    0.10495581875524816,
+    0.1348290809262157,
+    0.17320508075688773,
+    0.2225039271491978,
+    0.2858345573956079,
+    0.3671907963528168,
+    0.47170321935428616,
+    0.6059627021136009,
+    0.778436061673405,
+    1.0
+  ],
+  "selected_nu": 0.01,
+  "selected_gamma_multiplier": 0.03,
+  "selected_mean_AP": 0.33196330455259027,
+  "scenario_parameters": "fixed full-feature selected nu and gamma multiplier",
+  "importance_repeats": 20,
+  "groups": {
+    "충전과 전환": [
+      "Injection_Time",
+      "Filling_Time",
+      "Cushion_Position",
+      "Max_Injection_Speed",
+      "Max_Injection_Pressure",
+      "Max_Switch_Over_Pressure"
+    ],
+    "계량과 가소화": [
+      "Plasticizing_Time",
+      "Plasticizing_Position",
+      "Max_Screw_RPM",
+      "Average_Screw_RPM",
+      "Max_Back_Pressure",
+      "Average_Back_Pressure"
+    ],
+    "실린더와 호퍼 온도": [
+      "Barrel_Temperature_1",
+      "Barrel_Temperature_2",
+      "Barrel_Temperature_3",
+      "Barrel_Temperature_4",
+      "Barrel_Temperature_5",
+      "Barrel_Temperature_6",
+      "Hopper_Temperature"
+    ],
+    "금형 온도": [
+      "Mold_Temperature_3",
+      "Mold_Temperature_4"
+    ],
+    "형체와 전체 주기": [
+      "Clamp_Close_Time",
+      "Clamp_Open_Position",
+      "Cycle_Time"
+    ]
+  },
+  "source_hashes": {
+    "X_labeled.csv": "c3d956ee5d963befceda2ea06a819060458438c74729d9fa8d1ceb9fb3b25a3e",
+    "y_labeled.csv": "aa333282e742d665aa89a497a7b71c93c7a7f1835beafe7daaab2232dac56ffe",
+    "labeled_metadata.csv": "af8f6527f64a4c114b5bad921037fc643b624cfabe33e658ddb6691b97b50d2b"
+  },
+  "split_hash": "6a7f4fab67489d82329ca84a1932fbf912f76adcf597b379c9a5a9cc00758ba7",
+  "sklearn_version": "1.9.0",
+  "all_fits_converged": true,
+  "artifact_sha256": {
+    "baseline_threshold_search.csv": "86c18ecf44215703988b28ca0d01aab7382f8d1abc64b4de955b304cbba47480",
+    "column_importance.png": "f230222bcc2848112b7ae7a224c213b7f4c67b5bad159b7cfd82bda26543a5d9",
+    "group_importance.png": "59b163f42efb1fe511419aea14c20165909dfcdc01a33aa4df26890bf5222a0a",
+    "parameter_fold_metrics.csv": "c3daa258f75a1b0ea01d16b4f6364790055e4114d830547eeb4cc0f432fe8aee",
+    "parameter_heatmap.png": "8f8f0449cf64e5909599a2daa37fadbea596539dd5178b46efb2036e1a5c6686",
+    "parameter_search.csv": "78096415410a784e3c837843704a6f92c7675cb34686f0efb4955916083bb086",
+    "permutation_importance_folds.csv": "814e1c67c0852354336a18db20a14d92c9867fa0f781e2446ddf9bbdc8c33bfa",
+    "permutation_importance_repeats.csv": "c33638ecbb2acb945d204850a32975700cd228ca5f2e3f863758706c94a86b52",
+    "permutation_importance_summary.csv": "72e81bb2713e4a8dee35b99adc4b87680f44caa719d0b80615da7889b4f63526",
+    "scenario_comparison.csv": "cc6e5c09f9421ecb3b1f467ebf1005c05d53c4455e1231ccce8c8c3dcf367546",
+    "scenario_fold_metrics.csv": "1216c977d8a25dfc702b5c02b67c18c9b65da39e7159218cb57dc17535f4be1f",
+    "scenario_oof_predictions.csv": "c2e53140dc05e2f3b494eef0ca8861309802a3ee9f8b3770a51c445c6f66cc88"
+  }
+}

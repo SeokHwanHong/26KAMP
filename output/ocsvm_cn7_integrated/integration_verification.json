@@ -1,0 +1,14 @@
+{
+  "all_cells_have_execution_results": true,
+  "code_cells": 35,
+  "new_code_cells_executed": 5,
+  "previous_full_run_code_cells": 30,
+  "validation": "Original integrated flow previously executed; appended workflow executed with C-section setup in a fresh process.",
+  "matches_feature_scenarios_results": true,
+  "notebook_sha256": "a3c800a951c3f946682afa8a874f2ea964c6665f369a2053249e0d24f28077a7",
+  "source_sha256": {
+    "modeling/ocsvm_cn7_conservative.ipynb": "5f8c6bd41a0df6851424fe1f1616e445d87000ab377f035ebbc8a11bc90eee53",
+    "modeling/ocsvm_cn7_exploration.ipynb": "3d934b394c757504a8624f018d4a808f56f13cf1edb619272fa5baf17233b5d2",
+    "modeling/ocsvm_cn7_feature_scenarios.ipynb": "a5ee06c637a711df7a8ab49ea43fb3f0c6f0d1be4f966845ee9eaaa99d2212d7"
+  }
+}

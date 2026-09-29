@@ -1,0 +1,122 @@
+{
+  "dataset": "cn7",
+  "development_only": true,
+  "test_scored": false,
+  "nu_values": [
+    0.001,
+    0.0025,
+    0.005,
+    0.01,
+    0.015,
+    0.02,
+    0.025,
+    0.03,
+    0.035,
+    0.04,
+    0.045,
+    0.05,
+    0.055,
+    0.06,
+    0.065,
+    0.07,
+    0.075,
+    0.08,
+    0.085,
+    0.09,
+    0.095,
+    0.1,
+    0.125,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.4
+  ],
+  "gamma_multipliers": [
+    0.003,
+    0.005,
+    0.01,
+    0.02,
+    0.03,
+    0.038538810670601456,
+    0.049507997596815526,
+    0.06359931153547553,
+    0.08170139420154304,
+    0.10495581875524816,
+    0.1348290809262157,
+    0.17320508075688773,
+    0.2225039271491978,
+    0.2858345573956079,
+    0.3671907963528168,
+    0.47170321935428616,
+    0.6059627021136009,
+    0.778436061673405,
+    1.0,
+    2.0,
+    3.0,
+    10.0
+  ],
+  "selected_nu": 0.015,
+  "selected_gamma_multiplier": 0.003,
+  "selected_mean_AP": 0.3444424257105943,
+  "scenario_parameters": "fixed full-feature selected nu and gamma multiplier",
+  "importance_repeats": 20,
+  "groups": {
+    "충전과 전환": [
+      "Injection_Time",
+      "Filling_Time",
+      "Cushion_Position",
+      "Max_Injection_Speed",
+      "Max_Injection_Pressure",
+      "Max_Switch_Over_Pressure"
+    ],
+    "계량과 가소화": [
+      "Plasticizing_Time",
+      "Plasticizing_Position",
+      "Max_Screw_RPM",
+      "Average_Screw_RPM",
+      "Max_Back_Pressure",
+      "Average_Back_Pressure"
+    ],
+    "실린더와 호퍼 온도": [
+      "Barrel_Temperature_1",
+      "Barrel_Temperature_2",
+      "Barrel_Temperature_3",
+      "Barrel_Temperature_4",
+      "Barrel_Temperature_5",
+      "Barrel_Temperature_6",
+      "Hopper_Temperature"
+    ],
+    "금형 온도": [
+      "Mold_Temperature_3",
+      "Mold_Temperature_4"
+    ],
+    "형체와 전체 주기": [
+      "Clamp_Close_Time",
+      "Clamp_Open_Position",
+      "Cycle_Time"
+    ]
+  },
+  "source_hashes": {
+    "X_labeled.csv": "c3d956ee5d963befceda2ea06a819060458438c74729d9fa8d1ceb9fb3b25a3e",
+    "y_labeled.csv": "aa333282e742d665aa89a497a7b71c93c7a7f1835beafe7daaab2232dac56ffe",
+    "labeled_metadata.csv": "af8f6527f64a4c114b5bad921037fc643b624cfabe33e658ddb6691b97b50d2b"
+  },
+  "split_hash": "6a7f4fab67489d82329ca84a1932fbf912f76adcf597b379c9a5a9cc00758ba7",
+  "sklearn_version": "1.9.0",
+  "all_fits_converged": true,
+  "artifact_sha256": {
+    "baseline_threshold_search.csv": "e80c37f9ff99aaf6c586a24ec3111c37ef59274ab797f9d679cda520cdb74a2d",
+    "column_importance.png": "55c8e6c4c1f1e8e1f0e828af76ade9bc88427a7b9e254ac1d6aa3c6585e27813",
+    "group_importance.png": "fbe6603acfe71d0440b9d7e090a8c55f6b1adacca7f1b50f48948a9012c21b5b",
+    "parameter_fold_metrics.csv": "52b325e330bb056e15aa4b4cc047f82736a34cd97e81af31c7bfb4fac1976541",
+    "parameter_heatmap.png": "cb4e8e766e8e7b282f0995af40f9e50452c99866816f9cbc49fe57c854c40f45",
+    "parameter_search.csv": "3151e25f5ea6651233d93a975aff9fb907cd8d8002c9e35960dde96fa151a715",
+    "permutation_importance_folds.csv": "f5a142eef4ccb748cc728e314e5b4a4dd28b892a4a615f34b3c83bed198e8459",
+    "permutation_importance_repeats.csv": "3a8ebd8245a2da686cc31c5fe4641ffb16f672cdec86853b7e87dd00d4b6475e",
+    "permutation_importance_summary.csv": "ebe2cc59b5d5368185f6b5037914cd549d063450cc1e83c95ce6d0ef40933890",
+    "scenario_comparison.csv": "6ef316070ad65ed79e804512d7e5efd5aa6ebba44f67a8176fd3278dcddea926",
+    "scenario_fold_metrics.csv": "8f2c4486e5b591663f08e712862390d9986bdefa58307a02e6bca1786b0675a0",
+    "scenario_oof_predictions.csv": "5ff0396f2a52cd960943dd99180df1ae3da2a711dab3eea23b4d74cc9fe8a463"
+  }
+}

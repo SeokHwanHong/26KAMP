@@ -1,0 +1,1201 @@
+budget,scenario,fold,group,repeat,recall_drop,FPR_increase
+0.01,legacy_without_cycle,0,충전과 전환,0,0.5,0.025210084033613446
+0.01,legacy_without_cycle,0,충전과 전환,1,0.0,0.04201680672268908
+0.01,legacy_without_cycle,0,충전과 전환,2,0.5,0.04201680672268908
+0.01,legacy_without_cycle,0,충전과 전환,3,0.5,0.033613445378151266
+0.01,legacy_without_cycle,0,충전과 전환,4,0.0,0.04201680672268908
+0.01,legacy_without_cycle,0,충전과 전환,5,0.5,0.033613445378151266
+0.01,legacy_without_cycle,0,충전과 전환,6,0.5,0.016806722689075633
+0.01,legacy_without_cycle,0,충전과 전환,7,0.0,0.04201680672268908
+0.01,legacy_without_cycle,0,충전과 전환,8,0.5,0.033613445378151266
+0.01,legacy_without_cycle,0,충전과 전환,9,0.5,0.025210084033613446
+0.01,legacy_without_cycle,0,충전과 전환,10,0.0,0.033613445378151266
+0.01,legacy_without_cycle,0,충전과 전환,11,0.5,0.025210084033613446
+0.01,legacy_without_cycle,0,충전과 전환,12,0.5,0.04201680672268908
+0.01,legacy_without_cycle,0,충전과 전환,13,0.5,0.033613445378151266
+0.01,legacy_without_cycle,0,충전과 전환,14,0.5,0.025210084033613446
+0.01,legacy_without_cycle,0,충전과 전환,15,0.5,0.04201680672268908
+0.01,legacy_without_cycle,0,충전과 전환,16,0.5,0.033613445378151266
+0.01,legacy_without_cycle,0,충전과 전환,17,0.5,0.025210084033613446
+0.01,legacy_without_cycle,0,충전과 전환,18,0.5,0.033613445378151266
+0.01,legacy_without_cycle,0,충전과 전환,19,0.0,0.033613445378151266
+0.01,legacy_without_cycle,0,계량과 가소화,0,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,1,0.0,0.033613445378151266
+0.01,legacy_without_cycle,0,계량과 가소화,2,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,3,0.0,0.016806722689075633
+0.01,legacy_without_cycle,0,계량과 가소화,4,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,5,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,6,0.0,0.016806722689075633
+0.01,legacy_without_cycle,0,계량과 가소화,7,0.0,0.016806722689075633
+0.01,legacy_without_cycle,0,계량과 가소화,8,0.0,0.025210084033613446
+0.01,legacy_without_cycle,0,계량과 가소화,9,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,10,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,11,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,12,0.0,0.025210084033613446
+0.01,legacy_without_cycle,0,계량과 가소화,13,0.0,0.016806722689075633
+0.01,legacy_without_cycle,0,계량과 가소화,14,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,15,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,16,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,17,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,18,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,계량과 가소화,19,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,0,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,1,0.5,0.016806722689075633
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,2,0.5,0.025210084033613446
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,3,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,4,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,5,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,6,0.5,0.016806722689075633
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,7,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,8,0.5,0.025210084033613446
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,9,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,10,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,11,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,12,0.5,0.016806722689075633
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,13,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,14,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,15,0.5,0.016806722689075633
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,16,0.5,0.025210084033613446
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,17,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,18,0.5,0.008403361344537815
+0.01,legacy_without_cycle,0,실린더와 호퍼 온도,19,0.5,0.025210084033613446
+0.01,legacy_without_cycle,0,금형 온도,0,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,1,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,금형 온도,2,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,금형 온도,3,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,금형 온도,4,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,5,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,6,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,7,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,8,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,9,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,10,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,금형 온도,11,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,12,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,13,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,14,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,15,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,금형 온도,16,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,금형 온도,17,0.0,0.008403361344537815
+0.01,legacy_without_cycle,0,금형 온도,18,0.0,0.0
+0.01,legacy_without_cycle,0,금형 온도,19,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,0,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,1,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,2,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,3,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,4,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,5,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,6,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,7,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,8,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,9,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,10,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,11,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,12,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,13,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,14,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,15,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,16,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,17,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,18,0.0,0.0
+0.01,legacy_without_cycle,0,형체와 전체 주기,19,0.0,0.0
+0.01,legacy_without_cycle,1,충전과 전환,0,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,1,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,1,충전과 전환,2,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,1,충전과 전환,3,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,4,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,1,충전과 전환,5,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,1,충전과 전환,6,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,7,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,8,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,9,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,10,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,11,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,1,충전과 전환,12,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,13,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,14,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,충전과 전환,15,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,1,충전과 전환,16,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,1,충전과 전환,17,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,1,충전과 전환,18,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,1,충전과 전환,19,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,1,계량과 가소화,0,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,계량과 가소화,1,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,계량과 가소화,2,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,계량과 가소화,3,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,계량과 가소화,4,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,계량과 가소화,5,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,6,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,계량과 가소화,7,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,8,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,9,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,10,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,11,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,12,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,13,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,14,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,계량과 가소화,15,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,16,0.0,0.03389830508474576
+0.01,legacy_without_cycle,1,계량과 가소화,17,0.0,0.0
+0.01,legacy_without_cycle,1,계량과 가소화,18,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,계량과 가소화,19,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,0,0.0,0.0
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,1,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,2,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,3,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,4,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,5,0.0,0.0
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,6,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,7,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,8,0.0,0.025423728813559324
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,9,0.0,0.0
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,10,0.0,0.0
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,11,0.0,0.025423728813559324
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,12,0.0,0.025423728813559324
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,13,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,14,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,15,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,16,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,17,0.0,0.01694915254237288
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,18,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,실린더와 호퍼 온도,19,0.0,0.025423728813559324
+0.01,legacy_without_cycle,1,금형 온도,0,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,1,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,금형 온도,2,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,3,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,4,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,5,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,6,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,7,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,8,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,금형 온도,9,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,10,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,금형 온도,11,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,12,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,13,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,금형 온도,14,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,15,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,금형 온도,16,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,금형 온도,17,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,금형 온도,18,0.0,0.0
+0.01,legacy_without_cycle,1,금형 온도,19,0.0,0.00847457627118644
+0.01,legacy_without_cycle,1,형체와 전체 주기,0,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,1,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,2,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,3,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,4,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,5,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,6,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,7,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,8,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,9,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,10,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,11,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,12,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,13,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,14,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,15,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,16,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,17,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,18,0.0,0.0
+0.01,legacy_without_cycle,1,형체와 전체 주기,19,0.0,0.0
+0.01,legacy_without_cycle,2,충전과 전환,0,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,1,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,2,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,2,충전과 전환,3,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,4,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,5,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,6,0.3333333333333333,0.01694915254237288
+0.01,legacy_without_cycle,2,충전과 전환,7,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,8,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,2,충전과 전환,9,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,10,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,11,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,12,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,13,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,14,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,15,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,16,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,17,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,18,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,충전과 전환,19,0.3333333333333333,0.00847457627118644
+0.01,legacy_without_cycle,2,계량과 가소화,0,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,1,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,2,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,3,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,4,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,5,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,6,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,7,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,8,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,9,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,10,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,11,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,12,0.0,0.00847457627118644
+0.01,legacy_without_cycle,2,계량과 가소화,13,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,14,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,15,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,16,0.0,0.00847457627118644
+0.01,legacy_without_cycle,2,계량과 가소화,17,0.0,0.0
+0.01,legacy_without_cycle,2,계량과 가소화,18,0.0,0.00847457627118644
+0.01,legacy_without_cycle,2,계량과 가소화,19,0.0,0.00847457627118644
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,0,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,1,-0.3333333333333333,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,2,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,3,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,4,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,5,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,6,0.0,0.00847457627118644
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,7,0.0,0.00847457627118644
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,8,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,9,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,10,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,11,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,12,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,13,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,14,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,15,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,16,0.0,0.00847457627118644
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,17,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,18,0.0,0.0
+0.01,legacy_without_cycle,2,실린더와 호퍼 온도,19,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,0,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,1,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,2,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,3,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,4,0.0,0.00847457627118644
+0.01,legacy_without_cycle,2,금형 온도,5,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,6,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,7,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,8,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,9,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,10,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,11,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,12,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,13,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,14,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,15,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,16,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,17,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,18,0.0,0.0
+0.01,legacy_without_cycle,2,금형 온도,19,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,0,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,1,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,2,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,3,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,4,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,5,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,6,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,7,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,8,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,9,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,10,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,11,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,12,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,13,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,14,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,15,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,16,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,17,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,18,0.0,0.0
+0.01,legacy_without_cycle,2,형체와 전체 주기,19,0.0,0.0
+0.01,legacy_without_cycle,3,충전과 전환,0,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,3,충전과 전환,1,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,2,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,3,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,3,충전과 전환,4,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,5,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,3,충전과 전환,6,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,7,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,3,충전과 전환,8,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,9,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,10,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,11,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,12,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,3,충전과 전환,13,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,3,충전과 전환,14,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,15,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,16,0.3333333333333333,0.025423728813559324
+0.01,legacy_without_cycle,3,충전과 전환,17,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,충전과 전환,18,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,충전과 전환,19,0.3333333333333333,0.016949152542372885
+0.01,legacy_without_cycle,3,계량과 가소화,0,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,1,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,2,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,3,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,4,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,5,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,6,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,7,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,8,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,9,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,10,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,11,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,12,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,13,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,14,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,15,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,16,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,17,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,18,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,계량과 가소화,19,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,0,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,1,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,2,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,3,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,4,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,5,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,6,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,7,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,8,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,9,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,10,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,11,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,12,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,13,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,14,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,15,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,16,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,17,0.0,0.0
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,18,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,실린더와 호퍼 온도,19,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,0,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,1,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,2,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,3,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,4,0.0,0.00847457627118644
+0.01,legacy_without_cycle,3,금형 온도,5,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,6,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,7,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,8,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,9,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,10,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,11,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,12,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,13,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,14,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,15,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,16,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,17,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,18,0.0,0.0
+0.01,legacy_without_cycle,3,금형 온도,19,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,0,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,1,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,2,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,3,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,4,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,5,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,6,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,7,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,8,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,9,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,10,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,11,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,12,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,13,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,14,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,15,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,16,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,17,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,18,0.0,0.0
+0.01,legacy_without_cycle,3,형체와 전체 주기,19,0.0,0.0
+0.03,legacy_without_cycle,0,충전과 전환,0,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,충전과 전환,1,0.0,0.033613445378151266
+0.03,legacy_without_cycle,0,충전과 전환,2,0.5,0.033613445378151266
+0.03,legacy_without_cycle,0,충전과 전환,3,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,충전과 전환,4,0.0,0.033613445378151266
+0.03,legacy_without_cycle,0,충전과 전환,5,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,충전과 전환,6,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,충전과 전환,7,0.0,0.05042016806722689
+0.03,legacy_without_cycle,0,충전과 전환,8,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,충전과 전환,9,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,충전과 전환,10,0.0,0.033613445378151266
+0.03,legacy_without_cycle,0,충전과 전환,11,0.0,0.04201680672268908
+0.03,legacy_without_cycle,0,충전과 전환,12,0.5,0.04201680672268908
+0.03,legacy_without_cycle,0,충전과 전환,13,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,충전과 전환,14,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,충전과 전환,15,0.5,0.033613445378151266
+0.03,legacy_without_cycle,0,충전과 전환,16,0.0,0.033613445378151266
+0.03,legacy_without_cycle,0,충전과 전환,17,0.5,0.033613445378151266
+0.03,legacy_without_cycle,0,충전과 전환,18,0.0,0.02521008403361345
+0.03,legacy_without_cycle,0,충전과 전환,19,0.0,0.02521008403361345
+0.03,legacy_without_cycle,0,계량과 가소화,0,0.0,0.0
+0.03,legacy_without_cycle,0,계량과 가소화,1,0.0,0.02521008403361345
+0.03,legacy_without_cycle,0,계량과 가소화,2,0.0,0.0
+0.03,legacy_without_cycle,0,계량과 가소화,3,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,계량과 가소화,4,0.0,0.0
+0.03,legacy_without_cycle,0,계량과 가소화,5,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,계량과 가소화,6,0.0,0.01680672268907563
+0.03,legacy_without_cycle,0,계량과 가소화,7,0.0,0.0
+0.03,legacy_without_cycle,0,계량과 가소화,8,0.0,0.02521008403361345
+0.03,legacy_without_cycle,0,계량과 가소화,9,0.0,0.0
+0.03,legacy_without_cycle,0,계량과 가소화,10,0.0,0.0
+0.03,legacy_without_cycle,0,계량과 가소화,11,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,계량과 가소화,12,0.0,0.01680672268907563
+0.03,legacy_without_cycle,0,계량과 가소화,13,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,계량과 가소화,14,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,계량과 가소화,15,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,계량과 가소화,16,0.0,0.0
+0.03,legacy_without_cycle,0,계량과 가소화,17,0.0,0.0
+0.03,legacy_without_cycle,0,계량과 가소화,18,0.0,0.01680672268907563
+0.03,legacy_without_cycle,0,계량과 가소화,19,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,0,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,1,0.5,0.033613445378151266
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,2,0.5,0.033613445378151266
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,3,0.5,0.0
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,4,0.5,0.008403361344537816
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,5,0.5,0.01680672268907563
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,6,0.5,0.01680672268907563
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,7,0.5,0.0
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,8,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,9,0.5,0.01680672268907563
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,10,0.5,0.008403361344537816
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,11,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,12,0.5,0.008403361344537816
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,13,0.5,0.0
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,14,0.5,0.008403361344537816
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,15,0.5,0.033613445378151266
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,16,0.5,0.01680672268907563
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,17,0.5,0.033613445378151266
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,18,0.5,0.0
+0.03,legacy_without_cycle,0,실린더와 호퍼 온도,19,0.5,0.02521008403361345
+0.03,legacy_without_cycle,0,금형 온도,0,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,1,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,2,0.0,0.0
+0.03,legacy_without_cycle,0,금형 온도,3,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,4,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,5,0.0,0.01680672268907563
+0.03,legacy_without_cycle,0,금형 온도,6,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,7,0.0,-0.008403361344537815
+0.03,legacy_without_cycle,0,금형 온도,8,0.0,0.0
+0.03,legacy_without_cycle,0,금형 온도,9,0.0,-0.008403361344537815
+0.03,legacy_without_cycle,0,금형 온도,10,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,11,0.0,0.0
+0.03,legacy_without_cycle,0,금형 온도,12,0.0,0.0
+0.03,legacy_without_cycle,0,금형 온도,13,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,14,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,15,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,16,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,17,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,금형 온도,18,0.0,0.0
+0.03,legacy_without_cycle,0,금형 온도,19,0.0,0.008403361344537816
+0.03,legacy_without_cycle,0,형체와 전체 주기,0,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,1,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,2,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,3,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,4,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,5,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,6,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,7,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,8,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,9,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,10,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,11,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,12,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,13,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,14,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,15,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,16,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,17,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,18,0.0,0.0
+0.03,legacy_without_cycle,0,형체와 전체 주기,19,0.0,0.0
+0.03,legacy_without_cycle,1,충전과 전환,0,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,1,충전과 전환,1,0.3333333333333333,0.0423728813559322
+0.03,legacy_without_cycle,1,충전과 전환,2,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,1,충전과 전환,3,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,1,충전과 전환,4,0.3333333333333333,0.03389830508474576
+0.03,legacy_without_cycle,1,충전과 전환,5,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,충전과 전환,6,0.3333333333333333,0.03389830508474576
+0.03,legacy_without_cycle,1,충전과 전환,7,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,충전과 전환,8,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,충전과 전환,9,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,충전과 전환,10,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,충전과 전환,11,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,충전과 전환,12,0.3333333333333333,0.00847457627118644
+0.03,legacy_without_cycle,1,충전과 전환,13,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,1,충전과 전환,14,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,충전과 전환,15,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,1,충전과 전환,16,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,충전과 전환,17,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,충전과 전환,18,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,충전과 전환,19,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,1,계량과 가소화,0,0.0,0.0
+0.03,legacy_without_cycle,1,계량과 가소화,1,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,계량과 가소화,2,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,계량과 가소화,3,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,계량과 가소화,4,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,계량과 가소화,5,0.0,0.0
+0.03,legacy_without_cycle,1,계량과 가소화,6,0.0,0.0
+0.03,legacy_without_cycle,1,계량과 가소화,7,0.0,0.0
+0.03,legacy_without_cycle,1,계량과 가소화,8,0.0,0.0
+0.03,legacy_without_cycle,1,계량과 가소화,9,0.0,0.0
+0.03,legacy_without_cycle,1,계량과 가소화,10,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,계량과 가소화,11,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,계량과 가소화,12,0.0,0.0
+0.03,legacy_without_cycle,1,계량과 가소화,13,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,계량과 가소화,14,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,계량과 가소화,15,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,계량과 가소화,16,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,계량과 가소화,17,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,계량과 가소화,18,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,계량과 가소화,19,0.0,0.0
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,0,0.0,0.025423728813559324
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,1,0.0,0.025423728813559324
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,2,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,3,0.0,0.025423728813559324
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,4,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,5,0.0,0.0
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,6,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,7,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,8,0.0,0.03389830508474576
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,9,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,10,0.0,0.0
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,11,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,12,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,13,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,14,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,15,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,16,0.0,0.03389830508474576
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,17,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,18,0.0,0.0
+0.03,legacy_without_cycle,1,실린더와 호퍼 온도,19,0.0,0.03389830508474576
+0.03,legacy_without_cycle,1,금형 온도,0,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,1,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,금형 온도,2,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,3,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,금형 온도,4,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,5,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,6,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,금형 온도,7,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,금형 온도,8,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,9,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,10,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,금형 온도,11,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,금형 온도,12,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,13,0.0,0.01694915254237288
+0.03,legacy_without_cycle,1,금형 온도,14,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,15,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,16,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,금형 온도,17,0.0,0.00847457627118644
+0.03,legacy_without_cycle,1,금형 온도,18,0.0,0.0
+0.03,legacy_without_cycle,1,금형 온도,19,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,0,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,1,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,2,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,3,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,4,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,5,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,6,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,7,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,8,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,9,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,10,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,11,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,12,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,13,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,14,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,15,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,16,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,17,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,18,0.0,0.0
+0.03,legacy_without_cycle,1,형체와 전체 주기,19,0.0,0.0
+0.03,legacy_without_cycle,2,충전과 전환,0,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,2,충전과 전환,1,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,2,충전과 전환,2,0.3333333333333333,0.03389830508474576
+0.03,legacy_without_cycle,2,충전과 전환,3,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,2,충전과 전환,4,0.3333333333333333,0.00847457627118644
+0.03,legacy_without_cycle,2,충전과 전환,5,0.3333333333333333,0.00847457627118644
+0.03,legacy_without_cycle,2,충전과 전환,6,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,2,충전과 전환,7,0.3333333333333333,0.00847457627118644
+0.03,legacy_without_cycle,2,충전과 전환,8,0.3333333333333333,0.03389830508474576
+0.03,legacy_without_cycle,2,충전과 전환,9,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,2,충전과 전환,10,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,2,충전과 전환,11,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,2,충전과 전환,12,0.3333333333333333,0.00847457627118644
+0.03,legacy_without_cycle,2,충전과 전환,13,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,2,충전과 전환,14,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,2,충전과 전환,15,0.3333333333333333,0.00847457627118644
+0.03,legacy_without_cycle,2,충전과 전환,16,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,2,충전과 전환,17,0.3333333333333333,0.00847457627118644
+0.03,legacy_without_cycle,2,충전과 전환,18,0.3333333333333333,0.01694915254237288
+0.03,legacy_without_cycle,2,충전과 전환,19,0.3333333333333333,0.00847457627118644
+0.03,legacy_without_cycle,2,계량과 가소화,0,0.0,0.0
+0.03,legacy_without_cycle,2,계량과 가소화,1,0.0,0.025423728813559324
+0.03,legacy_without_cycle,2,계량과 가소화,2,0.0,0.0
+0.03,legacy_without_cycle,2,계량과 가소화,3,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,계량과 가소화,4,0.0,0.0
+0.03,legacy_without_cycle,2,계량과 가소화,5,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,계량과 가소화,6,0.0,0.0
+0.03,legacy_without_cycle,2,계량과 가소화,7,0.0,0.0
+0.03,legacy_without_cycle,2,계량과 가소화,8,0.0,0.025423728813559324
+0.03,legacy_without_cycle,2,계량과 가소화,9,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,계량과 가소화,10,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,계량과 가소화,11,0.0,0.0
+0.03,legacy_without_cycle,2,계량과 가소화,12,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,계량과 가소화,13,0.0,0.0
+0.03,legacy_without_cycle,2,계량과 가소화,14,0.0,0.0
+0.03,legacy_without_cycle,2,계량과 가소화,15,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,계량과 가소화,16,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,계량과 가소화,17,0.0,0.0
+0.03,legacy_without_cycle,2,계량과 가소화,18,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,계량과 가소화,19,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,0,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,1,-0.6666666666666667,0.0
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,2,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,3,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,4,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,5,-0.3333333333333333,0.00847457627118644
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,6,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,7,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,8,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,9,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,10,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,11,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,12,0.0,0.0
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,13,0.0,0.0
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,14,0.0,0.0
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,15,0.0,0.0
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,16,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,17,0.0,0.0
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,18,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,실린더와 호퍼 온도,19,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,0,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,금형 온도,1,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,금형 온도,2,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,금형 온도,3,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,금형 온도,4,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,5,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,금형 온도,6,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,금형 온도,7,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,8,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,9,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,금형 온도,10,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,11,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,12,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,13,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,금형 온도,14,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,금형 온도,15,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,16,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,17,0.0,0.0
+0.03,legacy_without_cycle,2,금형 온도,18,0.0,0.00847457627118644
+0.03,legacy_without_cycle,2,금형 온도,19,0.0,0.01694915254237288
+0.03,legacy_without_cycle,2,형체와 전체 주기,0,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,1,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,2,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,3,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,4,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,5,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,6,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,7,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,8,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,9,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,10,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,11,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,12,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,13,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,14,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,15,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,16,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,17,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,18,0.0,0.0
+0.03,legacy_without_cycle,2,형체와 전체 주기,19,0.0,0.0
+0.03,legacy_without_cycle,3,충전과 전환,0,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,충전과 전환,1,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,충전과 전환,2,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,충전과 전환,3,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,충전과 전환,4,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,충전과 전환,5,0.6666666666666666,0.008474576271186439
+0.03,legacy_without_cycle,3,충전과 전환,6,0.6666666666666666,0.0
+0.03,legacy_without_cycle,3,충전과 전환,7,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,3,충전과 전환,8,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,충전과 전환,9,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,3,충전과 전환,10,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,충전과 전환,11,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,충전과 전환,12,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,충전과 전환,13,0.6666666666666666,0.008474576271186439
+0.03,legacy_without_cycle,3,충전과 전환,14,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,충전과 전환,15,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,충전과 전환,16,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,충전과 전환,17,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,3,충전과 전환,18,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,3,충전과 전환,19,0.6666666666666666,0.016949152542372885
+0.03,legacy_without_cycle,3,계량과 가소화,0,0.0,0.016949152542372885
+0.03,legacy_without_cycle,3,계량과 가소화,1,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,계량과 가소화,2,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,계량과 가소화,3,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,계량과 가소화,4,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,계량과 가소화,5,0.0,0.016949152542372885
+0.03,legacy_without_cycle,3,계량과 가소화,6,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,계량과 가소화,7,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,계량과 가소화,8,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,3,계량과 가소화,9,0.3333333333333333,0.025423728813559324
+0.03,legacy_without_cycle,3,계량과 가소화,10,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,계량과 가소화,11,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,계량과 가소화,12,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,계량과 가소화,13,0.0,0.0
+0.03,legacy_without_cycle,3,계량과 가소화,14,0.0,0.0
+0.03,legacy_without_cycle,3,계량과 가소화,15,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,계량과 가소화,16,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,계량과 가소화,17,0.0,0.008474576271186439
+0.03,legacy_without_cycle,3,계량과 가소화,18,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,계량과 가소화,19,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,0,0.0,-0.01694915254237288
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,1,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,2,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,3,0.3333333333333333,-0.025423728813559324
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,4,0.3333333333333333,-0.008474576271186439
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,5,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,6,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,7,0.3333333333333333,-0.008474576271186439
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,8,0.3333333333333333,-0.008474576271186439
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,9,0.3333333333333333,-0.01694915254237288
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,10,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,11,0.0,-0.01694915254237288
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,12,0.0,0.008474576271186439
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,13,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,14,0.0,-0.008474576271186439
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,15,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,16,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,17,0.0,0.0
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,18,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,실린더와 호퍼 온도,19,0.0,-0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,0,0.0,0.016949152542372885
+0.03,legacy_without_cycle,3,금형 온도,1,0.0,0.0
+0.03,legacy_without_cycle,3,금형 온도,2,0.3333333333333333,-0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,3,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,4,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,5,0.0,0.0
+0.03,legacy_without_cycle,3,금형 온도,6,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,7,0.0,0.0
+0.03,legacy_without_cycle,3,금형 온도,8,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,금형 온도,9,0.3333333333333333,0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,10,0.0,0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,11,0.3333333333333333,0.016949152542372885
+0.03,legacy_without_cycle,3,금형 온도,12,0.0,0.0
+0.03,legacy_without_cycle,3,금형 온도,13,0.0,0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,14,0.0,-0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,15,0.0,-0.008474576271186439
+0.03,legacy_without_cycle,3,금형 온도,16,0.0,0.0
+0.03,legacy_without_cycle,3,금형 온도,17,0.0,-0.01694915254237288
+0.03,legacy_without_cycle,3,금형 온도,18,0.0,0.0
+0.03,legacy_without_cycle,3,금형 온도,19,0.3333333333333333,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,0,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,1,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,2,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,3,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,4,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,5,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,6,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,7,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,8,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,9,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,10,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,11,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,12,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,13,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,14,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,15,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,16,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,17,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,18,0.0,0.0
+0.03,legacy_without_cycle,3,형체와 전체 주기,19,0.0,0.0
+0.05,pressure,0,충전과 전환,0,-0.5,0.2436974789915966
+0.05,pressure,0,충전과 전환,1,-0.5,0.31092436974789917
+0.05,pressure,0,충전과 전환,2,-0.5,0.2605042016806723
+0.05,pressure,0,충전과 전환,3,0.0,0.2184873949579832
+0.05,pressure,0,충전과 전환,4,-0.5,0.22689075630252098
+0.05,pressure,0,충전과 전환,5,-0.5,0.2184873949579832
+0.05,pressure,0,충전과 전환,6,-0.5,0.2605042016806723
+0.05,pressure,0,충전과 전환,7,0.0,0.25210084033613445
+0.05,pressure,0,충전과 전환,8,-0.5,0.2184873949579832
+0.05,pressure,0,충전과 전환,9,0.0,0.22689075630252098
+0.05,pressure,0,충전과 전환,10,-0.5,0.2436974789915966
+0.05,pressure,0,충전과 전환,11,0.0,0.18487394957983194
+0.05,pressure,0,충전과 전환,12,0.0,0.22689075630252098
+0.05,pressure,0,충전과 전환,13,0.0,0.2689075630252101
+0.05,pressure,0,충전과 전환,14,0.0,0.20168067226890757
+0.05,pressure,0,충전과 전환,15,0.0,0.2773109243697479
+0.05,pressure,0,충전과 전환,16,0.0,0.3277310924369748
+0.05,pressure,0,충전과 전환,17,0.0,0.3025210084033613
+0.05,pressure,0,충전과 전환,18,0.0,0.3025210084033613
+0.05,pressure,0,충전과 전환,19,0.0,0.15966386554621848
+0.05,pressure,0,계량과 가소화,0,0.0,0.29411764705882354
+0.05,pressure,0,계량과 가소화,1,0.0,0.31932773109243695
+0.05,pressure,0,계량과 가소화,2,0.0,0.29411764705882354
+0.05,pressure,0,계량과 가소화,3,0.0,0.2857142857142857
+0.05,pressure,0,계량과 가소화,4,-0.5,0.2773109243697479
+0.05,pressure,0,계량과 가소화,5,0.0,0.21008403361344535
+0.05,pressure,0,계량과 가소화,6,-0.5,0.2857142857142857
+0.05,pressure,0,계량과 가소화,7,0.0,0.3277310924369748
+0.05,pressure,0,계량과 가소화,8,-0.5,0.2605042016806723
+0.05,pressure,0,계량과 가소화,9,-0.5,0.2857142857142857
+0.05,pressure,0,계량과 가소화,10,-0.5,0.25210084033613445
+0.05,pressure,0,계량과 가소화,11,0.0,0.2689075630252101
+0.05,pressure,0,계량과 가소화,12,0.0,0.2773109243697479
+0.05,pressure,0,계량과 가소화,13,0.0,0.31932773109243695
+0.05,pressure,0,계량과 가소화,14,0.0,0.2605042016806723
+0.05,pressure,0,계량과 가소화,15,-0.5,0.2689075630252101
+0.05,pressure,0,계량과 가소화,16,0.0,0.36134453781512604
+0.05,pressure,0,계량과 가소화,17,0.0,0.29411764705882354
+0.05,pressure,0,계량과 가소화,18,-0.5,0.3361344537815126
+0.05,pressure,0,계량과 가소화,19,0.0,0.1764705882352941
+0.05,pressure,0,실린더와 호퍼 온도,0,0.0,0.05042016806722689
+0.05,pressure,0,실린더와 호퍼 온도,1,0.0,0.06722689075630252
+0.05,pressure,0,실린더와 호퍼 온도,2,0.0,0.06722689075630252
+0.05,pressure,0,실린더와 호퍼 온도,3,0.5,0.08403361344537814
+0.05,pressure,0,실린더와 호퍼 온도,4,0.5,0.1008403361344538
+0.05,pressure,0,실린더와 호퍼 온도,5,0.5,0.058823529411764705
+0.05,pressure,0,실린더와 호퍼 온도,6,0.5,0.07563025210084033
+0.05,pressure,0,실린더와 호퍼 온도,7,0.0,0.07563025210084033
+0.05,pressure,0,실린더와 호퍼 온도,8,0.5,0.1008403361344538
+0.05,pressure,0,실린더와 호퍼 온도,9,0.0,0.05042016806722689
+0.05,pressure,0,실린더와 호퍼 온도,10,0.0,0.058823529411764705
+0.05,pressure,0,실린더와 호퍼 온도,11,0.5,0.058823529411764705
+0.05,pressure,0,실린더와 호퍼 온도,12,0.0,0.06722689075630252
+0.05,pressure,0,실린더와 호퍼 온도,13,0.5,0.033613445378151266
+0.05,pressure,0,실린더와 호퍼 온도,14,0.0,0.06722689075630252
+0.05,pressure,0,실린더와 호퍼 온도,15,0.5,0.08403361344537814
+0.05,pressure,0,실린더와 호퍼 온도,16,0.0,0.058823529411764705
+0.05,pressure,0,실린더와 호퍼 온도,17,0.0,0.058823529411764705
+0.05,pressure,0,실린더와 호퍼 온도,18,0.0,0.1008403361344538
+0.05,pressure,0,실린더와 호퍼 온도,19,0.5,0.06722689075630252
+0.05,pressure,0,금형 온도,0,0.0,0.16806722689075632
+0.05,pressure,0,금형 온도,1,0.0,0.16806722689075632
+0.05,pressure,0,금형 온도,2,-0.5,0.19327731092436973
+0.05,pressure,0,금형 온도,3,0.0,0.14285714285714285
+0.05,pressure,0,금형 온도,4,0.0,0.1512605042016807
+0.05,pressure,0,금형 온도,5,0.0,0.13445378151260506
+0.05,pressure,0,금형 온도,6,-0.5,0.15966386554621848
+0.05,pressure,0,금형 온도,7,0.0,0.1764705882352941
+0.05,pressure,0,금형 온도,8,-0.5,0.09243697478991598
+0.05,pressure,0,금형 온도,9,0.0,0.11764705882352942
+0.05,pressure,0,금형 온도,10,0.0,0.09243697478991598
+0.05,pressure,0,금형 온도,11,0.0,0.10924369747899161
+0.05,pressure,0,금형 온도,12,0.0,0.13445378151260506
+0.05,pressure,0,금형 온도,13,0.0,0.16806722689075632
+0.05,pressure,0,금형 온도,14,0.0,0.10924369747899161
+0.05,pressure,0,금형 온도,15,0.0,0.10924369747899161
+0.05,pressure,0,금형 온도,16,0.0,0.1512605042016807
+0.05,pressure,0,금형 온도,17,0.0,0.1512605042016807
+0.05,pressure,0,금형 온도,18,0.0,0.19327731092436973
+0.05,pressure,0,금형 온도,19,0.0,0.1008403361344538
+0.05,pressure,0,형체와 전체 주기,0,0.0,0.07563025210084033
+0.05,pressure,0,형체와 전체 주기,1,0.0,0.05042016806722689
+0.05,pressure,0,형체와 전체 주기,2,0.0,0.01680672268907564
+0.05,pressure,0,형체와 전체 주기,3,0.0,0.033613445378151266
+0.05,pressure,0,형체와 전체 주기,4,0.0,0.05042016806722689
+0.05,pressure,0,형체와 전체 주기,5,0.0,0.04201680672268908
+0.05,pressure,0,형체와 전체 주기,6,0.0,0.06722689075630252
+0.05,pressure,0,형체와 전체 주기,7,0.0,0.058823529411764705
+0.05,pressure,0,형체와 전체 주기,8,0.0,0.04201680672268908
+0.05,pressure,0,형체와 전체 주기,9,0.0,0.06722689075630252
+0.05,pressure,0,형체와 전체 주기,10,0.0,0.06722689075630252
+0.05,pressure,0,형체와 전체 주기,11,0.0,0.025210084033613453
+0.05,pressure,0,형체와 전체 주기,12,0.0,0.008403361344537827
+0.05,pressure,0,형체와 전체 주기,13,0.0,0.05042016806722689
+0.05,pressure,0,형체와 전체 주기,14,0.0,0.033613445378151266
+0.05,pressure,0,형체와 전체 주기,15,0.0,0.058823529411764705
+0.05,pressure,0,형체와 전체 주기,16,0.0,0.04201680672268908
+0.05,pressure,0,형체와 전체 주기,17,0.0,0.04201680672268908
+0.05,pressure,0,형체와 전체 주기,18,0.0,0.07563025210084033
+0.05,pressure,0,형체와 전체 주기,19,0.0,0.04201680672268908
+0.05,pressure,1,충전과 전환,0,0.3333333333333333,0.1271186440677966
+0.05,pressure,1,충전과 전환,1,0.3333333333333333,0.1610169491525424
+0.05,pressure,1,충전과 전환,2,0.0,0.13559322033898302
+0.05,pressure,1,충전과 전환,3,0.0,0.1610169491525424
+0.05,pressure,1,충전과 전환,4,0.3333333333333333,0.13559322033898302
+0.05,pressure,1,충전과 전환,5,0.3333333333333333,0.1610169491525424
+0.05,pressure,1,충전과 전환,6,0.3333333333333333,0.15254237288135591
+0.05,pressure,1,충전과 전환,7,0.0,0.1271186440677966
+0.05,pressure,1,충전과 전환,8,0.3333333333333333,0.13559322033898302
+0.05,pressure,1,충전과 전환,9,0.0,0.11016949152542373
+0.05,pressure,1,충전과 전환,10,0.0,0.1610169491525424
+0.05,pressure,1,충전과 전환,11,0.3333333333333333,0.0847457627118644
+0.05,pressure,1,충전과 전환,12,0.3333333333333333,0.10169491525423728
+0.05,pressure,1,충전과 전환,13,0.3333333333333333,0.1440677966101695
+0.05,pressure,1,충전과 전환,14,0.0,0.13559322033898302
+0.05,pressure,1,충전과 전환,15,0.3333333333333333,0.1694915254237288
+0.05,pressure,1,충전과 전환,16,0.0,0.11864406779661017
+0.05,pressure,1,충전과 전환,17,0.3333333333333333,0.10169491525423728
+0.05,pressure,1,충전과 전환,18,0.3333333333333333,0.11864406779661017
+0.05,pressure,1,충전과 전환,19,0.3333333333333333,0.13559322033898302
+0.05,pressure,1,계량과 가소화,0,0.0,0.13559322033898302
+0.05,pressure,1,계량과 가소화,1,-0.3333333333333333,0.1610169491525424
+0.05,pressure,1,계량과 가소화,2,-0.6666666666666667,0.17796610169491528
+0.05,pressure,1,계량과 가소화,3,0.0,0.11864406779661017
+0.05,pressure,1,계량과 가소화,4,-0.6666666666666667,0.10169491525423728
+0.05,pressure,1,계량과 가소화,5,-0.3333333333333333,0.13559322033898302
+0.05,pressure,1,계량과 가소화,6,0.0,0.1694915254237288
+0.05,pressure,1,계량과 가소화,7,-0.3333333333333333,0.11864406779661017
+0.05,pressure,1,계량과 가소화,8,-0.3333333333333333,0.1610169491525424
+0.05,pressure,1,계량과 가소화,9,-0.3333333333333333,0.13559322033898302
+0.05,pressure,1,계량과 가소화,10,-0.3333333333333333,0.1440677966101695
+0.05,pressure,1,계량과 가소화,11,-0.3333333333333333,0.1610169491525424
+0.05,pressure,1,계량과 가소화,12,-0.3333333333333333,0.09322033898305085
+0.05,pressure,1,계량과 가소화,13,0.0,0.13559322033898302
+0.05,pressure,1,계량과 가소화,14,0.0,0.1440677966101695
+0.05,pressure,1,계량과 가소화,15,0.0,0.1271186440677966
+0.05,pressure,1,계량과 가소화,16,0.0,0.1610169491525424
+0.05,pressure,1,계량과 가소화,17,0.0,0.15254237288135591
+0.05,pressure,1,계량과 가소화,18,0.0,0.1694915254237288
+0.05,pressure,1,계량과 가소화,19,-0.6666666666666667,0.1694915254237288
+0.05,pressure,1,실린더와 호퍼 온도,0,0.0,0.07627118644067797
+0.05,pressure,1,실린더와 호퍼 온도,1,0.0,0.03389830508474576
+0.05,pressure,1,실린더와 호퍼 온도,2,0.0,0.0423728813559322
+0.05,pressure,1,실린더와 호퍼 온도,3,0.0,0.03389830508474576
+0.05,pressure,1,실린더와 호퍼 온도,4,0.0,0.0423728813559322
+0.05,pressure,1,실린더와 호퍼 온도,5,0.0,0.05084745762711865
+0.05,pressure,1,실린더와 호퍼 온도,6,0.0,0.06779661016949153
+0.05,pressure,1,실린더와 호퍼 온도,7,0.0,0.0423728813559322
+0.05,pressure,1,실린더와 호퍼 온도,8,0.0,0.05084745762711865
+0.05,pressure,1,실린더와 호퍼 온도,9,0.0,0.025423728813559324
+0.05,pressure,1,실린더와 호퍼 온도,10,0.0,0.008474576271186439
+0.05,pressure,1,실린더와 호퍼 온도,11,0.0,0.03389830508474576
+0.05,pressure,1,실린더와 호퍼 온도,12,0.0,0.05084745762711865
+0.05,pressure,1,실린더와 호퍼 온도,13,0.0,0.07627118644067797
+0.05,pressure,1,실린더와 호퍼 온도,14,0.0,0.05084745762711865
+0.05,pressure,1,실린더와 호퍼 온도,15,0.0,0.025423728813559324
+0.05,pressure,1,실린더와 호퍼 온도,16,0.0,0.05084745762711865
+0.05,pressure,1,실린더와 호퍼 온도,17,0.0,0.03389830508474576
+0.05,pressure,1,실린더와 호퍼 온도,18,0.0,0.05084745762711865
+0.05,pressure,1,실린더와 호퍼 온도,19,0.0,0.03389830508474576
+0.05,pressure,1,금형 온도,0,0.0,0.06779661016949153
+0.05,pressure,1,금형 온도,1,-0.3333333333333333,0.07627118644067797
+0.05,pressure,1,금형 온도,2,0.0,0.1271186440677966
+0.05,pressure,1,금형 온도,3,0.0,0.0847457627118644
+0.05,pressure,1,금형 온도,4,0.0,0.10169491525423728
+0.05,pressure,1,금형 온도,5,-0.3333333333333333,0.11016949152542373
+0.05,pressure,1,금형 온도,6,0.0,0.11016949152542373
+0.05,pressure,1,금형 온도,7,0.0,0.09322033898305085
+0.05,pressure,1,금형 온도,8,0.0,0.1271186440677966
+0.05,pressure,1,금형 온도,9,-0.3333333333333333,0.07627118644067797
+0.05,pressure,1,금형 온도,10,0.0,0.09322033898305085
+0.05,pressure,1,금형 온도,11,0.0,0.1271186440677966
+0.05,pressure,1,금형 온도,12,0.0,0.05932203389830508
+0.05,pressure,1,금형 온도,13,0.0,0.13559322033898302
+0.05,pressure,1,금형 온도,14,0.0,0.1271186440677966
+0.05,pressure,1,금형 온도,15,0.0,0.11864406779661017
+0.05,pressure,1,금형 온도,16,-0.3333333333333333,0.09322033898305085
+0.05,pressure,1,금형 온도,17,0.0,0.10169491525423728
+0.05,pressure,1,금형 온도,18,-0.3333333333333333,0.11016949152542373
+0.05,pressure,1,금형 온도,19,0.0,0.11864406779661017
+0.05,pressure,1,형체와 전체 주기,0,0.0,0.008474576271186439
+0.05,pressure,1,형체와 전체 주기,1,0.0,0.025423728813559324
+0.05,pressure,1,형체와 전체 주기,2,0.0,0.025423728813559324
+0.05,pressure,1,형체와 전체 주기,3,0.0,-0.008474576271186442
+0.05,pressure,1,형체와 전체 주기,4,0.0,0.008474576271186439
+0.05,pressure,1,형체와 전체 주기,5,0.0,0.008474576271186439
+0.05,pressure,1,형체와 전체 주기,6,0.0,0.025423728813559324
+0.05,pressure,1,형체와 전체 주기,7,0.0,0.008474576271186439
+0.05,pressure,1,형체와 전체 주기,8,0.0,0.016949152542372878
+0.05,pressure,1,형체와 전체 주기,9,0.0,0.016949152542372878
+0.05,pressure,1,형체와 전체 주기,10,0.0,0.016949152542372878
+0.05,pressure,1,형체와 전체 주기,11,0.0,0.008474576271186439
+0.05,pressure,1,형체와 전체 주기,12,0.0,0.008474576271186439
+0.05,pressure,1,형체와 전체 주기,13,0.0,0.0
+0.05,pressure,1,형체와 전체 주기,14,0.0,0.016949152542372878
+0.05,pressure,1,형체와 전체 주기,15,0.0,0.008474576271186439
+0.05,pressure,1,형체와 전체 주기,16,0.0,0.008474576271186439
+0.05,pressure,1,형체와 전체 주기,17,0.0,0.016949152542372878
+0.05,pressure,1,형체와 전체 주기,18,0.0,0.016949152542372878
+0.05,pressure,1,형체와 전체 주기,19,0.0,0.0
+0.05,pressure,2,충전과 전환,0,0.3333333333333333,0.11864406779661017
+0.05,pressure,2,충전과 전환,1,-0.33333333333333337,0.11016949152542373
+0.05,pressure,2,충전과 전환,2,0.3333333333333333,0.1271186440677966
+0.05,pressure,2,충전과 전환,3,0.3333333333333333,0.09322033898305085
+0.05,pressure,2,충전과 전환,4,0.0,0.0847457627118644
+0.05,pressure,2,충전과 전환,5,0.0,0.05084745762711865
+0.05,pressure,2,충전과 전환,6,0.3333333333333333,0.1271186440677966
+0.05,pressure,2,충전과 전환,7,0.0,0.1016949152542373
+0.05,pressure,2,충전과 전환,8,-0.33333333333333337,0.1271186440677966
+0.05,pressure,2,충전과 전환,9,-0.33333333333333337,0.1016949152542373
+0.05,pressure,2,충전과 전환,10,0.0,0.07627118644067797
+0.05,pressure,2,충전과 전환,11,0.0,0.11864406779661017
+0.05,pressure,2,충전과 전환,12,0.3333333333333333,0.11016949152542373
+0.05,pressure,2,충전과 전환,13,0.0,0.1016949152542373
+0.05,pressure,2,충전과 전환,14,0.0,0.09322033898305085
+0.05,pressure,2,충전과 전환,15,0.3333333333333333,0.11864406779661017
+0.05,pressure,2,충전과 전환,16,0.3333333333333333,0.06779661016949153
+0.05,pressure,2,충전과 전환,17,0.0,0.11016949152542373
+0.05,pressure,2,충전과 전환,18,0.0,0.1016949152542373
+0.05,pressure,2,충전과 전환,19,0.0,0.0847457627118644
+0.05,pressure,2,계량과 가소화,0,0.0,0.11864406779661017
+0.05,pressure,2,계량과 가소화,1,0.0,0.15254237288135594
+0.05,pressure,2,계량과 가소화,2,0.0,0.15254237288135594
+0.05,pressure,2,계량과 가소화,3,0.0,0.11864406779661017
+0.05,pressure,2,계량과 가소화,4,0.0,0.1440677966101695
+0.05,pressure,2,계량과 가소화,5,0.0,0.11864406779661017
+0.05,pressure,2,계량과 가소화,6,0.0,0.1271186440677966
+0.05,pressure,2,계량과 가소화,7,0.0,0.09322033898305085
+0.05,pressure,2,계량과 가소화,8,0.0,0.11016949152542373
+0.05,pressure,2,계량과 가소화,9,0.0,0.1271186440677966
+0.05,pressure,2,계량과 가소화,10,0.0,0.11864406779661017
+0.05,pressure,2,계량과 가소화,11,0.0,0.1440677966101695
+0.05,pressure,2,계량과 가소화,12,0.3333333333333333,0.11864406779661017
+0.05,pressure,2,계량과 가소화,13,0.0,0.09322033898305085
+0.05,pressure,2,계량과 가소화,14,0.0,0.11016949152542373
+0.05,pressure,2,계량과 가소화,15,0.0,0.11016949152542373
+0.05,pressure,2,계량과 가소화,16,0.3333333333333333,0.09322033898305085
+0.05,pressure,2,계량과 가소화,17,0.0,0.16101694915254236
+0.05,pressure,2,계량과 가소화,18,0.0,0.1016949152542373
+0.05,pressure,2,계량과 가소화,19,0.0,0.1016949152542373
+0.05,pressure,2,실린더와 호퍼 온도,0,0.0,0.05084745762711865
+0.05,pressure,2,실린더와 호퍼 온도,1,-0.33333333333333337,0.03389830508474576
+0.05,pressure,2,실린더와 호퍼 온도,2,0.0,0.05084745762711865
+0.05,pressure,2,실린더와 호퍼 온도,3,0.0,0.059322033898305086
+0.05,pressure,2,실린더와 호퍼 온도,4,0.0,0.0423728813559322
+0.05,pressure,2,실린더와 호퍼 온도,5,0.0,0.0423728813559322
+0.05,pressure,2,실린더와 호퍼 온도,6,0.0,0.0423728813559322
+0.05,pressure,2,실린더와 호퍼 온도,7,-0.33333333333333337,0.025423728813559324
+0.05,pressure,2,실린더와 호퍼 온도,8,0.0,0.05084745762711865
+0.05,pressure,2,실린더와 호퍼 온도,9,0.3333333333333333,0.05084745762711865
+0.05,pressure,2,실린더와 호퍼 온도,10,0.0,0.0423728813559322
+0.05,pressure,2,실린더와 호퍼 온도,11,0.0,0.0423728813559322
+0.05,pressure,2,실린더와 호퍼 온도,12,0.3333333333333333,0.05084745762711865
+0.05,pressure,2,실린더와 호퍼 온도,13,0.0,0.0423728813559322
+0.05,pressure,2,실린더와 호퍼 온도,14,0.3333333333333333,0.0423728813559322
+0.05,pressure,2,실린더와 호퍼 온도,15,0.0,0.025423728813559324
+0.05,pressure,2,실린더와 호퍼 온도,16,0.3333333333333333,0.01694915254237288
+0.05,pressure,2,실린더와 호퍼 온도,17,0.3333333333333333,0.0423728813559322
+0.05,pressure,2,실린더와 호퍼 온도,18,0.0,0.025423728813559324
+0.05,pressure,2,실린더와 호퍼 온도,19,0.3333333333333333,0.03389830508474576
+0.05,pressure,2,금형 온도,0,0.0,0.07627118644067797
+0.05,pressure,2,금형 온도,1,0.0,0.059322033898305086
+0.05,pressure,2,금형 온도,2,0.0,0.11864406779661017
+0.05,pressure,2,금형 온도,3,0.0,0.09322033898305085
+0.05,pressure,2,금형 온도,4,0.0,0.07627118644067797
+0.05,pressure,2,금형 온도,5,0.0,0.05084745762711865
+0.05,pressure,2,금형 온도,6,0.0,0.0847457627118644
+0.05,pressure,2,금형 온도,7,0.0,0.07627118644067797
+0.05,pressure,2,금형 온도,8,0.0,0.06779661016949153
+0.05,pressure,2,금형 온도,9,0.0,0.05084745762711865
+0.05,pressure,2,금형 온도,10,0.0,0.07627118644067797
+0.05,pressure,2,금형 온도,11,-0.33333333333333337,0.1016949152542373
+0.05,pressure,2,금형 온도,12,0.0,0.07627118644067797
+0.05,pressure,2,금형 온도,13,0.0,0.06779661016949153
+0.05,pressure,2,금형 온도,14,0.0,0.05084745762711865
+0.05,pressure,2,금형 온도,15,0.0,0.11864406779661017
+0.05,pressure,2,금형 온도,16,-0.33333333333333337,0.0423728813559322
+0.05,pressure,2,금형 온도,17,0.0,0.0847457627118644
+0.05,pressure,2,금형 온도,18,0.0,0.06779661016949153
+0.05,pressure,2,금형 온도,19,0.0,0.05084745762711865
+0.05,pressure,2,형체와 전체 주기,0,0.3333333333333333,0.03389830508474576
+0.05,pressure,2,형체와 전체 주기,1,0.3333333333333333,0.0
+0.05,pressure,2,형체와 전체 주기,2,0.3333333333333333,0.01694915254237288
+0.05,pressure,2,형체와 전체 주기,3,0.3333333333333333,0.05084745762711865
+0.05,pressure,2,형체와 전체 주기,4,0.0,0.025423728813559324
+0.05,pressure,2,형체와 전체 주기,5,0.3333333333333333,0.025423728813559324
+0.05,pressure,2,형체와 전체 주기,6,0.3333333333333333,0.025423728813559324
+0.05,pressure,2,형체와 전체 주기,7,0.3333333333333333,0.025423728813559324
+0.05,pressure,2,형체와 전체 주기,8,0.3333333333333333,0.03389830508474576
+0.05,pressure,2,형체와 전체 주기,9,0.3333333333333333,0.03389830508474576
+0.05,pressure,2,형체와 전체 주기,10,0.3333333333333333,0.025423728813559324
+0.05,pressure,2,형체와 전체 주기,11,0.3333333333333333,0.01694915254237288
+0.05,pressure,2,형체와 전체 주기,12,0.3333333333333333,0.025423728813559324
+0.05,pressure,2,형체와 전체 주기,13,0.3333333333333333,0.025423728813559324
+0.05,pressure,2,형체와 전체 주기,14,0.3333333333333333,0.00847457627118644
+0.05,pressure,2,형체와 전체 주기,15,0.3333333333333333,0.0423728813559322
+0.05,pressure,2,형체와 전체 주기,16,0.3333333333333333,0.025423728813559324
+0.05,pressure,2,형체와 전체 주기,17,0.3333333333333333,0.01694915254237288
+0.05,pressure,2,형체와 전체 주기,18,0.3333333333333333,0.00847457627118644
+0.05,pressure,2,형체와 전체 주기,19,0.3333333333333333,0.025423728813559324
+0.05,pressure,3,충전과 전환,0,0.0,0.22881355932203393
+0.05,pressure,3,충전과 전환,1,0.0,0.15254237288135594
+0.05,pressure,3,충전과 전환,2,0.0,0.15254237288135594
+0.05,pressure,3,충전과 전환,3,0.0,0.1864406779661017
+0.05,pressure,3,충전과 전환,4,0.0,0.24576271186440676
+0.05,pressure,3,충전과 전환,5,0.0,0.21186440677966104
+0.05,pressure,3,충전과 전환,6,0.0,0.16949152542372883
+0.05,pressure,3,충전과 전환,7,0.0,0.1864406779661017
+0.05,pressure,3,충전과 전환,8,0.0,0.16949152542372883
+0.05,pressure,3,충전과 전환,9,0.0,0.22033898305084745
+0.05,pressure,3,충전과 전환,10,-0.33333333333333337,0.1440677966101695
+0.05,pressure,3,충전과 전환,11,0.0,0.16949152542372883
+0.05,pressure,3,충전과 전환,12,0.3333333333333333,0.16949152542372883
+0.05,pressure,3,충전과 전환,13,0.0,0.1440677966101695
+0.05,pressure,3,충전과 전환,14,0.0,0.1610169491525424
+0.05,pressure,3,충전과 전환,15,0.0,0.22033898305084745
+0.05,pressure,3,충전과 전환,16,0.3333333333333333,0.13559322033898305
+0.05,pressure,3,충전과 전환,17,-0.33333333333333337,0.2033898305084746
+0.05,pressure,3,충전과 전환,18,0.3333333333333333,0.1864406779661017
+0.05,pressure,3,충전과 전환,19,0.0,0.17796610169491525
+0.05,pressure,3,계량과 가소화,0,0.0,0.2542372881355932
+0.05,pressure,3,계량과 가소화,1,0.0,0.24576271186440676
+0.05,pressure,3,계량과 가소화,2,0.0,0.23728813559322035
+0.05,pressure,3,계량과 가소화,3,0.0,0.2542372881355932
+0.05,pressure,3,계량과 가소화,4,0.0,0.21186440677966104
+0.05,pressure,3,계량과 가소화,5,0.0,0.2627118644067796
+0.05,pressure,3,계량과 가소화,6,0.0,0.22881355932203393
+0.05,pressure,3,계량과 가소화,7,0.0,0.22033898305084745
+0.05,pressure,3,계량과 가소화,8,0.0,0.2627118644067796
+0.05,pressure,3,계량과 가소화,9,0.0,0.2033898305084746
+0.05,pressure,3,계량과 가소화,10,0.0,0.24576271186440676
+0.05,pressure,3,계량과 가소화,11,0.0,0.2542372881355932
+0.05,pressure,3,계량과 가소화,12,0.0,0.24576271186440676
+0.05,pressure,3,계량과 가소화,13,0.0,0.2627118644067796
+0.05,pressure,3,계량과 가소화,14,0.0,0.2627118644067796
+0.05,pressure,3,계량과 가소화,15,0.0,0.2627118644067796
+0.05,pressure,3,계량과 가소화,16,0.0,0.23728813559322035
+0.05,pressure,3,계량과 가소화,17,0.0,0.2711864406779661
+0.05,pressure,3,계량과 가소화,18,0.0,0.3220338983050847
+0.05,pressure,3,계량과 가소화,19,0.0,0.22033898305084745
+0.05,pressure,3,실린더와 호퍼 온도,0,0.0,0.04237288135593221
+0.05,pressure,3,실린더와 호퍼 온도,1,0.3333333333333333,0.05084745762711864
+0.05,pressure,3,실린더와 호퍼 온도,2,0.3333333333333333,0.06779661016949154
+0.05,pressure,3,실린더와 호퍼 온도,3,0.0,0.059322033898305086
+0.05,pressure,3,실린더와 호퍼 온도,4,0.0,0.059322033898305086
+0.05,pressure,3,실린더와 호퍼 온도,5,0.3333333333333333,0.07627118644067796
+0.05,pressure,3,실린더와 호퍼 온도,6,0.3333333333333333,0.06779661016949154
+0.05,pressure,3,실린더와 호퍼 온도,7,0.3333333333333333,0.059322033898305086
+0.05,pressure,3,실린더와 호퍼 온도,8,0.3333333333333333,0.03389830508474576
+0.05,pressure,3,실린더와 호퍼 온도,9,0.0,0.05084745762711864
+0.05,pressure,3,실린더와 호퍼 온도,10,0.3333333333333333,0.03389830508474576
+0.05,pressure,3,실린더와 호퍼 온도,11,0.0,0.008474576271186439
+0.05,pressure,3,실린더와 호퍼 온도,12,0.3333333333333333,0.05084745762711864
+0.05,pressure,3,실린더와 호퍼 온도,13,0.3333333333333333,0.06779661016949154
+0.05,pressure,3,실린더와 호퍼 온도,14,0.0,0.016949152542372885
+0.05,pressure,3,실린더와 호퍼 온도,15,0.3333333333333333,0.0847457627118644
+0.05,pressure,3,실린더와 호퍼 온도,16,0.3333333333333333,0.06779661016949154
+0.05,pressure,3,실린더와 호퍼 온도,17,0.3333333333333333,0.05084745762711864
+0.05,pressure,3,실린더와 호퍼 온도,18,0.3333333333333333,0.05084745762711864
+0.05,pressure,3,실린더와 호퍼 온도,19,0.0,0.04237288135593221
+0.05,pressure,3,금형 온도,0,-0.33333333333333337,0.16949152542372883
+0.05,pressure,3,금형 온도,1,-0.33333333333333337,0.1610169491525424
+0.05,pressure,3,금형 온도,2,0.0,0.1440677966101695
+0.05,pressure,3,금형 온도,3,0.0,0.19491525423728814
+0.05,pressure,3,금형 온도,4,0.0,0.16949152542372883
+0.05,pressure,3,금형 온도,5,0.0,0.15254237288135594
+0.05,pressure,3,금형 온도,6,0.0,0.16949152542372883
+0.05,pressure,3,금형 온도,7,0.0,0.15254237288135594
+0.05,pressure,3,금형 온도,8,0.0,0.1610169491525424
+0.05,pressure,3,금형 온도,9,0.0,0.13559322033898305
+0.05,pressure,3,금형 온도,10,-0.33333333333333337,0.1440677966101695
+0.05,pressure,3,금형 온도,11,0.0,0.16949152542372883
+0.05,pressure,3,금형 온도,12,0.0,0.16949152542372883
+0.05,pressure,3,금형 온도,13,0.0,0.1864406779661017
+0.05,pressure,3,금형 온도,14,0.0,0.1440677966101695
+0.05,pressure,3,금형 온도,15,-0.33333333333333337,0.1610169491525424
+0.05,pressure,3,금형 온도,16,0.0,0.1610169491525424
+0.05,pressure,3,금형 온도,17,0.0,0.1610169491525424
+0.05,pressure,3,금형 온도,18,0.0,0.21186440677966104
+0.05,pressure,3,금형 온도,19,0.0,0.1271186440677966
+0.05,pressure,3,형체와 전체 주기,0,0.0,0.03389830508474576
+0.05,pressure,3,형체와 전체 주기,1,0.0,0.03389830508474576
+0.05,pressure,3,형체와 전체 주기,2,0.0,0.016949152542372885
+0.05,pressure,3,형체와 전체 주기,3,0.0,0.008474576271186439
+0.05,pressure,3,형체와 전체 주기,4,0.0,0.025423728813559324
+0.05,pressure,3,형체와 전체 주기,5,0.0,0.05084745762711864
+0.05,pressure,3,형체와 전체 주기,6,0.0,0.03389830508474576
+0.05,pressure,3,형체와 전체 주기,7,0.0,0.008474576271186439
+0.05,pressure,3,형체와 전체 주기,8,0.0,0.008474576271186439
+0.05,pressure,3,형체와 전체 주기,9,0.0,0.04237288135593221
+0.05,pressure,3,형체와 전체 주기,10,0.0,0.016949152542372885
+0.05,pressure,3,형체와 전체 주기,11,0.0,0.05084745762711864
+0.05,pressure,3,형체와 전체 주기,12,0.0,0.04237288135593221
+0.05,pressure,3,형체와 전체 주기,13,0.0,0.025423728813559324
+0.05,pressure,3,형체와 전체 주기,14,0.0,0.025423728813559324
+0.05,pressure,3,형체와 전체 주기,15,0.0,0.025423728813559324
+0.05,pressure,3,형체와 전체 주기,16,0.0,0.025423728813559324
+0.05,pressure,3,형체와 전체 주기,17,-0.33333333333333337,0.025423728813559324
+0.05,pressure,3,형체와 전체 주기,18,0.0,0.03389830508474576
+0.05,pressure,3,형체와 전체 주기,19,0.0,0.025423728813559324

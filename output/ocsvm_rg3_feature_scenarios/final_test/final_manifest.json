@@ -1,0 +1,50 @@
+{
+  "scenario": "S1",
+  "nu": 0.015,
+  "gamma_multiplier": 0.03,
+  "gamma": 0.0014285714285714286,
+  "threshold": -0.20799763706223207,
+  "selection_metric": "development mean fold AP",
+  "threshold_metric": "development OOF F2",
+  "source_hashes": {
+    "X_labeled.csv": "0a25ca516fd5db226765bface0334de6cfbcd0d578165e060acb62bec6691996",
+    "y_labeled.csv": "f0d7711dad1c962335b27be0fa9ce9ef4fae3d41e4c8da3501ea2517e9a2b70b",
+    "labeled_metadata.csv": "6a2a7ff0c967ea7a605dee69387935ad4a176a26925b89870677177fecdd73a5"
+  },
+  "split_hash": "372abf4cc87d73d30854b02b0aef187596804f41051923ab9356fb42913aa4a5",
+  "retained_features": [
+    "Injection_Time",
+    "Filling_Time",
+    "Plasticizing_Time",
+    "Cushion_Position",
+    "Plasticizing_Position",
+    "Max_Injection_Speed",
+    "Max_Screw_RPM",
+    "Average_Screw_RPM",
+    "Max_Injection_Pressure",
+    "Max_Switch_Over_Pressure",
+    "Max_Back_Pressure",
+    "Average_Back_Pressure",
+    "Barrel_Temperature_1",
+    "Barrel_Temperature_2",
+    "Barrel_Temperature_3",
+    "Barrel_Temperature_4",
+    "Barrel_Temperature_5",
+    "Barrel_Temperature_6",
+    "Hopper_Temperature",
+    "Mold_Temperature_3",
+    "Mold_Temperature_4"
+  ],
+  "normal_train_rows": 452,
+  "test_rows": 119,
+  "test_used_for_selection": false,
+  "previous_baseline_test_seen": true,
+  "reload_predictions_equal": true,
+  "sklearn_version": "1.9.0",
+  "artifact_sha256": {
+    "model_bundle.joblib": "efd917730b449b457a6cf4b6dbbf36af6f29b512969d0b9855784e67ea199357",
+    "test_evaluation.png": "f1a53c9223ba3aaf03bdbbb2400d7e1bac0bab839100d2d15df4d42c9e3a5e57",
+    "test_metrics.csv": "1d7e1a8fe39f2fdabb078d0841066ac7eb104e4f70bad0b0d75028415e9c526b",
+    "test_predictions.csv": "e9dd2690d7c8ce35428f40a68bfecd4199963ebfabf4216be8ef622fe9b84836"
+  }
+}

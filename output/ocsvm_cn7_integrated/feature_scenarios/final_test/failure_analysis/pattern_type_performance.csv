@@ -1,0 +1,6 @@
+partition,pattern_type,patterns,risk_patterns,detected_risk,missed_risk,false_positives
+development_oof,conflicting,8,8,1,7,0
+development_oof,defect_only,3,3,3,0,0
+development_oof,normal_only,473,0,0,0,2
+test,conflicting,3,3,0,3,0
+test,normal_only,119,0,0,0,0

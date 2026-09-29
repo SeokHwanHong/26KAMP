@@ -1,0 +1,28 @@
+{
+  "document": "CN7_RG3_로지스틱회귀_학습전략.docx",
+  "sha256": "6660c2865fc3fcd2c23eeea610da367a5c83c1ca63be22b241225a5fac20e3de",
+  "data_counts": [
+    [
+      "CN7",
+      1211,
+      1194,
+      17,
+      606,
+      "1.40%"
+    ],
+    [
+      "RG3",
+      1182,
+      1157,
+      25,
+      591,
+      "2.12%"
+    ]
+  ],
+  "models_trained": false,
+  "existing_folds_modified": false,
+  "planned_outer_folds": 4,
+  "paragraphs": 74,
+  "tables": 4,
+  "visual_review": false
+}

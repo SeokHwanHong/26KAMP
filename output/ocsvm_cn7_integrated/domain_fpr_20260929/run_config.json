@@ -1,0 +1,38 @@
+{
+  "version": "domain_fpr_v1",
+  "source_sha256": {
+    "X_labeled.csv": "c3d956ee5d963befceda2ea06a819060458438c74729d9fa8d1ceb9fb3b25a3e",
+    "y_labeled.csv": "aa333282e742d665aa89a497a7b71c93c7a7f1835beafe7daaab2232dac56ffe",
+    "labeled_metadata.csv": "af8f6527f64a4c114b5bad921037fc643b624cfabe33e658ddb6691b97b50d2b"
+  },
+  "split_sha256": "6a7f4fab67489d82329ca84a1932fbf912f76adcf597b379c9a5a9cc00758ba7",
+  "implementation_sha256": "e894eadcf04ef37f457e4e48f9cac9d7fa21b5baf6a07f3f1ca2bce315847a79",
+  "python": "3.12.14",
+  "sklearn": "1.9.1",
+  "budgets": [
+    0.01,
+    0.03,
+    0.05
+  ],
+  "calibration_fraction": 0.35,
+  "seed": 42,
+  "scenarios": {
+    "raw": [],
+    "legacy_without_cycle": [],
+    "pressure": [
+      "pressure"
+    ],
+    "plasticizing": [
+      "plasticizing"
+    ],
+    "thermal": [
+      "thermal"
+    ],
+    "domain_all": [
+      "pressure",
+      "plasticizing",
+      "thermal"
+    ],
+    "group_pca": []
+  }
+}

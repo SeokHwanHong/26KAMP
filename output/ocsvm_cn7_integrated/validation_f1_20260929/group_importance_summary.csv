@@ -1,0 +1,6 @@
+scenario,group,mean_F1_drop,mean_recall_drop,mean_FPR_increase
+legacy_without_cycle,계량과 가소화,0.1161904761904762,0.05,0.007603973792906993
+legacy_without_cycle,금형 온도,0.10083333333333333,0.09375,0.0018943170488534395
+legacy_without_cycle,실린더와 호퍼 온도,0.12916666666666668,0.11875,0.0025290200826093147
+legacy_without_cycle,충전과 전환,0.49017857142857146,0.36666666666666664,0.01522753169064236
+legacy_without_cycle,형체와 전체 주기,0.0,0.0,0.0

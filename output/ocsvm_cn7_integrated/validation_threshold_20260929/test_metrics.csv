@@ -1,0 +1,4 @@
+budget,status,scenario,threshold,TP,FN,FP,TN,recall,FPR,precision,F1,F2,AP_reference,ROC_AUC_reference,observed_FPR_exceeds_budget
+0.01,selected_for_followup,legacy_without_cycle,0.6309573444801942,0,3,5,114,0.0,0.04201680672268908,0.0,0.0,0.0,0.0552852944157292,0.6638655462184874,True
+0.03,selected_for_followup,legacy_without_cycle,0.6309573444801942,0,3,5,114,0.0,0.04201680672268908,0.0,0.0,0.0,0.0552852944157292,0.6638655462184874,True
+0.05,selected_for_followup,legacy_without_cycle,0.6309573444801942,0,3,5,114,0.0,0.04201680672268908,0.0,0.0,0.0,0.0552852944157292,0.6638655462184874,False
