@@ -4,6 +4,80 @@
 
 이 문서는 CN7과 RG3에 `RandomForestClassifier`를 독립 적용하기 위한 구현 지침이다. 원본 → 전처리 → 고정 분할 → 개발 탐색 → 최종 재학습 → test 후속 평가 순서를 따른다. 탐색 범위는 재현 가능한 초기 설계이며 검증된 최적값이 아니다. 문서의 예제는 구현을 돕는 부분 코드이고, 전체 모델링 결과를 뜻하지 않는다.
 
+## 모델 구조 도식
+
+아래는 이 매뉴얼의 초기 설정인 **트리 300개, bootstrap 사용**을 기준으로 한 구조다. 실제 최적 모델이 확정됐다는 의미는 아니다. CN7·RG3에 각각 독립적인 forest를 학습한다.
+
+### 학습: 서로 다른 표본과 분할 후보로 여러 트리 생성
+
+```mermaid
+flowchart TD
+    X["현재 fold의 train<br/>정상·위험 전체 + 라벨"] --> PRE["Train에서 입력 변환 적합<br/>기준 모델: 상수 제거, 추가 scaler 없음"]
+    PRE --> DATA["변환된 train N개"]
+    DATA --> B1["Bootstrap 표본 1<br/>N번 복원 추출"]
+    DATA --> B2["Bootstrap 표본 2<br/>N번 복원 추출"]
+    DATA --> BN["Bootstrap 표본 300<br/>N번 복원 추출"]
+    B1 --> T1["결정트리 1"]
+    B2 --> T2["결정트리 2"]
+    BN --> TN["결정트리 300"]
+    RULE["각 트리의 각 노드<br/>max_features로 후보 변수 무작위 선택<br/>후보 변수와 경계 중 Gini 감소 기준으로 분할<br/>max_depth·min_samples_leaf 등으로 성장 제어"] -.-> T1
+    RULE -.-> T2
+    RULE -.-> TN
+    T1 --> FOREST["학습 완료된 Random Forest<br/>300개 트리 저장"]
+    T2 --> FOREST
+    TN --> FOREST
+    classDef input fill:#e8f1ff,stroke:#3768a0,color:#172b4d;
+    classDef tree fill:#e5f5ec,stroke:#34845a,color:#17442d;
+    class X,DATA input;
+    class T1,T2,TN,FOREST tree;
+```
+
+각 트리는 같은 train에서 따로 복원 추출한 표본으로 학습한다. 같은 행이 여러 번 들어가거나 특정 트리에서는 빠질 수 있다. CN7·RG3 데이터를 서로 섞거나 validation/test에서 표본을 뽑지 않는다. 그림은 가운데 트리들을 생략했다.
+
+`max_features`는 트리 전체에서 한 번 변수를 고정하는 설정이 아니라 **각 노드의 분할 후보 변수 수**를 제어한다. 구현은 유효한 분할을 찾기 위해 지정 개수보다 많은 변수를 검사할 수 있다. 클래스 가중치를 선택했다면 분할 기준과 리프 확률에도 가중치가 반영된다. [RandomForestClassifier 공식 문서](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+
+### 예측: 트리별 위험 확률을 평균한 후 선택 임계값 적용
+
+```mermaid
+flowchart TD
+    X["입력 패턴 x<br/>Validation 또는 최종 Test"] --> PRE["학습 때 저장한 입력 변환 적용<br/>변환·트리 재학습 없음"]
+    PRE --> T1["트리 1의 조건을 따라 리프 도달"]
+    PRE --> T2["트리 2의 조건을 따라 리프 도달"]
+    PRE --> TN["트리 300의 조건을 따라 리프 도달"]
+    T1 --> P1["라벨 1 확률 p1"]
+    T2 --> P2["라벨 1 확률 p2"]
+    TN --> PN["라벨 1 확률 p300"]
+    P1 --> AVG["Forest 위험 점수<br/>p = 트리별 라벨 1 확률의 평균"]
+    P2 --> AVG
+    PN --> AVG
+    AVG --> TH{"p > 선택한 t ?"}
+    TH -->|"예"| R["위험 1"]
+    TH -->|"아니오: 같아도 정상"| N["정상 0"]
+    VAL["개발 4-fold에서<br/>모델 설정과 t를 OOF F1로 공동 선택"] -.-> TH
+    classDef probability fill:#e8f1ff,stroke:#3768a0,color:#172b4d;
+    classDef decision fill:#fff3d6,stroke:#a87616,color:#493208;
+    class P1,P2,PN,AVG probability;
+    class TH,VAL decision;
+```
+
+Scikit-learn의 `predict_proba`는 트리별 리프의 클래스 비율을 평균한다. Bootstrap 반복 및 선택한 클래스 가중치가 반영된 비율이며, 트리들의 0/1 판정만 세는 단순 다수결과는 다르다. 이 프로젝트는 평균 위험 확률에 **validation에서 선택한 숫자 t**를 적용한다. [확률 예측 API](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba)
+
+예를 들어 설명용 트리 3개의 위험 확률이 `0.10, 0.40, 0.70`이면 평균은 `0.40`이다. 선택 t가 `0.30`이면 위험, `0.40`이면 정상이다. 이는 구조 설명용 숫자이며 실제 학습 결과나 권장 임계값이 아니다.
+
+### 트리 하나의 내부 구조
+
+```mermaid
+flowchart TD
+    A{"변수 A ≤ 학습한 경계 a ?"} -->|"예"| B{"변수 B ≤ 학습한 경계 b ?"}
+    A -->|"아니오"| C{"변수 C ≤ 학습한 경계 c ?"}
+    B -->|"예"| L1["리프 1<br/>위험 클래스 비율"]
+    B -->|"아니오"| L2["리프 2<br/>위험 클래스 비율"]
+    C -->|"예"| L3["리프 3<br/>위험 클래스 비율"]
+    C -->|"아니오"| L4["리프 4<br/>위험 클래스 비율"]
+```
+
+A·B·C와 경계 a·b·c는 설명용 기호다. 실제 변수와 경계는 각 트리의 학습 과정에서 정해진다. **트리 내부 분할 경계**는 train으로 학습하며, **최종 판정 임계값 t**는 forest 출력에 적용할 값으로 validation에서 선택한다. 실제 개별 트리는 깊이와 가지 수가 서로 다를 수 있다.
+
 ## 1. 목표와 모델별 차이
 
 목표는 공정 입력 패턴에 불량 이력이 있는지(`PassOrFail=1`) 분류하는 것이다. 동일 입력 패턴의 원본 라벨을 최댓값으로 집계하므로 개별 제품 불량률 예측과 구분한다.
