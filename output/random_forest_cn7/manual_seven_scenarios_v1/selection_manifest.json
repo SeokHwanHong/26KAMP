@@ -1,0 +1,36 @@
+{
+  "dataset": "cn7",
+  "experiment": "manual_seven_scenarios_v1",
+  "scenario": "pressure",
+  "candidate_id": 237,
+  "param_id": 21,
+  "params": {
+    "max_depth": 3,
+    "min_samples_leaf": 5,
+    "max_features": 0.5,
+    "class_weight": null
+  },
+  "threshold": 0.222,
+  "oof_metrics": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 7,
+    "tn": 473,
+    "f1": 0.5333333333333333,
+    "precision": 1.0,
+    "recall": 0.36363636363636365,
+    "fpr": 0.0
+  },
+  "fold_f1_std": 0.0833333333333333,
+  "max_features_used": 24,
+  "scenario_count": 7,
+  "setting_count": 756,
+  "threshold_grid_count": 1001,
+  "plan_sha256": "8b10985e90a9f0c79faef378d687ed5f7157742922442729e4aae164067d3f6a",
+  "candidate_parallel_jobs": 4,
+  "forest_n_jobs": 1,
+  "python": "3.13.15",
+  "sklearn": "1.9.1",
+  "test_used_for_selection": false,
+  "test_status": "Already observed in earlier work; subsequent assessment is not an independent holdout"
+}

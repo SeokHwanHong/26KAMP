@@ -1,0 +1,47 @@
+{
+  "dataset": "rg3",
+  "experiment": "raw_no_scaler_grid_v1",
+  "input_scenario": "raw_no_scaler",
+  "training_mode": "supervised",
+  "label_1": "pattern_has_defect_history",
+  "candidate_id": 44,
+  "candidate_count": 108,
+  "threshold_grid_count": 1001,
+  "threshold": 0.297,
+  "params": {
+    "max_depth": 6,
+    "min_samples_leaf": 1,
+    "max_features": 1.0,
+    "class_weight": "balanced_subsample"
+  },
+  "oof_metrics": {
+    "tp": 4,
+    "fp": 45,
+    "fn": 16,
+    "tn": 407,
+    "f1": 0.11594202898550725,
+    "precision": 0.08163265306122448,
+    "recall": 0.2,
+    "fpr": 0.09955752212389381
+  },
+  "oof_fold_f1_std": 0.04939161232540194,
+  "split_source_sha256": {
+    "X_labeled.csv": "0a25ca516fd5db226765bface0334de6cfbcd0d578165e060acb62bec6691996",
+    "y_labeled.csv": "f0d7711dad1c962335b27be0fa9ce9ef4fae3d41e4c8da3501ea2517e9a2b70b",
+    "labeled_metadata.csv": "6a2a7ff0c967ea7a605dee69387935ad4a176a26925b89870677177fecdd73a5"
+  },
+  "split_artifact_sha256": {
+    "split_assignments.csv": "372abf4cc87d73d30854b02b0aef187596804f41051923ab9356fb42913aa4a5",
+    "fold_summary.csv": "78eba6e34c200769eedc6ed46215250202a2a06ca70afa46adef55888954793f",
+    "X_development.csv": "114842e9858928f73fe475ff83e64aa8ad9aeda18e795077faa9dee7b96578ed",
+    "y_development.csv": "002af0c19212a6b9c397b6665c681b1b858f7ab98a427b57fef36b15b1f02e90",
+    "development_metadata.csv": "2fad426c9e9877c08deb40fe57c7aa0f52f862f8af909d733566a3cb95e5ef06",
+    "X_test.csv": "d9435dbccb0b529100e26bd7286d1785559ca627b955e1ae1f969a507e238d54",
+    "y_test.csv": "58f2ee153d174db82b35e0fba2bafcc16165853aafc087cc913e17d7fdf5ed6b",
+    "test_metadata.csv": "86d4ee1a10770695874d82e0a6c3458a109905e1686b919ffbbe6eedb4acda35",
+    "fold_indices.json": "eb5b325ceeb5e3906a6c5de9bf356fb3f106d296827976837b3b2d88cd16c0a1"
+  },
+  "python": "3.13.15",
+  "sklearn": "1.9.1",
+  "note": "Test not used for candidate or threshold selection; OOF is tuned, not independent."
+}
