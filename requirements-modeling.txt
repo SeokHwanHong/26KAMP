@@ -1,0 +1,13 @@
+# CN7/RG3 preprocessing, split, OCSVM and LR/RF manual examples.
+# Versions observed in tmp/cn7-validation-env on 2026-09-30.
+# Direct/runtime dependencies only; not a full transitive lockfile.
+# Install with Python 3.12: python -m pip install -r requirements-modeling.txt
+numpy==2.5.3
+pandas==3.0.6
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.11.2
+joblib==1.6.0
+threadpoolctl==3.7.0
+nbformat==5.11.1
+ipython==9.17.1

@@ -1,0 +1,22 @@
+{
+  "dataset": "cn7",
+  "if_version": "if-a7a2fcba54e54d58",
+  "if_artifact_sha256": "d83af36afbf1a9235c09c67126f4380b2de66980304cfe6070d0e122943bb5d8",
+  "source_sha256": {
+    "X_labeled.csv": "c3d956ee5d963befceda2ea06a819060458438c74729d9fa8d1ceb9fb3b25a3e",
+    "y_labeled.csv": "aa333282e742d665aa89a497a7b71c93c7a7f1835beafe7daaab2232dac56ffe",
+    "labeled_metadata.csv": "af8f6527f64a4c114b5bad921037fc643b624cfabe33e658ddb6691b97b50d2b"
+  },
+  "split_sha256": "6a7f4fab67489d82329ca84a1932fbf912f76adcf597b379c9a5a9cc00758ba7",
+  "files": {
+    "fold_0_train_ranked.csv": "dab55b4aecdb95f6a8ce275a1a93f740c04f8dd20c3c17fe4cebd04927bacfba",
+    "fold_1_train_ranked.csv": "6b036999ad8fac7976a8d7fe06a5c60c51c4a076c99cc4278b8b546294e26f0b",
+    "fold_2_train_ranked.csv": "3657454c4d17448e813c2e0da2bcf586b311e41056987d31211fb2c2447dcacb",
+    "fold_3_train_ranked.csv": "6ad4236433832c14a358814e9736610c206977a1550d3ff514dc53d55ac5dc08",
+    "development_ranked.csv": "8cde52ab0629d38188e5759a798a8c401ae2ba8f4ec7f6e80ebea3d3b2e50ea6",
+    "test_scores.csv": "9cc1336e088c915055993d2a2515110558beed22a8acb61dfe686883d70baf20"
+  },
+  "order": "if_score descending; input_position ascending for ties",
+  "fold_if_fit": "fold train normals only",
+  "created_at": "2026-10-02T02:18:25.833757+00:00"
+}

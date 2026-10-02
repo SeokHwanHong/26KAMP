@@ -1,0 +1,112 @@
+CN7 RG3 분석 환경 설치 목록
+확인일: 2026-09-30
+
+1. 설치 범위
+
+전체 분석과 VS Code/Jupyter 커널:
+  python -m pip install -r requirements.txt
+
+전처리·분할·모델링 코드만:
+  python -m pip install -r requirements-modeling.txt
+
+브라우저에서 JupyterLab을 사용할 경우 추가:
+  python -m pip install jupyterlab
+
+프로젝트 루트에서 실행한다. Python 3.12 환경을 사용한다.
+VS Code에서는 설치한 환경을 노트북 커널로 선택한다.
+requirements-modeling.txt만 설치했다면 노트북 커널용 ipykernel은 별도 설치한다.
+라이브러리 설치·업데이트는 이 목록 작성 과정에서 수행하지 않았다.
+
+2. 패키지별 용도
+
+설치명              import 이름       사용하는 단계와 목적
+numpy               numpy             전처리·EDA·모델링의 배열 및 수치 계산
+pandas              pandas            CSV 읽기, 패턴 통합, 표와 결과 저장
+scipy               scipy             EDA의 KS·거리·계층 군집, sklearn 계산 의존성
+scikit-learn        sklearn           고정 분할, scaler, PCA, OCSVM, LR, RF 및 평가
+matplotlib          matplotlib        EDA·모델링 그래프
+seaborn             seaborn           EDA 통계 시각화
+openpyxl            openpyxl          CN7·RG3 EDA 노트북의 현재 import
+PyMuPDF             fitz              공정 EDA의 가이드북 PDF 읽기
+joblib              joblib            모델과 변환 객체 저장·재로딩
+threadpoolctl       threadpoolctl     RG3 EDA의 연산 스레드 제어
+nbformat            nbformat          OCSVM 노트북 자체 코드·구조 검증
+ipython             IPython           노트북 표·그림 출력과 실행 기능
+ipykernel           ipykernel         Jupyter 또는 VS Code Python 커널
+jupyterlab          해당 없음         선택 사항인 브라우저 노트북 실행 UI
+
+주의: pip install sklearn 대신 scikit-learn을 설치한다.
+주의: import fitz를 위해 fitz라는 별도 패키지가 아니라 PyMuPDF를 설치한다.
+openpyxl은 현재 EDA에서 import하므로 포함했다. 모든 입력이 Excel이라는 뜻은 아니다.
+LR·RF 구현에 별도의 모델 라이브러리는 필요 없다. 둘 다 scikit-learn에 포함된다.
+XGBoost, LightGBM, TensorFlow, PyTorch는 현재 노트북과 매뉴얼의 필수 항목이 아니다.
+
+3. 단계별 최소 사용 범위
+
+데이터 불러오기와 전처리:
+  numpy, pandas
+
+데이터 분할:
+  numpy, pandas, scikit-learn
+
+CN7·RG3 EDA:
+  numpy, pandas, scipy, matplotlib, seaborn, scikit-learn,
+  openpyxl, ipython / RG3는 threadpoolctl도 직접 사용
+
+공정 기반 EDA:
+  numpy, pandas, scipy, matplotlib, seaborn, PyMuPDF, ipython
+
+OCSVM 통합 모델링:
+  numpy, pandas, scikit-learn, matplotlib, joblib, nbformat, ipython
+
+로지스틱 회귀·랜덤 포레스트 매뉴얼 예제:
+  numpy, pandas, scikit-learn
+  향후 그래프·모델 저장·내부 감사를 구현할 때 공통 모델링 패키지 사용
+
+4. 별도 설치하지 않는 Python 표준 라이브러리
+
+pathlib, os, sys, json, csv, hashlib, math, itertools, platform,
+io, zipfile, tempfile, unittest, warnings, importlib.metadata
+
+5. 버전과 재현 범위
+
+requirements-modeling.txt의 버전은 현재 모델 검증용 가상환경에서 조회한 값이다.
+scikit-learn 1.9.1은 LR 매뉴얼의 l1_ratio=0.0 API 기준이기도 하다.
+이 파일은 전체 간접 의존성을 고정한 lockfile이 아니다.
+
+전체 requirements.txt에 추가한 seaborn·openpyxl·PyMuPDF·ipykernel의 버전은
+이번에 고정하지 않았다. 전체 목록을 새 환경에 설치하여 모든 EDA와 모델링을
+한 번에 재실행한 검증까지 완료한 것은 아니다.
+
+data/origin/requirements.txt는 과거 molding_process_eda.ipynb 실행 환경 기록이다.
+그 파일의 numpy·pandas·matplotlib 버전은 최신 모델 검증 환경과 다르다.
+기존 EDA 실행 환경을 그대로 재현하려면 별도 가상환경에서 해당 파일을 사용한다.
+새 통합 환경을 검증한 뒤 python -m pip freeze로 실제 설치 목록을 보관한다.
+
+6. Python 패키지와 별개인 입력 조건
+
+원본 CSV 4개와 data/schema/input_features.json이 현재 전처리 코드에 필요하다.
+과거 기준 DOCX와 상위 preprocessing_manifest.json은 현재 코드의 입력 의존성이 아니다.
+공정 EDA는 가이드북 PDF와 해당 노트북에 설정한 경로도 필요하다.
+한글 그래프에는 운영체제의 한글 글꼴이 필요하다.
+
+Word 보고서 생성용 python-docx·Pillow, 문서 렌더링용 LibreOffice 등은
+분석·모델 학습의 필수 라이브러리에 포함하지 않았다.
+
+7. 조사한 기준 파일
+
+EDA/cn7eda.ipynb
+EDA/rg3eda.ipynb
+EDA/molding_process_eda.ipynb
+02.preprocessing/02_preprocess.ipynb (DATASET=cn7, rg3 각각 실행)
+02.preprocessing/03_split.ipynb
+03.modeling/models/ocsvm.ipynb (DATASET=cn7, rg3 각각 실행)
+modeling/LR/LOGISTIC_REGRESSION_MODELING_MANUAL.md
+modeling/RF/RANDOM_FOREST_MODELING_MANUAL.md
+data/origin/requirements.txt
+
+
+2026-10-02 재학습 파이프라인
+검증 환경: requirements-pipeline.txt (Python 3.13).
+기존 requirements-modeling.txt는 과거 실행 버전이며 현재 저장 모델을 읽을 때 혼용하지 마세요.
+IF·OCSVM 독립 학습 / 선택적 IF 순서 비교 → 05 / 06 / 07 / 08 / 09: README.md 실행 순서 참조.

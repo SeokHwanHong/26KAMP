@@ -1,0 +1,30 @@
+{
+  "feature_columns": [
+    "Injection_Time",
+    "Filling_Time",
+    "Plasticizing_Time",
+    "Cycle_Time",
+    "Clamp_Close_Time",
+    "Cushion_Position",
+    "Plasticizing_Position",
+    "Clamp_Open_Position",
+    "Max_Injection_Speed",
+    "Max_Screw_RPM",
+    "Average_Screw_RPM",
+    "Max_Injection_Pressure",
+    "Max_Switch_Over_Pressure",
+    "Max_Back_Pressure",
+    "Average_Back_Pressure",
+    "Barrel_Temperature_1",
+    "Barrel_Temperature_2",
+    "Barrel_Temperature_3",
+    "Barrel_Temperature_4",
+    "Barrel_Temperature_5",
+    "Barrel_Temperature_6",
+    "Hopper_Temperature",
+    "Mold_Temperature_3",
+    "Mold_Temperature_4"
+  ],
+  "target": "PassOrFail",
+  "source_id": "Unnamed: 0"
+}

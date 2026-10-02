@@ -1,0 +1,10 @@
+# Full analysis workflow: EDA + preprocessing + split + modeling + notebook kernel.
+# Modeling versions are recorded from the verified local modeling environment.
+# The extra EDA/kernel packages below are not version-locked or jointly validated.
+# For the historical molding_process_eda environment, see data/origin/requirements.txt.
+-r requirements-modeling.txt
+seaborn
+openpyxl
+PyMuPDF
+ipykernel
+# Optional browser-based notebook UI: python -m pip install jupyterlab
