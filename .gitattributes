@@ -1,0 +1,3 @@
+# Preserve exact CSV bytes on clone; the RF parts manifest validates SHA-256.
+/output/random_forest_cn7/manual_seven_scenarios_v1/threshold_search_part[12].csv -text
+/output/random_forest_rg3/manual_seven_scenarios_v1/threshold_search_part[12].csv -text

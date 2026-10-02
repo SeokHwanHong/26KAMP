@@ -1,0 +1,4 @@
+partition,pattern_type,risk_patterns,detected,missed
+개발 OOF,conflicting,8,1,7
+개발 OOF,defect_only,3,3,0
+Test 후속 평가,conflicting,3,0,3

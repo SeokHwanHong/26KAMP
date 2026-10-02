@@ -1,0 +1,36 @@
+{
+  "dataset": "rg3",
+  "experiment": "manual_seven_scenarios_v1",
+  "scenario": "group_pca",
+  "candidate_id": 727,
+  "param_id": 79,
+  "params": {
+    "max_depth": null,
+    "min_samples_leaf": 1,
+    "max_features": 1.0,
+    "class_weight": "balanced"
+  },
+  "threshold": 0.47,
+  "oof_metrics": {
+    "tp": 3,
+    "fp": 9,
+    "fn": 17,
+    "tn": 443,
+    "f1": 0.1875,
+    "precision": 0.25,
+    "recall": 0.15,
+    "fpr": 0.01991150442477876
+  },
+  "fold_f1_std": 0.1275588432975203,
+  "max_features_used": 13,
+  "scenario_count": 7,
+  "setting_count": 756,
+  "threshold_grid_count": 1001,
+  "plan_sha256": "ad1f2e01d36100f8e0a798d9a7330bd291272180327ce37f850bed64e91f29a7",
+  "candidate_parallel_jobs": 4,
+  "forest_n_jobs": 1,
+  "python": "3.13.15",
+  "sklearn": "1.9.1",
+  "test_used_for_selection": false,
+  "test_status": "Already observed in earlier work; subsequent assessment is not an independent holdout"
+}

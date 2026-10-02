@@ -1,0 +1,54 @@
+{
+  "dataset": "rg3",
+  "scenario": "group_pca",
+  "params": {
+    "max_depth": null,
+    "min_samples_leaf": 1,
+    "max_features": 1.0,
+    "class_weight": "balanced"
+  },
+  "threshold": 0.47,
+  "oof": {
+    "tp": 3,
+    "fp": 9,
+    "fn": 17,
+    "tn": 443,
+    "f1": 0.1875,
+    "precision": 0.25,
+    "recall": 0.15,
+    "fpr": 0.01991150442477876
+  },
+  "test": {
+    "tp": 0,
+    "fp": 3,
+    "fn": 5,
+    "tn": 111,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "fpr": 0.02631578947368421,
+    "average_precision": 0.04696059319920619,
+    "roc_auc": 0.3921052631578948
+  },
+  "all_normal_test": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 5,
+    "tn": 114,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "fpr": 0.0
+  },
+  "all_risk_test": {
+    "tp": 5,
+    "fp": 114,
+    "fn": 0,
+    "tn": 0,
+    "f1": 0.08064516129032258,
+    "precision": 0.04201680672268908,
+    "recall": 1.0,
+    "fpr": 1.0
+  },
+  "test_status": "Already observed in earlier work; subsequent assessment is not an independent holdout"
+}

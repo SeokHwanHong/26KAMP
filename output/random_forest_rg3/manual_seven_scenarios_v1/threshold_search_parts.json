@@ -1,0 +1,53 @@
+{
+  "format_version": 1,
+  "total_rows": 756756,
+  "columns": [
+    "scenario",
+    "candidate_id",
+    "threshold",
+    "tp",
+    "fp",
+    "fn",
+    "tn",
+    "f1",
+    "fold_f1_std",
+    "mean_fold_f1",
+    "max_features_used",
+    "fold_0_tp",
+    "fold_0_fp",
+    "fold_0_fn",
+    "fold_0_tn",
+    "fold_0_f1",
+    "fold_1_tp",
+    "fold_1_fp",
+    "fold_1_fn",
+    "fold_1_tn",
+    "fold_1_f1",
+    "fold_2_tp",
+    "fold_2_fp",
+    "fold_2_fn",
+    "fold_2_tn",
+    "fold_2_f1",
+    "fold_3_tp",
+    "fold_3_fp",
+    "fold_3_fn",
+    "fold_3_tn",
+    "fold_3_f1"
+  ],
+  "parts": [
+    {
+      "file": "threshold_search_part1.csv",
+      "rows": 378378,
+      "bytes": 52311844,
+      "sha256": "002effee47a9a5855403704d127943562e1e1948a7e5fceda0d1c0d89faa0eaa"
+    },
+    {
+      "file": "threshold_search_part2.csv",
+      "rows": 378378,
+      "bytes": 50933836,
+      "sha256": "bc6338dd869ae34e1459a4024697e09986e865fbb1a2096ba796f598c66b3a26"
+    }
+  ],
+  "source_sha256": "612910823cbfd7bab2a6aed3d1bbf31f7f8dc3bf150fe5eed52977d8ea21a9ac",
+  "byte_identical_reassembly": true
+}

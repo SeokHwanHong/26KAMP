@@ -1,0 +1,3 @@
+# Local legacy RF search exports; commit the two parts and their manifest instead.
+/output/random_forest_cn7/manual_seven_scenarios_v1/threshold_search.csv
+/output/random_forest_rg3/manual_seven_scenarios_v1/threshold_search.csv

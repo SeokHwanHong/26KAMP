@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "dataset": "rg3",
+  "scenarios": 7,
+  "candidates": 756,
+  "threshold_rows": 756756,
+  "oof_rows": 472,
+  "test_rows": 119,
+  "selection_manifest_sha256": "7d317281e9b3abaa54c9bdc6966ccc664641f6020e1b88f51a6129bde2df39eb"
+}

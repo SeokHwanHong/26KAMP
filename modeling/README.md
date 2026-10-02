@@ -2,6 +2,30 @@
 
 현재 분석의 진입점은 데이터별 통합본입니다.
 
+## 랜덤 포레스트 결과 공유
+
+RF 통합본은 `random_forest_cn7_integrated.ipynb`와 `random_forest_rg3_integrated.ipynb`입니다.
+`output/random_forest_{cn7,rg3}/manual_seven_scenarios_v1/`의 전체 탐색 결과는
+`threshold_search_part1.csv`, `threshold_search_part2.csv` 및
+`threshold_search_parts.json`을 **함께 커밋**하세요. 두 CSV는 요약본이나 별도
+실험 버전이 아니라, 같은 탐색 결과를 원래 행 순서대로 나눈 조각입니다.
+각 파일에 동일한 헤더가 있으며, 합계는 756,756행입니다. 값과 모델 선택 기준은 변경하지 않습니다.
+
+통합 노트북은 두 조각의 해시·헤더·행 수를 확인한 뒤 메모리에서 합쳐 검증합니다.
+전체 재실행도 단일 대용량 CSV 대신 두 조각을 저장합니다. 기존 단일 CSV만 있는
+환경은 계속 읽을 수 있으나, 조각 중 하나가 누락되거나 변경되면 오류를 내어 불완전한 결과 사용을 막습니다.
+기존 `threshold_search.csv`는 로컬 백업으로 남기고 `.gitignore`로 업로드에서 제외합니다.
+팀원은 분할 파일 3개와 기존 데이터·분할·결과 파일을 함께 받아야 합니다.
+`.gitignore`와 `.gitattributes`, 수정한 RF 소스·통합 노트북도 함께 커밋하세요.
+`.gitattributes`는 분할 CSV의 줄바꿈을 Git이 변환하지 않게 하여 다른 PC에서도 해시 검사가 통과하도록 합니다.
+
+기존 단일 CSV를 최초 분할할 때만 다음을 실행하세요. 이미 분할 파일이 있으면
+덮어쓰지 않습니다. 일반 모델링 실행에서는 이 분할 스크립트가 필요하지 않습니다.
+
+```powershell
+python modeling/split_rf_threshold_search.py cn7 rg3
+```
+
 랜덤 포레스트 구현은 [전용 모델링 매뉴얼](RANDOM_FOREST_MODELING_MANUAL.md)을 참고하세요. 트리 구조·클래스 가중치·임계값의 F1 탐색, OOF 예제와 공정군 중요도 검증을 정리했습니다.
 
 로지스틱 회귀 구현은 [전용 모델링 매뉴얼](LOGISTIC_REGRESSION_MODELING_MANUAL.md)을 참고하세요. L2 기준 모델, C·클래스 가중치·임계값의 공동 탐색, 코드 예제와 결과 검증 절차를 포함합니다.

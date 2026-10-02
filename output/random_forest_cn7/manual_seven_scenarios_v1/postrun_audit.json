@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "dataset": "cn7",
+  "scenarios": 7,
+  "candidates": 756,
+  "threshold_rows": 756756,
+  "oof_rows": 484,
+  "test_rows": 122,
+  "selection_manifest_sha256": "16a930120c96c23e5cf8fa11a259a20720c54d3a1e6a289d994b180c6567199b"
+}
