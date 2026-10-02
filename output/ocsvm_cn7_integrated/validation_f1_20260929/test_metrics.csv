@@ -1,2 +1,0 @@
-status,scenario,threshold,TP,FN,FP,TN,recall,FPR,precision,F1,F2,AP_reference,ROC_AUC_reference
-selected_for_followup,legacy_without_cycle,0.002511886431509582,0,3,0,119,0.0,0.0,0.0,0.0,0.0,0.06150793650793651,0.7535014005602241

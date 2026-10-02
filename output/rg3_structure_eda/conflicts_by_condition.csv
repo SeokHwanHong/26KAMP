@@ -1,5 +1,0 @@
-condition_group,patterns,conflicting_patterns,normal_only_patterns,conflicting_pattern_fraction,original_rows,defect_rows,observed_defect_fraction
-G1,3,0,3,0.0,6,0,0.0
-G2,241,10,231,0.04149377593360996,482,10,0.02074688796680498
-G3,342,15,327,0.043859649122807015,684,15,0.021929824561403508
-G4,5,0,5,0.0,10,0,0.0

@@ -1,7 +1,0 @@
-method,alternative_representation,ARI_vs_supplied
-Ward,rank_23,0.8245812504064064
-Ward,rank_21,0.5017979130776627
-KMedoids,rank_23,0.8561886537918958
-KMedoids,rank_21,0.7766063181048041
-KMeans,rank_23,0.9073334913260498
-KMeans,rank_21,0.9138021460973587

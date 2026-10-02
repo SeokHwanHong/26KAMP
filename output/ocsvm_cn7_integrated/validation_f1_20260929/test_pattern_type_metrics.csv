@@ -1,3 +1,0 @@
-pattern_type,rows,TP,FN,FP,TN,recall,FPR,precision,F1,F2
-conflicting,3,0,3,0,0,0.0,0.0,0.0,0.0,0.0
-normal_only,119,0,0,0,119,0.0,0.0,0.0,0.0,0.0
