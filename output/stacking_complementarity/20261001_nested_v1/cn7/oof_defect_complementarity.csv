@@ -1,0 +1,12 @@
+row,label,random_forest_inspection_probability,relationship_inspection_probability,isolation_forest_inspection_probability
+24,1,1.0,0.0,0.0
+40,1,1.0,0.0,0.0
+48,1,1.0,1.0,1.0
+52,1,1.0,0.0,0.0
+53,1,1.0,0.0,0.0
+54,1,1.0,0.0,1.0
+55,1,1.0,1.0,1.0
+56,1,0.0,1.0,1.0
+58,1,1.0,1.0,1.0
+59,1,1.0,1.0,1.0
+60,1,1.0,1.0,1.0

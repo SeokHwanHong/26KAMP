@@ -1,0 +1,50 @@
+{
+  "protocol": "temporal_assumed",
+  "dataset": "rg3",
+  "target": "original row label; file order assumed temporal",
+  "first_validation_row_1based": 714,
+  "first_test_row_1based": 950,
+  "gap": 3,
+  "split_counts": [
+    707,
+    233,
+    233
+  ],
+  "split_defects": [
+    16,
+    4,
+    5
+  ],
+  "status": "completed",
+  "validation_selected": "ridge_unsupervised_top3",
+  "validation_F1": 0.14285714285714285,
+  "test": {
+    "model": "ridge_unsupervised_top3",
+    "selected_on_validation": true,
+    "threshold": 3.9550313500704783,
+    "n": 233,
+    "positives": 5,
+    "TP": 0,
+    "FP": 17,
+    "FN": 5,
+    "TN": 211,
+    "precision": 0.0,
+    "recall": 0.0,
+    "FPR": 0.07456140350877193,
+    "F1": 0.0,
+    "AP": 0.05536715099175467,
+    "AUC": 0.7166666666666668
+  },
+  "recall_binomial_95_interval": [
+    0.0,
+    0.5218237501049814
+  ],
+  "interval_note": "descriptive exact-binomial interval; independence may fail, selection/data shift not covered",
+  "selection_frozen_before_test": true,
+  "model_reload_identical": true,
+  "retained_relations": {
+    "ridge": 16,
+    "extra": 17
+  },
+  "test_role": "previously inspected follow-up; no deployment claim"
+}

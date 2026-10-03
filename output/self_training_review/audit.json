@@ -1,0 +1,238 @@
+{
+  "notebooks": {
+    "ocsvm_cn7_integrated": {
+      "code_cells": 21,
+      "syntax": "pass",
+      "executed_cells": 21,
+      "saved_errors": []
+    },
+    "ocsvm_rg3_integrated": {
+      "code_cells": 21,
+      "syntax": "pass",
+      "executed_cells": 21,
+      "saved_errors": []
+    },
+    "self_training_ocsvm": {
+      "code_cells": 16,
+      "syntax": "pass",
+      "executed_cells": 0,
+      "saved_errors": []
+    }
+  },
+  "datasets": {
+    "cn7": {
+      "labeled_patterns": 606,
+      "risk_patterns": 14,
+      "pattern_types": {
+        "normal_only": 592,
+        "conflicting": 11,
+        "defect_only": 3
+      },
+      "development_normal": 473,
+      "unlabeled_rows": 35239,
+      "registered_patterns": 28771,
+      "rows_retained_in_new_pattern_source_ids": 35238,
+      "rows_not_retained_in_new_pattern_source_ids": 1,
+      "batches": [
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4892,
+          "within_batch_duplicate_rows": 108,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4892,
+          "source_id_min": 114610,
+          "source_id_max": 532198
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4820,
+          "within_batch_duplicate_rows": 180,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4820,
+          "source_id_min": 532202,
+          "source_id_max": 579292
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4762,
+          "within_batch_duplicate_rows": 238,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4762,
+          "source_id_min": 579294,
+          "source_id_max": 665085
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4995,
+          "within_batch_duplicate_rows": 5,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4995,
+          "source_id_min": 665088,
+          "source_id_max": 690917
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 3349,
+          "within_batch_duplicate_rows": 1651,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 3349,
+          "source_id_min": 690919,
+          "source_id_max": 757342
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 3332,
+          "within_batch_duplicate_rows": 1668,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 3332,
+          "source_id_min": 757343,
+          "source_id_max": 764905
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 2502,
+          "within_batch_duplicate_rows": 2498,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 2502,
+          "source_id_min": 764909,
+          "source_id_max": 776738
+        },
+        {
+          "batch_rows": 239,
+          "batch_patterns": 120,
+          "within_batch_duplicate_rows": 119,
+          "already_seen_patterns": 1,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 119,
+          "source_id_min": 776739,
+          "source_id_max": 777220
+        }
+      ],
+      "constant_in_labeled_but_variable_in_unlabeled": [
+        "Clamp_Open_Position"
+      ]
+    },
+    "rg3": {
+      "labeled_patterns": 591,
+      "risk_patterns": 25,
+      "pattern_types": {
+        "normal_only": 566,
+        "conflicting": 25
+      },
+      "development_normal": 452,
+      "unlabeled_rows": 35941,
+      "registered_patterns": 29707,
+      "rows_retained_in_new_pattern_source_ids": 35939,
+      "rows_not_retained_in_new_pattern_source_ids": 2,
+      "batches": [
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4983,
+          "within_batch_duplicate_rows": 17,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4983,
+          "source_id_min": 119515,
+          "source_id_max": 141853
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4047,
+          "within_batch_duplicate_rows": 953,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4047,
+          "source_id_min": 141856,
+          "source_id_max": 235682
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4631,
+          "within_batch_duplicate_rows": 369,
+          "already_seen_patterns": 1,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4630,
+          "source_id_min": 235683,
+          "source_id_max": 349963
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4057,
+          "within_batch_duplicate_rows": 943,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4057,
+          "source_id_min": 349964,
+          "source_id_max": 414647
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4977,
+          "within_batch_duplicate_rows": 23,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4977,
+          "source_id_min": 414650,
+          "source_id_max": 460287
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 4041,
+          "within_batch_duplicate_rows": 959,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 4041,
+          "source_id_min": 460294,
+          "source_id_max": 782147
+        },
+        {
+          "batch_rows": 5000,
+          "batch_patterns": 2502,
+          "within_batch_duplicate_rows": 2498,
+          "already_seen_patterns": 0,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 2502,
+          "source_id_min": 782153,
+          "source_id_max": 793292
+        },
+        {
+          "batch_rows": 941,
+          "batch_patterns": 471,
+          "within_batch_duplicate_rows": 470,
+          "already_seen_patterns": 1,
+          "labeled_overlap_patterns": 0,
+          "new_patterns": 470,
+          "source_id_min": 793293,
+          "source_id_max": 795309
+        }
+      ],
+      "constant_in_labeled_but_variable_in_unlabeled": [
+        "Clamp_Open_Position"
+      ]
+    }
+  },
+  "repeat_pattern_probe": {
+    "first_source_ids": [
+      "[1]"
+    ],
+    "second_output_rows": 0,
+    "second_quality": {
+      "batch_rows": 1,
+      "batch_patterns": 1,
+      "within_batch_duplicate_rows": 0,
+      "already_seen_patterns": 1,
+      "labeled_overlap_patterns": 0,
+      "new_patterns": 0,
+      "source_id_min": 2,
+      "source_id_max": 2
+    }
+  },
+  "constant_reference_psi_probe": 0.0
+}

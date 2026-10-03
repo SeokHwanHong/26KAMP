@@ -1,0 +1,312 @@
+{
+  "cn7": {
+    "sha256": "f870b0c259297f20d503f2e2739966553e5db5ef1deb0cc7513eefa4bbfa2753",
+    "rows": 1211,
+    "defects": 17,
+    "first_defect_row_1based": 48,
+    "last_defect_row_1based": 121,
+    "id_monotonic": true,
+    "id_gaps": {
+      "1.0": 1210
+    },
+    "same_previous_by_label": {
+      "0": {
+        "rows_excluding_first": 1193,
+        "same_previous": 566
+      },
+      "1": {
+        "rows_excluding_first": 17,
+        "same_previous": 4
+      }
+    },
+    "conflicting_patterns": 11,
+    "conflict_pairs": 11,
+    "conflict_pair_offsets": {
+      "-1": 10,
+      "1": 1
+    },
+    "past_context_equal_pair_counts": {
+      "past_1": 0,
+      "past_3": 0,
+      "past_5": 0
+    },
+    "blocks": [
+      {
+        "block": 1,
+        "first_row": 1,
+        "last_row": 122,
+        "rows": 122,
+        "defects": 17
+      },
+      {
+        "block": 2,
+        "first_row": 123,
+        "last_row": 243,
+        "rows": 121,
+        "defects": 0
+      },
+      {
+        "block": 3,
+        "first_row": 244,
+        "last_row": 364,
+        "rows": 121,
+        "defects": 0
+      },
+      {
+        "block": 4,
+        "first_row": 365,
+        "last_row": 485,
+        "rows": 121,
+        "defects": 0
+      },
+      {
+        "block": 5,
+        "first_row": 486,
+        "last_row": 606,
+        "rows": 121,
+        "defects": 0
+      },
+      {
+        "block": 6,
+        "first_row": 607,
+        "last_row": 727,
+        "rows": 121,
+        "defects": 0
+      },
+      {
+        "block": 7,
+        "first_row": 728,
+        "last_row": 848,
+        "rows": 121,
+        "defects": 0
+      },
+      {
+        "block": 8,
+        "first_row": 849,
+        "last_row": 969,
+        "rows": 121,
+        "defects": 0
+      },
+      {
+        "block": 9,
+        "first_row": 970,
+        "last_row": 1090,
+        "rows": 121,
+        "defects": 0
+      },
+      {
+        "block": 10,
+        "first_row": 1091,
+        "last_row": 1211,
+        "rows": 121,
+        "defects": 0
+      }
+    ],
+    "context_signatures": [
+      {
+        "previous_rows": 0,
+        "eligible_rows": 1211,
+        "unique_contexts": 606,
+        "conflicting_contexts": 11,
+        "repeated_contexts": 605
+      },
+      {
+        "previous_rows": 1,
+        "eligible_rows": 1210,
+        "unique_contexts": 1201,
+        "conflicting_contexts": 0,
+        "repeated_contexts": 9
+      },
+      {
+        "previous_rows": 3,
+        "eligible_rows": 1208,
+        "unique_contexts": 1208,
+        "conflicting_contexts": 0,
+        "repeated_contexts": 0
+      },
+      {
+        "previous_rows": 5,
+        "eligible_rows": 1206,
+        "unique_contexts": 1206,
+        "conflicting_contexts": 0,
+        "repeated_contexts": 0
+      }
+    ],
+    "change_rule_all_descriptive": {
+      "TP": 13,
+      "FP": 627,
+      "FN": 4,
+      "TN": 566
+    },
+    "change_rule_last20pct_descriptive": {
+      "TP": 0,
+      "FP": 124,
+      "FN": 0,
+      "TN": 119
+    },
+    "chronological_60_20_20_defects": [
+      17,
+      0,
+      0
+    ],
+    "unlabeled_rows": 35239,
+    "unlabeled_id_monotonic": true,
+    "unlabeled_id_gap_median": 2.0,
+    "unlabeled_same_previous": 6467
+  },
+  "rg3": {
+    "sha256": "14aab21476eea02c823ccb00f82800040280d805dbce5a3eb7c11b176a9e5aa4",
+    "rows": 1182,
+    "defects": 25,
+    "first_defect_row_1based": 137,
+    "last_defect_row_1based": 1133,
+    "id_monotonic": true,
+    "id_gaps": {
+      "1.0": 1181
+    },
+    "same_previous_by_label": {
+      "0": {
+        "rows_excluding_first": 1156,
+        "same_previous": 572
+      },
+      "1": {
+        "rows_excluding_first": 25,
+        "same_previous": 2
+      }
+    },
+    "conflicting_patterns": 25,
+    "conflict_pairs": 25,
+    "conflict_pair_offsets": {
+      "-1": 23,
+      "1": 2
+    },
+    "past_context_equal_pair_counts": {
+      "past_1": 0,
+      "past_3": 0,
+      "past_5": 0
+    },
+    "blocks": [
+      {
+        "block": 1,
+        "first_row": 1,
+        "last_row": 119,
+        "rows": 119,
+        "defects": 0
+      },
+      {
+        "block": 2,
+        "first_row": 120,
+        "last_row": 238,
+        "rows": 119,
+        "defects": 4
+      },
+      {
+        "block": 3,
+        "first_row": 239,
+        "last_row": 356,
+        "rows": 118,
+        "defects": 6
+      },
+      {
+        "block": 4,
+        "first_row": 357,
+        "last_row": 474,
+        "rows": 118,
+        "defects": 3
+      },
+      {
+        "block": 5,
+        "first_row": 475,
+        "last_row": 592,
+        "rows": 118,
+        "defects": 1
+      },
+      {
+        "block": 6,
+        "first_row": 593,
+        "last_row": 710,
+        "rows": 118,
+        "defects": 2
+      },
+      {
+        "block": 7,
+        "first_row": 711,
+        "last_row": 828,
+        "rows": 118,
+        "defects": 3
+      },
+      {
+        "block": 8,
+        "first_row": 829,
+        "last_row": 946,
+        "rows": 118,
+        "defects": 1
+      },
+      {
+        "block": 9,
+        "first_row": 947,
+        "last_row": 1064,
+        "rows": 118,
+        "defects": 3
+      },
+      {
+        "block": 10,
+        "first_row": 1065,
+        "last_row": 1182,
+        "rows": 118,
+        "defects": 2
+      }
+    ],
+    "context_signatures": [
+      {
+        "previous_rows": 0,
+        "eligible_rows": 1182,
+        "unique_contexts": 591,
+        "conflicting_contexts": 25,
+        "repeated_contexts": 591
+      },
+      {
+        "previous_rows": 1,
+        "eligible_rows": 1181,
+        "unique_contexts": 1177,
+        "conflicting_contexts": 0,
+        "repeated_contexts": 4
+      },
+      {
+        "previous_rows": 3,
+        "eligible_rows": 1179,
+        "unique_contexts": 1179,
+        "conflicting_contexts": 0,
+        "repeated_contexts": 0
+      },
+      {
+        "previous_rows": 5,
+        "eligible_rows": 1177,
+        "unique_contexts": 1177,
+        "conflicting_contexts": 0,
+        "repeated_contexts": 0
+      }
+    ],
+    "change_rule_all_descriptive": {
+      "TP": 23,
+      "FP": 584,
+      "FN": 2,
+      "TN": 572
+    },
+    "change_rule_last20pct_descriptive": {
+      "TP": 5,
+      "FP": 116,
+      "FN": 0,
+      "TN": 116
+    },
+    "chronological_60_20_20_defects": [
+      16,
+      4,
+      5
+    ],
+    "unlabeled_rows": 35941,
+    "unlabeled_id_monotonic": true,
+    "unlabeled_id_gap_median": 2.0,
+    "unlabeled_same_previous": 6233
+  }
+}

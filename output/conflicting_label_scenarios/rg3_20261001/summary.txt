@@ -1,0 +1,19 @@
+RG3 충돌 라벨 가정 비교
+원본 라벨을 변경하지 않고 동일한 24개 입력 패턴으로 비교함.
+원본 1182행 / 고유 입력 591개 / 충돌 25개
+
+{'scenario': 'assume_normal', 'partition': 'all', 'patterns': 591, 'normal': 591, 'defect': 0}
+{'scenario': 'assume_normal', 'partition': 'development', 'patterns': 472, 'normal': 472, 'defect': 0}
+{'scenario': 'assume_normal', 'partition': 'test', 'patterns': 119, 'normal': 119, 'defect': 0}
+{'scenario': 'assume_defect', 'partition': 'all', 'patterns': 591, 'normal': 566, 'defect': 25}
+{'scenario': 'assume_defect', 'partition': 'development', 'patterns': 472, 'normal': 452, 'defect': 20}
+{'scenario': 'assume_defect', 'partition': 'test', 'patterns': 119, 'normal': 114, 'defect': 5}
+
+A. 충돌을 모두 정상: 591개 패턴 전부 정상. 불량 정답이 0개이므로 불량 분류 학습·탐지 검증 불가.
+모두 정상으로 출력하면 가정된 라벨에 정확도 100%이지만 불량 탐지 성능의 증거가 아님.
+B. 충돌을 모두 불량: 정상 566개, 불량 가정 25개. 기존 위험 패턴 라벨과 완전히 일치.
+입력·라벨·테스트 행·원본 해시 일치를 확인했으므로 동일한 재학습은 반복하지 않고 기존 결과를 재사용.
+B의 테스트 상위 12개 검사: RF 0/5, 관계잔차 1/5, IF 0/5, 단순결합 1/5, 학습결합 0/5.
+결론: 가정 비교는 가능하지만 이 결과로 어느 라벨이 진짜인지 판정할 수 없음.
+테스트 정답까지 가정으로 바꾸면 그 가정에 대한 적합도만 측정하게 됨.
+진위를 비교하려면 라벨이 확인된 별도 평가 자료가 필요함.

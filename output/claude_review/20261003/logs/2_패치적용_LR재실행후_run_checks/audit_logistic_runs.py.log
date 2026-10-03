@@ -1,0 +1,24 @@
+[
+  {
+    "dataset": "cn7",
+    "run": "output/logistic/cn7/lr-20261003T044833Z-eb364aef",
+    "passed": true,
+    "joint_trials_verified": 240240,
+    "candidate_selection_reproduced": true,
+    "source_hashes_current": true,
+    "oof_exactly_once": true,
+    "fold_roles_verified": true,
+    "test_predictions_reproduced": true
+  },
+  {
+    "dataset": "rg3",
+    "run": "output/logistic/rg3/lr-20261003T044850Z-ce86d457",
+    "passed": true,
+    "joint_trials_verified": 240240,
+    "candidate_selection_reproduced": true,
+    "source_hashes_current": true,
+    "oof_exactly_once": true,
+    "fold_roles_verified": true,
+    "test_predictions_reproduced": true
+  }
+]

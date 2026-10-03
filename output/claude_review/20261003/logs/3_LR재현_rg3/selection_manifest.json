@@ -1,0 +1,30 @@
+{
+  "choice": {
+    "threshold": 0.012,
+    "TP": 20,
+    "FP": 408,
+    "FN": 0,
+    "TN": 44,
+    "recall": 1.0,
+    "FPR": 0.9026548672566371,
+    "F1": 0.08928571428571429,
+    "F1_std": 0.0034112339274337588,
+    "mean_fold_F1": 0.08938261328129478,
+    "worst_fold_F1": 0.08620689655172414,
+    "precision": 0.04672897196261682,
+    "recall_std": 0.0,
+    "worst_fold_recall": 1.0,
+    "max_fold_FPR": 0.9380530973451328,
+    "mean_AP_reference": 0.037166630057361504,
+    "mean_ROC_AUC_reference": 0.3420353982300885,
+    "candidate_id": 164,
+    "scenario": "thermal",
+    "C": 0.31622776601683794,
+    "class_weight": "none",
+    "feature_count": 27,
+    "max_n_iter": 23
+  },
+  "rule": "pooled OOF F1, fold F1 std, feature count, candidate ID, threshold",
+  "test_used": false,
+  "config_sha256": "3c6f89a967c46c4abd678a6d7daf2d3cf090eea847973c8e7d1d40be2764dee0"
+}

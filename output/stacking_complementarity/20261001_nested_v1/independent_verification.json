@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "tie_tests": 2,
+  "checks": [
+    {
+      "dataset": "cn7",
+      "rows_disjoint": true,
+      "metrics_recomputed": true,
+      "selection_verified": true
+    },
+    {
+      "dataset": "rg3",
+      "rows_disjoint": true,
+      "metrics_recomputed": true,
+      "selection_verified": true
+    }
+  ]
+}

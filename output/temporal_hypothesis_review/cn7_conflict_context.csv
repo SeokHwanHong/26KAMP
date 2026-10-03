@@ -1,0 +1,12 @@
+pattern,normal_row_1based,defect_row_1based,defect_minus_normal_rows,past_1_identical,past_3_identical,past_5_identical
+24,49,48,-1,False,False,False
+40,80,81,1,False,False,False
+48,97,96,-1,False,False,False
+50,101,100,-1,False,False,False
+51,103,102,-1,False,False,False
+52,105,104,-1,False,False,False
+53,107,106,-1,False,False,False
+54,109,108,-1,False,False,False
+55,111,110,-1,False,False,False
+56,113,112,-1,False,False,False
+57,115,114,-1,False,False,False

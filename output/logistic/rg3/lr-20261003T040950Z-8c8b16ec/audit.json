@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "artifact_sha256": {
+    "candidate_search.csv": "e5acac680567db04f6b825afdeb302954fe9dfb7357d6e262d842cc28c296e1e",
+    "coefficients.csv": "502cde5a5b275c6cc27867e1ac7491d6a58ca3d597bc9aca4880338739e57773",
+    "coefficient_notes.json": "d32d6c8b412edd8cdaab79149d10fac008d4b65bcc81d95e85cecadc3e5fe50a",
+    "distribution_guidance.csv": "8cb87bfff618cc02fe14ac1a219764cc0cda4b1e14ac837b4a01225465c0b7ee",
+    "distribution_guidance.json": "ca62f21c5182511de9a871faf23604a41b323c63a5adc9a661fbc00b9617ef43",
+    "distribution_guidance.txt": "87eca6324439ad737ffcb2305a7c2587389d6f80875e627726816aed4f9a634d",
+    "failed_candidates.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fold_audit.json": "4115b6fd1e24443d15b6eff2f47e3e1a236e77dafc533ff6a10b9757de5d3706",
+    "model.joblib": "d6c3f96f530f79cec5a2d51b2a931714f6087e3840623d5e6e74cb7159d4c07c",
+    "run_config.json": "a2c73ea4e0d855e9da4a6f3dcbadd7e8ed3af3840fe3d709da996936fa3c9b78",
+    "selected_oof_predictions.csv": "69f8b4489972bde0d59af4cc19730412a994cb4141cce42a4d863161cdcb2b75",
+    "selection_manifest.json": "82820f4ef3d3c77a64343040bc75e289339f3acbfc4ccd2e082ae51dfa260e12",
+    "test_metrics.json": "8a687b6ba4b27e234de9912b4dc5aaf7607fbde5730f8fd00c6deab7435cd7dd",
+    "test_predictions.csv": "5f52f2c068ecf3b02fc81d0b31e9c312ac331b1f62446ae0d438479ea6e7e00d",
+    "threshold_search.csv": "c9b423773d95e101687f1f7216e96049fed5e096a94d7e7587caeab8bcaaeb45"
+  },
+  "oof_exactly_once": true,
+  "model_reload_identical": true,
+  "threshold_frozen": true,
+  "train_count": 472,
+  "searched_candidates": 240,
+  "completed_candidates": 240,
+  "failures": 0
+}

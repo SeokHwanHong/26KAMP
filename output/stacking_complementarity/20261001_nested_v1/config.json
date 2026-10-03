@@ -1,0 +1,16 @@
+{
+  "seed": 42,
+  "inner_folds": 3,
+  "outer_folds": "existing 4 folds",
+  "meta_C": 0.1,
+  "primary_budget": 0.1,
+  "secondary_budgets": [
+    0.2,
+    0.3
+  ],
+  "target": "exact-input pattern has any observed defect history",
+  "relation": "Ridge residual top3, trained on normal training patterns only",
+  "selection": "OOF expected TP at top 10%; ties AP then model name",
+  "caveat": "Previously inspected test; exploratory, not independent deployment validation",
+  "code_sha256": "504f95d25c7617b2a3e25122809bfea12c35c21c97d079553412505b0a9df746"
+}

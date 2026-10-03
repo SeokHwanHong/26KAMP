@@ -1,0 +1,15 @@
+[
+ {
+  "batch": "batch-20261003T045106Z-58ba9437",
+  "status": "accepted",
+  "drift": "watch",
+  "streak": 1
+ },
+ {
+  "batch": "batch-20261003T045107Z-b9d80cc5",
+  "status": "accepted",
+  "drift": "review",
+  "streak": 2
+ }
+]
+CT candidate created from one physical lot sent twice: lr-20261003T045108Z-41e3ae3d

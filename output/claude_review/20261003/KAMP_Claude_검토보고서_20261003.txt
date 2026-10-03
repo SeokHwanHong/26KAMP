@@ -1,0 +1,230 @@
+KAMP 코드 리뷰·테스트 재현 보고서 (Claude)
+작성일: 2026-10-03
+대상: D:\workspace\kamp 최신 소스 + exports\KAMP_20261003_구현_로지스틱테스트_전체기록.zip
+기준 요청: exports\Claude_KAMP_프로젝트학습_테스트_검토_프롬프트.txt
+
+======================================================================
+0. 실행 환경과 한계 (먼저 읽기)
+======================================================================
+- 실행 위치: Claude 클라우드 작업공간(Linux). 사용자 PC에서 직접 실행하지 않았다.
+- 소스: 전달 ZIP을 풀어 사용. 03.modeling·02.preprocessing·data 파일은 현재 D:\workspace\kamp와
+  바이트 단위로 동일함을 비교 확인했다.
+- 버전 차이: 이곳은 Python 3.11.15 / scikit-learn 1.8.0 / numpy 2.4.4 / pandas 3.0.2.
+  프로젝트 검증 환경(Python 3.14.6 / scikit-learn 1.9.0)과 다르며, PyPI 접근이 차단돼 맞출 수 없었다.
+- IPython 미설치: 운영 코드가 ocsvm.ipynb 셀에서 `from IPython.display import ...`를 실행하므로
+  최초 실행은 4개 스크립트 모두 import 단계에서 실패했다. 테스트를 진행하기 위해 작업공간 밖
+  임시 폴더에 빈 IPython.display 대체 모듈(shim)을 두고 PYTHONPATH로만 주입했다.
+  프로젝트 소스는 수정하지 않았다.
+- 원본 데이터·분할·runtime·기존 LR 결과는 작업 전후 해시가 동일하다(158개 파일, 변경 0).
+- 운영 포인터 변경, 실제 runtime 교체는 하지 않았다. CT/CD 확인은 모두 임시 state_root에서 수행했다.
+- 합성 데이터 테스트는 기술 동작 검증이며 제조 공정 성능이 아니다.
+
+======================================================================
+1. 이해한 전체 아키텍처와 학습 흐름
+======================================================================
+[데이터 계약]
+- CN7·RG3는 데이터·모델·버전·runtime 폴더를 완전히 분리한다.
+- 입력은 공정 변수 24개(data/schema/input_features.json, 열 순서까지 강제). ID·라벨·fold 제외.
+- 24개 값이 정확히 같은 행을 한 패턴으로 묶고 라벨 = max(PassOrFail) = "위험 이력 패턴".
+  CN7 1,211행→606패턴(정상592/위험14, 충돌11·불량만3), RG3 1,182행→591패턴(566/25, 전부 충돌).
+- 고정 분할: Test 20% + 개발 4-fold. CN7 개발484/Test122, RG3 개발472/Test119.
+
+[초기 학습 단계 — 03.modeling/models]
+- IF(04.1): fold train 정상으로 학습, 점수 = 이상도·검사 순위(불량 확률 아님). 최종 IF는 고정 버전.
+- OCSVM(ocsvm.ipynb): 정상 train만 적합, 7시나리오×616설정×93임계값, 합산 OOF F1 선택.
+  기본 TRAIN_ORDER='original'(IF와 독립), 'if_desc'는 선택적 비교 모드.
+- LR(logistic_regression.py): 8입력구성 × C=logspace(-4,3,15) × 가중치{None,balanced} = 240설정,
+  임계값 1,001개, 판정 p > t, 같은 후보의 모든 fold에 같은 t. 합산 OOF F1 → 동률 시
+  fold F1 표준편차·입력 수·후보ID·임계값 규칙. 개발 전체 재학습 후 같은 t로 Test 후속 평가.
+  raw_alltrain_scaled는 train 전체로 상수제거·scaler 적합. 도메인 구성은 정상 train에만 도메인 변환을
+  적합하고 LR은 train 전체로 학습(테스트로 확인: 도메인 scaler 표본=정상 수, 최종 scaler=개발 전체).
+- RF: 운영 공통에 고정 기준 모델(max_depth5 등)과 전체 재학습만 있고, 매뉴얼 전체 탐색은 미실행.
+
+[운영 단계 — common/pipeline_runtime.py, pipeline_cli.py, 04_operations.ipynb]
+1 데이터 준비 → 2 패턴 전처리(preprocess: 지문=24값 sha256, 제품 빈도·원본 ID 보존)
+→ 3 초기 모델·기준선(create_baseline: 개발 패턴을 제품 빈도만큼 복원, Test 제외)
+→ 4 배치 추론(ingest: 좌표 정합 선언 없으면 보류, 저장 변환 사용·재적합 없음)
+→ 5 드리프트(detect: 값별/분위 구간/2변수 조합/같은 버전 점수·예측 비율의 TV 거리,
+   제품≥200·고유패턴≥40 누적 대기, 참조 부트스트랩 99% 분위 = 시험 경보선, 2회 연속 → review)
+→ 6 CT(retrain: review 상태·원인 기록·라벨 배치 필수, 기존 corpus+신규를 max 라벨로 재집계,
+   Test·등록 평가 패턴 차단, IF/OCSVM은 정상만, LR/RF는 전체로 "전체 재학습", 후보만 생성)
+→ 7 CD(evaluate: 동일 평가 자료로 현재·후보 비교, 정상≥30·위험≥5, 분류는 F1 개선+Recall 유지+FPR≤0.2,
+   IF는 동일 검사량 기대 탐지 수 증가 / promote: 해시 재확인 후 해당 모델만 교체, rollback 지원)
+- 비라벨은 정합 확인 후 추론·감지만, 재학습 제외. 의사 라벨(pseudo-label) 경로 없음.
+
+======================================================================
+2. 구현·검증 상태 구분
+======================================================================
+| 항목 | 구현 | 기술 테스트 | 현장 검증 | 비고 |
+|---|---|---|---|---|
+| 패턴 전처리·분할 | 완료 | 통과 | 해당 없음 | 재현 해시 일치 |
+| IF 초기 모델 | 완료 | 통과(24회 회귀에 포함) | 미검증 | 고정 버전 |
+| OCSVM 초기 탐색 | 완료 | 통과(6×4=24) | 미검증 | 전체 7×616 탐색은 미재실행 |
+| LR 전체 탐색 | 완료 | 통과 + 이곳에서 독립 재실행 | 미검증 | 선택 결과 동일 재현 |
+| RF | 고정 기준·전체 재학습만 | 합성 CT 통과 | 미검증 | 매뉴얼 탐색 미구현 |
+| 배치 추론·드리프트 | 완료 | 합성 통과 | 미검증 | 경보선은 시험값 |
+| 모델별 CT(4종) | 전체 재학습만 | 합성 통과 | 미검증 | 점진 학습 없음 |
+| CD 승격·롤백 | 완료 | 합성 통과 | 미검증 | 실제 교체 안 함 |
+| RG3 구간 안내 | 완료 | 통과 | 미검증 | 기술통계 |
+| 웹·DB·스케줄러 | 미구현 | - | - | 문서상 범위 밖 |
+
+======================================================================
+3. 실행 명령·결과
+======================================================================
+환경: Python 3.11.15, sklearn 1.8.0 (+ IPython shim, PYTHONPATH 주입)
+
+(A) 원본 코드, shim 없음: python 03.modeling/tests/run_checks.py
+    → 4개 모두 FAIL. 원인: ModuleNotFoundError: IPython (코드 결함 아님, 의존성)
+    로그: logs/0_원본코드_shim없음_run_checks/
+
+(B) 원본 코드, shim 적용: run_checks.py
+    test_operations.py              12/12 통과
+    test_existing_ocsvm.py          24/24 통과 (cn7·rg3 × original·if_desc × 6)
+    test_registration_and_logistic  6/7 통과, 1 실패
+    audit_logistic_runs.py          실패
+    runtime_unchanged = true
+    두 실패의 원인은 동일: 저장 Test 확률과 재계산 확률을 assert_array_equal(비트 단위)로 비교.
+    최대 차이 4.4e-16(cn7), 8.3e-17(rg3) — sklearn/numpy 버전 차이의 부동소수 오차.
+    로그: logs/1_원본코드_run_checks/
+
+(C) 허용오차 보조 재검산(scratch 스크립트 audit_tolerant.py, 프로젝트 코드 아님)
+    두 데이터셋 모두: 소스 해시 현재와 일치, 감사 산출물 해시 일치, 240,240행 재집계,
+    F1 공식 오차 0, 선택 후보·임계값 재현, fold 역할 분리, OOF 각 1회, OOF F1 일치,
+    Test 이진 예측 완전 일치(임계값까지 최소 거리 cn7 0.035, rg3 0.00012).
+    로그: logs/audit_tolerant.out.txt
+
+(D) LR 전체 재실행(패치 사본, 새 run_id): python 03.modeling/models/logistic_regression.py --dataset both
+    약 33초. 두 데이터셋 모두 선택 결과·OOF·Test 혼동행렬이 Codex 실행과 동일.
+    단, CN7 240개 후보 중 10개는 후보별 최적 임계값이, 2개는 F1이 달랐다(모두 C≥316의 약규제 후보).
+    RG3는 240개 모두 동일. → 강한 C 후보는 환경에 따라 수치가 흔들린다.
+    로그: logs/3_LR재현_cn7/, logs/3_LR재현_rg3/
+
+(E) 패치 적용 + LR 재실행 후 run_checks.py: 4개 모두 PASS, runtime_unchanged=true
+    test_operations는 신규 테스트 포함 13/13.
+    로그: logs/2_패치적용_LR재실행후_run_checks/
+
+(F) 운영 점검 탐침(probe_ops.py, probe_dup.py — 임시 state_root, 합성 자료)
+    결과: logs/probe_ops.out.txt, logs/probe_dup.out.txt
+
+======================================================================
+4. 발견한 문제
+======================================================================
+[P2-1] 같은 배치를 다시 보내면 "지속 변화"로 집계되어 CT까지 열린다  ← 재현·수정·검증 완료
+  위치: pipeline_runtime.py Operations.ingest / detect
+  재현: 동일 CSV(같은 제품 ID 45개)를 배치 ID만 바꿔 2회 ingest
+        → 1회차 watch(streak1), 2회차 review(streak2) → retrain 후보 생성까지 성공.
+  원인: 배치 내부 ID 중복만 검사하고, 이전 배치와의 제품 ID·내용 중복은 확인하지 않음.
+        "완성 윈도의 배치는 재사용하지 않는다"는 보장은 배치 ID 기준이라 같은 내용엔 효과 없음.
+  영향: 점검 질문 3·5번. 1개 실물 로트가 지속성 조건(2회 연속)을 혼자 충족 → 재학습 검토 신호 과대.
+  수정(패치 파일 duplicate_batch_fix.patch, 원본 소스에는 적용하지 않음):
+        ingest에서 이전 배치와 (1) 내용 해시가 같거나 (2) 명시 제품 ID가 겹치면 'held'.
+        배치 manifest에 content_sha256·explicit_ids 기록. 회귀 테스트 test_resent_batch_not_counted_twice 추가.
+  검증: 신규 테스트가 원본 코드에서는 실패, 패치 코드에서는 통과. 전체 13/13 통과.
+  주의: ID가 없는 배치는 내용 해시만으로 판단한다. RG3처럼 이산값이 많은 아주 작은 배치는
+        정상적으로 같은 내용이 반복될 수 있으므로, 실제 운영에선 제품 ID 제공을 권장.
+
+[P3-1] 운영 코드를 고치면 LR 감사가 무조건 실패한다(결합도)
+  위치: tests/audit_logistic_runs.py — run_config.runtime_code_sha256 == 현재 pipeline_runtime.py
+  재현: 위 P2-1 패치만 적용 → audit FAIL(AssertionError, 16행). LR을 새로 돌려야 다시 통과.
+  영향: LR과 무관한 운영 수정(드리프트·CD)도 LR 재실행을 강제. 추적성 원칙은 맞지만 비용이 큼.
+  권고: LR이 쓰는 함수(fit_supervised·score·range_guidance 등)를 별도 모듈로 분리해 그 해시만 고정.
+
+[P3-2] 비트 단위 비교로 팀원 PC마다 테스트가 깨질 수 있다
+  위치: test_registration_and_logistic.py 74행, audit_logistic_runs.py 35행 (assert_array_equal)
+  재현: 3-(B). 차이 4e-16, 예측은 동일.
+  권고: 확률은 atol=1e-12 수준 허용 + 이진 예측은 완전 일치 + 임계값 근처(예: 1e-9 이내) 표본 경고.
+        requirements 고정만으로는 OS·BLAS 차이를 막지 못함.
+
+[P3-3] 최신 실행 폴더를 이름순으로 고르며 완료 표시가 없다
+  위치: audit_logistic_runs.py 15행, test_registration_and_logistic.py 69행 sorted(iterdir())[-1]
+  재현: 중단된 실행을 흉내 낸 빈 폴더(lr-2099...) 생성 → audit TypeError.
+  영향: 점검 질문 11번. logistic_regression.py는 out.mkdir 직후 중단되면 미완성 폴더가 남는다.
+  권고: audit.json 존재(또는 completed 마커)가 있는 폴더만 후보로 선택, 'latest' 포인터 별도 관리.
+
+[P3-4] 테스트 산출물이 고정 폴더에 덮어써지고, 감사가 과거 실행 폴더에 파일을 추가한다
+  위치: test_operations.py·test_existing_ocsvm.py·test_registration...의 output/operations_tests/20261003,
+        audit_logistic_runs.py가 LR 실행 폴더에 independent_audit.json 작성
+  영향: 원칙 "실행 결과는 새 run_id". run_checks는 로그를 run_id 폴더에 따로 복사하므로 실질 피해는 작음.
+  권고: 테스트 산출물 경로를 run_checks의 run_id로 전달, 감사 결과도 run_id 폴더에 저장.
+
+[P3-5] 05_logistic_regression.ipynb에 logistic_regression.py 전체가 복사되어 있다
+  확인: 현재 __main__ 블록만 다르고 나머지는 동일. 하지만 동기화 검사가 없다.
+  영향: 노트북에서 RUN_NEW_SEARCH=True로 돌리면 run_config.code_sha256에는 .py 해시가 기록되는데
+        실제 실행 코드는 노트북 사본 → 둘이 어긋나면 출처 기록이 틀린다.
+  권고: 노트북은 .py를 import(또는 exec)만 하도록 변경.
+
+[P3-6] 쓰기 잠금 파일이 남으면 수동 삭제 전까지 모든 쓰기 명령이 멈춘다
+  위치: Runtime.lock (O_EXCL, 만료·소유자 기록 없음). 재현: .writer.lock 생성 후 ingest → FileExistsError.
+  권고: PID·생성시각 기록, 오래된 잠금 안내 메시지.
+
+[P3-7] 운영 경로가 IPython에 의존한다
+  위치: pipeline_runtime.library()가 ocsvm.ipynb의 pipeline_library 셀을 exec → IPython.display import.
+  requirements_operations.txt에는 IPython이 직접 명시돼 있지 않다(ipykernel 경유로만 설치).
+  권고: 라이브러리 셀에서 표시용 import 제거 또는 requirements에 ipython 명시.
+
+[참고-정상 확인] 아래는 의도대로 동작함을 실행으로 확인했다.
+  NaN·inf·열 누락·문자값·배치 내 ID 중복·라벨 2·라벨 출처 누락·좌표 미확인 → 모두 'held'.
+  (열 순서만 바뀐 입력은 열 이름으로 재정렬되어 정상 처리 — 문제 아님)
+  동일 배치 ID 재사용 → 거부(FileExistsError, 'held'가 아닌 예외로 끝나는 점만 다름).
+  위험 이력 패턴을 신규 배치에서 정상으로 다시 관측 → CT corpus에서 라벨 1 유지.
+  FPR 1.0 후보·개선 없는 후보 → 승격 거부. 평가 자료 변조 → 승격 거부. 롤백 → 이전 버전 복귀.
+  기존 Test 패턴을 평가로 등록 → historical_followup 강제. 등록 LR 후보의 감사 해시·모델 해시 연결 일치.
+  지난 검토(modeling_review/20261003)의 P2 2건(등록 시 감사 대조, OCSVM run_id)은 테스트상 반영됨.
+  평가 후 정책(policy)만 바꾸면 기존 평가로 승격 가능 — 평가 당시 정책이 기록되므로 설계상 허용으로 판단.
+
+======================================================================
+5. LR 선택 결과와 해석 주의
+======================================================================
+CN7: thermal, C=10, weight=None, t=0.921
+  개발 OOF: TP5 FP0 FN6 TN473, F1=0.625 (튜닝 점수 — 독립 성능 아님)
+  Test: TP0 FP0 FN3 TN119, F1=0. 단 ROC-AUC 0.913, AP 0.279.
+  → 순위는 위험 패턴을 위쪽에 두지만 0.921이라는 높은 임계값을 아무도 넘지 못했다.
+    이전 RF·OCSVM과 같은 양상. "LR이 CN7을 잘 구분한다"도, "전혀 못 한다"도 아닌,
+    "임계값 고정 정책이 Test 3건에서 전부 실패"가 정확한 표현이다. Test를 보고 t를 낮추면 안 된다.
+RG3: thermal, C≈0.3162, weight=None, t=0.012
+  개발 OOF: TP20 FP408 FN0 TN44 (FPR 0.90), F1=0.0893
+  Test: TP5 FP110 FN0 TN4 (FPR 0.965), F1=0.0833, ROC-AUC 0.381
+  → 사실상 "거의 전부 위험" 판정이다. 개발에서 전부 위험이라 답할 때 F1=0.0813,
+    Test에서 0.0806이므로 차이는 미미하다. 위험 비율 4%에서 F1 최대화가 이런 퇴화 해를
+    고르는 구조적 한계가 드러난 것이며, ROC-AUC가 0.5 미만이라 순위 정보도 없다.
+    "재현율 100%"를 성과로 인용하면 안 된다.
+계수: 규제된 로그오즈. 인과 효과·보정된 제품 불량률이 아니다.
+종합: 현재 결과로 LR 운영 적용이 좋다고 결론 내릴 수 없다(프롬프트 판단과 동일).
+제안(재선택 아님, 다음 실험 설계용): 선택 기준에 "항상 위험" 기준선 대비 개선 조건이나
+  FPR 상한, 또는 CN7은 검사 예산(top-k) 방식 병행을 사전 등록해 검토할 만하다.
+
+======================================================================
+6. RG3 구간 안내 판단
+======================================================================
+- 구간은 개발(학습) 자료로 고정, Test는 평가 열에만 들어간다. 평가 수치로 재선택하는 경로 없음.
+- 258개 구간 중 28개만 'descriptive_only'(참조 20패턴·위험 5 이상), 230개는 표본 부족으로 표시.
+  평가 쪽은 254개가 표본 부족. 위험 0건 구간을 안전으로 표시하는 문구 없음(테스트로도 확인).
+- 문구에 제공 좌표계·패턴 단위·원인 아님·Wilson 기술통계·다중비교 미보장이 모두 들어 있다. 적절하다.
+- 보완 권고(P3): above_reference_average 플래그가 23개 구간에서 참이지만, Wilson 하한이
+  전체 평균(4.24%)을 넘는 구간은 5개뿐이다. 258개 구간을 동시에 보는 다중비교까지 고려하면
+  "평균보다 높다"는 플래그는 과대 해석을 부를 수 있다. 하한 기준 플래그를 따로 두는 편이 안전하다.
+  (CN7: 12개 중 플래그 11개, 하한>평균 6개)
+
+======================================================================
+7. 수정 후 재실행 결과
+======================================================================
+- 패치(P2-1)는 별도 사본에만 적용했다. 원본 D:\workspace\kamp 소스는 바꾸지 않았다.
+  이유: 적용 즉시 P3-1 때문에 LR 감사가 실패하므로, LR 재실행 여부를 팀이 결정해야 한다.
+- 패치 사본: LR 재실행(새 run_id) → run_checks 4/4 PASS, test_operations 13/13, runtime_unchanged=true.
+- 성능 수치는 바뀌지 않았다(패치는 운영 배치 처리 경로만 수정).
+
+======================================================================
+8. 산출물·변경 파일
+======================================================================
+output\claude_review\20261003\ (신규 폴더, 기존 파일 덮어쓰기 없음)
+- KAMP_Claude_검토보고서_20261003.txt  본 보고서
+- duplicate_batch_fix.patch             P2-1 수정안(pipeline_runtime.py, test_operations.py)
+- logs\0_원본코드_shim없음_run_checks\   IPython 없음 실패 로그
+- logs\1_원본코드_run_checks\            원본 코드 실행 로그(+summary.json)
+- logs\2_패치적용_LR재실행후_run_checks\  패치 사본 실행 로그
+- logs\3_LR재현_cn7\, 3_LR재현_rg3\      독립 재실행 선택·Test 결과
+- logs\audit_tolerant.py / probe_ops.py / probe_dup.py 및 *.out.txt  보조 검증 스크립트와 결과
+
+적용 순서 제안: (1) 패치 적용 → (2) python 03.modeling/models/logistic_regression.py --dataset both
+→ (3) python 03.modeling/tests/run_checks.py. 사용자 PC 환경(Python 3.14/sklearn 1.9.0)에서
+다시 실행해야 최종 증거가 된다. 이 보고서의 실행 증거는 버전이 다른 환경 기준이다.

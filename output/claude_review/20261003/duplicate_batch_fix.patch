@@ -1,0 +1,56 @@
+--- KAMP/03.modeling/common/pipeline_runtime.py	2026-10-03 13:43:56.467530888 +0900
++++ KAMP_patched/03.modeling/common/pipeline_runtime.py	2026-10-03 13:47:29.116554869 +0900
+@@ -366,6 +366,7 @@
+         try:
+             if not coordinates_confirmed:raise ValueError('제공 좌표/스케일 정합 확인 전 추론·드리프트 보류')
+             products,patterns=preprocess(frame,batch_id,label_source)
++            self._reject_duplicate_batch(frame,products)
+             versions=self.active()
+             if not versions:raise ValueError('운영 기준 모델 미지정')
+             predictions=products[['record_id','fingerprint']].copy()
+@@ -385,6 +386,7 @@
+                 label_source=label_source,labeled='label' in patterns,coordinates_confirmed=True,
+                 rows=len(products),patterns=len(patterns),versions=versions,
+                 confirmed_pattern_metrics=observed_metrics,
++                content_sha256=self._batch_content[0],explicit_ids=self._batch_content[1],
+                 performance_note='provided-label posthoc pattern metrics; no metrics for unlabeled batches',
+                 files={p.name:digest(p) for p in folder.glob('*.csv')})
+             with self.lock():
+@@ -395,6 +397,18 @@
+             manifest=dict(id=batch_id,status='held',reason=str(exc),created_at=now())
+             write(folder/'manifest.json',manifest);return manifest
+         return dict(**manifest,drift=self.detect())
++    def _reject_duplicate_batch(self,frame,products):
++        """Same lot re-sent under a new batch ID must not count as a second drift window."""
++        content=hashlib.sha256(pd.util.hash_pandas_object(
++            products.drop(columns='record_id').sort_values('fingerprint',kind='stable'),index=False).values.tobytes()).hexdigest()
++        explicit=any(c in frame for c in ['record_id','product_id','Unnamed: 0'])
++        for bid in read(self.state/'batch_ledger.json',{'batches':[]})['batches']:
++            m=read(self.state/'batches'/bid/'manifest.json') or {}
++            if m.get('content_sha256')==content:raise ValueError(f'이미 수집한 배치와 동일한 내용: {bid}')
++            if explicit and m.get('explicit_ids'):
++                seen=set(pd.read_csv(self.state/'batches'/bid/'products.csv',usecols=['record_id'],dtype=str).record_id)
++                if seen&set(products.record_id):raise ValueError(f'이전 배치와 제품 ID 중복: {bid}')
++        self._batch_content=(content,explicit)
+     def batch(self,bid):
+         folder=self.state/'batches'/clean_id(bid);m=read(folder/'manifest.json')
+         if not m or m['status']!='accepted':raise ValueError('유효한 배치 아님')
+--- KAMP/03.modeling/tests/test_operations.py	2026-10-03 13:43:56.522983061 +0900
++++ KAMP_patched/03.modeling/tests/test_operations.py	2026-10-03 13:47:29.116782084 +0900
+@@ -75,6 +75,16 @@
+             _,m=self.ops.load_model(v);self.assertEqual(m['parent'],self.ops.active()[kind])
+             self.assertNotEqual(v,self.ops.active()[kind])
+         write(OUT/'drift_fixture_example.json',r['drift'])
++    def test_resent_batch_not_counted_twice(self):
++        self.seed();x,y=synthetic(45,71,shift=9)
++        frame=x.assign(PassOrFail=y,product_id=[f'LOT1-{i}' for i in range(45)])
++        first=self.ops.ingest(frame,label_source='synthetic',coordinates_confirmed=True)
++        self.assertEqual(first['status'],'accepted')
++        again=self.ops.ingest(frame,label_source='synthetic',coordinates_confirmed=True)
++        self.assertEqual(again['status'],'held');self.assertIn('동일한 내용',again['reason'])
++        partial=self.ops.ingest(frame.iloc[:10],label_source='synthetic',coordinates_confirmed=True)
++        self.assertEqual(partial['status'],'held');self.assertIn('제품 ID 중복',partial['reason'])
++        self.assertEqual(read(self.ops.state/'batch_ledger.json')['batches'],[first['id']])
+     def test_unlabeled_ct_rejected(self):
+         self.seed();ids=[]
+         for seed in [81,82]:

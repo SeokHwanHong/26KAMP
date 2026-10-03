@@ -1,0 +1,72 @@
+KAMP 정상 관계식·잔차 학습 실험 결과
+
+가설: 불량은 단일 값의 극단성보다 정상 공정 변수 관계의 어긋남으로 구별될 수 있는가?
+설계: 정상 참조 패턴 50%로 관계식 학습, 나머지 정상 및 위험으로 분류기 학습.
+관계식 대상: 현재 변수 하나를 나머지 변수로 예측. 시간 실험은 이전 값·과거 3행 요약을 추가.
+선형 Ridge와 비선형 ExtraTrees 비교. 참조 정상 내부 3-fold OOF R² >= 0.2인 관계만 사용.
+잔차: (실제값 - 예측값) / 정상 OOF 절대오차 90% 분위수(최소 척도 적용).
+분류기: 고정 설정 LR/RF. 모든 설정은 config.json에 기록. 검증 F1로 임계값·후보 선택.
+raw_full은 모든 학습행, raw_matched는 잔차 분류기와 같은 학습행 사용.
+패턴 실험은 기존 고정 분할과 위험 이력 목표 유지. 시간 실험은 원본 행 라벨로 별도 평가.
+CN7 시간순 후반에는 불량이 없으므로 탐지 성능 평가를 수행하지 않음.
+소수 위험 사례·기존 test 반복 관찰·시간순 가정·제공값의 물리 단위 미확인 한계가 있음.
+관계식은 예측 관계이며 물리 법칙이나 불량 원인으로 해석하지 않음.
+
+[cn7 / fixed_pattern]
+상태: completed
+검증에서 선택: ridge_residual_lr / validation F1=0.6000
+선택 모델 후속 test: TP=0, FP=0, FN=3, F1=0.0000
+학습된 관계 수: {'ridge': 16, 'extra': 16}
+                  model  TP  FP  FN       F1       AP
+            raw_full_lr   0   1   3 0.000000 0.231481
+         raw_matched_lr   0   1   3 0.000000 0.181097
+            raw_full_rf   3  11   0 0.352941 0.483333
+         raw_matched_rf   3  10   0 0.375000 0.507407
+      ridge_residual_lr   0   0   3 0.000000 0.262121
+     ridge_augmented_lr   0   2   3 0.000000 0.301034
+     ridge_augmented_rf   2   7   1 0.333333 0.366667
+      extra_residual_lr   0   2   3 0.000000 0.229605
+     extra_augmented_lr   0   1   3 0.000000 0.298611
+     extra_augmented_rf   2   9   1 0.285714 0.460145
+ridge_unsupervised_top3   0   0   3 0.000000 0.109512
+extra_unsupervised_top3   0   0   3 0.000000 0.055582
+
+[cn7 / temporal_assumed]
+상태: not_evaluable: future validation contains no defects; no future defect detection claim
+[rg3 / fixed_pattern]
+상태: completed
+검증에서 선택: extra_residual_lr / validation F1=0.1014
+선택 모델 후속 test: TP=1, FP=31, FN=4, F1=0.0541
+학습된 관계 수: {'ridge': 15, 'extra': 15}
+                  model  TP  FP  FN       F1       AP
+            raw_full_lr   5 113   0 0.081301 0.034987
+         raw_matched_lr   5 113   0 0.081301 0.032735
+            raw_full_rf   4 111   1 0.066667 0.043693
+         raw_matched_rf   5 114   0 0.080645 0.041264
+      ridge_residual_lr   4  92   1 0.079208 0.043103
+     ridge_augmented_lr   4  84   1 0.086022 0.037416
+     ridge_augmented_rf   4 109   1 0.067797 0.042203
+      extra_residual_lr   1  31   4 0.054054 0.044193
+     extra_augmented_lr   4  98   1 0.074766 0.049768
+     extra_augmented_rf   5 114   0 0.080645 0.036638
+ridge_unsupervised_top3   4  93   1 0.078431 0.067939
+extra_unsupervised_top3   2  16   3 0.173913 0.080691
+
+[rg3 / temporal_assumed]
+상태: completed
+검증에서 선택: ridge_unsupervised_top3 / validation F1=0.1429
+선택 모델 후속 test: TP=0, FP=17, FN=5, F1=0.0000
+학습된 관계 수: {'ridge': 16, 'extra': 17}
+                  model  TP  FP  FN       F1       AP
+            raw_full_lr   5 225   0 0.042553 0.042464
+         raw_matched_lr   1   7   4 0.153846 0.065200
+            raw_full_rf   0  23   5 0.000000 0.033634
+         raw_matched_rf   0  22   5 0.000000 0.026129
+      ridge_residual_lr   5 228   0 0.042017 0.041756
+     ridge_augmented_lr   2  88   3 0.042105 0.071500
+     ridge_augmented_rf   1  88   4 0.021277 0.022774
+      extra_residual_lr   3 109   2 0.051282 0.056872
+     extra_augmented_lr   5 208   0 0.045872 0.056564
+     extra_augmented_rf   2  39   3 0.086957 0.071396
+ridge_unsupervised_top3   0  17   5 0.000000 0.055367
+extra_unsupervised_top3   5 228   0 0.042017 0.019843

@@ -1,0 +1,34 @@
+{
+  "config": {
+    "seed": 42,
+    "relation_reference_normal_fraction": 0.5,
+    "relation_inner_folds": 3,
+    "relation_min_oof_r2": 0.2,
+    "ridge_alpha": 10.0,
+    "extra_trees": 32,
+    "extra_depth": 5,
+    "extra_min_leaf": 8,
+    "logistic_C": 1.0,
+    "rf_trees": 128,
+    "rf_depth": 5,
+    "rf_min_leaf": 5,
+    "past_window": 3,
+    "temporal_gap": 3,
+    "threshold_rule": "pooled validation F1; ties fewer FP, higher threshold",
+    "pattern_target": "any observed defect in exact current-input pattern",
+    "temporal_target": "original row label; file order assumed temporal",
+    "status": "follow-up exploration on previously inspected data"
+  },
+  "python": "3.14.6",
+  "numpy": "2.4.6",
+  "pandas": "3.0.3",
+  "sklearn": "1.9.0",
+  "scipy": "1.18.0",
+  "source_hashes": {
+    "kamp_data\\moldset_labeled_cn7.csv": "f870b0c259297f20d503f2e2739966553e5db5ef1deb0cc7513eefa4bbfa2753",
+    "kamp_data\\moldset_labeled_rg3.csv": "14aab21476eea02c823ccb00f82800040280d805dbce5a3eb7c11b176a9e5aa4",
+    "kamp_data\\moldset_unlabeled_cn7.csv": "110a2d408d6cb8002caf26f50c06d06e42998e067e708788a3e37e9d1769b978",
+    "kamp_data\\moldset_unlabeled_rg3.csv": "ef9b30014ce4d6671a72f5a4c3f286802b71ff08d52f9d6a551a3f81e6af8c9c"
+  },
+  "code_sha256": "6f847d0aa092cdb6f3724c0529207086d1ef7aec173d1a4a959e4cd87687e97e"
+}

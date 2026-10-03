@@ -1,0 +1,32 @@
+{
+  "config": {
+    "seed": 42,
+    "inner_folds": 3,
+    "outer_folds": "existing 4 folds",
+    "meta_C": 0.1,
+    "primary_budget": 0.1,
+    "secondary_budgets": [
+      0.2,
+      0.3
+    ],
+    "target": "exact-input pattern has any observed defect history",
+    "relation": "Ridge residual top3, trained on normal training patterns only",
+    "selection": "OOF expected TP at top 10%; ties AP then model name",
+    "caveat": "Previously inspected test; exploratory, not independent deployment validation"
+  },
+  "selected": "stacking_lr",
+  "thresholds": {
+    "random_forest": 0.4127792834390646,
+    "relationship": 1.0185400742268496,
+    "isolation_forest": 0.5419784532946572,
+    "mean_percentile": 0.9816345270890724,
+    "stacking_lr": 0.9828503507672652
+  },
+  "info": {
+    "protocol": "fixed_pattern",
+    "dataset": "cn7",
+    "target": "any observed defect in exact current-input pattern",
+    "source_sha256": "f870b0c259297f20d503f2e2739966553e5db5ef1deb0cc7513eefa4bbfa2753"
+  },
+  "note": "F1 thresholds exploratory; primary endpoint is top10 inspection yield"
+}

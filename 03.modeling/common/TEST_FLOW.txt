@@ -1,0 +1,42 @@
+KAMP 팀 공유 테스트 플로우
+
+1. 환경/위치
+프로젝트 루트에서 실행한다. 03.modeling/requirements_operations.txt는 검증한 환경의 버전이다.
+원본·스키마·전처리 분할·runtime의 IF 정렬 산출물·LR 실행 결과가 필요하다.
+최신 공유 ZIP에 포함돼 있다. 원본 데이터·분할·운영 포인터를 먼저 보존한다.
+
+2. 한 번에 검증
+python 03.modeling/tests/run_checks.py
+결과: output/test_runs/<고유실행ID>/summary.json 및 단계별 로그.
+43회 테스트와 LR 저장 결과 재검산을 실행한다. 전체 LR 탐색이나 운영 교체는 하지 않는다.
+runtime_unchanged=true인지 확인한다. 한 단계라도 실패하면 전체 passed=false다.
+
+3. 내부 순서
+A. test_operations.py: 배치 전처리 → 추론 → 누적 대기 → 지속 변화 → 네 모델 CT
+   → 평가 분리 → 승격 조건 → 교체/롤백 및 거부 조건. 12개, 격리 합성 테스트.
+B. test_registration_and_logistic.py: 감사 파일 일치·임계값·분할·변환·예측 검증. 7개.
+C. test_existing_ocsvm.py: 노트북 내부6개 × CN7/RG3 × original/if_desc. 24회.
+D. audit_logistic_runs.py: 최신 LR 실행별 240,240개 설정/임계값 기록 재집계,
+   선택·OOF·학습/검증 분리·저장 예측·현재 소스 해시 확인.
+
+4. 전체 모델링 학습을 다시 재현해야 할 때
+python 03.modeling/models/logistic_regression.py --dataset both
+개발4-fold → 입력구성/C/가중치/임계값 탐색 → 선택 고정 → 개발 전체 재학습
+→ Test 후속 평가 → 계수·구간 안내·감사 → 초기 후보 저장 순서다.
+운영 모델을 자동 지정/교체하지 않는다. 실행은 고유 폴더에 저장된다.
+이후 2번 검증을 다시 수행한다. 소스가 바뀌면 과거 실행을 현재 소스로 생성한 것처럼
+표시하지 않는다. 해시 불일치는 원인을 확인하고 새 실행으로 재현한다.
+
+5. 노트북
+03.modeling/models/05_logistic_regression.ipynb: 기본값 결과 열람, RUN_NEW_SEARCH 명시 시 학습.
+03.modeling/04_operations.ipynb: 기본값 상태 조회, 변경 작업은 명시적으로 호출한다.
+
+6. 통과의 의미
+기술 테스트 통과 = 코드가 해당 검증 조건에서 동작함.
+현장 성능 검증 = 독립적인 실제 생산/검사 자료에서 운영 효과를 확인함.
+둘은 다르다. 현재 LR 결과는 CN7 Test 누락3, RG3 정상 오탐110으로 운영 우위 근거가 없다.
+현재 테스트의 합성 데이터·과거 관찰 Test를 신규 현장 증거로 제시하지 않는다.
+
+7. Claude 전달
+exports/Claude_KAMP_프로젝트학습_테스트_검토_프롬프트.txt와 최신 프로젝트 ZIP을 함께 전달한다.
+설명만 전달하고 소스가 없는 경우 실제 구현을 검토한 것으로 인정하지 않는다.

@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "experiments": [
+    {
+      "experiment": "cn7_fixed_pattern",
+      "roles_disjoint": true,
+      "normal_reference_verified": true,
+      "test_predictions_reproduced": true,
+      "confusion_matrices_recomputed": true,
+      "equation_reproduced": true
+    },
+    {
+      "experiment": "rg3_fixed_pattern",
+      "roles_disjoint": true,
+      "normal_reference_verified": true,
+      "test_predictions_reproduced": true,
+      "confusion_matrices_recomputed": true,
+      "equation_reproduced": true
+    },
+    {
+      "experiment": "rg3_temporal_assumed",
+      "roles_disjoint": true,
+      "normal_reference_verified": true,
+      "test_predictions_reproduced": true,
+      "confusion_matrices_recomputed": true,
+      "equation_reproduced": true
+    }
+  ],
+  "notebook_executed_code_cells": 6
+}

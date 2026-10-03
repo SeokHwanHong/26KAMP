@@ -1,5 +1,7 @@
 # CN7·RG3 로지스틱 회귀 모델링·학습·검증 매뉴얼
 
+2026-10-03 구현·실행 완료: [실행 노트북](05_logistic_regression.ipynb), [학습 소스](logistic_regression.py). 8개 입력 구성 × 30개 설정 × 1001개 임계값을 비교했고 결과는 `output/logistic/<dataset>/<run_id>/`에 보존합니다. 아래 초기 명명 권고 대신 현재 경로를 사용합니다. 공통 코드는 `../common/pipeline_runtime.py`로 재사용하며 전달 시 함께 포함합니다. 실제 실행 환경은 scikit-learn 1.9.0입니다. 현재 결과: CN7 OOF F1 0.625 / Test 0, RG3 OOF F1 0.089286 / Test 0.083333. 운영 승격 근거가 아닌 후속 탐색 결과입니다.
+
 모듈화 경로 갱신: 2026-10-02. CN7/RG3 전처리·OCSVM은 각각 공통 노트북의 `DATASET`으로 선택합니다. 이 문서의 과거 산출물 경로는 당시 기록이며 새 실행 결과는 `output/modular/`에 저장됩니다.
 
 작성일: 2026-09-29 · 버전: 1.0 · 상위 기준: [공통 매뉴얼 v1.1](../common/CN7_RG3_CI_CT_CD_전체구조.md)

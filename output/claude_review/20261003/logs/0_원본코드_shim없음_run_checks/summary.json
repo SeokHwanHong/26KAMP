@@ -1,0 +1,27 @@
+{
+  "passed": false,
+  "results": [
+    {
+      "script": "test_operations.py",
+      "exit_code": 1,
+      "passed": false
+    },
+    {
+      "script": "test_registration_and_logistic.py",
+      "exit_code": 1,
+      "passed": false
+    },
+    {
+      "script": "test_existing_ocsvm.py",
+      "exit_code": 1,
+      "passed": false
+    },
+    {
+      "script": "audit_logistic_runs.py",
+      "exit_code": 1,
+      "passed": false
+    }
+  ],
+  "runtime_unchanged": true,
+  "scope": "43 regression/integration invocations plus saved LR audit; no field validation"
+}

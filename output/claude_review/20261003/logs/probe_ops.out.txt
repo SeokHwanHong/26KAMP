@@ -1,0 +1,41 @@
+{
+ "1_input_hold": {
+  "nan": "held",
+  "inf": "held",
+  "missing_col": "held",
+  "reordered_cols": "accepted",
+  "dup_id_in_batch": "held",
+  "label_2": "held",
+  "label_no_source": "held",
+  "coords_unconfirmed": "held",
+  "string_value": "held"
+ },
+ "5_same_file_twice": {
+  "first": "accepted",
+  "second": "accepted",
+  "second_drift_rows": 50,
+  "note": "identical products/IDs accepted twice -> drift window counts them twice"
+ },
+ "5_batch_id_reuse": "rejected: FileExistsError",
+ "3_consumed_unique": true,
+ "6_drift_status": "review",
+ "6_risk_kept_after_normal_reobs": 1,
+ "6_candidate": "lr-20261003T045104Z-7c9a8d42",
+ "7_high_FPR_candidate": {
+  "passed": false,
+  "reasons": [
+   "F1 개선·재현율 유지·오탐률 상한 조건 미충족"
+  ],
+  "FPR": 1.0
+ },
+ "7_no_improvement": {
+  "passed": false,
+  "reasons": [
+   "F1 개선·재현율 유지·오탐률 상한 조건 미충족"
+  ]
+ },
+ "8_eval_tamper": "rejected: 평가 자료 변경",
+ "8_policy_changed_before_promote": "promoted (policy at evaluation time is used)",
+ "9_rollback": true,
+ "H_stale_lock": "FileExistsError (manual removal required)"
+}

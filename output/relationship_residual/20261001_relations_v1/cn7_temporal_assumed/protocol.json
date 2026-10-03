@@ -1,0 +1,19 @@
+{
+  "protocol": "temporal_assumed",
+  "dataset": "cn7",
+  "target": "original row label; file order assumed temporal",
+  "first_validation_row_1based": 731,
+  "first_test_row_1based": 973,
+  "gap": 3,
+  "split_counts": [
+    724,
+    239,
+    239
+  ],
+  "split_defects": [
+    17,
+    0,
+    0
+  ],
+  "status": "not_evaluable: future validation contains no defects; no future defect detection claim"
+}

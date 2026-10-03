@@ -1,0 +1,2226 @@
+[
+  {
+    "target": "Injection_Time",
+    "intercept": -0.020990961647290748,
+    "terms": [
+      {
+        "predictor": "Filling_Time",
+        "coefficient": 0.3022198624287199,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.0065476102705811215,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.01417913369342862,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": 0.0173399684411049,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.011101866931780559,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": 0.15177460616447275,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.28627506061145513,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": -0.006801929467461199,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": 0.0019309812124773738,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": 0.06352333827696985,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": 0.059249001212586534,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.05029128119385115,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": 0.022774639631341357,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.0020644354722417417,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": 0.009637843882132055,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": -0.0032058462062646937,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": 0.0017186039774132404,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.002040906522181426,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": -0.04573543472714248,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": -0.022201761278553677,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": 0.006808077121899735,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": 0.05400159537716828,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Filling_Time",
+    "intercept": -0.03337567207965967,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.3185431936664483,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.005421932301663137,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.003844054538191836,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": -0.0037954732539510466,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": 0.004714422345213584,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": 0.10344026147558308,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.29768688775326807,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": 0.016877419941907827,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": -0.012195299011510959,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": 0.05090619634655594,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": 0.0804391001548752,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.043844571529918115,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": 0.012678717545621304,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.024421772707398755,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": 0.012865139467679289,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": -0.00609812871739533,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": -0.009735234925714804,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.0068742883761884295,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": 0.027509694078276452,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": -0.0373944489348706,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": -0.0006754937174941274,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": 0.05623187995031777,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Plasticizing_Time",
+    "intercept": -0.0073661811398738775,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.00687953646289523,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": 0.005404868348309357,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": -0.006217007754383844,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": -0.0321069023016179,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.006727042208143962,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": -0.14289263765706417,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": 0.15320523553155005,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": 0.010485218797018324,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": 0.05982730598333969,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": 0.027753961941725483,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": 0.05509021399911758,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.04184618344027975,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": -0.021250040360244644,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.011643662413298166,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": 0.002505049835576733,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": 0.004897267965949279,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": -0.04033013737820777,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": 0.006049008686108775,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": 0.024426613898449818,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": 0.06044296149117469,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": 0.07014573909152107,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": 0.025313806928752857,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Clamp_Close_Time",
+    "intercept": -0.033677861150304904,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.08580701959655566,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": -0.017819483993177686,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": -0.1512155891187326,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.10787722165708788,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": 0.30968071360848953,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": 0.23742734481677824,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": 0.13048413635356063,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": -0.017848763381261033,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": -0.015227159624574086,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": 0.0524953172211961,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": -0.13146336227526417,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.2423041883111764,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": -0.011142121978371826,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": -0.036370589653770706,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": -0.011618798303192252,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": 0.023444333318649143,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": -0.07529987516432766,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": 0.05519301253424501,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": 0.05637722750361849,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": -0.2357483989799,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": -0.23724357702676008,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": -0.08292547357795556,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Cushion_Position",
+    "intercept": 0.07538510688587333,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": -0.049951800116869366,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": 0.020125111083378264,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": -0.02880732438831156,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": -0.03965020608395397,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": 0.28157543925335643,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": -0.03558309340658157,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.08571047795786431,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": -0.0071420154831227,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": -0.014328525932432116,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": 0.062499971932132525,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": -0.11313750069795503,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.06385306358057957,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": -0.13590183197112018,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.010836328151696661,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": -0.00942969416859557,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": 0.005247711634518573,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": -0.0010550188566503258,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.06780122954023847,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": -0.06250447643614408,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": -0.09506355462782641,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": -0.3322143481390994,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": -0.2535897320961516,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Plasticizing_Position",
+    "intercept": -0.12608283277695542,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.13689039747874043,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": 0.0885152607860915,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": -0.12266124468014357,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.014481128792515341,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": 0.04327430392108216,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.007132839380536497,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.07954479731078858,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": -0.013781225797472384,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": -0.004221965061753961,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": -0.006024165875970555,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": -0.006822640761018694,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": -0.21038717013768954,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": -0.10695611415923378,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.0028630377148781334,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": 0.0055761023472602755,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": 0.014822843334322577,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": 0.04536370953466212,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": 0.010192535585691583,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": -0.043770626983287646,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": -0.044643309457669464,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": 0.05744482434680625,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": 0.22853139685120194,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Max_Injection_Speed",
+    "intercept": -0.021368075177553948,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": -0.19081726869984367,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": -0.18825587536832264,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.09719219964787014,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.003907296933932428,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": 0.01757589140188307,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.012697345901155612,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": -0.05878575083289429,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": -0.007303921795857068,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": 0.009479801292163812,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": -0.012352054260335716,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": -0.05771018925405,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.05294345517092811,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": -0.005319217603698263,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.0035418508565537685,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": -0.0020898692231401976,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": -0.010163044175141536,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": -0.025435281554330003,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.004246443881089189,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": -0.019449457673916086,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": -0.0028140901453642887,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": 0.012163580445783079,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": -0.0144356062657659,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Average_Screw_RPM",
+    "intercept": -0.01420111792029758,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.008845485654312757,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": -0.053001817316907195,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.2608355159762408,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.035316101216398325,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": -0.014095744521775875,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.014587807447130294,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": -0.021442943402969154,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": 0.06514914317722702,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": 0.04337703481385598,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": -0.03515081995285048,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": 0.0076430536300627905,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.24672560207752037,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": -0.23053668125182733,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.0063443858987370745,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": 0.037081313873661946,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": 0.019482468635388345,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": 0.044335629379039336,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.007480927797795281,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": -0.080680957235404,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": 0.0262987611040332,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": 0.017271490514875178,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": 0.02249698803145829,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Max_Injection_Pressure",
+    "intercept": 0.12148013724180776,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.3123172452778928,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": 0.2374586389676223,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.12987073104611024,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.012844129955515177,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": 0.05215653145608399,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": 0.06829475456917178,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": -0.032838680942005774,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.09111034333741692,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": 0.024409009738717014,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": -0.03772719165724745,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": -0.006994181315500899,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.2510323929974432,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": 0.01638166475262575,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": -0.019787718141220278,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": 0.018857365185888063,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": -0.06298358755163296,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": -0.18078618686279344,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": 0.002247544401140483,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": 0.015556851403133617,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": 0.015369609566035013,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": -0.15334616422814837,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": -0.13220140072373388,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Max_Switch_Over_Pressure",
+    "intercept": -0.013146346103780267,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.22755941851664993,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": 0.29311339044053275,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.20137793610702306,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.07413845784577237,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": -0.1020337861824604,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.09657511550933057,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": -0.02905309581316789,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.33253098618536986,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": -0.1503576127502865,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": 0.006408214709337711,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": -0.005463714730118059,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.26518204043303534,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": 0.2905632311369745,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": -0.07439998224745827,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": -0.052084044053329934,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": 0.012588983148737994,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": -0.2137244295403882,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.015391906513642648,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": 0.044009690377096934,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": 0.040920588830514304,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": 0.07387319525286622,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": -0.0032686959213518952,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Max_Back_Pressure",
+    "intercept": 0.12248201540990937,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.048863811895508556,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": 0.04041709990387272,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.03869671891569109,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": -0.014456383635226186,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": 0.047575246836579294,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": 0.01378863440714453,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": -0.22664180801893063,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": 0.0771743116689201,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": 0.028743546290049538,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": 0.05233174628665281,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": 0.04960914676804088,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": 0.06708492987991153,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": 0.49339282280350694,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.007532451341931512,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": -0.013676660473891907,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": -0.0015605620438530834,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": 0.07738612074618009,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.00350969085739283,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": -0.03018955117052566,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": 0.05517120308658505,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": -0.016605284048937734,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": -0.1032033579997915,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Average_Back_Pressure",
+    "intercept": 0.1138270313255628,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.02875150533842775,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": 0.015185848910212617,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": -0.02553244927817081,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": -0.0005504196307623456,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": -0.0028425130547125622,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.03813109344429516,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": -0.1497065562865295,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.010074480752572624,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": 0.006314255137329194,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": -0.063533894403163,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": 0.004206340792226026,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": 0.09550716389597246,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.6410726631370003,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.02725007902822826,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": 0.019799415634329732,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": 0.0051687247141049,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": 0.12100341867443576,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.0018713006108446245,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": -0.03780644827196308,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": 0.020375053362707986,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": -0.06012413292806744,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": -0.10933477695762563,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Barrel_Temperature_4",
+    "intercept": -0.08447272413059008,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.012358183339371222,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": -0.06641710340050835,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": -0.2760146712502719,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.0825521423897917,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": -0.10942046668020597,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.001686102286281632,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": 0.3616708546200113,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.27439817008771955,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": -0.026113013766003047,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": 0.06959660666604167,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": -0.26441215375638466,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": -0.4001466691931909,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.5727264679839721,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": 0.689235102258533,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": -0.15246444987443836,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": -0.04412718956879933,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": 0.04811748490064975,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.01812145106333978,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": 0.16297107178488165,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": -0.02269394838700081,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": 0.1680310036264952,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": 0.26088866459609567,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Hopper_Temperature",
+    "intercept": 0.024327146486335778,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": -0.09091097079313273,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": -0.1452749310513499,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.2355582104274365,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": -0.010551185756023367,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": -0.19507566854652042,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.08651427848472414,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": -0.20268022544409173,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.01728752066154365,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": 0.07482280714931536,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": 0.023508262015917693,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": 0.012800562359298594,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": 0.04362716169261048,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": 0.23251269891705648,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": 0.0660873819175491,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": -0.05937790465638353,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": 0.04708776192222434,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": -0.018671881918585063,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": -0.012922903706291754,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": 0.02009666889307251,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": 0.00993550263177366,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": 0.21809381037661402,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": 0.058629050890375206,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Mold_Temperature_3",
+    "intercept": -0.11872020996072942,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.007726756931987716,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": -0.0007273589237812892,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.0757700761291061,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": -0.009498565366450898,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": -0.0544117547997152,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.08379846107601223,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": 0.0722852719971982,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": 0.0207109516833915,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": 0.01948315083082033,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": 0.004279164361243686,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": -0.0353983523940188,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": 0.02182960543492829,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": -0.019396548144853497,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": -0.05405209554776341,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.005658438610315053,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": -0.01227209410928243,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": -0.008673039598319558,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": 0.026520602345564286,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.009810800803986962,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": -0.0004228789326453972,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": 0.06044874060105874,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_4",
+        "coefficient": 0.761251378472556,
+        "center": -0.12884440713330117,
+        "scale": 0.961189035486082
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  },
+  {
+    "target": "Mold_Temperature_4",
+    "intercept": -0.1288444071333012,
+    "terms": [
+      {
+        "predictor": "Injection_Time",
+        "coefficient": 0.043749310994694104,
+        "center": -0.02099096164729076,
+        "scale": 0.8086802617141869
+      },
+      {
+        "predictor": "Filling_Time",
+        "coefficient": 0.04322170591794374,
+        "center": -0.03337567207965966,
+        "scale": 0.8127214838033963
+      },
+      {
+        "predictor": "Plasticizing_Time",
+        "coefficient": 0.019518468363395373,
+        "center": -0.007366181139873852,
+        "scale": 0.3649457629512464
+      },
+      {
+        "predictor": "Cycle_Time",
+        "coefficient": 0.002752499505570262,
+        "center": -0.022412247359492612,
+        "scale": 1.260933661919902
+      },
+      {
+        "predictor": "Clamp_Close_Time",
+        "coefficient": -0.013576195174858205,
+        "center": -0.03367786115030503,
+        "scale": 0.9536358745891851
+      },
+      {
+        "predictor": "Cushion_Position",
+        "coefficient": -0.045660552914265524,
+        "center": 0.07538510688587326,
+        "scale": 0.9739627707366274
+      },
+      {
+        "predictor": "Plasticizing_Position",
+        "coefficient": 0.20527526977463614,
+        "center": -0.12608283277695545,
+        "scale": 0.9296015379275179
+      },
+      {
+        "predictor": "Max_Injection_Speed",
+        "coefficient": -0.017545489758575797,
+        "center": -0.021368075177553913,
+        "scale": 0.5774990311397947
+      },
+      {
+        "predictor": "Max_Screw_RPM",
+        "coefficient": 0.011642325662251242,
+        "center": 0.02806887023293148,
+        "scale": 1.0350470776461356
+      },
+      {
+        "predictor": "Average_Screw_RPM",
+        "coefficient": 0.003978738262135612,
+        "center": -0.014201117920297554,
+        "scale": 0.6198810315442644
+      },
+      {
+        "predictor": "Max_Injection_Pressure",
+        "coefficient": -0.021784020229033946,
+        "center": 0.12148013724180774,
+        "scale": 0.7904071789017161
+      },
+      {
+        "predictor": "Max_Switch_Over_Pressure",
+        "coefficient": -0.0006894858641948806,
+        "center": -0.013146346103780166,
+        "scale": 0.8824935940788449
+      },
+      {
+        "predictor": "Max_Back_Pressure",
+        "coefficient": -0.08605256337759956,
+        "center": 0.12248201540990945,
+        "scale": 0.9451740455658619
+      },
+      {
+        "predictor": "Average_Back_Pressure",
+        "coefficient": -0.07016392512963723,
+        "center": 0.1138270313255628,
+        "scale": 0.9148066625956922
+      },
+      {
+        "predictor": "Barrel_Temperature_1",
+        "coefficient": 0.006874919727659704,
+        "center": -0.03892302822082732,
+        "scale": 1.0705768343383988
+      },
+      {
+        "predictor": "Barrel_Temperature_2",
+        "coefficient": -0.0012427187696522476,
+        "center": 0.08150358034036004,
+        "scale": 1.000739409395537
+      },
+      {
+        "predictor": "Barrel_Temperature_3",
+        "coefficient": -0.001340277055243782,
+        "center": -0.018907569967643208,
+        "scale": 0.9574982331030231
+      },
+      {
+        "predictor": "Barrel_Temperature_4",
+        "coefficient": 0.029392803801856347,
+        "center": -0.08447272413059004,
+        "scale": 0.987877097353889
+      },
+      {
+        "predictor": "Barrel_Temperature_5",
+        "coefficient": -0.004712689099207502,
+        "center": -0.07793080645560467,
+        "scale": 0.9759491604809782
+      },
+      {
+        "predictor": "Barrel_Temperature_6",
+        "coefficient": -0.011544827384664535,
+        "center": -0.033148690660384984,
+        "scale": 0.9962401229542138
+      },
+      {
+        "predictor": "Hopper_Temperature",
+        "coefficient": 0.011599749864430239,
+        "center": 0.024327146486335913,
+        "scale": 0.9592428902855628
+      },
+      {
+        "predictor": "Mold_Temperature_3",
+        "coefficient": 0.5434003774015038,
+        "center": -0.1187202099607294,
+        "scale": 0.9750218850606953
+      }
+    ],
+    "equation": "predicted target = intercept + sum(coefficient * (predictor - center) / scale)"
+  }
+]

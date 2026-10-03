@@ -1,0 +1,83 @@
+{
+  "cn7": {
+    "sha256": "f870b0c259297f20d503f2e2739966553e5db5ef1deb0cc7513eefa4bbfa2753",
+    "active_dimensions": 23,
+    "removed_train_constant": [
+      "Clamp_Open_Position"
+    ],
+    "train_end_exclusive": 727,
+    "validation_end_exclusive": 969,
+    "split_rows": [
+      726,
+      242,
+      242
+    ],
+    "split_positives": [
+      17,
+      0,
+      0
+    ],
+    "zero_direction_by_label": {
+      "0": 566,
+      "1": 4
+    },
+    "same_pattern_train_validation_overlap": 0,
+    "same_pattern_train_test_overlap": 0,
+    "note": "row 1 excluded; direction of zero vector undefined; zero encoding is not a physical direction",
+    "evaluation": "skipped: validation/test have no positives; cannot verify future defect detection"
+  },
+  "rg3": {
+    "sha256": "14aab21476eea02c823ccb00f82800040280d805dbce5a3eb7c11b176a9e5aa4",
+    "active_dimensions": 23,
+    "removed_train_constant": [
+      "Clamp_Open_Position"
+    ],
+    "train_end_exclusive": 710,
+    "validation_end_exclusive": 946,
+    "split_rows": [
+      709,
+      236,
+      236
+    ],
+    "split_positives": [
+      16,
+      4,
+      5
+    ],
+    "zero_direction_by_label": {
+      "0": 572,
+      "1": 2
+    },
+    "same_pattern_train_validation_overlap": 0,
+    "same_pattern_train_test_overlap": 0,
+    "note": "row 1 excluded; direction of zero vector undefined; zero encoding is not a physical direction"
+  }
+}
+dataset                                         method         partition  threshold  rows  positives  TP  FP  FN  TN  precision  recall       F1       AP
+    rg3                                   current_only        validation  -0.794903   236          4   4 230   0   2   0.017094    1.00 0.033613 0.011887
+    rg3                                   current_only              test  -0.794903   236          5   5 231   0   0   0.021186    1.00 0.041494 0.035027
+    rg3                                   current_only test_nonzero_only  -0.794903   121          5   5 116   0   0   0.041322    1.00 0.079365 0.068944
+    rg3                       current_plus_change_flag        validation  -0.012504   236          4   4 179   0  53   0.021858    1.00 0.042781 0.018363
+    rg3                       current_plus_change_flag              test  -0.012504   236          5   5 205   0  26   0.023810    1.00 0.046512 0.068736
+    rg3                       current_plus_change_flag test_nonzero_only  -0.012504   121          5   5 115   0   1   0.041667    1.00 0.080000 0.075229
+    rg3                          change_magnitude_only        validation   0.296755   236          4   2  24   2 208   0.076923    0.50 0.133333 0.054658
+    rg3                          change_magnitude_only              test   0.296755   236          5   0  48   5 183   0.000000    0.00 0.000000 0.042247
+    rg3                          change_magnitude_only test_nonzero_only   0.296755   121          5   0  48   5  68   0.000000    0.00 0.000000 0.042247
+    rg3                                 direction_only        validation  -0.505090   236          4   2  90   2 142   0.021739    0.50 0.041667 0.016905
+    rg3                                 direction_only              test  -0.505090   236          5   3  76   2 155   0.037975    0.60 0.071429 0.059186
+    rg3                                 direction_only test_nonzero_only  -0.505090   121          5   3  76   2  40   0.037975    0.60 0.071429 0.068572
+    rg3                       direction_plus_magnitude        validation  -0.464580   236          4   2  88   2 144   0.022222    0.50 0.042553 0.016964
+    rg3                       direction_plus_magnitude              test  -0.464580   236          5   3  76   2 155   0.037975    0.60 0.071429 0.058598
+    rg3                       direction_plus_magnitude test_nonzero_only  -0.464580   121          5   3  76   2  40   0.037975    0.60 0.071429 0.068039
+    rg3               current_plus_direction_magnitude        validation   0.721550   236          4   1  41   3 191   0.023810    0.25 0.043478 0.018782
+    rg3               current_plus_direction_magnitude              test   0.721550   236          5   2  35   3 196   0.054054    0.40 0.095238 0.066656
+    rg3               current_plus_direction_magnitude test_nonzero_only   0.721550   121          5   2  33   3  83   0.057143    0.40 0.100000 0.075323
+    rg3                           direction_cosine_3nn        validation  -0.598731   236          4   4 232   0   0   0.016949    1.00 0.033333 0.011577
+    rg3                           direction_cosine_3nn              test  -0.598731   236          5   5 230   0   1   0.021277    1.00 0.041667 0.015282
+    rg3                           direction_cosine_3nn test_nonzero_only  -0.598731   121          5   5 115   0   1   0.041667    1.00 0.080000 0.044989
+    rg3                    current_position_cosine_3nn        validation  -0.133912   236          4   1   5   3 227   0.166667    0.25 0.200000 0.052393
+    rg3                    current_position_cosine_3nn              test  -0.133912   236          5   0   4   5 227   0.000000    0.00 0.000000 0.025908
+    rg3                    current_position_cosine_3nn test_nonzero_only  -0.133912   121          5   0   2   5 114   0.000000    0.00 0.000000 0.050661
+    rg3                     current_only_nonzero_train test_changed_rows  -0.657664   121          5   5 116   0   0   0.041322    1.00 0.079365 0.074422
+    rg3                   direction_only_nonzero_train test_changed_rows  -1.594889   121          5   5 116   0   0   0.041322    1.00 0.079365 0.078271
+    rg3 current_plus_direction_magnitude_nonzero_train test_changed_rows   0.616628   121          5   1  11   4 105   0.083333    0.20 0.117647 0.086711

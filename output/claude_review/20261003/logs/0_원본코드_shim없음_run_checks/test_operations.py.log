@@ -1,0 +1,260 @@
+test_candidate_cannot_train_on_registered_eval (__main__.OperationsTests.test_candidate_cannot_train_on_registered_eval) ... ERROR
+test_cd_promotion_rollback_and_guidance (__main__.OperationsTests.test_cd_promotion_rollback_and_guidance) ... ERROR
+test_drift_persistence_and_ct_all_model_types (__main__.OperationsTests.test_drift_persistence_and_ct_all_model_types) ... ERROR
+test_evaluation_cannot_overlap_training (__main__.OperationsTests.test_evaluation_cannot_overlap_training) ... ERROR
+test_insufficient_labels_prevent_promotion (__main__.OperationsTests.test_insufficient_labels_prevent_promotion) ... ERROR
+test_insufficient_window_waits_and_does_not_consume (__main__.OperationsTests.test_insufficient_window_waits_and_does_not_consume) ... ERROR
+test_missing_risk_not_called_safe (__main__.OperationsTests.test_missing_risk_not_called_safe) ... ok
+test_model_tamper_rejected (__main__.OperationsTests.test_model_tamper_rejected) ... ERROR
+test_original_test_forced_historical (__main__.OperationsTests.test_original_test_forced_historical) ... ERROR
+test_preprocess_preserves_counts_and_conflicts (__main__.OperationsTests.test_preprocess_preserves_counts_and_conflicts) ... ok
+test_unaligned_unlabeled_held (__main__.OperationsTests.test_unaligned_unlabeled_held) ... ERROR
+test_unlabeled_ct_rejected (__main__.OperationsTests.test_unlabeled_ct_rejected) ... ERROR
+
+======================================================================
+ERROR: test_candidate_cannot_train_on_registered_eval (__main__.OperationsTests.test_candidate_cannot_train_on_registered_eval)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 87, in test_candidate_cannot_train_on_registered_eval
+    x,y=synthetic(60,90);eid=self.ops.register_evaluation(x.assign(PassOrFail=y),'synthetic')
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 233, in register_evaluation
+    x,_,_,dev,test,_=data(self.dataset);trained.update(fingerprints(x.loc[dev]))
+                     ^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_cd_promotion_rollback_and_guidance (__main__.OperationsTests.test_cd_promotion_rollback_and_guidance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 93, in test_cd_promotion_rollback_and_guidance
+    v0=self.ops.save_candidate(old,x,y,source={'fixture':'deliberately weak baseline'})
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 193, in save_candidate
+    if set(fp)&self.protected():raise ValueError('평가 전용 패턴이 학습에 포함됨')
+               ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 208, in protected
+    x,_,_,_,test,_=data(self.dataset)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_drift_persistence_and_ct_all_model_types (__main__.OperationsTests.test_drift_persistence_and_ct_all_model_types)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 54, in test_drift_persistence_and_ct_all_model_types
+    x,y,b,lr=self.seed()
+             ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 33, in seed
+    v=self.ops.save_candidate(b,x,y,source={'fixture':'synthetic'})
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 193, in save_candidate
+    if set(fp)&self.protected():raise ValueError('평가 전용 패턴이 학습에 포함됨')
+               ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 208, in protected
+    x,_,_,_,test,_=data(self.dataset)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_evaluation_cannot_overlap_training (__main__.OperationsTests.test_evaluation_cannot_overlap_training)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 84, in test_evaluation_cannot_overlap_training
+    x,y,_,_=self.seed()
+            ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 33, in seed
+    v=self.ops.save_candidate(b,x,y,source={'fixture':'synthetic'})
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 193, in save_candidate
+    if set(fp)&self.protected():raise ValueError('평가 전용 패턴이 학습에 포함됨')
+               ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 208, in protected
+    x,_,_,_,test,_=data(self.dataset)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_insufficient_labels_prevent_promotion (__main__.OperationsTests.test_insufficient_labels_prevent_promotion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 105, in test_insufficient_labels_prevent_promotion
+    x,y,b,v=self.seed();candidate=self.ops.save_candidate(b,x,y,source={},parent=v)
+            ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 33, in seed
+    v=self.ops.save_candidate(b,x,y,source={'fixture':'synthetic'})
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 193, in save_candidate
+    if set(fp)&self.protected():raise ValueError('평가 전용 패턴이 학습에 포함됨')
+               ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 208, in protected
+    x,_,_,_,test,_=data(self.dataset)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_insufficient_window_waits_and_does_not_consume (__main__.OperationsTests.test_insufficient_window_waits_and_does_not_consume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 49, in test_insufficient_window_waits_and_does_not_consume
+    self.seed();x,y=synthetic(8,12)
+    ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 33, in seed
+    v=self.ops.save_candidate(b,x,y,source={'fixture':'synthetic'})
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 193, in save_candidate
+    if set(fp)&self.protected():raise ValueError('평가 전용 패턴이 학습에 포함됨')
+               ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 208, in protected
+    x,_,_,_,test,_=data(self.dataset)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_model_tamper_rejected (__main__.OperationsTests.test_model_tamper_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 110, in test_model_tamper_rejected
+    _,_,_,v=self.seed();p=self.ops.state/'models'/v/'model.joblib'
+            ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 33, in seed
+    v=self.ops.save_candidate(b,x,y,source={'fixture':'synthetic'})
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 193, in save_candidate
+    if set(fp)&self.protected():raise ValueError('평가 전용 패턴이 학습에 포함됨')
+               ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 208, in protected
+    x,_,_,_,test,_=data(self.dataset)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_original_test_forced_historical (__main__.OperationsTests.test_original_test_forced_historical)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 117, in test_original_test_forced_historical
+    x,y,_,_,test,_=data('rg3')
+                   ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_unaligned_unlabeled_held (__main__.OperationsTests.test_unaligned_unlabeled_held)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 44, in test_unaligned_unlabeled_held
+    self.seed();x,_=synthetic(50)
+    ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 33, in seed
+    v=self.ops.save_candidate(b,x,y,source={'fixture':'synthetic'})
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 193, in save_candidate
+    if set(fp)&self.protected():raise ValueError('평가 전용 패턴이 학습에 포함됨')
+               ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 208, in protected
+    x,_,_,_,test,_=data(self.dataset)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_unlabeled_ct_rejected (__main__.OperationsTests.test_unlabeled_ct_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 79, in test_unlabeled_ct_rejected
+    self.seed();ids=[]
+    ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_operations.py", line 33, in seed
+    v=self.ops.save_candidate(b,x,y,source={'fixture':'synthetic'})
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 193, in save_candidate
+    if set(fp)&self.protected():raise ValueError('평가 전용 패턴이 학습에 포함됨')
+               ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 208, in protected
+    x,_,_,_,test,_=data(self.dataset)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+----------------------------------------------------------------------
+Ran 12 tests in 3.317s
+
+FAILED (errors=10)
+

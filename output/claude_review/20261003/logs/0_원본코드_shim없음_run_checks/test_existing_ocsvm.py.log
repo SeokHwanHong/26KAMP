@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_existing_ocsvm.py", line 21, in <module>
+    exec(compile(''.join(c['source']),str(notebook),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'

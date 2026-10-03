@@ -1,0 +1,38 @@
+{
+  "protocol": "fixed_pattern",
+  "dataset": "cn7",
+  "target": "any observed defect in exact current-input pattern",
+  "source_sha256": "f870b0c259297f20d503f2e2739966553e5db5ef1deb0cc7513eefa4bbfa2753",
+  "status": "completed",
+  "validation_selected": "ridge_residual_lr",
+  "validation_F1": 0.6,
+  "test": {
+    "model": "ridge_residual_lr",
+    "selected_on_validation": true,
+    "threshold": 0.9648626157167327,
+    "n": 122,
+    "positives": 3,
+    "TP": 0,
+    "FP": 0,
+    "FN": 3,
+    "TN": 119,
+    "precision": 0.0,
+    "recall": 0.0,
+    "FPR": 0.0,
+    "F1": 0.0,
+    "AP": 0.2621212121212121,
+    "AUC": 0.9299719887955182
+  },
+  "recall_binomial_95_interval": [
+    0.0,
+    0.7075982261787133
+  ],
+  "interval_note": "descriptive exact-binomial interval; independence may fail, selection/data shift not covered",
+  "selection_frozen_before_test": true,
+  "model_reload_identical": true,
+  "retained_relations": {
+    "ridge": 16,
+    "extra": 16
+  },
+  "test_role": "previously inspected follow-up; no deployment claim"
+}

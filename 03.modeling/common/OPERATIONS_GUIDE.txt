@@ -1,0 +1,84 @@
+KAMP 7단계 로컬 실행 가이드 — 2026-10-03
+
+구현 범위
+배치 입력 검증·패턴 전처리·저장 모델 추론·분포 기준선·드리프트 감지·원인 확인 후
+모델별 전체 재학습·분리 평가·승격·롤백을 로컬 Python API/CLI로 구현했다.
+웹 서비스·DB 연결·상시 스케줄러는 포함하지 않는다. 입력은 CSV이며 함수에 DataFrame도 전달 가능하다.
+공모전 데이터에 대해 생산 시간·현장 좌표 정합·독립 평가가 확인됐다는 의미가 아니다.
+
+진입점
+03.modeling/04_operations.ipynb: 기본값은 운영 상태 조회.
+03.modeling/models/05_logistic_regression.ipynb: 실행 결과 열람, 선택적으로 재학습.
+03.modeling/pipeline_cli.py: 명시적 로컬 운영 명령.
+03.modeling/common/pipeline_runtime.py: 공통 구현.
+
+프로젝트 루트에서 실행
+python 03.modeling/pipeline_cli.py --dataset rg3 status
+python 03.modeling/models/logistic_regression.py --dataset both
+python 03.modeling/pipeline_cli.py --dataset rg3 initial --kind rf
+python 03.modeling/pipeline_cli.py --dataset rg3 initialize --version <저장버전> --reason <초기기준지정사유>
+python 03.modeling/pipeline_cli.py --dataset rg3 baseline
+python 03.modeling/pipeline_cli.py --dataset rg3 ingest --input <배치.csv> --label-source <검사출처> --coordinates-confirmed
+python 03.modeling/pipeline_cli.py --dataset rg3 retrain --kind lr --batch-ids <배치ID1> <배치ID2> --drift-id <검토ID> --cause <확인원인>
+python 03.modeling/pipeline_cli.py --dataset rg3 register-evaluation --input <분리평가.csv> --label-source <검사출처>
+python 03.modeling/pipeline_cli.py --dataset rg3 evaluate --candidate <후보버전> --evaluation-id <평가ID>
+python 03.modeling/pipeline_cli.py --dataset rg3 promote --assessment-id <통과평가ID>
+python 03.modeling/pipeline_cli.py --dataset rg3 rollback --kind lr --reason <사유>
+
+꺾쇠 항목은 실제 값으로 교체한다. --state-root <별도경로>를 전역 인자로 주면 격리 저장소로 리허설한다.
+coordinates-confirmed는 운영자가 제공 좌표계/스케일 정합을 확인했다는 명시적 선언이다.
+컬럼이 같다는 사실만으로 좌표 정합을 자동 판정하지 않는다.
+없는 라벨을 생성하지 않는다. PassOrFail이 있다면 모두 0/1이어야 하고 출처를 기록한다.
+원본 제품 ID와 빈도를 보존하고 같은 입력은 max(label) 위험 이력으로 집계한다.
+배치 ID는 재사용하지 않는다. 제품 ID는 데이터셋·배치 ID와 함께 식별한다.
+
+기준선·감지 정책
+최초 기준선은 개발 패턴을 원본 제품 빈도만큼 복원한 분포다. Test는 포함하지 않는다.
+값이 12종 이하이면 값별 비율, 그 외에는 참조 자료의 고정 분위수 구간을 사용한다.
+범위 밖 값·변수 2개 조합·같은 버전 모델의 점수 및 예측 비율을 비교한다.
+TV 거리 = 0.5 × 비율 차이 절댓값의 합.
+제품 최소 200개·고유 패턴 최소 40개까지 누적하며 배치 크기와 감지 윈도를 분리한다.
+완성된 윈도에 사용한 배치는 다음 윈도에서 다시 쓰지 않는다.
+고유 패턴 수를 유효 표본 크기로 사용한 참조 부트스트랩 200회·최대 변화량 99% 분위수를
+시험 경보선으로 사용한다. 이는 현장 시계열 의존성까지 보정한 확정 경보선이 아니다.
+초과 1회 주의, 같은 기준선에서 2회 연속 초과하면 원인 검토다. 출력 변화가 없어도 입력 변화로 검토할 수 있다.
+신규 패턴 비율은 참고만 하며 재학습 단독 조건으로 쓰지 않는다.
+
+CT/CD 정책
+드리프트 검토 ID, 현재 운영 기준 버전, 원인 기록, 라벨 있는 배치가 필요하다.
+기존 위험 이력을 신규 정상 라벨로 덮어쓰지 않는다. 기존 corpus와 새 자료를 합쳐 최대 라벨로 집계한다.
+IF·OCSVM은 정상 패턴으로 전체 재학습, LR·RF는 정상·위험 모두로 전체 재학습한다.
+이번 구현은 partial_fit이 아닌 전체 재학습 경로다. 모델별 독립 후보이며 자동 승격하지 않는다.
+기존 Test와 등록된 평가 패턴은 CT에서 거부한다.
+기존 Test를 평가 자료로 등록하면 강제로 historical_followup 처리해 승격 근거로 사용하지 않는다.
+초기 모델 지정 initialize는 검증된 우수성 선언이 아닌 명시적 비교 기준 지정이다.
+평가 고유 정상 최소 30개·위험 최소 5개가 기본값이다. 표본 수 충족만으로 현장 신뢰도를 보증하지 않는다.
+분류 모델은 F1 개선, Recall 유지, FPR 0.2 이하를 모두 요구한다.
+IF는 동일 검사량에서 위험 발견 기대 수가 증가해야 한다. 예산 동점은 최소·최대·기대값을 함께 기록한다.
+운영 정책은 Operations(policy=...)에서 변경 가능하며 평가 기록에 저장된다. Test 결과로 정책을 조정하지 않는다.
+미달·표본 부족·이미 관찰한 평가이면 유지/보류한다. 통과한 해당 모델만 명시적 promote로 교체한다.
+교체 후 기준선의 모델 점수 버전을 갱신하고, 이전 모델을 보존해 rollback한다.
+라벨 포함 배치에는 패턴 단위 사후 지표가 저장된다. 비라벨 배치에 성능 지표를 만들지 않는다.
+
+RG3 분포 안내
+학습 자료로 정한 고정 구간에 대해 참조·평가 패턴 수, 위험 수, 참고용 Wilson 95% 구간을 기록한다.
+참조 20패턴·위험 5패턴 미만은 표본 부족, 평가 쪽 표본 부족도 별도로 표시한다.
+단위는 위험 이력 패턴이다. 원본 제품 불량률·물리 단위·원인 효과로 해석하지 않는다.
+0건/미관측 구간을 안전 구간으로 안내하지 않는다. 추가 관측 필요 구간으로 안내한다.
+assessments/<ID>/distribution_guidance.{json,csv,txt}에서 확인한다.
+이 구간 표로 임계값을 다시 고르거나 CD 통과 점수를 바꾸지 않는다.
+
+저장·무결성
+runtime/<dataset>/models, batches, baselines, drift, evaluations, assessments와 registry가 이력이다.
+모델·평가·배치 산출물 해시 및 현재 운영 버전을 대조한 후 승격한다.
+OCSVM 실행은 run_id 폴더를 사용하고 등록 시 감사 모델·선택·코드·데이터·분할을 다시 확인한다.
+LR 실행도 고유 폴더에 저장하고 후보만 등록한다.
+
+검증
+python 03.modeling/tests/run_checks.py
+한 명령으로 아래 테스트·기존 OCSVM 회귀·저장 LR 재검산을 수행하며 runtime 불변을 확인한다.
+python 03.modeling/tests/test_operations.py
+python 03.modeling/tests/test_registration_and_logistic.py
+python 03.modeling/tests/test_existing_ocsvm.py
+python 03.modeling/tests/audit_logistic_runs.py
+운영 통합 테스트는 합성 입력을 이용한 기술 검증이며 실제 공정 성능 검증이 아니다.

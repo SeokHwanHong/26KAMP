@@ -1,0 +1,18 @@
+{
+  "protocol": "temporal_assumed",
+  "dataset": "rg3",
+  "target": "original row label; file order assumed temporal",
+  "first_validation_row_1based": 714,
+  "first_test_row_1based": 950,
+  "gap": 3,
+  "split_counts": [
+    707,
+    233,
+    233
+  ],
+  "split_defects": [
+    16,
+    4,
+    5
+  ]
+}

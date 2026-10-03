@@ -1,0 +1,136 @@
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator VarianceThreshold from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator Pipeline from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+test_changed_model_after_audit_rejected (__main__.RegistrationAndLogisticTests.test_changed_model_after_audit_rejected) ... ERROR
+test_domain_normal_reference_alltrain_final_scaler (__main__.RegistrationAndLogisticTests.test_domain_normal_reference_alltrain_final_scaler) ... ERROR
+test_lr_all_training_rows_scaler (__main__.RegistrationAndLogisticTests.test_lr_all_training_rows_scaler) ... ERROR
+test_matching_hash_but_inconsistent_threshold_rejected (__main__.RegistrationAndLogisticTests.test_matching_hash_but_inconsistent_threshold_rejected) ... ERROR
+test_saved_threshold_matches_strict_rule (__main__.RegistrationAndLogisticTests.test_saved_threshold_matches_strict_rule) ... ERROR
+test_stale_split_rejected (__main__.RegistrationAndLogisticTests.test_stale_split_rejected) ... ERROR
+test_unchanged_audit_bound_artifact_registers (__main__.RegistrationAndLogisticTests.test_unchanged_audit_bound_artifact_registers) ... ERROR
+
+======================================================================
+ERROR: test_changed_model_after_audit_rejected (__main__.RegistrationAndLogisticTests.test_changed_model_after_audit_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 46, in test_changed_model_after_audit_rejected
+    ctx,path=self.fixture();b=joblib.load(path);b['threshold']+=1000;joblib.dump(b,path)
+             ^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 29, in fixture
+    ctx=self.ns['Pipeline'](ROOT,'cn7',state_root=self.folder/'state')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "<string>", line 6, in load_library
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb:cell-2", line 11, in <module>
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_domain_normal_reference_alltrain_final_scaler (__main__.RegistrationAndLogisticTests.test_domain_normal_reference_alltrain_final_scaler)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 66, in test_domain_normal_reference_alltrain_final_scaler
+    x,y,_,dev,_,_=data('cn7');b=fit_supervised('cn7',x.loc[dev],y.loc[dev],scenario='thermal')
+                  ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_lr_all_training_rows_scaler (__main__.RegistrationAndLogisticTests.test_lr_all_training_rows_scaler)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 59, in test_lr_all_training_rows_scaler
+    x,y,_,dev,test,_=data('rg3');b=fit_supervised('rg3',x.loc[dev],y.loc[dev])
+                     ^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_matching_hash_but_inconsistent_threshold_rejected (__main__.RegistrationAndLogisticTests.test_matching_hash_but_inconsistent_threshold_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 49, in test_matching_hash_but_inconsistent_threshold_rejected
+    ctx,path=self.fixture();b=joblib.load(path);b['threshold']+=1000;joblib.dump(b,path)
+             ^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 29, in fixture
+    ctx=self.ns['Pipeline'](ROOT,'cn7',state_root=self.folder/'state')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "<string>", line 6, in load_library
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb:cell-2", line 11, in <module>
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_saved_threshold_matches_strict_rule (__main__.RegistrationAndLogisticTests.test_saved_threshold_matches_strict_rule)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 72, in test_saved_threshold_matches_strict_rule
+    b=joblib.load(folder/'model.joblib');x,y,_,_,test,_=data(ds)
+                                                        ^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 60, in data
+    def data(dataset):return library(dataset)['load_data'](ROOT)
+                             ^^^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/common/pipeline_runtime.py", line 55, in library
+    exec(compile(''.join(c['source']),str(p),'exec'),ns)
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb", line 11, in <module>
+    "IF 정렬을 성능 개선의 전제로 삼지 않습니다. IF 점수를 라벨·추가 특징·학습 가중치로 사용하지 않습니다.\n",
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_stale_split_rejected (__main__.RegistrationAndLogisticTests.test_stale_split_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 54, in test_stale_split_rejected
+    ctx,path=self.fixture();run=read(path.parent/'run_config.json');run['split_sha256']='stale'
+             ^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 29, in fixture
+    ctx=self.ns['Pipeline'](ROOT,'cn7',state_root=self.folder/'state')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "<string>", line 6, in load_library
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb:cell-2", line 11, in <module>
+ModuleNotFoundError: No module named 'IPython'
+
+======================================================================
+ERROR: test_unchanged_audit_bound_artifact_registers (__main__.RegistrationAndLogisticTests.test_unchanged_audit_bound_artifact_registers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 42, in test_unchanged_audit_bound_artifact_registers
+    ctx,path=self.fixture();v=self.ns['register_ocsvm_baseline'](ctx,path)
+             ^^^^^^^^^^^^^^
+  File "/home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 29, in fixture
+    ctx=self.ns['Pipeline'](ROOT,'cn7',state_root=self.folder/'state')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 12, in __init__
+  File "<string>", line 6, in load_library
+  File "/home/claude/work/KAMP/03.modeling/models/ocsvm.ipynb:cell-2", line 11, in <module>
+ModuleNotFoundError: No module named 'IPython'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.350s
+
+FAILED (errors=7)
+

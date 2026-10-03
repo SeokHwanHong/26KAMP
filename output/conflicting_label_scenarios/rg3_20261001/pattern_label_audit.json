@@ -1,0 +1,8867 @@
+[
+  {
+    "pattern_row": 0,
+    "source_rows_1_based": [
+      1,
+      2
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 1,
+    "source_rows_1_based": [
+      3,
+      4
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 2,
+    "source_rows_1_based": [
+      5,
+      6
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 3,
+    "source_rows_1_based": [
+      7,
+      8
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 4,
+    "source_rows_1_based": [
+      9,
+      10
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 5,
+    "source_rows_1_based": [
+      11,
+      12
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 6,
+    "source_rows_1_based": [
+      13,
+      14
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 7,
+    "source_rows_1_based": [
+      15,
+      16
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 8,
+    "source_rows_1_based": [
+      17,
+      18
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 9,
+    "source_rows_1_based": [
+      19,
+      20
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 10,
+    "source_rows_1_based": [
+      21,
+      22
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 11,
+    "source_rows_1_based": [
+      23,
+      24
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 12,
+    "source_rows_1_based": [
+      25,
+      26
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 13,
+    "source_rows_1_based": [
+      27,
+      28
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 14,
+    "source_rows_1_based": [
+      29,
+      30
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 15,
+    "source_rows_1_based": [
+      31,
+      32
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 16,
+    "source_rows_1_based": [
+      33,
+      34
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 17,
+    "source_rows_1_based": [
+      35,
+      36
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 18,
+    "source_rows_1_based": [
+      37,
+      38
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 19,
+    "source_rows_1_based": [
+      39,
+      40
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 20,
+    "source_rows_1_based": [
+      41,
+      42
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 21,
+    "source_rows_1_based": [
+      43,
+      44
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 22,
+    "source_rows_1_based": [
+      45,
+      46
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 23,
+    "source_rows_1_based": [
+      47,
+      48
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 24,
+    "source_rows_1_based": [
+      49,
+      50
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 25,
+    "source_rows_1_based": [
+      51,
+      52
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 26,
+    "source_rows_1_based": [
+      53,
+      54
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 27,
+    "source_rows_1_based": [
+      55,
+      56
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 28,
+    "source_rows_1_based": [
+      57,
+      58
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 29,
+    "source_rows_1_based": [
+      59,
+      60
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 30,
+    "source_rows_1_based": [
+      61,
+      62
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 31,
+    "source_rows_1_based": [
+      63,
+      64
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 32,
+    "source_rows_1_based": [
+      65,
+      66
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 33,
+    "source_rows_1_based": [
+      67,
+      68
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 34,
+    "source_rows_1_based": [
+      69,
+      70
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 35,
+    "source_rows_1_based": [
+      71,
+      72
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 36,
+    "source_rows_1_based": [
+      73,
+      74
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 37,
+    "source_rows_1_based": [
+      75,
+      76
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 38,
+    "source_rows_1_based": [
+      77,
+      78
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 39,
+    "source_rows_1_based": [
+      79,
+      80
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 40,
+    "source_rows_1_based": [
+      81,
+      82
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 41,
+    "source_rows_1_based": [
+      83,
+      84
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 42,
+    "source_rows_1_based": [
+      85,
+      86
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 43,
+    "source_rows_1_based": [
+      87,
+      88
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 44,
+    "source_rows_1_based": [
+      89,
+      90
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 45,
+    "source_rows_1_based": [
+      91,
+      92
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 46,
+    "source_rows_1_based": [
+      93,
+      94
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 47,
+    "source_rows_1_based": [
+      95,
+      96
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 48,
+    "source_rows_1_based": [
+      97,
+      98
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 49,
+    "source_rows_1_based": [
+      99,
+      100
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 50,
+    "source_rows_1_based": [
+      101,
+      102
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 51,
+    "source_rows_1_based": [
+      103,
+      104
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 52,
+    "source_rows_1_based": [
+      105,
+      106
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 53,
+    "source_rows_1_based": [
+      107,
+      108
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 54,
+    "source_rows_1_based": [
+      109,
+      110
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 55,
+    "source_rows_1_based": [
+      111,
+      112
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 56,
+    "source_rows_1_based": [
+      113,
+      114
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 57,
+    "source_rows_1_based": [
+      115,
+      116
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 58,
+    "source_rows_1_based": [
+      117,
+      118
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 59,
+    "source_rows_1_based": [
+      119,
+      120
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 60,
+    "source_rows_1_based": [
+      121,
+      122
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 61,
+    "source_rows_1_based": [
+      123,
+      124
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 62,
+    "source_rows_1_based": [
+      125,
+      126
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 63,
+    "source_rows_1_based": [
+      127,
+      128
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 64,
+    "source_rows_1_based": [
+      129,
+      130
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 65,
+    "source_rows_1_based": [
+      131,
+      132
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 66,
+    "source_rows_1_based": [
+      133,
+      134
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 67,
+    "source_rows_1_based": [
+      135,
+      136
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 68,
+    "source_rows_1_based": [
+      137,
+      138
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 69,
+    "source_rows_1_based": [
+      139,
+      140
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 70,
+    "source_rows_1_based": [
+      141,
+      143
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 71,
+    "source_rows_1_based": [
+      142,
+      144
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 72,
+    "source_rows_1_based": [
+      145,
+      146
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 73,
+    "source_rows_1_based": [
+      147,
+      148
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 74,
+    "source_rows_1_based": [
+      149,
+      150
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 75,
+    "source_rows_1_based": [
+      151,
+      152
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 76,
+    "source_rows_1_based": [
+      153,
+      154
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 77,
+    "source_rows_1_based": [
+      155,
+      156
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 78,
+    "source_rows_1_based": [
+      157,
+      158
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 79,
+    "source_rows_1_based": [
+      159,
+      160
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 80,
+    "source_rows_1_based": [
+      161,
+      162
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 81,
+    "source_rows_1_based": [
+      163,
+      164
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 82,
+    "source_rows_1_based": [
+      165,
+      166
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 83,
+    "source_rows_1_based": [
+      167,
+      168
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 84,
+    "source_rows_1_based": [
+      169,
+      170
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 85,
+    "source_rows_1_based": [
+      171,
+      172
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 86,
+    "source_rows_1_based": [
+      173,
+      174
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 87,
+    "source_rows_1_based": [
+      175,
+      176
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 88,
+    "source_rows_1_based": [
+      177,
+      178
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 89,
+    "source_rows_1_based": [
+      179,
+      180
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 90,
+    "source_rows_1_based": [
+      181,
+      182
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 91,
+    "source_rows_1_based": [
+      183,
+      184
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 92,
+    "source_rows_1_based": [
+      185,
+      186
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 93,
+    "source_rows_1_based": [
+      187,
+      188
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 94,
+    "source_rows_1_based": [
+      189,
+      190
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 95,
+    "source_rows_1_based": [
+      191,
+      192
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 96,
+    "source_rows_1_based": [
+      193,
+      194
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 97,
+    "source_rows_1_based": [
+      195,
+      196
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 98,
+    "source_rows_1_based": [
+      197,
+      198
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 99,
+    "source_rows_1_based": [
+      199,
+      200
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 100,
+    "source_rows_1_based": [
+      201,
+      202
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 101,
+    "source_rows_1_based": [
+      203,
+      204
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 102,
+    "source_rows_1_based": [
+      205,
+      206
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 103,
+    "source_rows_1_based": [
+      207,
+      208
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 104,
+    "source_rows_1_based": [
+      209,
+      210
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 105,
+    "source_rows_1_based": [
+      211,
+      212
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 106,
+    "source_rows_1_based": [
+      213,
+      214
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 107,
+    "source_rows_1_based": [
+      215,
+      216
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 108,
+    "source_rows_1_based": [
+      217,
+      218
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 109,
+    "source_rows_1_based": [
+      219,
+      220
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 110,
+    "source_rows_1_based": [
+      221,
+      222
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 111,
+    "source_rows_1_based": [
+      223,
+      224
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 112,
+    "source_rows_1_based": [
+      225,
+      226
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 113,
+    "source_rows_1_based": [
+      227,
+      228
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 114,
+    "source_rows_1_based": [
+      229,
+      230
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 115,
+    "source_rows_1_based": [
+      231,
+      232
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 116,
+    "source_rows_1_based": [
+      233,
+      234
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 117,
+    "source_rows_1_based": [
+      235,
+      236
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 118,
+    "source_rows_1_based": [
+      237,
+      238
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 119,
+    "source_rows_1_based": [
+      239,
+      240
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 120,
+    "source_rows_1_based": [
+      241,
+      242
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 121,
+    "source_rows_1_based": [
+      243,
+      244
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 122,
+    "source_rows_1_based": [
+      245,
+      246
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 123,
+    "source_rows_1_based": [
+      247,
+      248
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 124,
+    "source_rows_1_based": [
+      249,
+      250
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 125,
+    "source_rows_1_based": [
+      251,
+      252
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 126,
+    "source_rows_1_based": [
+      253,
+      254
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 127,
+    "source_rows_1_based": [
+      255,
+      256
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 128,
+    "source_rows_1_based": [
+      257,
+      258
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 129,
+    "source_rows_1_based": [
+      259,
+      260
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 130,
+    "source_rows_1_based": [
+      261,
+      262
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 131,
+    "source_rows_1_based": [
+      263,
+      264
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 132,
+    "source_rows_1_based": [
+      265,
+      266
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 133,
+    "source_rows_1_based": [
+      267,
+      268
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 134,
+    "source_rows_1_based": [
+      269,
+      270
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 135,
+    "source_rows_1_based": [
+      271,
+      272
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 136,
+    "source_rows_1_based": [
+      273,
+      274
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 137,
+    "source_rows_1_based": [
+      275,
+      276
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 138,
+    "source_rows_1_based": [
+      277,
+      278
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 139,
+    "source_rows_1_based": [
+      279,
+      280
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 140,
+    "source_rows_1_based": [
+      281,
+      282
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 141,
+    "source_rows_1_based": [
+      283,
+      284
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 142,
+    "source_rows_1_based": [
+      285,
+      286
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 143,
+    "source_rows_1_based": [
+      287,
+      288
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 144,
+    "source_rows_1_based": [
+      289,
+      290
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 145,
+    "source_rows_1_based": [
+      291,
+      292
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 146,
+    "source_rows_1_based": [
+      293,
+      294
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 147,
+    "source_rows_1_based": [
+      295,
+      296
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 148,
+    "source_rows_1_based": [
+      297,
+      298
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 149,
+    "source_rows_1_based": [
+      299,
+      300
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 150,
+    "source_rows_1_based": [
+      301,
+      302
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 151,
+    "source_rows_1_based": [
+      303,
+      304
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 152,
+    "source_rows_1_based": [
+      305,
+      306
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 153,
+    "source_rows_1_based": [
+      307,
+      308
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 154,
+    "source_rows_1_based": [
+      309,
+      310
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 155,
+    "source_rows_1_based": [
+      311,
+      312
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 156,
+    "source_rows_1_based": [
+      313,
+      314
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 157,
+    "source_rows_1_based": [
+      315,
+      316
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 158,
+    "source_rows_1_based": [
+      317,
+      318
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 159,
+    "source_rows_1_based": [
+      319,
+      320
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 160,
+    "source_rows_1_based": [
+      321,
+      322
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 161,
+    "source_rows_1_based": [
+      323,
+      324
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 162,
+    "source_rows_1_based": [
+      325,
+      326
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 163,
+    "source_rows_1_based": [
+      327,
+      328
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 164,
+    "source_rows_1_based": [
+      329,
+      330
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 165,
+    "source_rows_1_based": [
+      331,
+      332
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 166,
+    "source_rows_1_based": [
+      333,
+      334
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 167,
+    "source_rows_1_based": [
+      335,
+      336
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 168,
+    "source_rows_1_based": [
+      337,
+      338
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 169,
+    "source_rows_1_based": [
+      339,
+      340
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 170,
+    "source_rows_1_based": [
+      341,
+      342
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 171,
+    "source_rows_1_based": [
+      343,
+      344
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 172,
+    "source_rows_1_based": [
+      345,
+      346
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 173,
+    "source_rows_1_based": [
+      347,
+      348
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 174,
+    "source_rows_1_based": [
+      349,
+      350
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 175,
+    "source_rows_1_based": [
+      351,
+      352
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 176,
+    "source_rows_1_based": [
+      353,
+      354
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 177,
+    "source_rows_1_based": [
+      355,
+      356
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 178,
+    "source_rows_1_based": [
+      357,
+      358
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 179,
+    "source_rows_1_based": [
+      359,
+      360
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 180,
+    "source_rows_1_based": [
+      361,
+      362
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 181,
+    "source_rows_1_based": [
+      363,
+      364
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 182,
+    "source_rows_1_based": [
+      365,
+      366
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 183,
+    "source_rows_1_based": [
+      367,
+      368
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 184,
+    "source_rows_1_based": [
+      369,
+      370
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 185,
+    "source_rows_1_based": [
+      371,
+      372
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 186,
+    "source_rows_1_based": [
+      373,
+      374
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 187,
+    "source_rows_1_based": [
+      375,
+      376
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 188,
+    "source_rows_1_based": [
+      377,
+      378
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 189,
+    "source_rows_1_based": [
+      379,
+      380
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 190,
+    "source_rows_1_based": [
+      381,
+      382
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 191,
+    "source_rows_1_based": [
+      383,
+      384
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 192,
+    "source_rows_1_based": [
+      385,
+      386
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 193,
+    "source_rows_1_based": [
+      387,
+      388
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 194,
+    "source_rows_1_based": [
+      389,
+      390
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 195,
+    "source_rows_1_based": [
+      391,
+      392
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 196,
+    "source_rows_1_based": [
+      393,
+      394
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 197,
+    "source_rows_1_based": [
+      395,
+      396
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 198,
+    "source_rows_1_based": [
+      397,
+      398
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 199,
+    "source_rows_1_based": [
+      399,
+      400
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 200,
+    "source_rows_1_based": [
+      401,
+      402
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 201,
+    "source_rows_1_based": [
+      403,
+      404
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 202,
+    "source_rows_1_based": [
+      405,
+      406
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 203,
+    "source_rows_1_based": [
+      407,
+      408
+    ],
+    "original_labels": [
+      0,
+      1
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 204,
+    "source_rows_1_based": [
+      409,
+      410
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 205,
+    "source_rows_1_based": [
+      411,
+      412
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 206,
+    "source_rows_1_based": [
+      413,
+      414
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 207,
+    "source_rows_1_based": [
+      415,
+      416
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 208,
+    "source_rows_1_based": [
+      417,
+      418
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 209,
+    "source_rows_1_based": [
+      419,
+      420
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 210,
+    "source_rows_1_based": [
+      421,
+      422
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 211,
+    "source_rows_1_based": [
+      423,
+      424
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 212,
+    "source_rows_1_based": [
+      425,
+      426
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 213,
+    "source_rows_1_based": [
+      427,
+      428
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 214,
+    "source_rows_1_based": [
+      429,
+      430
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 215,
+    "source_rows_1_based": [
+      431,
+      432
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 216,
+    "source_rows_1_based": [
+      433,
+      434
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 217,
+    "source_rows_1_based": [
+      435,
+      436
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 218,
+    "source_rows_1_based": [
+      437,
+      438
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 219,
+    "source_rows_1_based": [
+      439,
+      440
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 220,
+    "source_rows_1_based": [
+      441,
+      442
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 221,
+    "source_rows_1_based": [
+      443,
+      444
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 222,
+    "source_rows_1_based": [
+      445,
+      446
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 223,
+    "source_rows_1_based": [
+      447,
+      448
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 224,
+    "source_rows_1_based": [
+      449,
+      450
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 225,
+    "source_rows_1_based": [
+      451,
+      452
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 226,
+    "source_rows_1_based": [
+      453,
+      454
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 227,
+    "source_rows_1_based": [
+      455,
+      456
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 228,
+    "source_rows_1_based": [
+      457,
+      458
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 229,
+    "source_rows_1_based": [
+      459,
+      460
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 230,
+    "source_rows_1_based": [
+      461,
+      462
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 231,
+    "source_rows_1_based": [
+      463,
+      464
+    ],
+    "original_labels": [
+      0,
+      1
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 232,
+    "source_rows_1_based": [
+      465,
+      466
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 233,
+    "source_rows_1_based": [
+      467,
+      468
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 234,
+    "source_rows_1_based": [
+      469,
+      470
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 235,
+    "source_rows_1_based": [
+      471,
+      472
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 236,
+    "source_rows_1_based": [
+      473,
+      474
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 237,
+    "source_rows_1_based": [
+      475,
+      476
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 238,
+    "source_rows_1_based": [
+      477,
+      478
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 239,
+    "source_rows_1_based": [
+      479,
+      480
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 240,
+    "source_rows_1_based": [
+      481,
+      482
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 241,
+    "source_rows_1_based": [
+      483,
+      484
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 242,
+    "source_rows_1_based": [
+      485,
+      486
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 243,
+    "source_rows_1_based": [
+      487,
+      488
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 244,
+    "source_rows_1_based": [
+      489,
+      490
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 245,
+    "source_rows_1_based": [
+      491,
+      492
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 246,
+    "source_rows_1_based": [
+      493,
+      494
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 247,
+    "source_rows_1_based": [
+      495,
+      496
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 248,
+    "source_rows_1_based": [
+      497,
+      500
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 249,
+    "source_rows_1_based": [
+      498,
+      499
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 250,
+    "source_rows_1_based": [
+      501,
+      502
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 251,
+    "source_rows_1_based": [
+      503,
+      506
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 252,
+    "source_rows_1_based": [
+      504,
+      505
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 253,
+    "source_rows_1_based": [
+      507,
+      508
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 254,
+    "source_rows_1_based": [
+      509,
+      511
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 255,
+    "source_rows_1_based": [
+      510,
+      512
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 256,
+    "source_rows_1_based": [
+      513,
+      514
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 257,
+    "source_rows_1_based": [
+      515,
+      516
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 258,
+    "source_rows_1_based": [
+      517,
+      518
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 259,
+    "source_rows_1_based": [
+      519,
+      520
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 260,
+    "source_rows_1_based": [
+      521,
+      522
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 261,
+    "source_rows_1_based": [
+      523,
+      524
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 262,
+    "source_rows_1_based": [
+      525,
+      526
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 263,
+    "source_rows_1_based": [
+      527,
+      528
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 264,
+    "source_rows_1_based": [
+      529,
+      530
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 265,
+    "source_rows_1_based": [
+      531,
+      532
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 266,
+    "source_rows_1_based": [
+      533,
+      534
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 267,
+    "source_rows_1_based": [
+      535,
+      536
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 268,
+    "source_rows_1_based": [
+      537,
+      538
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 269,
+    "source_rows_1_based": [
+      539,
+      540
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 270,
+    "source_rows_1_based": [
+      541,
+      542
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 271,
+    "source_rows_1_based": [
+      543,
+      544
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 272,
+    "source_rows_1_based": [
+      545,
+      546
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 273,
+    "source_rows_1_based": [
+      547,
+      548
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 274,
+    "source_rows_1_based": [
+      549,
+      550
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 275,
+    "source_rows_1_based": [
+      551,
+      552
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 276,
+    "source_rows_1_based": [
+      553,
+      554
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 277,
+    "source_rows_1_based": [
+      555,
+      556
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 278,
+    "source_rows_1_based": [
+      557,
+      558
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 279,
+    "source_rows_1_based": [
+      559,
+      560
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 280,
+    "source_rows_1_based": [
+      561,
+      562
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 281,
+    "source_rows_1_based": [
+      563,
+      564
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 282,
+    "source_rows_1_based": [
+      565,
+      566
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 283,
+    "source_rows_1_based": [
+      567,
+      568
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 284,
+    "source_rows_1_based": [
+      569,
+      570
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 285,
+    "source_rows_1_based": [
+      571,
+      572
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 286,
+    "source_rows_1_based": [
+      573,
+      574
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 287,
+    "source_rows_1_based": [
+      575,
+      576
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 288,
+    "source_rows_1_based": [
+      577,
+      578
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 289,
+    "source_rows_1_based": [
+      579,
+      582
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 290,
+    "source_rows_1_based": [
+      580,
+      581
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 291,
+    "source_rows_1_based": [
+      583,
+      584
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 292,
+    "source_rows_1_based": [
+      585,
+      586
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 293,
+    "source_rows_1_based": [
+      587,
+      588
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 294,
+    "source_rows_1_based": [
+      589,
+      590
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 295,
+    "source_rows_1_based": [
+      591,
+      592
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 296,
+    "source_rows_1_based": [
+      593,
+      594
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 297,
+    "source_rows_1_based": [
+      595,
+      596
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 298,
+    "source_rows_1_based": [
+      597,
+      598
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 299,
+    "source_rows_1_based": [
+      599,
+      600
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 300,
+    "source_rows_1_based": [
+      601,
+      602
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 301,
+    "source_rows_1_based": [
+      603,
+      604
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 302,
+    "source_rows_1_based": [
+      605,
+      606
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 303,
+    "source_rows_1_based": [
+      607,
+      608
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 304,
+    "source_rows_1_based": [
+      609,
+      610
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 305,
+    "source_rows_1_based": [
+      611,
+      612
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 306,
+    "source_rows_1_based": [
+      613,
+      614
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 307,
+    "source_rows_1_based": [
+      615,
+      616
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 308,
+    "source_rows_1_based": [
+      617,
+      618
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 309,
+    "source_rows_1_based": [
+      619,
+      620
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 310,
+    "source_rows_1_based": [
+      621,
+      622
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 311,
+    "source_rows_1_based": [
+      623,
+      624
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 312,
+    "source_rows_1_based": [
+      625,
+      626
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 313,
+    "source_rows_1_based": [
+      627,
+      628
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 314,
+    "source_rows_1_based": [
+      629,
+      630
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 315,
+    "source_rows_1_based": [
+      631,
+      632
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 316,
+    "source_rows_1_based": [
+      633,
+      634
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 317,
+    "source_rows_1_based": [
+      635,
+      636
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 318,
+    "source_rows_1_based": [
+      637,
+      638
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 319,
+    "source_rows_1_based": [
+      639,
+      640
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 320,
+    "source_rows_1_based": [
+      641,
+      642
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 321,
+    "source_rows_1_based": [
+      643,
+      644
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 322,
+    "source_rows_1_based": [
+      645,
+      646
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 323,
+    "source_rows_1_based": [
+      647,
+      648
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 324,
+    "source_rows_1_based": [
+      649,
+      650
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 325,
+    "source_rows_1_based": [
+      651,
+      652
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 326,
+    "source_rows_1_based": [
+      653,
+      654
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 327,
+    "source_rows_1_based": [
+      655,
+      656
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 328,
+    "source_rows_1_based": [
+      657,
+      658
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 329,
+    "source_rows_1_based": [
+      659,
+      660
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 330,
+    "source_rows_1_based": [
+      661,
+      662
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 331,
+    "source_rows_1_based": [
+      663,
+      664
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 332,
+    "source_rows_1_based": [
+      665,
+      666
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 333,
+    "source_rows_1_based": [
+      667,
+      668
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 334,
+    "source_rows_1_based": [
+      669,
+      670
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 335,
+    "source_rows_1_based": [
+      671,
+      672
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 336,
+    "source_rows_1_based": [
+      673,
+      674
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 337,
+    "source_rows_1_based": [
+      675,
+      676
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 338,
+    "source_rows_1_based": [
+      677,
+      678
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 339,
+    "source_rows_1_based": [
+      679,
+      680
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 340,
+    "source_rows_1_based": [
+      681,
+      682
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 341,
+    "source_rows_1_based": [
+      683,
+      684
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 342,
+    "source_rows_1_based": [
+      685,
+      686
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 343,
+    "source_rows_1_based": [
+      687,
+      688
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 344,
+    "source_rows_1_based": [
+      689,
+      690
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 345,
+    "source_rows_1_based": [
+      691,
+      692
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 346,
+    "source_rows_1_based": [
+      693,
+      694
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 347,
+    "source_rows_1_based": [
+      695,
+      696
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 348,
+    "source_rows_1_based": [
+      697,
+      698
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 349,
+    "source_rows_1_based": [
+      699,
+      700
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 350,
+    "source_rows_1_based": [
+      701,
+      702
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 351,
+    "source_rows_1_based": [
+      703,
+      704
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 352,
+    "source_rows_1_based": [
+      705,
+      706
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 353,
+    "source_rows_1_based": [
+      707,
+      708
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 354,
+    "source_rows_1_based": [
+      709,
+      710
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 355,
+    "source_rows_1_based": [
+      711,
+      712
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 356,
+    "source_rows_1_based": [
+      713,
+      714
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 357,
+    "source_rows_1_based": [
+      715,
+      716
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 358,
+    "source_rows_1_based": [
+      717,
+      718
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 359,
+    "source_rows_1_based": [
+      719,
+      720
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 360,
+    "source_rows_1_based": [
+      721,
+      722
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 361,
+    "source_rows_1_based": [
+      723,
+      724
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 362,
+    "source_rows_1_based": [
+      725,
+      726
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 363,
+    "source_rows_1_based": [
+      727,
+      728
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 364,
+    "source_rows_1_based": [
+      729,
+      730
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 365,
+    "source_rows_1_based": [
+      731,
+      732
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 366,
+    "source_rows_1_based": [
+      733,
+      734
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 367,
+    "source_rows_1_based": [
+      735,
+      738
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 368,
+    "source_rows_1_based": [
+      736,
+      737
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 369,
+    "source_rows_1_based": [
+      739,
+      740
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 370,
+    "source_rows_1_based": [
+      741,
+      742
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 371,
+    "source_rows_1_based": [
+      743,
+      744
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 372,
+    "source_rows_1_based": [
+      745,
+      746
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 373,
+    "source_rows_1_based": [
+      747,
+      748
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 374,
+    "source_rows_1_based": [
+      749,
+      750
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 375,
+    "source_rows_1_based": [
+      751,
+      752
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 376,
+    "source_rows_1_based": [
+      753,
+      754
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 377,
+    "source_rows_1_based": [
+      755,
+      756
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 378,
+    "source_rows_1_based": [
+      757,
+      758
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 379,
+    "source_rows_1_based": [
+      759,
+      760
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 380,
+    "source_rows_1_based": [
+      761,
+      762
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 381,
+    "source_rows_1_based": [
+      763,
+      764
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 382,
+    "source_rows_1_based": [
+      765,
+      768
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 383,
+    "source_rows_1_based": [
+      766,
+      767
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 384,
+    "source_rows_1_based": [
+      769,
+      770
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 385,
+    "source_rows_1_based": [
+      771,
+      772
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 386,
+    "source_rows_1_based": [
+      773,
+      774
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 387,
+    "source_rows_1_based": [
+      775,
+      776
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 388,
+    "source_rows_1_based": [
+      777,
+      778
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 389,
+    "source_rows_1_based": [
+      779,
+      780
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 390,
+    "source_rows_1_based": [
+      781,
+      782
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 391,
+    "source_rows_1_based": [
+      783,
+      784
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 392,
+    "source_rows_1_based": [
+      785,
+      786
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 393,
+    "source_rows_1_based": [
+      787,
+      788
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 394,
+    "source_rows_1_based": [
+      789,
+      792
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 395,
+    "source_rows_1_based": [
+      790,
+      791
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 396,
+    "source_rows_1_based": [
+      793,
+      794
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 397,
+    "source_rows_1_based": [
+      795,
+      796
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 398,
+    "source_rows_1_based": [
+      797,
+      798
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 399,
+    "source_rows_1_based": [
+      799,
+      800
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 400,
+    "source_rows_1_based": [
+      801,
+      802
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 401,
+    "source_rows_1_based": [
+      803,
+      804
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 402,
+    "source_rows_1_based": [
+      805,
+      806
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 403,
+    "source_rows_1_based": [
+      807,
+      808
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 404,
+    "source_rows_1_based": [
+      809,
+      810
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 405,
+    "source_rows_1_based": [
+      811,
+      812
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 406,
+    "source_rows_1_based": [
+      813,
+      814
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 407,
+    "source_rows_1_based": [
+      815,
+      816
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 408,
+    "source_rows_1_based": [
+      817,
+      818
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 409,
+    "source_rows_1_based": [
+      819,
+      820
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 410,
+    "source_rows_1_based": [
+      821,
+      822
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 411,
+    "source_rows_1_based": [
+      823,
+      824
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 412,
+    "source_rows_1_based": [
+      825,
+      826
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 413,
+    "source_rows_1_based": [
+      827,
+      828
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 414,
+    "source_rows_1_based": [
+      829,
+      830
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 415,
+    "source_rows_1_based": [
+      831,
+      833
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 416,
+    "source_rows_1_based": [
+      832,
+      834
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 417,
+    "source_rows_1_based": [
+      835,
+      836
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 418,
+    "source_rows_1_based": [
+      837,
+      838
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 419,
+    "source_rows_1_based": [
+      839,
+      840
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 420,
+    "source_rows_1_based": [
+      841,
+      842
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 421,
+    "source_rows_1_based": [
+      843,
+      844
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 422,
+    "source_rows_1_based": [
+      845,
+      846
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 423,
+    "source_rows_1_based": [
+      847,
+      848
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 424,
+    "source_rows_1_based": [
+      849,
+      850
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 425,
+    "source_rows_1_based": [
+      851,
+      852
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 426,
+    "source_rows_1_based": [
+      853,
+      854
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 427,
+    "source_rows_1_based": [
+      855,
+      856
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 428,
+    "source_rows_1_based": [
+      857,
+      858
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 429,
+    "source_rows_1_based": [
+      859,
+      860
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 430,
+    "source_rows_1_based": [
+      861,
+      862
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 431,
+    "source_rows_1_based": [
+      863,
+      864
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 432,
+    "source_rows_1_based": [
+      865,
+      866
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 433,
+    "source_rows_1_based": [
+      867,
+      868
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 434,
+    "source_rows_1_based": [
+      869,
+      870
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 435,
+    "source_rows_1_based": [
+      871,
+      872
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 436,
+    "source_rows_1_based": [
+      873,
+      874
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 437,
+    "source_rows_1_based": [
+      875,
+      876
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 438,
+    "source_rows_1_based": [
+      877,
+      878
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 439,
+    "source_rows_1_based": [
+      879,
+      880
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 440,
+    "source_rows_1_based": [
+      881,
+      882
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 441,
+    "source_rows_1_based": [
+      883,
+      884
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 442,
+    "source_rows_1_based": [
+      885,
+      886
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 443,
+    "source_rows_1_based": [
+      887,
+      888
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 444,
+    "source_rows_1_based": [
+      889,
+      890
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 445,
+    "source_rows_1_based": [
+      891,
+      892
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 446,
+    "source_rows_1_based": [
+      893,
+      894
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 447,
+    "source_rows_1_based": [
+      895,
+      896
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 448,
+    "source_rows_1_based": [
+      897,
+      898
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 449,
+    "source_rows_1_based": [
+      899,
+      900
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 450,
+    "source_rows_1_based": [
+      901,
+      902
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 451,
+    "source_rows_1_based": [
+      903,
+      904
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 452,
+    "source_rows_1_based": [
+      905,
+      906
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 453,
+    "source_rows_1_based": [
+      907,
+      908
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 454,
+    "source_rows_1_based": [
+      909,
+      910
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 455,
+    "source_rows_1_based": [
+      911,
+      912
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 456,
+    "source_rows_1_based": [
+      913,
+      914
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 457,
+    "source_rows_1_based": [
+      915,
+      916
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 458,
+    "source_rows_1_based": [
+      917,
+      920
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 459,
+    "source_rows_1_based": [
+      918,
+      919
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 460,
+    "source_rows_1_based": [
+      921,
+      922
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 461,
+    "source_rows_1_based": [
+      923,
+      924
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 462,
+    "source_rows_1_based": [
+      925,
+      926
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 463,
+    "source_rows_1_based": [
+      927,
+      928
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 464,
+    "source_rows_1_based": [
+      929,
+      930
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 465,
+    "source_rows_1_based": [
+      931,
+      932
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 466,
+    "source_rows_1_based": [
+      933,
+      934
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 467,
+    "source_rows_1_based": [
+      935,
+      936
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 468,
+    "source_rows_1_based": [
+      937,
+      940
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 469,
+    "source_rows_1_based": [
+      938,
+      939
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 470,
+    "source_rows_1_based": [
+      941,
+      942
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 471,
+    "source_rows_1_based": [
+      943,
+      944
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 472,
+    "source_rows_1_based": [
+      945,
+      946
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 473,
+    "source_rows_1_based": [
+      947,
+      948
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 474,
+    "source_rows_1_based": [
+      949,
+      950
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 475,
+    "source_rows_1_based": [
+      951,
+      952
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 476,
+    "source_rows_1_based": [
+      953,
+      954
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 477,
+    "source_rows_1_based": [
+      955,
+      956
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 478,
+    "source_rows_1_based": [
+      957,
+      958
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 479,
+    "source_rows_1_based": [
+      959,
+      960
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 480,
+    "source_rows_1_based": [
+      961,
+      962
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 481,
+    "source_rows_1_based": [
+      963,
+      964
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 482,
+    "source_rows_1_based": [
+      965,
+      966
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 483,
+    "source_rows_1_based": [
+      967,
+      968
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 484,
+    "source_rows_1_based": [
+      969,
+      970
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 485,
+    "source_rows_1_based": [
+      971,
+      972
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 486,
+    "source_rows_1_based": [
+      973,
+      974
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 487,
+    "source_rows_1_based": [
+      975,
+      976
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 488,
+    "source_rows_1_based": [
+      977,
+      978
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 489,
+    "source_rows_1_based": [
+      979,
+      980
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 490,
+    "source_rows_1_based": [
+      981,
+      982
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 491,
+    "source_rows_1_based": [
+      983,
+      984
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 492,
+    "source_rows_1_based": [
+      985,
+      986
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 493,
+    "source_rows_1_based": [
+      987,
+      988
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 494,
+    "source_rows_1_based": [
+      989,
+      990
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 495,
+    "source_rows_1_based": [
+      991,
+      992
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 496,
+    "source_rows_1_based": [
+      993,
+      994
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 497,
+    "source_rows_1_based": [
+      995,
+      996
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 498,
+    "source_rows_1_based": [
+      997,
+      998
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 499,
+    "source_rows_1_based": [
+      999,
+      1000
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 500,
+    "source_rows_1_based": [
+      1001,
+      1002
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 501,
+    "source_rows_1_based": [
+      1003,
+      1004
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 502,
+    "source_rows_1_based": [
+      1005,
+      1006
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 503,
+    "source_rows_1_based": [
+      1007,
+      1008
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 504,
+    "source_rows_1_based": [
+      1009,
+      1010
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 505,
+    "source_rows_1_based": [
+      1011,
+      1012
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 506,
+    "source_rows_1_based": [
+      1013,
+      1014
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 507,
+    "source_rows_1_based": [
+      1015,
+      1016
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 508,
+    "source_rows_1_based": [
+      1017,
+      1018
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 509,
+    "source_rows_1_based": [
+      1019,
+      1020
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 510,
+    "source_rows_1_based": [
+      1021,
+      1022
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 511,
+    "source_rows_1_based": [
+      1023,
+      1024
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 512,
+    "source_rows_1_based": [
+      1025,
+      1026
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 513,
+    "source_rows_1_based": [
+      1027,
+      1028
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 514,
+    "source_rows_1_based": [
+      1029,
+      1030
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 515,
+    "source_rows_1_based": [
+      1031,
+      1032
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 516,
+    "source_rows_1_based": [
+      1033,
+      1034
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 517,
+    "source_rows_1_based": [
+      1035,
+      1038
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 518,
+    "source_rows_1_based": [
+      1036,
+      1037
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 519,
+    "source_rows_1_based": [
+      1039,
+      1040
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 520,
+    "source_rows_1_based": [
+      1041,
+      1042
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 521,
+    "source_rows_1_based": [
+      1043,
+      1044
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 522,
+    "source_rows_1_based": [
+      1045,
+      1046
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 523,
+    "source_rows_1_based": [
+      1047,
+      1048
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 524,
+    "source_rows_1_based": [
+      1049,
+      1050
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 525,
+    "source_rows_1_based": [
+      1051,
+      1052
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 526,
+    "source_rows_1_based": [
+      1053,
+      1054
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 527,
+    "source_rows_1_based": [
+      1055,
+      1056
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 528,
+    "source_rows_1_based": [
+      1057,
+      1059
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 529,
+    "source_rows_1_based": [
+      1058,
+      1060
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 530,
+    "source_rows_1_based": [
+      1061,
+      1062
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 531,
+    "source_rows_1_based": [
+      1063,
+      1064
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 532,
+    "source_rows_1_based": [
+      1065,
+      1066
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 533,
+    "source_rows_1_based": [
+      1067,
+      1068
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 534,
+    "source_rows_1_based": [
+      1069,
+      1070
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 535,
+    "source_rows_1_based": [
+      1071,
+      1072
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 536,
+    "source_rows_1_based": [
+      1073,
+      1074
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 537,
+    "source_rows_1_based": [
+      1075,
+      1076
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 538,
+    "source_rows_1_based": [
+      1077,
+      1078
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 539,
+    "source_rows_1_based": [
+      1079,
+      1080
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 540,
+    "source_rows_1_based": [
+      1081,
+      1082
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 541,
+    "source_rows_1_based": [
+      1083,
+      1084
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 542,
+    "source_rows_1_based": [
+      1085,
+      1086
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 543,
+    "source_rows_1_based": [
+      1087,
+      1088
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 544,
+    "source_rows_1_based": [
+      1089,
+      1090
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 545,
+    "source_rows_1_based": [
+      1091,
+      1092
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 546,
+    "source_rows_1_based": [
+      1093,
+      1094
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 547,
+    "source_rows_1_based": [
+      1095,
+      1096
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 548,
+    "source_rows_1_based": [
+      1097,
+      1098
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 549,
+    "source_rows_1_based": [
+      1099,
+      1100
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 550,
+    "source_rows_1_based": [
+      1101,
+      1102
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 551,
+    "source_rows_1_based": [
+      1103,
+      1104
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 552,
+    "source_rows_1_based": [
+      1105,
+      1106
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 553,
+    "source_rows_1_based": [
+      1107,
+      1108
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 554,
+    "source_rows_1_based": [
+      1109,
+      1110
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 555,
+    "source_rows_1_based": [
+      1111,
+      1112
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 556,
+    "source_rows_1_based": [
+      1113,
+      1114
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 557,
+    "source_rows_1_based": [
+      1115,
+      1116
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 558,
+    "source_rows_1_based": [
+      1117,
+      1118
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 559,
+    "source_rows_1_based": [
+      1119,
+      1120
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 560,
+    "source_rows_1_based": [
+      1121,
+      1122
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 561,
+    "source_rows_1_based": [
+      1123,
+      1124
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 562,
+    "source_rows_1_based": [
+      1125,
+      1126
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 563,
+    "source_rows_1_based": [
+      1127,
+      1128
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 564,
+    "source_rows_1_based": [
+      1129,
+      1130
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 565,
+    "source_rows_1_based": [
+      1131,
+      1132
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 566,
+    "source_rows_1_based": [
+      1133,
+      1134
+    ],
+    "original_labels": [
+      1,
+      0
+    ],
+    "conflict": true,
+    "assume_normal": 0,
+    "assume_defect": 1,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 567,
+    "source_rows_1_based": [
+      1135,
+      1136
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 568,
+    "source_rows_1_based": [
+      1137,
+      1138
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 569,
+    "source_rows_1_based": [
+      1139,
+      1140
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 570,
+    "source_rows_1_based": [
+      1141,
+      1142
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 571,
+    "source_rows_1_based": [
+      1143,
+      1144
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 572,
+    "source_rows_1_based": [
+      1145,
+      1146
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 573,
+    "source_rows_1_based": [
+      1147,
+      1148
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 574,
+    "source_rows_1_based": [
+      1149,
+      1150
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 575,
+    "source_rows_1_based": [
+      1151,
+      1152
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 576,
+    "source_rows_1_based": [
+      1153,
+      1154
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 577,
+    "source_rows_1_based": [
+      1155,
+      1156
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 578,
+    "source_rows_1_based": [
+      1157,
+      1158
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 579,
+    "source_rows_1_based": [
+      1159,
+      1160
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 580,
+    "source_rows_1_based": [
+      1161,
+      1162
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 581,
+    "source_rows_1_based": [
+      1163,
+      1164
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 582,
+    "source_rows_1_based": [
+      1165,
+      1166
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 583,
+    "source_rows_1_based": [
+      1167,
+      1168
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 584,
+    "source_rows_1_based": [
+      1169,
+      1170
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 585,
+    "source_rows_1_based": [
+      1171,
+      1172
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 586,
+    "source_rows_1_based": [
+      1173,
+      1174
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 587,
+    "source_rows_1_based": [
+      1175,
+      1176
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 588,
+    "source_rows_1_based": [
+      1177,
+      1178
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "test"
+  },
+  {
+    "pattern_row": 589,
+    "source_rows_1_based": [
+      1179,
+      1180
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  },
+  {
+    "pattern_row": 590,
+    "source_rows_1_based": [
+      1181,
+      1182
+    ],
+    "original_labels": [
+      0,
+      0
+    ],
+    "conflict": false,
+    "assume_normal": 0,
+    "assume_defect": 0,
+    "partition": "development"
+  }
+]

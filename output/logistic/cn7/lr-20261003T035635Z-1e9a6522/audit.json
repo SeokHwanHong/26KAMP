@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "artifact_sha256": {
+    "candidate_search.csv": "7e35bd01d84b3f45e0bed427ac4fd80b20a22ca76288aebdb3596b53be6c6538",
+    "coefficients.csv": "e4c3f12a4a9a3d411d1f1356374daac97e2cabe98a892b5b0037b911dbca13a8",
+    "coefficient_notes.json": "5c976fea1934526e4a5036c4b28a618adeaa6283b30ceed417b3a2fba2f245ad",
+    "distribution_guidance.json": "b6383b3751873a2cc96d4d15cf424fdbe57543d6740bca848d72305393b77081",
+    "failed_candidates.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "fold_audit.json": "96d7fd1095c2df28838b9509145d62e3d2e59b42af9fea727602f029cd17ceb8",
+    "model.joblib": "29706293bd6cf1dab642f2afa19c8134e5c3f9a78ad4eda70766be15291f9e3b",
+    "run_config.json": "220fad02d865f85c5bcb6316ae1e53aa829bce0e5a6824e306e1cd9630b43dd9",
+    "selected_oof_predictions.csv": "a0351fbc7df4f90dccfe9621ec4623972e0c0576cd51e0aa3330563f03820260",
+    "selection_manifest.json": "ae26dd18368386b69d4b5ffa450ef166433bc0e4c36bcbc894d7507e04fb336e",
+    "test_metrics.json": "ebb150cbc1e18f7f8c1a86dc6c743a0930edfdf5044cceb75443e8f0dea3dbbe",
+    "test_predictions.csv": "47e5b6b6f21a24895eda48b8100c0c23929c37df1664d1c9bfefb27b4282649f",
+    "threshold_search.csv": "b0696e94916c2dfa203b908b74ea1b514593674fa8c679e7abfedd8c00d68a0f"
+  },
+  "oof_exactly_once": true,
+  "model_reload_identical": true,
+  "threshold_frozen": true,
+  "train_count": 484,
+  "searched_candidates": 240,
+  "completed_candidates": 240,
+  "failures": 0
+}

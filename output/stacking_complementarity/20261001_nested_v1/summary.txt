@@ -1,0 +1,38 @@
+KAMP 2단계 결합 실험 결과
+기존 고정 패턴 분할 / 외부 4-fold, 내부 3-fold OOF / 실제 라벨로 결합 학습
+시간순 가정 없음. 목표는 불량 이력이 있는 입력 패턴이며 개별 제품 불량 확률이 아님.
+검사 예산 10%를 주 지표로 사전 고정. 동점은 무작위 선택 시 기대 탐지 수와 최소·최대 기록.
+검증 F1 최적 임계값 수치는 보조 지표이며 검증 수치 자체는 선택 편향이 있음.
+기존에 관찰한 test를 사용한 탐색 실험. 독립적인 최종 검증을 대체하지 않음.
+
+cn7 / 검증 선택: stacking_lr
+[개발 nested OOF]
+           model  top10_k  top10_expected_TP  top10_min_TP  top10_max_TP  positives       AP       F1  TP  FP
+   random_forest       49               10.0            10            10         11 0.203416 0.384615  10  31
+    relationship       49                6.0             6             6         11 0.393376 0.454545   5   6
+isolation_forest       49                7.0             7             7         11 0.249368 0.421053   4   4
+ mean_percentile       49                7.0             7             7         11 0.494350 0.533333   4   0
+     stacking_lr       49               11.0            11            11         11 0.473662 0.500000   4   1
+[후속 test]
+           model  top10_k  top10_expected_TP  top10_min_TP  top10_max_TP  positives       AP       F1  TP  FP
+   random_forest       13                3.0             3             3          3 0.483333 0.352941   3  11
+    relationship       13                1.0             1             1          3 0.130769 0.333333   1   2
+isolation_forest       13                1.0             1             1          3 0.109091 0.000000   0   2
+ mean_percentile       13                1.0             1             1          3 0.181763 0.000000   0   0
+     stacking_lr       13                3.0             3             3          3 0.516667 0.500000   1   0
+
+rg3 / 검증 선택: stacking_lr
+[개발 nested OOF]
+           model  top10_k  top10_expected_TP  top10_min_TP  top10_max_TP  positives       AP       F1  TP  FP
+   random_forest       48                2.0             2             2         20 0.039559 0.086768  20 421
+    relationship       48                0.0             0             0         20 0.048043 0.113636  10 146
+isolation_forest       48                1.0             1             1         20 0.034662 0.081800  20 449
+ mean_percentile       48                0.0             0             0         20 0.034503 0.091787  19 375
+     stacking_lr       48                4.0             4             4         20 0.071110 0.140845   5  46
+[후속 test]
+           model  top10_k  top10_expected_TP  top10_min_TP  top10_max_TP  positives       AP       F1  TP  FP
+   random_forest       12                0.0             0             0          5 0.043693 0.066667   4 111
+    relationship       12                1.0             1             1          5 0.068589 0.076923   2  45
+isolation_forest       12                0.0             0             0          5 0.079340 0.080645   5 114
+ mean_percentile       12                1.0             1             1          5 0.141078 0.057143   3  97
+     stacking_lr       12                0.0             0             0          5 0.046881 0.000000   0  13

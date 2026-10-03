@@ -1,0 +1,152 @@
+{
+  "status": "completed",
+  "elapsed_seconds": 55.96589732170105,
+  "original_csv_unchanged": true,
+  "reports": [
+    {
+      "protocol": "fixed_pattern",
+      "dataset": "cn7",
+      "target": "any observed defect in exact current-input pattern",
+      "source_sha256": "f870b0c259297f20d503f2e2739966553e5db5ef1deb0cc7513eefa4bbfa2753",
+      "status": "completed",
+      "validation_selected": "ridge_residual_lr",
+      "validation_F1": 0.6,
+      "test": {
+        "model": "ridge_residual_lr",
+        "selected_on_validation": true,
+        "threshold": 0.9648626157167327,
+        "n": 122,
+        "positives": 3,
+        "TP": 0,
+        "FP": 0,
+        "FN": 3,
+        "TN": 119,
+        "precision": 0.0,
+        "recall": 0.0,
+        "FPR": 0.0,
+        "F1": 0.0,
+        "AP": 0.2621212121212121,
+        "AUC": 0.9299719887955182
+      },
+      "recall_binomial_95_interval": [
+        0.0,
+        0.7075982261787133
+      ],
+      "interval_note": "descriptive exact-binomial interval; independence may fail, selection/data shift not covered",
+      "selection_frozen_before_test": true,
+      "model_reload_identical": true,
+      "retained_relations": {
+        "ridge": 16,
+        "extra": 16
+      },
+      "test_role": "previously inspected follow-up; no deployment claim"
+    },
+    {
+      "protocol": "temporal_assumed",
+      "dataset": "cn7",
+      "target": "original row label; file order assumed temporal",
+      "first_validation_row_1based": 731,
+      "first_test_row_1based": 973,
+      "gap": 3,
+      "split_counts": [
+        724,
+        239,
+        239
+      ],
+      "split_defects": [
+        17,
+        0,
+        0
+      ],
+      "status": "not_evaluable: future validation contains no defects; no future defect detection claim"
+    },
+    {
+      "protocol": "fixed_pattern",
+      "dataset": "rg3",
+      "target": "any observed defect in exact current-input pattern",
+      "source_sha256": "14aab21476eea02c823ccb00f82800040280d805dbce5a3eb7c11b176a9e5aa4",
+      "status": "completed",
+      "validation_selected": "extra_residual_lr",
+      "validation_F1": 0.10144927536231885,
+      "test": {
+        "model": "extra_residual_lr",
+        "selected_on_validation": true,
+        "threshold": 0.5506879259563544,
+        "n": 119,
+        "positives": 5,
+        "TP": 1,
+        "FP": 31,
+        "FN": 4,
+        "TN": 83,
+        "precision": 0.03125,
+        "recall": 0.2,
+        "FPR": 0.2719298245614035,
+        "F1": 0.05405405405405406,
+        "AP": 0.04419322754193228,
+        "AUC": 0.4473684210526316
+      },
+      "recall_binomial_95_interval": [
+        0.0050507633794680575,
+        0.7164179361180895
+      ],
+      "interval_note": "descriptive exact-binomial interval; independence may fail, selection/data shift not covered",
+      "selection_frozen_before_test": true,
+      "model_reload_identical": true,
+      "retained_relations": {
+        "ridge": 15,
+        "extra": 15
+      },
+      "test_role": "previously inspected follow-up; no deployment claim"
+    },
+    {
+      "protocol": "temporal_assumed",
+      "dataset": "rg3",
+      "target": "original row label; file order assumed temporal",
+      "first_validation_row_1based": 714,
+      "first_test_row_1based": 950,
+      "gap": 3,
+      "split_counts": [
+        707,
+        233,
+        233
+      ],
+      "split_defects": [
+        16,
+        4,
+        5
+      ],
+      "status": "completed",
+      "validation_selected": "ridge_unsupervised_top3",
+      "validation_F1": 0.14285714285714285,
+      "test": {
+        "model": "ridge_unsupervised_top3",
+        "selected_on_validation": true,
+        "threshold": 3.9550313500704783,
+        "n": 233,
+        "positives": 5,
+        "TP": 0,
+        "FP": 17,
+        "FN": 5,
+        "TN": 211,
+        "precision": 0.0,
+        "recall": 0.0,
+        "FPR": 0.07456140350877193,
+        "F1": 0.0,
+        "AP": 0.05536715099175467,
+        "AUC": 0.7166666666666668
+      },
+      "recall_binomial_95_interval": [
+        0.0,
+        0.5218237501049814
+      ],
+      "interval_note": "descriptive exact-binomial interval; independence may fail, selection/data shift not covered",
+      "selection_frozen_before_test": true,
+      "model_reload_identical": true,
+      "retained_relations": {
+        "ridge": 16,
+        "extra": 17
+      },
+      "test_role": "previously inspected follow-up; no deployment claim"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "intercept": -3.2811447187942084,
+  "meaning": "regularized model log-odds; not causal effect or calibrated product defect probability"
+}
