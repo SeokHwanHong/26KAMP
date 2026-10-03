@@ -1,0 +1,136 @@
+KAMP 테스트 결과 보고서 (Claude, 2026-10-03)
+관련 파일: KAMP_Claude_검토보고서_20261003.txt(상세), KAMP_Claude_검토요약_20261003.txt(요약), logs\(원본 로그)
+
+======================================================================
+1. 테스트 환경
+======================================================================
+- 실행 위치: Claude 클라우드 작업공간 (Linux). 사용자 PC 실행 아님.
+- Python 3.11.15 / scikit-learn 1.8.0 / numpy 2.4.4 / pandas 3.0.2 / scipy 1.17.1 / joblib 1.5.3
+  (프로젝트 기준: Python 3.14.6 / scikit-learn 1.9.0 — PyPI 차단으로 맞추지 못함)
+- 소스: exports\KAMP_20261003_구현_로지스틱테스트_전체기록.zip
+  (03.modeling·02.preprocessing·data는 현재 D:\workspace\kamp와 바이트 단위 동일 확인)
+- IPython 미설치 → 프로젝트 밖 임시 폴더의 빈 IPython.display 대체 모듈을 PYTHONPATH로만 주입.
+- 모든 CT/CD 탐침은 임시 state_root에서 실행. 실제 runtime 운영 포인터 변경 없음.
+- 작업 전후 해시: data·runtime·output/logistic·02.preprocessing·03.modeling 158개 파일 변경 0.
+- 합성 데이터 테스트는 기술 동작 검증이며 제조 공정 성능 검증이 아니다.
+
+======================================================================
+2. 실행 회차 요약
+======================================================================
+| 회차 | 대상 코드 | 명령 | 결과 | 로그 |
+|---|---|---|---|---|
+| A | 원본, IPython 없음 | run_checks.py | 4/4 FAIL (IPython import) | logs\0_원본코드_shim없음_run_checks |
+| B | 원본, IPython 대체 | run_checks.py | 2 PASS / 2 FAIL, runtime_unchanged=true | logs\1_원본코드_run_checks |
+| C | 원본 결과 | audit_tolerant.py (보조) | cn7·rg3 모든 항목 통과 | logs\audit_tolerant.out.txt |
+| D | 패치 사본 | logistic_regression.py --dataset both | 선택·OOF·Test 동일 재현 (약 33초) | logs\3_LR재현_cn7, 3_LR재현_rg3 |
+| E | 패치 사본 + D 결과 | run_checks.py | 4/4 PASS, runtime_unchanged=true | logs\2_패치적용_LR재실행후_run_checks |
+| F | 원본 코드 | probe_ops.py, probe_dup.py (탐침) | 아래 5장 | logs\probe_*.out.txt |
+
+======================================================================
+3. 테스트 케이스별 결과 (회차 B = 원본 / 회차 E = 패치 후)
+======================================================================
+[3-1] test_operations.py — 운영 통합 테스트(합성 자료)
+| 테스트 | 검증 내용 | B | E |
+|---|---|---|---|
+| test_preprocess_preserves_counts_and_conflicts | 제품 수·패턴 수·충돌 패턴 max 라벨 | 통과 | 통과 |
+| test_unaligned_unlabeled_held | 좌표 미확인 배치 보류, 원장 미기록 | 통과 | 통과 |
+| test_insufficient_window_waits_and_does_not_consume | 표본 부족 시 대기, 배치 미소모 | 통과 | 통과 |
+| test_drift_persistence_and_ct_all_model_types | 2회 연속 변화 → review, 4종 CT 후보 생성 | 통과 | 통과 |
+| test_unlabeled_ct_rejected | 비라벨 배치 재학습 거부 | 통과 | 통과 |
+| test_evaluation_cannot_overlap_training | 학습 패턴을 평가로 등록 거부 | 통과 | 통과 |
+| test_candidate_cannot_train_on_registered_eval | 평가 패턴으로 후보 학습 거부 | 통과 | 통과 |
+| test_cd_promotion_rollback_and_guidance | 승격·롤백·구간 안내 생성 | 통과 | 통과 |
+| test_insufficient_labels_prevent_promotion | 평가 표본 부족 시 승격 거부 | 통과 | 통과 |
+| test_model_tamper_rejected | 모델 파일 변조 감지 | 통과 | 통과 |
+| test_missing_risk_not_called_safe | 위험 0건 구간을 안전으로 표시 안 함 | 통과 | 통과 |
+| test_original_test_forced_historical | 기존 Test 등록 시 historical_followup 강제 | 통과 | 통과 |
+| test_resent_batch_not_counted_twice (신규) | 같은 배치 재전송·제품 ID 중복 보류 | 없음* | 통과 |
+소계: B 12/12, E 13/13
+* 신규 테스트를 원본 코드에 돌리면 실패함을 별도로 확인(결함 재현).
+
+[3-2] test_registration_and_logistic.py — 후보 등록·LR 검증
+| 테스트 | 검증 내용 | B | E |
+|---|---|---|---|
+| test_unchanged_audit_bound_artifact_registers | 감사와 일치하는 OCSVM 등록 허용 | 통과 | 통과 |
+| test_changed_model_after_audit_rejected | 감사 후 모델 변경 시 등록 거부 | 통과 | 통과 |
+| test_matching_hash_but_inconsistent_threshold_rejected | 해시는 맞춰도 임계값 불일치 거부 | 통과 | 통과 |
+| test_stale_split_rejected | 분할 해시 불일치 거부 | 통과 | 통과 |
+| test_lr_all_training_rows_scaler | raw 구성 scaler가 train 전체로 적합, 추론 시 재적합 없음 | 통과 | 통과 |
+| test_domain_normal_reference_alltrain_final_scaler | 도메인 변환=정상 train, LR scaler=train 전체 | 통과 | 통과 |
+| test_saved_threshold_matches_strict_rule | 저장 Test 확률 재현·p>t 판정·지표 일치 | 실패** | 통과 |
+소계: B 6/7, E 7/7
+** 실패 원인: 확률을 비트 단위로 비교. 최대 차이 4.44e-16(CN7 122개 중 42개 위치).
+   판정(p>t)은 122개 모두 동일. 환경 버전 차이이며 코드 결함 아님.
+   E에서 통과한 것은 같은 환경에서 LR을 새로 실행했기 때문이다.
+
+[3-3] test_existing_ocsvm.py — OCSVM 노트북 내장 회귀(데이터셋 × 학습 순서 × 6개)
+| 테스트 | cn7·original | cn7·if_desc | rg3·original | rg3·if_desc |
+|---|---|---|---|---|
+| test_threshold_grid_matches_brute_force_and_ties | 통과 | 통과 | 통과 | 통과 |
+| test_selection_uses_f1_without_fpr_or_ap_constraints | 통과 | 통과 | 통과 | 통과 |
+| test_f1_ties_use_fold_f1_variation_then_feature_count | 통과 | 통과 | 통과 | 통과 |
+| test_all_scenario_transforms_and_reload | 통과 | 통과 | 통과 | 통과 |
+| test_split_and_development_only_smoke | 통과 | 통과 | 통과 | 통과 |
+| test_final_fit_uses_all_normals_and_preserves_selected_t | 통과 | 통과 | 통과 | 통과 |
+소계: B 24/24, E 24/24 (7×616 전체 탐색은 재실행하지 않음)
+
+[3-4] audit_logistic_runs.py — 저장 LR 결과 독립 재검산
+| 항목 | B (원본) | C (허용오차 보조) | E (패치+재실행) |
+|---|---|---|---|
+| LR·운영 코드 해시가 실행 기록과 일치 | 통과 | 통과 | 통과 |
+| 감사 대상 산출물 해시 | 통과 | 통과(불일치 0) | 통과 |
+| 240,240행(240설정×1001임계값) 재집계·F1 공식 | 통과 | 통과(오차 0) | 통과 |
+| 선택 후보·임계값 재현 | 통과 | 통과 | 통과 |
+| fold 학습/검증 분리, Test 미포함 | 통과 | 통과 | 통과 |
+| OOF 개발 패턴 각 1회, OOF F1 일치 | 통과 | 통과 | 통과 |
+| Test 확률 재현 | 실패(4e-16, CN7에서 중단) | 통과(atol, 예측 완전 일치) | 통과 |
+결과: B 실패(RG3는 CN7 중단으로 미도달), C 두 데이터셋 통과, E 두 데이터셋 통과.
+임계값까지 최소 거리: CN7 0.035, RG3 0.00012 → 수치 오차로 판정이 바뀔 여지 없음.
+
+======================================================================
+4. LR 결과 재확인 (프롬프트 7장 대조)
+======================================================================
+| 항목 | 프롬프트 기록 | Codex 저장 결과 재검산 | Claude 독립 재실행 |
+|---|---|---|---|
+| CN7 선택 | thermal, C=10, None, t=0.921 | 동일 | 동일 |
+| CN7 OOF | F1 0.625 | TP5 FP0 FN6 TN473, 0.625 | 동일 |
+| CN7 Test | TP0 FP0 FN3 TN119 | 동일 (AUC 0.913, AP 0.279) | 동일 |
+| RG3 선택 | thermal, C≈0.3162, None, t=0.012 | 동일 | 동일 |
+| RG3 OOF | F1≈0.0893 | TP20 FP408 FN0 TN44 | 동일 |
+| RG3 Test | TP5 FP110 FN0 TN4 | 동일 (AUC 0.381) | 동일 |
+| OCSVM Test | CN7 TP0/FN3, RG3 TP5/FP89 | 이전 검토 재현 기록 확인 | 재실행 안 함 |
+재실행 차이: CN7 240개 후보 중 10개는 후보별 최적 임계값, 2개는 F1이 달랐다(모두 C≥316).
+RG3 240개는 완전히 동일. 최종 선택에는 영향 없음.
+
+======================================================================
+5. 프롬프트 점검 질문 12개 결과
+======================================================================
+| # | 질문 | 결과 | 근거 |
+|---|---|---|---|
+| 1 | 잘못된 스키마·NaN·무한값·ID중복·좌표미확인 보류 | 충족 | 탐침: NaN·inf·열 누락·문자값·배치 내 ID 중복·라벨 2·출처 누락·좌표 미확인 모두 held |
+| 2 | 빈도·원본 연결·max 라벨 일관성 | 충족 | 3-1 첫 테스트, 위험 재관측 시 라벨 1 유지 |
+| 3 | 윈도 중복 계산으로 지속 변화 부풀림 | 미충족 → 수정 | 같은 배치 재전송 시 watch→review→CT 후보 생성 재현 (P2) |
+| 4 | 모델 버전 변경 전후 점수 분포 비교 | 충족(소스 확인) | 기준선에 버전 기록, 버전 바뀌면 기준선 재생성·이전 드리프트로 CT 불가 |
+| 5 | 누적·메모리·중복 배치·유효 패턴 부족 | 부분 충족 | 표본 부족 대기는 통과, 중복 배치는 3번과 동일 문제 |
+| 6 | CT의 위험 이력 유지·평가 자료 배제 | 충족 | 탐침(라벨 1 유지), 3-1 평가 겹침 거부 테스트 |
+| 7 | 동일 평가·표본 부족·오탐 초과·개선 없음 시 유지 | 충족 | 탐침: FPR 1.0 후보 거부, 동일 성능 후보 거부, 표본 부족 거부 |
+| 8 | 평가 후 변경·오래된 평가·운영 버전 변경 감지 | 충족 | 탐침: 평가 자료 변조 시 승격 거부. 운영 버전 변경 감지는 소스 확인 |
+| 9 | 해당 모델만 교체·롤백 | 충족 | 3-1 승격·롤백 테스트, 탐침 롤백 확인 |
+| 10 | 감사 해시·등록 파일·설정·분할·코드 일치 | 충족 | 등록 LR 후보 manifest ↔ 실행 model·audit 해시 일치 확인 |
+| 11 | 실행별 결과 분리 | 부분 충족 | 미완료 실행 폴더가 있으면 감사 오류(재현), 테스트 출력 고정 폴더 (P3) |
+| 12 | 노트북 기본 실행이 읽기 중심 | 충족 | 05 노트북 RUN_NEW_SEARCH=False, 04 노트북은 상태 조회만 |
+
+탐침 추가 확인
+- 동일 배치 ID 재사용: 거부되지만 'held'가 아닌 예외(FileExistsError)로 종료.
+- 쓰기 잠금 파일이 남으면 모든 쓰기 명령이 FileExistsError로 멈춤(수동 삭제 필요).
+- 평가 후 정책 값만 바꾸면 기존 평가로 승격 가능: 평가 당시 정책이 기록되므로 설계상 허용으로 판단.
+
+======================================================================
+6. 종합 판정
+======================================================================
+- 기술 테스트: 원본 코드 기준 운영·OCSVM 회귀는 통과.
+  LR 관련 2종의 실패는 환경 차이에 따른 비트 단위 비교 문제이며, 판정 결과는 동일하다.
+- 결함: 1건(P2, 중복 배치) 재현·수정·검증 완료. 패치는 원본에 적용하지 않음.
+- 성능: 기술 테스트 통과와 별개로 LR·OCSVM 모두 운영 적용 근거 없음.
+  CN7은 Test 위험 3건 모두 미탐, RG3는 사실상 전부 위험 판정.
+- 최종 증거: 사용자 PC(Python 3.14 / sklearn 1.9.0)에서 run_checks.py를 다시 실행해야 한다.
