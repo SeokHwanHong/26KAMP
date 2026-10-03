@@ -1,0 +1,11 @@
+test_actual_evaluate_blocks_historical_even_if_good (__main__.DecisionTests.test_actual_evaluate_blocks_historical_even_if_good) ... ok
+test_bad_absolute_performance_rejected (__main__.DecisionTests.test_bad_absolute_performance_rejected) ... ok
+test_batch_writes_user_reinspection_results (__main__.DecisionTests.test_batch_writes_user_reinspection_results) ... ok
+test_incoming_labels_do_not_drive_advice (__main__.DecisionTests.test_incoming_labels_do_not_drive_advice) ... ok
+test_information_shortage_not_called_safe (__main__.DecisionTests.test_information_shortage_not_called_safe) ... ok
+test_select_holds_all_unusable_and_selects_qualified_only (__main__.DecisionTests.test_select_holds_all_unusable_and_selects_qualified_only) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.782s
+
+OK

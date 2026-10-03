@@ -6,6 +6,6 @@ test_split_and_development_only_smoke (notebook_regression.WorkflowTests.test_sp
 test_threshold_grid_matches_brute_force_and_ties (notebook_regression.WorkflowTests.test_threshold_grid_matches_brute_force_and_ties) ... ok
 
 ----------------------------------------------------------------------
-Ran 6 tests in 0.738s
+Ran 6 tests in 0.721s
 
 OK

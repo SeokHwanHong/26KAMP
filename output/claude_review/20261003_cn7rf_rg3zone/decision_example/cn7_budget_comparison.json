@@ -1,0 +1,79 @@
+{
+  "risks": 11,
+  "development_patterns": 484,
+  "models": {
+    "rf_fixed_runtime": {
+      "oof_auc": 0.93965020180665,
+      "top5": {
+        "k": 25,
+        "positives": 11,
+        "expected_TP": 5.0,
+        "min_TP": 5,
+        "max_TP": 5
+      },
+      "top10": {
+        "k": 49,
+        "positives": 11,
+        "expected_TP": 9.0,
+        "min_TP": 9,
+        "max_TP": 9
+      },
+      "top20": {
+        "k": 97,
+        "positives": 11,
+        "expected_TP": 11.0,
+        "min_TP": 11,
+        "max_TP": 11
+      }
+    },
+    "lr_selected_run": {
+      "oof_auc": 0.8817989621372285,
+      "top5": {
+        "k": 25,
+        "positives": 11,
+        "expected_TP": 6.0,
+        "min_TP": 6,
+        "max_TP": 6
+      },
+      "top10": {
+        "k": 49,
+        "positives": 11,
+        "expected_TP": 8.0,
+        "min_TP": 8,
+        "max_TP": 8
+      },
+      "top20": {
+        "k": 97,
+        "positives": 11,
+        "expected_TP": 9.0,
+        "min_TP": 9,
+        "max_TP": 9
+      }
+    },
+    "ocsvm_selected": {
+      "oof_auc": 0.7978089563713243,
+      "top5": {
+        "k": 25,
+        "positives": 11,
+        "expected_TP": 4.0,
+        "min_TP": 4,
+        "max_TP": 4
+      },
+      "top10": {
+        "k": 49,
+        "positives": 11,
+        "expected_TP": 4.0,
+        "min_TP": 4,
+        "max_TP": 4
+      },
+      "top20": {
+        "k": 97,
+        "positives": 11,
+        "expected_TP": 7.0,
+        "min_TP": 7,
+        "max_TP": 7
+      }
+    }
+  },
+  "note": "개발 OOF만 사용(Test 미사용). LR은 튜닝된 설정의 OOF라 낙관적일 수 있고 RF는 고정 설정이다."
+}

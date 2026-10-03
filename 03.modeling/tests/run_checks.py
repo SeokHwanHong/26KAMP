@@ -17,7 +17,7 @@ def hashes():
             for p in (ROOT/'runtime').rglob('*') if p.is_file()}
 before=hashes();results=[]
 env=dict(os.environ,PYTHONIOENCODING='utf-8')
-for name in ['test_operations.py','test_registration_and_logistic.py','test_existing_ocsvm.py','audit_logistic_runs.py']:
+for name in ['test_operations.py','test_registration_and_logistic.py','test_existing_ocsvm.py','test_decision_runtime.py','audit_logistic_runs.py']:
     result=subprocess.run([sys.executable,str(Path(__file__).parent/name)],cwd=ROOT,env=env,
                           stdout=subprocess.PIPE,stderr=subprocess.STDOUT,encoding='utf-8',errors='replace')
     (out/(name+'.log')).write_text(result.stdout,encoding='utf-8')
@@ -25,7 +25,7 @@ for name in ['test_operations.py','test_registration_and_logistic.py','test_exis
     print(name,'PASS' if result.returncode==0 else 'FAIL',flush=True)
 unchanged=before==hashes()
 summary=dict(passed=all(r['passed'] for r in results) and unchanged,results=results,
-             runtime_unchanged=unchanged,scope='43 regression/integration invocations plus saved LR audit; no field validation')
+             runtime_unchanged=unchanged,scope='58 regression/integration invocations plus saved LR audit; no field validation')
 (out/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
 print(json.dumps(dict(**summary,report=str(out)),ensure_ascii=False,indent=2))
 sys.exit(0 if summary['passed'] else 1)

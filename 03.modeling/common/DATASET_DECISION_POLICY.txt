@@ -1,0 +1,81 @@
+CN7 / RG3 판단 정책 변경 (2026-10-03, Claude 2차 반영본: CN7=RF+검사 예산, RG3=드리프트 기반 불확실 구간)
+
+운영 진입점: pipeline_cli.py와 04_operations.ipynb는 decision_runtime.Operations를 사용한다.
+pipeline_runtime.py는 기존 학습·저장 결과의 재현성을 위해 유지한 하위 모듈이다(수정하지 않음).
+새 판단 정책을 사용할 때는 from decision_runtime import Operations로 가져온다.
+
+데이터 유형 판정 근거 (Test 미사용)
+- 개발 4-fold OOF에서 단순 구간 위험 이력 점수가 위험 패턴을 무작위보다 잘 순위화하는지 순열 검정.
+- CN7: OOF AUC 0.870, p 0.001 → 입력에 신호 있음 → 모델 선정 정책.
+- RG3: OOF AUC 0.451, p 0.776 → 무작위와 구분 안 됨 → 분포 감시 중심 정책.
+- 재현: python 03.modeling/tests/report_decision_examples.py → dataset_signal_check.json
+
+RG3
+- accepted 배치마다 inspection_advice.json/csv/txt, distribution_guidance.json/csv/txt 생성.
+- 원본 record_id와 fingerprint를 보존하여 재검사 대상과 입력 패턴을 연결.
+- 근거 단계(우선순위 순)
+  out_of_reference         학습 범위 밖 값·미관측 값/조합 → 판단 근거 없음, 추가 검사 권고
+  insufficient_information 걸친 모든 구간이 표본 부족 → 추가 검사 권고
+  elevated_risk_history    Wilson 하한이 전체 위험 이력 비율보다 높은 구간 → 참고 표시
+  monitor                  위 해당 없음 → 관찰. 정상 보증 아님
+- 구간 위험 이력만으로는 기본적으로 재검사를 권고하지 않는다.
+  이유: 이전 규칙(위험 1건이라도 있는 구간에 걸치면 재검사)은 RG3 개발·Test 모두 100% 재검사였다.
+  Wilson 하한 기준으로 좁혀도 개발 OOF에서 39% 표시·위험 50% 포함(무작위 대비 약 1.3배), Test 0/5로
+  예측력이 확인되지 않았다. 현장 합의 시 --rg3-history-triggers-recheck로 켤 수 있다.
+- 배치 판단: 드리프트 review → 배치 샘플 검사 비율 상향·원인 확인, watch → 관찰 유지.
+- 불확실 단계(제품별 uncertainty_level) — 판단 불확실 정도이며 불량 위험도·불량 확률이 아님
+  높음: 드리프트 review(지속 변화) 또는 학습 범위 밖 값 → 추가 검사 권고(review면 배치 전체)
+  중간: 드리프트 watch(1회 변화) 또는 정보 부족
+  낮음: 위 해당 없음(정상 보증 아님). 위험 이력 참고 구간이면 reference_note=true로 표시
+- 불확실 구간(uncertainty_zones): 드리프트에서 분포가 가장 많이 바뀐 변수·조합 상위 8개,
+  경보선 초과 여부, 범위 밖 값 개수. 불량 원인·불량 범위가 아니다.
+- 입력 배치 라벨로 권고를 만들지 않음. 고정 개발 참조 라벨만 사용.
+- 수치형 고/중/저 불량 확률은 보정 근거가 없으므로 제공하지 않음.
+
+배치 중복 차단 (CN7·RG3 공통)
+- 이전 배치와 내용(입력·라벨) 해시가 같거나 명시 제품 ID가 겹치면 held.
+- 같은 로트 재전송이 두 개의 감지 윈도로 집계되어 지속 변화(review)·CT를 여는 문제를 막는다.
+- 상태 저장: runtime/<dataset>/dedup_index.json. 이 기능 도입 전 배치는 색인되지 않는다.
+- 제품 ID가 없는 배치는 내용 해시로만 판단하므로, 운영 배치에는 제품 ID 제공을 권장한다.
+
+CN7 — 기본 판정: 랜덤 포레스트 + 검사 예산(cn7_decision_mode='budget')
+- 운영 모델 종류 cn7_model_kind 기본 'rf'. accepted 배치마다 위험 점수 순위를 매겨
+  상위 inspection_fraction(기본 10%) 제품을 검사 대상으로 표시: inspection_priority.json/csv/txt.
+  경계 동점은 모두 포함하므로 표시 수가 예산을 넘을 수 있다. RF 운영 모델이 없으면 status=no_active_model.
+- 근거(개발 OOF만, Test 미사용, 위험 11개): 상위 10% 검사 시 위험 발견
+  RF(운영 고정 설정) 9개·AUC 0.940 / LR(튜닝 설정) 8개·0.882 / OCSVM(선택 설정) 4개·0.798.
+  재현: report_decision_examples.py → cn7_budget_comparison.json
+- 평가·승격(budget 모드): 같은 평가 자료·같은 검사량에서 위험 발견 기대 수로 비교.
+  예산 내 최대 발견 가능 수(min(k, 위험 수))의 min_budget_capture(기본 0.5) 이상이어야 하고,
+  운영 모델이 있으면 그보다 많이 찾아야 한다. 고정 임계값 F1·recall·precision 조건은 이 모드에서 쓰지 않는다.
+- 검사 비율과 최소 발견 비율은 Test를 보기 전에 현장 검사 여력에 맞춰 확정한다.
+- --cn7-mode threshold로 이전 고정 임계값 정책(아래)을 쓸 수 있다.
+
+CN7 — threshold 모드(선택)
+- LR·RF·OCSVM을 동일 평가 자료에서 비교하고 기준 통과 후보 중 F1, recall, FPR 순으로 선택.
+- 기본 최소 recall 0.5, precision 0.2, 최대 FPR 0.2는 잠정 운영 정책이다.
+  통계적으로 최적이거나 현장 승인된 수치가 아니며 평가 전에 검사 비용에 맞게 확정해야 한다.
+- 선택 보고서에 검사 예산(상위 10%) 기준 탐지 수를 참고로 함께 기록한다.
+  CN7은 순위는 맞는데 고정 임계값이 실패한 이력이 있으므로 두 관점을 함께 본다.
+- 선정에 사용한 평가 자료로는 promote할 수 없다. 승격에는 별도 평가 자료가 필요하다.
+- 기존 최소 평가 정상/위험 패턴 수, 독립 평가 목적, 학습 중복 금지 조건 유지.
+- 기존 모델이 있으면 F1 개선·recall 유지도 충족해야 함.
+- 모든 후보 미달, 표본 부족, 기존 Test 후속 평가이면 selected=null, selection_held.
+- 초기 선택은 비교할 운영 모델이 없어도 가능하나 자동 활성화·배포하지 않음.
+
+명령 예시 (프로젝트 루트에서, ID는 실제 생성된 것으로 대체)
+python 03.modeling/pipeline_cli.py --dataset cn7 --min-recall 0.5 --min-precision 0.2 --max-fpr 0.2 select-cn7 --candidates LR_ID RF_ID OCSVM_ID --evaluation-id EVAL_ID
+python 03.modeling/pipeline_cli.py --dataset rg3 ingest --input batch.csv --coordinates-confirmed
+python 03.modeling/pipeline_cli.py --dataset rg3 --rg3-history-triggers-recheck ingest --input batch.csv --coordinates-confirmed
+python 03.modeling/pipeline_cli.py --dataset cn7 initial --kind rf        (RF 후보 생성; 운영 지정은 initialize로 별도)
+python 03.modeling/pipeline_cli.py --dataset cn7 --inspection-fraction 0.1 ingest --input batch.csv --coordinates-confirmed
+budget 모드 select-cn7은 같은 검사량 위험 발견 수가 많은 순(동률 시 LR→RF→OCSVM)으로 고른다.
+라벨이 있는 batch는 --label-source 검사출처도 지정한다.
+python 03.modeling/tests/run_checks.py
+python 03.modeling/tests/report_decision_examples.py
+
+현재 데이터의 한계
+CN7 기존 Test 위험은 3개로 최소 평가 위험 5개에 미달한다. 이미 관찰한 후속 평가 자료이기도 하다.
+따라서 현재 소스로 운영 가능한 CN7 모델을 선정 완료했다고 말하지 않는다.
+RG3 예시는 기존 Test 패턴에 개발 참조를 적용한 출력 예시이며 새 현장 배치 검증이 아니다.
+RG3 기존 Test 119개 적용 결과: 재검사 권고 6개(학습 범위 밖), 참고 표시 58개, 관찰 55개.

@@ -1,10 +1,10 @@
 {
-  "id": "assessment-20261003T042522Z-bf9a0a2b",
-  "candidate": "lr-20261003T042522Z-a07e1f25",
+  "id": "assessment-20261003T050823Z-b96ea63c",
+  "candidate": "lr-20261003T050823Z-0eee2034",
   "kind": "lr",
-  "current": "lr-20261003T042522Z-9f77c014",
-  "evaluation_id": "eval-20261003T042522Z-308af15f",
-  "created_at": "2026-10-03T04:25:22.628472+00:00",
+  "current": "lr-20261003T050823Z-f9448ac3",
+  "evaluation_id": "eval-20261003T050823Z-ad852f10",
+  "created_at": "2026-10-03T05:08:23.578843+00:00",
   "candidate_metrics": {
     "TP": 82,
     "FP": 4,
@@ -40,7 +40,7 @@
     "max_FPR": 0.2,
     "inspection_fraction": 0.1
   },
-  "candidate_sha256": "5da619a40dab7e221da946467c31acb7ecd9f3b286ccac4078a6cb592c7ad4cf",
+  "candidate_sha256": "34dbede757f6f08c813127d2cbb204222dbcb7ce4b0319af6599a93d30e30e17",
   "current_sha256": "a7aba33f029aa2b0dbe008a56e2286d6e5f7e8fae6b6f05ae703c9530643f8ce",
   "evaluation_sha256": "3e60ba9d4271fbb66424aae67802780db7ab03df59f7b8c94f7b3663d4133b06",
   "guidance_sha256": "2abc7d8cfe1e9bfbf7389c315ef6b690542b67474601d34aee93c345c974b518",

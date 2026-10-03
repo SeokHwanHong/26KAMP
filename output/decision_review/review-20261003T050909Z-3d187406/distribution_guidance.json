@@ -1,0 +1,6024 @@
+{
+  "label_definition": "risk-history pattern rate, not per-product defect probability",
+  "confidence_note": "Wilson interval is descriptive; independence and multiple comparisons are not guaranteed",
+  "units": "provided coordinates, not recovered physical units",
+  "ranges": [
+    {
+      "variable": "Injection_Time",
+      "interval": "-0.029099449053866445",
+      "reference_patterns": 467,
+      "reference_risks": 20,
+      "observed_risk_history_rate": 0.042826552462526764,
+      "reference_wilson95": [
+        0.02789214942510754,
+        0.0652208464663393
+      ],
+      "evaluation_patterns": 116,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Injection_Time",
+      "interval": "-8.627730385041827",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Injection_Time",
+      "interval": "8.569633990700348",
+      "reference_patterns": 4,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Filling_Time",
+      "interval": "-1.1925314031676417",
+      "reference_patterns": 199,
+      "reference_risks": 10,
+      "observed_risk_history_rate": 0.05025125628140704,
+      "reference_wilson95": [
+        0.027521394363559718,
+        0.09001601125019734
+      ],
+      "evaluation_patterns": 45,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Filling_Time",
+      "interval": "0.8385523411322893",
+      "reference_patterns": 273,
+      "reference_risks": 10,
+      "observed_risk_history_rate": 0.03663003663003663,
+      "reference_wilson95": [
+        0.020016278980840557,
+        0.06610326005877948
+      ],
+      "evaluation_patterns": 74,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[-0.042537931, 0.18194186)",
+      "reference_patterns": 45,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.044444444444444446,
+      "reference_wilson95": [
+        0.012274126706719846,
+        0.14827510769435623
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[-0.26701772, -0.042537931)",
+      "reference_patterns": 42,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.08379879086570391
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[-0.49149752, -0.26701772)",
+      "reference_patterns": 49,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.061224489795918366,
+      "reference_wilson95": [
+        0.02104014667296747,
+        0.16520487835726402
+      ],
+      "evaluation_patterns": 13,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[-0.71595591, -0.49149752)",
+      "reference_patterns": 45,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.06666666666666667,
+      "reference_wilson95": [
+        0.022932032599250987,
+        0.17856601963591895
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[-1.1649155, -0.71595591)",
+      "reference_patterns": 54,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.037037037037037035,
+      "reference_wilson95": [
+        0.01021636794844559,
+        0.12535176917275476
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[-2.7362312, -1.1649155)",
+      "reference_patterns": 36,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.09641862859446367
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[0.18194186, 0.40640025)",
+      "reference_patterns": 36,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.027777777777777776,
+      "reference_wilson95": [
+        0.004920407139810443,
+        0.14169718653273855
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[0.40640025, 0.85535984)",
+      "reference_patterns": 65,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.06153846153846154,
+      "reference_wilson95": [
+        0.024189054966350286,
+        0.1478215186552319
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[0.85535984, 1.304298)",
+      "reference_patterns": 47,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.06382978723404255,
+      "reference_wilson95": [
+        0.021945385205433238,
+        0.17162614183124436
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Time",
+      "interval": "[1.304298, 3.7735329]",
+      "reference_patterns": 53,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.03773584905660377,
+      "reference_wilson95": [
+        0.010410287275826845,
+        0.12754287197418354
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "-0.024546231446629645",
+      "reference_patterns": 2,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "-0.2987077097782125",
+      "reference_patterns": 89,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.033707865168539325,
+      "reference_wilson95": [
+        0.011529221151789802,
+        0.09447362440561424
+      ],
+      "evaluation_patterns": 21,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "-0.846821542506724",
+      "reference_patterns": 57,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.03508771929824561,
+      "reference_wilson95": [
+        0.009675664344932881,
+        0.11920781367625805
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "-1.120983020838307",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "-1.3950399372025626",
+      "reference_patterns": 20,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.16112515805281938
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "0.24951068491762612",
+      "reference_patterns": 300,
+      "reference_risks": 15,
+      "observed_risk_history_rate": 0.05,
+      "reference_wilson95": [
+        0.03053164062934728,
+        0.08084703347274415
+      ],
+      "evaluation_patterns": 71,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "0.7977290796134647",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "11.761887849595583",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "5.731590069908686",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cycle_Time",
+      "interval": "unseen",
+      "reference_patterns": 0,
+      "reference_risks": 0,
+      "observed_risk_history_rate": null,
+      "reference_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Clamp_Close_Time",
+      "interval": "-0.38678982241038173",
+      "reference_patterns": 199,
+      "reference_risks": 8,
+      "observed_risk_history_rate": 0.04020100502512563,
+      "reference_wilson95": [
+        0.020508874081002593,
+        0.07730869702133004
+      ],
+      "evaluation_patterns": 55,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Clamp_Close_Time",
+      "interval": "-1.8067254988278127",
+      "reference_patterns": 73,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.0273972602739726,
+      "reference_wilson95": [
+        0.007545758679607641,
+        0.09450148171690531
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Clamp_Close_Time",
+      "interval": "1.0330781477474453",
+      "reference_patterns": 200,
+      "reference_risks": 10,
+      "observed_risk_history_rate": 0.05,
+      "reference_wilson95": [
+        0.02738264560076393,
+        0.08957814813877599
+      ],
+      "evaluation_patterns": 49,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Cushion_Position",
+      "interval": "-0.31705541006768895",
+      "reference_patterns": 122,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.02459016393442623,
+      "reference_wilson95": [
+        0.00839762036022058,
+        0.06980759843589
+      ],
+      "evaluation_patterns": 31,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cushion_Position",
+      "interval": "-1.1144367268032296",
+      "reference_patterns": 99,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.030303030303030304,
+      "reference_wilson95": [
+        0.010358639578454044,
+        0.08533680206102018
+      ],
+      "evaluation_patterns": 26,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cushion_Position",
+      "interval": "-1.9118180435387702",
+      "reference_patterns": 26,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.038461538461538464,
+      "reference_wilson95": [
+        0.006821984993543487,
+        0.18892778903034757
+      ],
+      "evaluation_patterns": 6,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cushion_Position",
+      "interval": "0.48032590666785163",
+      "reference_patterns": 131,
+      "reference_risks": 9,
+      "observed_risk_history_rate": 0.06870229007633588,
+      "reference_wilson95": [
+        0.0365625456507617,
+        0.1254162627344092
+      ],
+      "evaluation_patterns": 36,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Cushion_Position",
+      "interval": "1.2777072234033922",
+      "reference_patterns": 71,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.056338028169014086,
+      "reference_wilson95": [
+        0.022124519301696642,
+        0.13609605799976943
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cushion_Position",
+      "interval": "2.0750885401389327",
+      "reference_patterns": 22,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.14865487460862087
+      ],
+      "evaluation_patterns": 5,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Cushion_Position",
+      "interval": "2.8676077756748666",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Position",
+      "interval": "-0.19292753629832982",
+      "reference_patterns": 107,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.037383177570093455,
+      "reference_wilson95": [
+        0.014631899269525926,
+        0.09220049852352191
+      ],
+      "evaluation_patterns": 33,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Position",
+      "interval": "-0.974520563532816",
+      "reference_patterns": 97,
+      "reference_risks": 6,
+      "observed_risk_history_rate": 0.061855670103092786,
+      "reference_wilson95": [
+        0.028654885715718267,
+        0.1284378319616586
+      ],
+      "evaluation_patterns": 22,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Plasticizing_Position",
+      "interval": "-1.7558155003678992",
+      "reference_patterns": 47,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.0425531914893617,
+      "reference_wilson95": [
+        0.011748275966789345,
+        0.1424852767789945
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Position",
+      "interval": "0.5883674005367534",
+      "reference_patterns": 143,
+      "reference_risks": 7,
+      "observed_risk_history_rate": 0.04895104895104895,
+      "reference_wilson95": [
+        0.02391143972946798,
+        0.09759006920391887
+      ],
+      "evaluation_patterns": 36,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Plasticizing_Position",
+      "interval": "1.3696623373718366",
+      "reference_patterns": 66,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.015151515151515152,
+      "reference_wilson95": [
+        0.0026796405439821064,
+        0.08095920262066399
+      ],
+      "evaluation_patterns": 13,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Position",
+      "interval": "2.151255364606323",
+      "reference_patterns": 11,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2588329669680317
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Position",
+      "interval": "2.932550301441406",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Plasticizing_Position",
+      "interval": "unseen",
+      "reference_patterns": 0,
+      "reference_risks": 0,
+      "observed_risk_history_rate": null,
+      "reference_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Clamp_Open_Position",
+      "interval": "0.0",
+      "reference_patterns": 472,
+      "reference_risks": 20,
+      "observed_risk_history_rate": 0.0423728813559322,
+      "reference_wilson95": [
+        0.027594899901470956,
+        0.06453969242545446
+      ],
+      "evaluation_patterns": 119,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Max_Injection_Speed",
+      "interval": "-0.16738380741894748",
+      "reference_patterns": 121,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.03077069794747827
+      ],
+      "evaluation_patterns": 36,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Speed",
+      "interval": "-0.9522929891607599",
+      "reference_patterns": 97,
+      "reference_risks": 5,
+      "observed_risk_history_rate": 0.05154639175257732,
+      "reference_wilson95": [
+        0.022216051037510606,
+        0.11504355411462804
+      ],
+      "evaluation_patterns": 23,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Max_Injection_Speed",
+      "interval": "-1.737321949505005",
+      "reference_patterns": 44,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.022727272727272728,
+      "reference_wilson95": [
+        0.004023252060053224,
+        0.11807709698213287
+      ],
+      "evaluation_patterns": 13,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Speed",
+      "interval": "-2.5222910205480336",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Speed",
+      "interval": "0.6176451529252976",
+      "reference_patterns": 133,
+      "reference_risks": 11,
+      "observed_risk_history_rate": 0.08270676691729323,
+      "reference_wilson95": [
+        0.04680842545348757,
+        0.14203389648166997
+      ],
+      "evaluation_patterns": 27,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Max_Injection_Speed",
+      "interval": "1.40255433466711",
+      "reference_patterns": 66,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.045454545454545456,
+      "reference_wilson95": [
+        0.015578274334433505,
+        0.1253331411324222
+      ],
+      "evaluation_patterns": 13,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Speed",
+      "interval": "2.187583295011355",
+      "reference_patterns": 10,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2775327998628892
+      ],
+      "evaluation_patterns": 6,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Screw_RPM",
+      "interval": "-0.6657520460385278",
+      "reference_patterns": 201,
+      "reference_risks": 9,
+      "observed_risk_history_rate": 0.04477611940298507,
+      "reference_wilson95": [
+        0.02373298081625277,
+        0.08289318239523275
+      ],
+      "evaluation_patterns": 52,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Max_Screw_RPM",
+      "interval": "-2.0085875478583746",
+      "reference_patterns": 36,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.027777777777777776,
+      "reference_wilson95": [
+        0.004920407139810443,
+        0.14169718653273855
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Screw_RPM",
+      "interval": "0.6771090687267264",
+      "reference_patterns": 198,
+      "reference_risks": 8,
+      "observed_risk_history_rate": 0.04040404040404041,
+      "reference_wilson95": [
+        0.020613166178095263,
+        0.07768903068781369
+      ],
+      "evaluation_patterns": 50,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Max_Screw_RPM",
+      "interval": "2.0199701834919805",
+      "reference_patterns": 37,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.05405405405405406,
+      "reference_wilson95": [
+        0.014950976833157673,
+        0.17704654350813104
+      ],
+      "evaluation_patterns": 8,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Screw_RPM",
+      "interval": "-0.4217977735906751",
+      "reference_patterns": 282,
+      "reference_risks": 12,
+      "observed_risk_history_rate": 0.0425531914893617,
+      "reference_wilson95": [
+        0.024507148927052715,
+        0.07289460285367419
+      ],
+      "evaluation_patterns": 63,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Average_Screw_RPM",
+      "interval": "-1.9605785402082005",
+      "reference_patterns": 40,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.025,
+      "reference_wilson95": [
+        0.0044268315026814095,
+        0.1288136896347409
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Screw_RPM",
+      "interval": "1.1169829930268504",
+      "reference_patterns": 137,
+      "reference_risks": 6,
+      "observed_risk_history_rate": 0.043795620437956206,
+      "reference_wilson95": [
+        0.020224162577653616,
+        0.09225307923267126
+      ],
+      "evaluation_patterns": 43,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Average_Screw_RPM",
+      "interval": "2.655763759644376",
+      "reference_patterns": 13,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.07692307692307693,
+      "reference_wilson95": [
+        0.013710421242556586,
+        0.3331395092109959
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "-0.10880187181629318",
+      "reference_patterns": 95,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.031578947368421054,
+      "reference_wilson95": [
+        0.010797139474424379,
+        0.08877098647308188
+      ],
+      "evaluation_patterns": 31,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "-0.7652217551830952",
+      "reference_patterns": 89,
+      "reference_risks": 5,
+      "observed_risk_history_rate": 0.056179775280898875,
+      "reference_wilson95": [
+        0.024232878420720118,
+        0.12485416735078494
+      ],
+      "evaluation_patterns": 21,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "-1.4216416385498971",
+      "reference_patterns": 57,
+      "reference_risks": 5,
+      "observed_risk_history_rate": 0.08771929824561403,
+      "reference_wilson95": [
+        0.03805167177792225,
+        0.18944877099558666
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "-2.0779613663043452",
+      "reference_patterns": 11,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2588329669680317
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "-2.7343812496711473",
+      "reference_patterns": 4,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "-3.3907009774255954",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "0.547517855938155",
+      "reference_patterns": 116,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.034482758620689655,
+      "reference_wilson95": [
+        0.013489827564938467,
+        0.08531954055541482
+      ],
+      "evaluation_patterns": 33,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "1.203937739304957",
+      "reference_patterns": 77,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.025974025974025976,
+      "reference_wilson95": [
+        0.007152159807893181,
+        0.08984582779753134
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "1.8602574670594052",
+      "reference_patterns": 22,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.045454545454545456,
+      "reference_wilson95": [
+        0.00806942762126385,
+        0.21798045838657332
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure",
+      "interval": "unseen",
+      "reference_patterns": 0,
+      "reference_risks": 0,
+      "observed_risk_history_rate": null,
+      "reference_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "[-0.13438708, 0.075728684)",
+      "reference_patterns": 55,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.05454545454545454,
+      "reference_wilson95": [
+        0.01872321555468448,
+        0.14853060544053792
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "[-0.34448682, -0.13438708)",
+      "reference_patterns": 38,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.02631578947368421,
+      "reference_wilson95": [
+        0.004660587685768783,
+        0.1349487611595213
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "[-0.55458656, -0.34448682)",
+      "reference_patterns": 46,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.06521739130434782,
+      "reference_wilson95": [
+        0.022427861429288584,
+        0.17502741081904216
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "[-0.76468629, -0.55458656)",
+      "reference_patterns": 34,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.058823529411764705,
+      "reference_wilson95": [
+        0.016282655210122746,
+        0.19093606904280996
+      ],
+      "evaluation_patterns": 7,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "[-13.160763, -0.76468629)",
+      "reference_patterns": 36,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.027777777777777776,
+      "reference_wilson95": [
+        0.004920407139810443,
+        0.14169718653273855
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "[0.075728684, 0.28582842)",
+      "reference_patterns": 67,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.05970149253731343,
+      "reference_wilson95": [
+        0.023459351139819028,
+        0.14369501041371535
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "[0.28582842, 0.70602789)",
+      "reference_patterns": 92,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.021739130434782608,
+      "reference_wilson95": [
+        0.0059820412288536864,
+        0.07583493982695838
+      ],
+      "evaluation_patterns": 28,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "[0.70602789, 0.91612763)",
+      "reference_patterns": 39,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.05128205128205128,
+      "reference_wilson95": [
+        0.014177955415274113,
+        0.16885640047613612
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "[0.91612763, 1.5464429]",
+      "reference_patterns": 65,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.03076923076923077,
+      "reference_wilson95": [
+        0.008478997236440126,
+        0.10542705523577942
+      ],
+      "evaluation_patterns": 13,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Switch_Over_Pressure",
+      "interval": "below_reference_range",
+      "reference_patterns": 0,
+      "reference_risks": 0,
+      "observed_risk_history_rate": null,
+      "reference_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[-0.085805242, 0.2252999)",
+      "reference_patterns": 50,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.04,
+      "reference_wilson95": [
+        0.011038884327619805,
+        0.1346009068750702
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[-0.39691038, -0.085805242)",
+      "reference_patterns": 46,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.06521739130434782,
+      "reference_wilson95": [
+        0.022427861429288584,
+        0.17502741081904216
+      ],
+      "evaluation_patterns": 19,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[-0.70802739, -0.39691038)",
+      "reference_patterns": 43,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.06976744186046512,
+      "reference_wilson95": [
+        0.024011589577214484,
+        0.18608986901241975
+      ],
+      "evaluation_patterns": 19,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[-1.0191325, -0.70802739)",
+      "reference_patterns": 36,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.05555555555555555,
+      "reference_wilson95": [
+        0.015369986664161853,
+        0.18144657208647252
+      ],
+      "evaluation_patterns": 7,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[-1.3302495, -1.0191325)",
+      "reference_patterns": 30,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.03333333333333333,
+      "reference_wilson95": [
+        0.005908590381612455,
+        0.16670390991409173
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[-2.574682, -1.3302495)",
+      "reference_patterns": 35,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.02857142857142857,
+      "reference_wilson95": [
+        0.005061491855444203,
+        0.14533087233613673
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[0.2252999, 0.53641691)",
+      "reference_patterns": 57,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.017543859649122806,
+      "reference_wilson95": [
+        0.003103664651408093,
+        0.09290749178567684
+      ],
+      "evaluation_patterns": 8,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[0.53641691, 0.84752205)",
+      "reference_patterns": 49,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.061224489795918366,
+      "reference_wilson95": [
+        0.02104014667296747,
+        0.16520487835726402
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[0.84752205, 1.4697442)",
+      "reference_patterns": 74,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.013513513513513514,
+      "reference_wilson95": [
+        0.002389463403456818,
+        0.07265356519843233
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Back_Pressure",
+      "interval": "[1.4697442, 2.0919664]",
+      "reference_patterns": 52,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.057692307692307696,
+      "reference_wilson95": [
+        0.019814172112270614,
+        0.1564251136896076
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[-0.14437975, 0.088125137)",
+      "reference_patterns": 42,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.047619047619047616,
+      "reference_wilson95": [
+        0.013157524908905607,
+        0.15789852396958842
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[-0.60938067, -0.14437975)",
+      "reference_patterns": 61,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.06557377049180328,
+      "reference_wilson95": [
+        0.02579370448956657,
+        0.1568280167989577
+      ],
+      "evaluation_patterns": 23,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[-0.84187669, -0.60938067)",
+      "reference_patterns": 30,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.06666666666666667,
+      "reference_wilson95": [
+        0.018477023791270378,
+        0.2132345836261692
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[-1.3068776, -0.84187669)",
+      "reference_patterns": 53,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.03773584905660377,
+      "reference_wilson95": [
+        0.010410287275826845,
+        0.12754287197418354
+      ],
+      "evaluation_patterns": 7,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[-2.4693755, -1.3068776)",
+      "reference_patterns": 40,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.025,
+      "reference_wilson95": [
+        0.0044268315026814095,
+        0.1288136896347409
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[0.088125137, 0.32062116)",
+      "reference_patterns": 44,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.045454545454545456,
+      "reference_wilson95": [
+        0.012555109949594967,
+        0.15134998437629657
+      ],
+      "evaluation_patterns": 6,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[0.32062116, 0.55311718)",
+      "reference_patterns": 40,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.05,
+      "reference_wilson95": [
+        0.013820667386148344,
+        0.16503877369140962
+      ],
+      "evaluation_patterns": 7,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[0.55311718, 1.0181181)",
+      "reference_patterns": 66,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.05500255701354129
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[1.0181181, 1.483119)",
+      "reference_patterns": 44,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.045454545454545456,
+      "reference_wilson95": [
+        0.012555109949594967,
+        0.15134998437629657
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Average_Back_Pressure",
+      "interval": "[1.483119, 2.1806159]",
+      "reference_patterns": 52,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.057692307692307696,
+      "reference_wilson95": [
+        0.019814172112270614,
+        0.1564251136896076
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[-0.36958649, 0.096628611)",
+      "reference_patterns": 64,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.015625,
+      "reference_wilson95": [
+        0.002763541923337505,
+        0.08334101600094265
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[-0.60262291, -0.36958649)",
+      "reference_patterns": 41,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.04878048780487805,
+      "reference_wilson95": [
+        0.013480945365169042,
+        0.16138978870370846
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[-0.83573047, -0.60262291)",
+      "reference_patterns": 32,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.03125,
+      "reference_wilson95": [
+        0.005537860164003122,
+        0.15744263820012558
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[-1.3019456, -0.83573047)",
+      "reference_patterns": 48,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.020833333333333332,
+      "reference_wilson95": [
+        0.003687110977510649,
+        0.10899217995251861
+      ],
+      "evaluation_patterns": 8,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[-3.1666637, -1.3019456)",
+      "reference_patterns": 35,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.05714285714285714,
+      "reference_wilson95": [
+        0.015813161857108654,
+        0.1860705742016492
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[0.096628611, 0.32973616)",
+      "reference_patterns": 46,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.06521739130434782,
+      "reference_wilson95": [
+        0.022427861429288584,
+        0.17502741081904216
+      ],
+      "evaluation_patterns": 19,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[0.32973616, 0.56284372)",
+      "reference_patterns": 43,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.046511627906976744,
+      "reference_wilson95": [
+        0.012849260094380227,
+        0.15455498004063967
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[0.56284372, 0.79588013)",
+      "reference_patterns": 39,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.02564102564102564,
+      "reference_wilson95": [
+        0.004540703100990098,
+        0.13180990169850076
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[0.79588013, 1.471892)",
+      "reference_patterns": 76,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.05263157894736842,
+      "reference_wilson95": [
+        0.020655429299384284,
+        0.12765672575889647
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_1",
+      "interval": "[1.471892, 2.6606694]",
+      "reference_patterns": 48,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.0625,
+      "reference_wilson95": [
+        0.021483232908389285,
+        0.1683543805494635
+      ],
+      "evaluation_patterns": 6,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[-0.011452268, 0.23083499)",
+      "reference_patterns": 36,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.08333333333333333,
+      "reference_wilson95": [
+        0.02874861133599338,
+        0.2182669124927263
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[-0.4961747, -0.011452268)",
+      "reference_patterns": 73,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.0410958904109589,
+      "reference_wilson95": [
+        0.01407394035392058,
+        0.1140009162629833
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[-0.73853592, -0.4961747)",
+      "reference_patterns": 36,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.09641862859446367
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[-0.98089713, -0.73853592)",
+      "reference_patterns": 42,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.023809523809523808,
+      "reference_wilson95": [
+        0.004215404134432499,
+        0.12321201573766646
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[-1.2231844, -0.98089713)",
+      "reference_patterns": 36,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.08333333333333333,
+      "reference_wilson95": [
+        0.02874861133599338,
+        0.2182669124927263
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[-2.1926293, -1.2231844)",
+      "reference_patterns": 37,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.05405405405405406,
+      "reference_wilson95": [
+        0.014950976833157673,
+        0.17704654350813104
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[0.23083499, 0.71555742)",
+      "reference_patterns": 69,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.057971014492753624,
+      "reference_wilson95": [
+        0.02277238888037121,
+        0.13979243357661653
+      ],
+      "evaluation_patterns": 23,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[0.71555742, 0.95791864)",
+      "reference_patterns": 37,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.02702702702702703,
+      "reference_wilson95": [
+        0.004786974451940429,
+        0.13824069863730518
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[0.95791864, 1.2002799)",
+      "reference_patterns": 36,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.05555555555555555,
+      "reference_wilson95": [
+        0.015369986664161853,
+        0.18144657208647252
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_2",
+      "interval": "[1.2002799, 3.1390217]",
+      "reference_patterns": 70,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.014285714285714285,
+      "reference_wilson95": [
+        0.002526246457890312,
+        0.07658187131208327
+      ],
+      "evaluation_patterns": 19,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_3",
+      "interval": "[-0.0020813215, 0.30524636)",
+      "reference_patterns": 117,
+      "reference_risks": 6,
+      "observed_risk_history_rate": 0.05128205128205128,
+      "reference_wilson95": [
+        0.023712378528816566,
+        0.10738053424543133
+      ],
+      "evaluation_patterns": 32,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Barrel_Temperature_3",
+      "interval": "[-0.309409, -0.0020813215)",
+      "reference_patterns": 49,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.061224489795918366,
+      "reference_wilson95": [
+        0.02104014667296747,
+        0.16520487835726402
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_3",
+      "interval": "[-0.8625238, -0.309409)",
+      "reference_patterns": 26,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.038461538461538464,
+      "reference_wilson95": [
+        0.006821984993543487,
+        0.18892778903034757
+      ],
+      "evaluation_patterns": 5,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_3",
+      "interval": "[-1.5078932, -0.8625238)",
+      "reference_patterns": 47,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.0425531914893617,
+      "reference_wilson95": [
+        0.011748275966789345,
+        0.1424852767789945
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_3",
+      "interval": "[-2.4605152, -1.5078932)",
+      "reference_patterns": 48,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.020833333333333332,
+      "reference_wilson95": [
+        0.003687110977510649,
+        0.10899217995251861
+      ],
+      "evaluation_patterns": 18,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_3",
+      "interval": "[0.30524636, 0.85836116)",
+      "reference_patterns": 90,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.044444444444444446,
+      "reference_wilson95": [
+        0.01741724185270873,
+        0.10876855032812233
+      ],
+      "evaluation_patterns": 27,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_3",
+      "interval": "[0.85836116, 1.5344633)",
+      "reference_patterns": 38,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.07894736842105263,
+      "reference_wilson95": [
+        0.027214595506987724,
+        0.20799371457771454
+      ],
+      "evaluation_patterns": 7,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_3",
+      "interval": "[1.5344633, 2.4563526]",
+      "reference_patterns": 57,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.06313883485297894
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[-0.3909747, 0.047749263)",
+      "reference_patterns": 45,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.07865159873288836
+      ],
+      "evaluation_patterns": 13,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[-0.82974329, -0.3909747)",
+      "reference_patterns": 65,
+      "reference_risks": 6,
+      "observed_risk_history_rate": 0.09230769230769231,
+      "reference_wilson95": [
+        0.042995089611340964,
+        0.1871200051596039
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[-0.97595486, -0.82974329)",
+      "reference_patterns": 33,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.030303030303030304,
+      "reference_wilson95": [
+        0.00536941053687183,
+        0.1531872538211892
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[-1.2684673, -0.97595486)",
+      "reference_patterns": 47,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.07555760416399632
+      ],
+      "evaluation_patterns": 13,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[-2.292216, -1.2684673)",
+      "reference_patterns": 33,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.06060606060606061,
+      "reference_wilson95": [
+        0.016780883087191875,
+        0.1960624480864781
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[0.047749263, 0.48651786)",
+      "reference_patterns": 53,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.07547169811320754,
+      "reference_wilson95": [
+        0.0297395550869467,
+        0.17858477483653223
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[0.48651786, 0.77898562)",
+      "reference_patterns": 47,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.02127659574468085,
+      "reference_wilson95": [
+        0.0037657680385967812,
+        0.11112981041629329
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[0.77898562, 1.071498)",
+      "reference_patterns": 52,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.019230769230769232,
+      "reference_wilson95": [
+        0.0034028080709451597,
+        0.10120511127892247
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[1.071498, 1.3493446)",
+      "reference_patterns": 49,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        6.938893903907228e-18,
+        0.07269781922049637
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_4",
+      "interval": "[1.3493446, 2.0952021]",
+      "reference_patterns": 48,
+      "reference_risks": 5,
+      "observed_risk_history_rate": 0.10416666666666667,
+      "reference_wilson95": [
+        0.045321719041813105,
+        0.2216742169438633
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Barrel_Temperature_5",
+      "interval": "[-0.030765305, 0.28272749)",
+      "reference_patterns": 90,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.03333333333333333,
+      "reference_wilson95": [
+        0.011400390222806277,
+        0.09347286030389873
+      ],
+      "evaluation_patterns": 18,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_5",
+      "interval": "[-0.3442581, -0.030765305)",
+      "reference_patterns": 65,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.06153846153846154,
+      "reference_wilson95": [
+        0.024189054966350286,
+        0.1478215186552319
+      ],
+      "evaluation_patterns": 18,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_5",
+      "interval": "[-0.6577509, -0.3442581)",
+      "reference_patterns": 56,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.03571428571428571,
+      "reference_wilson95": [
+        0.00984942514823639,
+        0.12118780180490107
+      ],
+      "evaluation_patterns": 13,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_5",
+      "interval": "[-0.97114803, -0.6577509)",
+      "reference_patterns": 49,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        6.938893903907228e-18,
+        0.07269781922049637
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_5",
+      "interval": "[-4.4193775, -0.97114803)",
+      "reference_patterns": 38,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.09180986822558396
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_5",
+      "interval": "[0.28272749, 0.59622029)",
+      "reference_patterns": 48,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.0625,
+      "reference_wilson95": [
+        0.021483232908389285,
+        0.1683543805494635
+      ],
+      "evaluation_patterns": 14,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_5",
+      "interval": "[0.59622029, 1.2231102)",
+      "reference_patterns": 66,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.045454545454545456,
+      "reference_wilson95": [
+        0.015578274334433505,
+        0.1253331411324222
+      ],
+      "evaluation_patterns": 13,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_5",
+      "interval": "[1.2231102, 4.3578469]",
+      "reference_patterns": 60,
+      "reference_risks": 5,
+      "observed_risk_history_rate": 0.08333333333333333,
+      "reference_wilson95": [
+        0.03612045660173077,
+        0.1806894201833441
+      ],
+      "evaluation_patterns": 23,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "-0.3541839203189247",
+      "reference_patterns": 62,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.04838709677419355,
+      "reference_wilson95": [
+        0.016591685850580726,
+        0.1328803792732396
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "-0.8512966597545222",
+      "reference_patterns": 75,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.02666666666666667,
+      "reference_wilson95": [
+        0.0073436890061313945,
+        0.09211488187759151
+      ],
+      "evaluation_patterns": 23,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "-1.3484852595196537",
+      "reference_patterns": 42,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.08379879086570391
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "-1.8455979989552511",
+      "reference_patterns": 15,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.06666666666666667,
+      "reference_wilson95": [
+        0.011866895493268553,
+        0.2981652987378003
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "-2.3427865987203824",
+      "reference_patterns": 8,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.125,
+      "reference_wilson95": [
+        0.02241749145005667,
+        0.4708881822128535
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "-2.8399751984855137",
+      "reference_patterns": 2,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "0.1430046794462067",
+      "reference_patterns": 90,
+      "reference_risks": 5,
+      "observed_risk_history_rate": 0.05555555555555555,
+      "reference_wilson95": [
+        0.023960971616961965,
+        0.12353736221799518
+      ],
+      "evaluation_patterns": 23,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "0.6401932792113381",
+      "reference_patterns": 88,
+      "reference_risks": 6,
+      "observed_risk_history_rate": 0.06818181818181818,
+      "reference_wilson95": [
+        0.03162092817146724,
+        0.14086608394821237
+      ],
+      "evaluation_patterns": 20,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "1.1373060186469357",
+      "reference_patterns": 60,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.016666666666666666,
+      "reference_wilson95": [
+        0.0029481597947862495,
+        0.08855129727590061
+      ],
+      "evaluation_patterns": 21,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "1.634494618412067",
+      "reference_patterns": 18,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.05555555555555555,
+      "reference_wilson95": [
+        0.009875190978303097,
+        0.25757300781872594
+      ],
+      "evaluation_patterns": 5,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "2.1316073578476646",
+      "reference_patterns": 9,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2991450484195441
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Barrel_Temperature_6",
+      "interval": "2.628795957612796",
+      "reference_patterns": 3,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        5.551115123125783e-17,
+        0.5614970317550454
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[-0.12180903, 0.13238951)",
+      "reference_patterns": 49,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.02040816326530612,
+      "reference_wilson95": [
+        0.0036116725898252405,
+        0.10693521523391616
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[-0.32516476, -0.12180903)",
+      "reference_patterns": 48,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.041666666666666664,
+      "reference_wilson95": [
+        0.011501893489386586,
+        0.13975655870455445
+      ],
+      "evaluation_patterns": 10,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[-0.73188396, -0.32516476)",
+      "reference_patterns": 49,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.061224489795918366,
+      "reference_wilson95": [
+        0.02104014667296747,
+        0.16520487835726402
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[-1.4436445, -0.73188396)",
+      "reference_patterns": 44,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.022727272727272728,
+      "reference_wilson95": [
+        0.004023252060053224,
+        0.11807709698213287
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[-3.0705136, -1.4436445)",
+      "reference_patterns": 46,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.043478260869565216,
+      "reference_wilson95": [
+        0.012005445598556624,
+        0.1453225902621907
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[0.13238951, 0.38658804)",
+      "reference_patterns": 40,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.05,
+      "reference_wilson95": [
+        0.013820667386148344,
+        0.16503877369140962
+      ],
+      "evaluation_patterns": 8,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[0.38658804, 0.69162939)",
+      "reference_patterns": 53,
+      "reference_risks": 6,
+      "observed_risk_history_rate": 0.11320754716981132,
+      "reference_wilson95": [
+        0.05293030947702562,
+        0.22576519111992185
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[0.69162939, 0.89498511)",
+      "reference_patterns": 34,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.029411764705882353,
+      "reference_wilson95": [
+        0.0052109062762689395,
+        0.1491557329268593
+      ],
+      "evaluation_patterns": 7,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[0.89498511, 1.0983408)",
+      "reference_patterns": 59,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.061129370526788386
+      ],
+      "evaluation_patterns": 18,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Hopper_Temperature",
+      "interval": "[1.0983408, 2.115135]",
+      "reference_patterns": 50,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.04,
+      "reference_wilson95": [
+        0.011038884327619805,
+        0.1346009068750702
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[-0.1966311, 0.17382533)",
+      "reference_patterns": 31,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.0967741935483871,
+      "reference_wilson95": [
+        0.03346464416319736,
+        0.24899938443392836
+      ],
+      "evaluation_patterns": 7,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[-0.82355464, -0.1966311)",
+      "reference_patterns": 81,
+      "reference_risks": 8,
+      "observed_risk_history_rate": 0.09876543209876543,
+      "reference_wilson95": [
+        0.050900116268798354,
+        0.18296501401647308
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[-0.96603789, -0.82355464)",
+      "reference_patterns": 28,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        1.3877787807814457e-17,
+        0.12064330476584563
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[-1.3934849, -0.96603789)",
+      "reference_patterns": 33,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.06060606060606061,
+      "reference_wilson95": [
+        0.016780883087191875,
+        0.1960624480864781
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[-1.9634151, -1.3934849)",
+      "reference_patterns": 47,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.07555760416399632
+      ],
+      "evaluation_patterns": 18,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[0.17382533, 0.31630585)",
+      "reference_patterns": 32,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.03125,
+      "reference_wilson95": [
+        0.005537860164003122,
+        0.15744263820012558
+      ],
+      "evaluation_patterns": 6,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[0.31630585, 0.60127233)",
+      "reference_patterns": 68,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.014705882352941176,
+      "reference_wilson95": [
+        0.0026006835761068076,
+        0.07870973128160871
+      ],
+      "evaluation_patterns": 21,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[0.60127233, 1.0287193)",
+      "reference_patterns": 35,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.02857142857142857,
+      "reference_wilson95": [
+        0.005061491855444203,
+        0.14533087233613673
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[1.0287193, 1.3136858)",
+      "reference_patterns": 56,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.05357142857142857,
+      "reference_wilson95": [
+        0.018385781382109126,
+        0.14607309068821533
+      ],
+      "evaluation_patterns": 19,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_3",
+      "interval": "[1.3136858, 1.5986523]",
+      "reference_patterns": 61,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.01639344262295082,
+      "reference_wilson95": [
+        0.002899730799299824,
+        0.08718860044641587
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "[-0.3621219, -0.058641965)",
+      "reference_patterns": 54,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.07407407407407407,
+      "reference_wilson95": [
+        0.02918152776550481,
+        0.1755411583859995
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "[-0.7262969, -0.3621219)",
+      "reference_patterns": 53,
+      "reference_risks": 4,
+      "observed_risk_history_rate": 0.07547169811320754,
+      "reference_wilson95": [
+        0.0297395550869467,
+        0.17858477483653223
+      ],
+      "evaluation_patterns": 12,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "[-0.84768934, -0.7262969)",
+      "reference_patterns": 48,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.0625,
+      "reference_wilson95": [
+        0.021483232908389285,
+        0.1683543805494635
+      ],
+      "evaluation_patterns": 9,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "[-1.2118667, -0.84768934)",
+      "reference_patterns": 35,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.05714285714285714,
+      "reference_wilson95": [
+        0.015813161857108654,
+        0.1860705742016492
+      ],
+      "evaluation_patterns": 7,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "[-2.0616091, -1.2118667)",
+      "reference_patterns": 46,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.07707356308558039
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "[0.0020530969, 0.24483797)",
+      "reference_patterns": 73,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.0136986301369863,
+      "reference_wilson95": [
+        0.0024222514664838588,
+        0.07359737270963818
+      ],
+      "evaluation_patterns": 17,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "[0.24483797, 1.2159729)",
+      "reference_patterns": 61,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.04918032786885246,
+      "reference_wilson95": [
+        0.0168659826687624,
+        0.134911275272159
+      ],
+      "evaluation_patterns": 15,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "[1.2159729, 1.4587577)",
+      "reference_patterns": 50,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.04,
+      "reference_wilson95": [
+        0.011038884327619805,
+        0.1346009068750702
+      ],
+      "evaluation_patterns": 16,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "[1.4587577, 1.7015426]",
+      "reference_patterns": 52,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.019230769230769232,
+      "reference_wilson95": [
+        0.0034028080709451597,
+        0.10120511127892247
+      ],
+      "evaluation_patterns": 11,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Mold_Temperature_4",
+      "interval": "above_reference_range",
+      "reference_patterns": 0,
+      "reference_risks": 0,
+      "observed_risk_history_rate": null,
+      "reference_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Injection_Time × Filling_Time",
+      "interval": "-0.029099449053866445 / -1.1925314031676417",
+      "reference_patterns": 198,
+      "reference_risks": 10,
+      "observed_risk_history_rate": 0.050505050505050504,
+      "reference_wilson95": [
+        0.027661556517076857,
+        0.09045817448364726
+      ],
+      "evaluation_patterns": 43,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Injection_Time × Filling_Time",
+      "interval": "-0.029099449053866445 / 0.8385523411322893",
+      "reference_patterns": 269,
+      "reference_risks": 10,
+      "observed_risk_history_rate": 0.03717472118959108,
+      "reference_wilson95": [
+        0.020315739634074067,
+        0.06706635736740196
+      ],
+      "evaluation_patterns": 73,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "descriptive_only",
+      "guidance": "관측 위험 이력 구간; 불량 발생 보장/원인 아님"
+    },
+    {
+      "variable": "Injection_Time × Filling_Time",
+      "interval": "-8.627730385041827 / -1.1925314031676417",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Injection_Time × Filling_Time",
+      "interval": "8.569633990700348 / 0.8385523411322893",
+      "reference_patterns": 4,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [-0.1966311, 0.17382533)",
+      "reference_patterns": 10,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.2,
+      "reference_wilson95": [
+        0.05668215145437519,
+        0.5098375284633583
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [-0.82355464, -0.1966311)",
+      "reference_patterns": 18,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.17587922364665765
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [-0.96603789, -0.82355464)",
+      "reference_patterns": 8,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.32440756488388023
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [-1.3934849, -0.96603789)",
+      "reference_patterns": 7,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        5.551115123125783e-17,
+        0.35433043506668743
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [-1.9634151, -1.3934849)",
+      "reference_patterns": 11,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2588329669680317
+      ],
+      "evaluation_patterns": 5,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [0.17382533, 0.31630585)",
+      "reference_patterns": 2,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [0.31630585, 0.60127233)",
+      "reference_patterns": 17,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.1843181350088518
+      ],
+      "evaluation_patterns": 8,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [0.60127233, 1.0287193)",
+      "reference_patterns": 7,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        5.551115123125783e-17,
+        0.35433043506668743
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [1.0287193, 1.3136858)",
+      "reference_patterns": 4,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.25,
+      "reference_wilson95": [
+        0.04558726080970055,
+        0.6993581574175981
+      ],
+      "evaluation_patterns": 7,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.10880187181629318 / [1.3136858, 1.5986523]",
+      "reference_patterns": 11,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2588329669680317
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [-0.1966311, 0.17382533)",
+      "reference_patterns": 7,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        5.551115123125783e-17,
+        0.35433043506668743
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [-0.82355464, -0.1966311)",
+      "reference_patterns": 15,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.13333333333333333,
+      "reference_wilson95": [
+        0.03736125910306537,
+        0.37881982832322364
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [-0.96603789, -0.82355464)",
+      "reference_patterns": 9,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2991450484195441
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [-1.3934849, -0.96603789)",
+      "reference_patterns": 5,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.2,
+      "reference_wilson95": [
+        0.03622410863243014,
+        0.6244653702374747
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [-1.9634151, -1.3934849)",
+      "reference_patterns": 11,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2588329669680317
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [0.17382533, 0.31630585)",
+      "reference_patterns": 11,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.09090909090909091,
+      "reference_wilson95": [
+        0.016232172885884855,
+        0.37735843645159567
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [0.31630585, 0.60127233)",
+      "reference_patterns": 15,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.06666666666666667,
+      "reference_wilson95": [
+        0.011866895493268553,
+        0.2981652987378003
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [0.60127233, 1.0287193)",
+      "reference_patterns": 3,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        5.551115123125783e-17,
+        0.5614970317550454
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [1.0287193, 1.3136858)",
+      "reference_patterns": 4,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-0.7652217551830952 / [1.3136858, 1.5986523]",
+      "reference_patterns": 9,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2991450484195441
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-1.4216416385498971 / [-0.1966311, 0.17382533)",
+      "reference_patterns": 6,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.16666666666666666,
+      "reference_wilson95": [
+        0.030053369748306635,
+        0.5635028221864702
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-1.4216416385498971 / [-0.82355464, -0.1966311)",
+      "reference_patterns": 11,
+      "reference_risks": 3,
+      "observed_risk_history_rate": 0.2727272727272727,
+      "reference_wilson95": [
+        0.09746059290024889,
+        0.5656453011761291
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-1.4216416385498971 / [-0.96603789, -0.82355464)",
+      "reference_patterns": 3,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        5.551115123125783e-17,
+        0.5614970317550454
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-1.4216416385498971 / [-1.3934849, -0.96603789)",
+      "reference_patterns": 5,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-1.4216416385498971 / [-1.9634151, -1.3934849)",
+      "reference_patterns": 12,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        2.7755575615628914e-17,
+        0.24249400665524085
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-1.4216416385498971 / [0.17382533, 0.31630585)",
+      "reference_patterns": 6,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        2.7755575615628914e-17,
+        0.3903342879021653
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-1.4216416385498971 / [0.31630585, 0.60127233)",
+      "reference_patterns": 8,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.32440756488388023
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-1.4216416385498971 / [0.60127233, 1.0287193)",
+      "reference_patterns": 4,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.25,
+      "reference_wilson95": [
+        0.04558726080970055,
+        0.6993581574175981
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-1.4216416385498971 / [1.0287193, 1.3136858)",
+      "reference_patterns": 2,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.0779613663043452 / [-0.1966311, 0.17382533)",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.0779613663043452 / [-0.82355464, -0.1966311)",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.0779613663043452 / [-0.96603789, -0.82355464)",
+      "reference_patterns": 2,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.0779613663043452 / [-1.3934849, -0.96603789)",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.0779613663043452 / [-1.9634151, -1.3934849)",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.0779613663043452 / [0.17382533, 0.31630585)",
+      "reference_patterns": 2,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.0779613663043452 / [0.31630585, 0.60127233)",
+      "reference_patterns": 3,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        5.551115123125783e-17,
+        0.5614970317550454
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.7343812496711473 / [-0.1966311, 0.17382533)",
+      "reference_patterns": 0,
+      "reference_risks": 0,
+      "observed_risk_history_rate": null,
+      "reference_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.7343812496711473 / [-0.96603789, -0.82355464)",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.7343812496711473 / [-1.9634151, -1.3934849)",
+      "reference_patterns": 2,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-2.7343812496711473 / [0.17382533, 0.31630585)",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "-3.3907009774255954 / [-1.9634151, -1.3934849)",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [-0.1966311, 0.17382533)",
+      "reference_patterns": 5,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [-0.82355464, -0.1966311)",
+      "reference_patterns": 18,
+      "reference_risks": 2,
+      "observed_risk_history_rate": 0.1111111111111111,
+      "reference_wilson95": [
+        0.03101952264561239,
+        0.32799765130178804
+      ],
+      "evaluation_patterns": 6,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [-0.96603789, -0.82355464)",
+      "reference_patterns": 5,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [-1.3934849, -0.96603789)",
+      "reference_patterns": 7,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        5.551115123125783e-17,
+        0.35433043506668743
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [-1.9634151, -1.3934849)",
+      "reference_patterns": 4,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [0.17382533, 0.31630585)",
+      "reference_patterns": 9,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2991450484195441
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [0.31630585, 0.60127233)",
+      "reference_patterns": 18,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.17587922364665765
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [0.60127233, 1.0287193)",
+      "reference_patterns": 9,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2991450484195441
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [1.0287193, 1.3136858)",
+      "reference_patterns": 24,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.041666666666666664,
+      "reference_wilson95": [
+        0.0073934561655057685,
+        0.20241806478655938
+      ],
+      "evaluation_patterns": 6,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "0.547517855938155 / [1.3136858, 1.5986523]",
+      "reference_patterns": 17,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.058823529411764705,
+      "reference_wilson95": [
+        0.010460400984997592,
+        0.26982030637575405
+      ],
+      "evaluation_patterns": 6,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [-0.1966311, 0.17382533)",
+      "reference_patterns": 2,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [-0.82355464, -0.1966311)",
+      "reference_patterns": 14,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.07142857142857142,
+      "reference_wilson95": [
+        0.012722215247890939,
+        0.31468704424151117
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [-0.96603789, -0.82355464)",
+      "reference_patterns": 0,
+      "reference_risks": 0,
+      "observed_risk_history_rate": null,
+      "reference_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [-1.3934849, -0.96603789)",
+      "reference_patterns": 5,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [-1.9634151, -1.3934849)",
+      "reference_patterns": 5,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "evaluation_patterns": 4,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [0.17382533, 0.31630585)",
+      "reference_patterns": 1,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.7934506856227626
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [0.31630585, 0.60127233)",
+      "reference_patterns": 7,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        5.551115123125783e-17,
+        0.35433043506668743
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [0.60127233, 1.0287193)",
+      "reference_patterns": 10,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2775327998628892
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [1.0287193, 1.3136858)",
+      "reference_patterns": 13,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.07692307692307693,
+      "reference_wilson95": [
+        0.013710421242556586,
+        0.3331395092109959
+      ],
+      "evaluation_patterns": 2,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.203937739304957 / [1.3136858, 1.5986523]",
+      "reference_patterns": 20,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.16112515805281938
+      ],
+      "evaluation_patterns": 3,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.8602574670594052 / [-0.82355464, -0.1966311)",
+      "reference_patterns": 4,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.8602574670594052 / [-1.3934849, -0.96603789)",
+      "reference_patterns": 3,
+      "reference_risks": 1,
+      "observed_risk_history_rate": 0.3333333333333333,
+      "reference_wilson95": [
+        0.06149194472039621,
+        0.7923403991979522
+      ],
+      "evaluation_patterns": 0,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": true,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.8602574670594052 / [0.60127233, 1.0287193)",
+      "reference_patterns": 2,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.6576197724933469
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.8602574670594052 / [1.0287193, 1.3136858)",
+      "reference_patterns": 9,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.2991450484195441
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "1.8602574670594052 / [1.3136858, 1.5986523]",
+      "reference_patterns": 4,
+      "reference_risks": 0,
+      "observed_risk_history_rate": 0.0,
+      "reference_wilson95": [
+        0.0,
+        0.4898908364545973
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    },
+    {
+      "variable": "Max_Injection_Pressure × Mold_Temperature_3",
+      "interval": "unseen / [1.0287193, 1.3136858)",
+      "reference_patterns": 0,
+      "reference_risks": 0,
+      "observed_risk_history_rate": null,
+      "reference_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_patterns": 1,
+      "evaluation_risks": null,
+      "evaluation_wilson95": [
+        null,
+        null
+      ],
+      "evaluation_support": "insufficient_support",
+      "reference_average": 0.0423728813559322,
+      "above_reference_average": false,
+      "status": "insufficient_support",
+      "guidance": "표본 부족 또는 미관측; 안전/불량 범위 확정 불가"
+    }
+  ],
+  "definitions": {
+    "Injection_Time": {
+      "type": "discrete",
+      "values": [
+        -8.627730385041827,
+        -0.029099449053866445,
+        8.569633990700348
+      ],
+      "minimum": -8.627730385041827,
+      "maximum": 8.569633990700348
+    },
+    "Filling_Time": {
+      "type": "discrete",
+      "values": [
+        -1.1925314031676417,
+        0.8385523411322893
+      ],
+      "minimum": -1.1925314031676417,
+      "maximum": 0.8385523411322893
+    },
+    "Plasticizing_Time": {
+      "type": "continuous",
+      "cuts": [
+        -1.1649154928027723,
+        -0.7159559050853255,
+        -0.4914975187980172,
+        -0.2670177249392938,
+        -0.04253793108057046,
+        0.1819418627781529,
+        0.4064002490654612,
+        0.855359836782908,
+        1.3042980169289395
+      ],
+      "minimum": -2.7362312346710054,
+      "maximum": 3.7735329342320663
+    },
+    "Cycle_Time": {
+      "type": "discrete",
+      "values": [
+        -1.3950399372025626,
+        -1.120983020838307,
+        -0.846821542506724,
+        -0.2987077097782125,
+        -0.024546231446629645,
+        0.24951068491762612,
+        0.7977290796134647,
+        5.731590069908686,
+        11.761887849595583
+      ],
+      "minimum": -1.3950399372025626,
+      "maximum": 11.761887849595583
+    },
+    "Clamp_Close_Time": {
+      "type": "discrete",
+      "values": [
+        -1.8067254988278127,
+        -0.38678982241038173,
+        1.0330781477474453
+      ],
+      "minimum": -1.8067254988278127,
+      "maximum": 1.0330781477474453
+    },
+    "Cushion_Position": {
+      "type": "discrete",
+      "values": [
+        -1.9118180435387702,
+        -1.1144367268032296,
+        -0.31705541006768895,
+        0.48032590666785163,
+        1.2777072234033922,
+        2.0750885401389327,
+        2.8676077756748666
+      ],
+      "minimum": -1.9118180435387702,
+      "maximum": 2.8676077756748666
+    },
+    "Plasticizing_Position": {
+      "type": "discrete",
+      "values": [
+        -1.7558155003678992,
+        -0.974520563532816,
+        -0.19292753629832982,
+        0.5883674005367534,
+        1.3696623373718366,
+        2.151255364606323,
+        2.932550301441406
+      ],
+      "minimum": -1.7558155003678992,
+      "maximum": 2.932550301441406
+    },
+    "Clamp_Open_Position": {
+      "type": "discrete",
+      "values": [
+        0.0
+      ],
+      "minimum": 0.0,
+      "maximum": 0.0
+    },
+    "Max_Injection_Speed": {
+      "type": "discrete",
+      "values": [
+        -2.5222910205480336,
+        -1.737321949505005,
+        -0.9522929891607599,
+        -0.16738380741894748,
+        0.6176451529252976,
+        1.40255433466711,
+        2.187583295011355
+      ],
+      "minimum": -2.5222910205480336,
+      "maximum": 2.187583295011355
+    },
+    "Max_Screw_RPM": {
+      "type": "discrete",
+      "values": [
+        -2.0085875478583746,
+        -0.6657520460385278,
+        0.6771090687267264,
+        2.0199701834919805
+      ],
+      "minimum": -2.0085875478583746,
+      "maximum": 2.0199701834919805
+    },
+    "Average_Screw_RPM": {
+      "type": "discrete",
+      "values": [
+        -1.9605785402082005,
+        -0.4217977735906751,
+        1.1169829930268504,
+        2.655763759644376
+      ],
+      "minimum": -1.9605785402082005,
+      "maximum": 2.655763759644376
+    },
+    "Max_Injection_Pressure": {
+      "type": "discrete",
+      "values": [
+        -3.3907009774255954,
+        -2.7343812496711473,
+        -2.0779613663043452,
+        -1.4216416385498971,
+        -0.7652217551830952,
+        -0.10880187181629318,
+        0.547517855938155,
+        1.203937739304957,
+        1.8602574670594052
+      ],
+      "minimum": -3.3907009774255954,
+      "maximum": 1.8602574670594052
+    },
+    "Max_Switch_Over_Pressure": {
+      "type": "continuous",
+      "cuts": [
+        -0.7646862933599895,
+        -0.5545865564805381,
+        -0.3444868196010868,
+        -0.1343870827216355,
+        0.07572868374024348,
+        0.2858284206196948,
+        0.7060278943785975,
+        0.9161276312580487
+      ],
+      "minimum": -13.16076312423675,
+      "maximum": 1.5464428714788303
+    },
+    "Max_Back_Pressure": {
+      "type": "continuous",
+      "cuts": [
+        -1.3302495473813911,
+        -1.019132536980565,
+        -0.7080273944801929,
+        -0.3969103840793668,
+        -0.08580524157899463,
+        0.22529990092137753,
+        0.5364169113222037,
+        0.8475220538225758,
+        1.469744206723774
+      ],
+      "minimum": -2.574681985283334,
+      "maximum": 2.0919663596249722
+    },
+    "Average_Back_Pressure": {
+      "type": "continuous",
+      "cuts": [
+        -1.3068776064033847,
+        -0.8418766918713266,
+        -0.609380669182674,
+        -0.14437975465061584,
+        0.08812513719278957,
+        0.32062115988144224,
+        0.5531171825700949,
+        1.018118097102153,
+        1.483119011634211
+      ],
+      "minimum": -2.4693754581561533,
+      "maximum": 2.1806159488549217
+    },
+    "Barrel_Temperature_1": {
+      "type": "continuous",
+      "cuts": [
+        -1.3019455704574068,
+        -0.8357304651357478,
+        -0.6026229124749184,
+        -0.36958649425188594,
+        0.09662861106977294,
+        0.3297361637306024,
+        0.5628437163914318,
+        0.7958801346144643,
+        1.4718920373308775
+      ],
+      "minimum": -3.166663722868448,
+      "maximum": 2.660669421463303
+    },
+    "Barrel_Temperature_2": {
+      "type": "continuous",
+      "cuts": [
+        -1.223184390876188,
+        -0.9808971328166136,
+        -0.7385359164975585,
+        -0.49617470017850324,
+        -0.011452267540392873,
+        0.23083499051918135,
+        0.7155574231572918,
+        0.9579186394763469,
+        1.200279855795402
+      ],
+      "minimum": -2.1926292561524083,
+      "maximum": 3.1390216698288818
+    },
+    "Barrel_Temperature_3": {
+      "type": "continuous",
+      "cuts": [
+        -1.507893178333479,
+        -0.8625238035109933,
+        -0.3094090031290929,
+        -0.0020813214763596324,
+        0.3052463601763737,
+        0.8583611605582785,
+        1.5344633035460336
+      ],
+      "minimum": -2.4605152082156794,
+      "maximum": 2.4563525652629603
+    },
+    "Barrel_Temperature_4": {
+      "type": "continuous",
+      "cuts": [
+        -1.268467255830708,
+        -0.975954860097688,
+        -0.8297432933565567,
+        -0.39097469975702664,
+        0.04774926271712467,
+        0.48651785631665484,
+        0.778985620924296,
+        1.0714980166573163,
+        1.3493446245908494
+      ],
+      "minimum": -2.2922160097708995,
+      "maximum": 2.095202139472129
+    },
+    "Barrel_Temperature_5": {
+      "type": "continuous",
+      "cuts": [
+        -0.9711480314604819,
+        -0.6577508990084993,
+        -0.34425810198617113,
+        -0.030765304963843006,
+        0.28272749205848513,
+        0.5962202890808133,
+        1.2231102185551241
+      ],
+      "minimum": -4.419377469565401,
+      "maximum": 4.357846859637714
+    },
+    "Barrel_Temperature_6": {
+      "type": "discrete",
+      "values": [
+        -2.8399751984855137,
+        -2.3427865987203824,
+        -1.8455979989552511,
+        -1.3484852595196537,
+        -0.8512966597545222,
+        -0.3541839203189247,
+        0.1430046794462067,
+        0.6401932792113381,
+        1.1373060186469357,
+        1.634494618412067,
+        2.1316073578476646,
+        2.628795957612796
+      ],
+      "minimum": -2.8399751984855137,
+      "maximum": 2.628795957612796
+    },
+    "Hopper_Temperature": {
+      "type": "continuous",
+      "cuts": [
+        -1.4436445170700454,
+        -0.7318839636152918,
+        -0.3251647555730986,
+        -0.12180903031383264,
+        0.13238950502208047,
+        0.3865880403579936,
+        0.6916293857705539,
+        0.8949851110298198,
+        1.0983408362890856
+      ],
+      "minimum": -3.070513591715157,
+      "maximum": 2.115134977632738
+    },
+    "Mold_Temperature_3": {
+      "type": "continuous",
+      "cuts": [
+        -1.3934848920072398,
+        -0.9660378861171952,
+        -0.8235546449399185,
+        -0.19663110140168572,
+        0.17382532565923292,
+        0.31630584919472404,
+        0.6012723315492775,
+        1.028719337439322,
+        1.3136858197938754
+      ],
+      "minimum": -1.963415139074561,
+      "maximum": 1.598652302148429
+    },
+    "Mold_Temperature_4": {
+      "type": "continuous",
+      "cuts": [
+        -1.2118666593868854,
+        -0.8476893432760432,
+        -0.7262969045724291,
+        -0.36212190382977455,
+        -0.05864196475483321,
+        0.002053096912880053,
+        0.24483797432010815,
+        1.2159728532126455,
+        1.4587577306198736
+      ],
+      "minimum": -2.0616090995758087,
+      "maximum": 1.7015426080271017
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+ "cn7": {
+  "dev": 484,
+  "risks": 11,
+  "mean_smoothed": {
+   "OOF_AUC": 0.87,
+   "perm_p": 0.0,
+   "top10": {
+    "k": 49,
+    "positives": 11,
+    "expected_TP": 4.0,
+    "min_TP": 4,
+    "max_TP": 4
+   }
+  },
+  "max_lower95": {
+   "OOF_AUC": 0.822,
+   "perm_p": 0.0,
+   "top10": {
+    "k": 49,
+    "positives": 11,
+    "expected_TP": 3.2777777777777777,
+    "min_TP": 3,
+    "max_TP": 4
+   }
+  }
+ },
+ "rg3": {
+  "dev": 472,
+  "risks": 20,
+  "mean_smoothed": {
+   "OOF_AUC": 0.451,
+   "perm_p": 0.739,
+   "top10": {
+    "k": 48,
+    "positives": 20,
+    "expected_TP": 1.0,
+    "min_TP": 1,
+    "max_TP": 1
+   }
+  },
+  "max_lower95": {
+   "OOF_AUC": 0.51,
+   "perm_p": 0.444,
+   "top10": {
+    "k": 48,
+    "positives": 20,
+    "expected_TP": 1.4166666666666667,
+    "min_TP": 1,
+    "max_TP": 2
+   }
+  }
+ }
+}

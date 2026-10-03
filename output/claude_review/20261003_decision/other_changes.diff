@@ -1,0 +1,148 @@
+--- /mnt/user-data/uploads/kamp/03.modeling/pipeline_cli.py	2026-10-03 14:11:49.621343662 +0900
++++ 03.modeling/pipeline_cli.py	2026-10-03 14:14:53.537475764 +0900
+@@ -16,6 +16,7 @@
+     p.add_argument('--min-recall',type=float,default=.5)
+     p.add_argument('--min-precision',type=float,default=.2)
+     p.add_argument('--max-fpr',type=float,default=.2)
++    p.add_argument('--rg3-history-triggers-recheck',action='store_true',help='RG3 구간 위험 이력만으로도 재검사 권고(기본: 참고 표시만)')
+     sub=p.add_subparsers(dest='action',required=True)
+     sub.add_parser('status');sub.add_parser('baseline');sub.add_parser('drift')
+     initial=sub.add_parser('initial');initial.add_argument('--kind',choices=['if','lr','rf'],required=True)
+@@ -32,7 +33,7 @@
+     undo=sub.add_parser('rollback');undo.add_argument('--kind',choices=['if','ocsvm','lr','rf'],required=True);undo.add_argument('--reason',required=True)
+     a=p.parse_args()
+     if not all(0<=v<=1 for v in [a.min_recall,a.min_precision,a.max_fpr]):p.error('성능 기준은 0~1이어야 합니다')
+-    ops=Operations(a.dataset,a.state_root,dict(min_recall=a.min_recall,min_precision=a.min_precision,max_FPR=a.max_fpr))
++    ops=Operations(a.dataset,a.state_root,dict(min_recall=a.min_recall,min_precision=a.min_precision,max_FPR=a.max_fpr,rg3_history_triggers_recheck=a.rg3_history_triggers_recheck))
+     if a.action=='status':result=ops.registry()
+     elif a.action=='baseline':result=ops.create_baseline()
+     elif a.action=='drift':result=ops.detect()
+--- /mnt/user-data/uploads/kamp/03.modeling/tests/test_decision_runtime.py	2026-10-03 14:11:52.137343605 +0900
++++ 03.modeling/tests/test_decision_runtime.py	2026-10-03 14:15:08.807993666 +0900
+@@ -61,4 +61,37 @@
+         self.assertFalse(report['passed'])
+         self.assertTrue(any('후속 평가' in r for r in report['reasons']))
+ 
++    def test_history_alone_is_reference_not_recheck_by_default(self):
++        x,y=self.frame(400,3);p=x.assign(record_id=range(len(x)),fingerprint=fingerprints(x))
++        _,rows=inspection_advice(x,y,p)
++        elevated=[r for r in rows if r['evidence_level']=='elevated_risk_history']
++        self.assertTrue(elevated)
++        self.assertFalse(any(r['reinspection_recommended'] for r in elevated))
++        self.assertLess(sum(r['reinspection_recommended'] for r in rows),len(rows))
++        _,on=inspection_advice(x,y,p,history_triggers=True)
++        self.assertTrue(all(r['reinspection_recommended'] for r in on if r['evidence_level']=='elevated_risk_history'))
++    def test_out_of_reference_value_recommends_check(self):
++        x,y=self.frame(400,3);q=x.iloc[:2].copy();q.iloc[0,0]=x.iloc[:,0].max()+10
++        p=q.assign(record_id=range(2),fingerprint=fingerprints(q))
++        _,rows=inspection_advice(x,y,p)
++        self.assertEqual(rows[0]['evidence_level'],'out_of_reference')
++        self.assertTrue(rows[0]['reinspection_recommended'] and rows[0]['outside_reference'])
++    def test_resent_batch_held(self):
++        ops=Operations('rg3',Path(self.tmp.name)/'dup',dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=40))
++        x,y=self.frame();v=ops.save_candidate(fit_supervised('rg3',x,y),x,y,source={'fixture':True});ops.initialize(v,'synthetic')
++        ex,ey=self.frame(45,9);frame=ex.assign(PassOrFail=ey,product_id=[f'L-{i}' for i in range(45)])
++        first=ops.ingest(frame,label_source='synthetic',coordinates_confirmed=True)
++        self.assertEqual(first['status'],'accepted')
++        again=ops.ingest(frame,label_source='synthetic',coordinates_confirmed=True)
++        self.assertEqual(again['status'],'held');self.assertIn('동일한 내용',again['reason'])
++        part=ops.ingest(frame.iloc[:10],label_source='synthetic',coordinates_confirmed=True)
++        self.assertEqual(part['status'],'held');self.assertIn('제품 ID 중복',part['reason'])
++        self.assertEqual(read(ops.state/'batch_ledger.json')['batches'],[first['id']])
++    def test_selection_evaluation_cannot_justify_promotion(self):
++        from pipeline_runtime import write
++        write(self.ops.state/'selections'/'selection-x.json',dict(evaluation_id='eval-used'))
++        write(self.ops.state/'assessments'/'assess-x'/'assessment.json',
++              dict(kind='lr',evaluation_id='eval-used',candidate_metrics=dict(recall=1.,precision=1.,FPR=0.)))
++        with self.assertRaisesRegex(ValueError,'선정에 사용한 평가'):self.ops.promote('assess-x')
++
+ if __name__=='__main__':unittest.main(verbosity=2)
+--- /mnt/user-data/uploads/kamp/03.modeling/tests/report_decision_examples.py	2026-10-03 14:11:51.013343631 +0900
++++ 03.modeling/tests/report_decision_examples.py	2026-10-03 14:15:43.269338318 +0900
+@@ -1,28 +1,64 @@
+-"""Read-only real-data examples; Test remains historical, no model selection."""
++"""Read-only real-data examples; Test remains historical, no model selection.
++
++Also records the dataset-type evidence: does a simple range-history score rank risk
++patterns better than chance on development OOF (permutation test)? Test is not used.
++"""
+ import sys
+ from pathlib import Path
++import numpy as np
++import pandas as pd
++from sklearn.metrics import roc_auc_score
+ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'common'))
+-from pipeline_runtime import ROOT,data,fingerprints,read,write,write_guidance,new_id
++from pipeline_runtime import ROOT,data,fingerprints,read,write,write_guidance,new_id,feature_columns,bin_spec,bins,topk
+ from decision_runtime import inspection_advice,usability
+ 
++
++def signal_check(dataset,repeats=1000,seed=0):
++    """Development-only OOF ranking evidence used to justify CN7형/RG3형 routing."""
++    x,y,a,dev,_,_=data(dataset);fold=a.loc[dev,'cv_fold'].to_numpy();s=np.zeros(len(dev))
++    for k in range(4):
++        tr,va=dev[fold!=k],dev[fold==k];yt=y.loc[tr].to_numpy();base=yt.mean();acc=np.zeros(len(va))
++        for c in feature_columns():
++            spec=bin_spec(x.loc[tr,c]);t=pd.DataFrame(dict(b=bins(x.loc[tr,c],spec),y=yt)).groupby('b').y.agg(['sum','count'])
++            rate=(t['sum']+base*10)/(t['count']+10)   # shrink sparse bins to the base rate
++            acc+=pd.Series(bins(x.loc[va,c],spec)).map(rate).fillna(base).to_numpy()
++        s[fold==k]=acc/len(feature_columns())
++    yd=y.loc[dev].to_numpy();auc=roc_auc_score(yd,s);rng=np.random.default_rng(seed)
++    perm=np.array([roc_auc_score(rng.permutation(yd),s) for _ in range(repeats)])
++    p=float((1+np.sum(perm>=auc))/(1+repeats))
++    return dict(dataset=dataset,development_patterns=len(dev),risks=int(yd.sum()),oof_auc=float(auc),
++                permutation_p=p,top10=topk(yd,s,.1),
++                route='model_selection' if p<.05 else 'distribution_monitoring',
++                note='개발 OOF만 사용. 단순 구간 점수 기준이며 모델 성능 추정 아님')
++
++
+ out=ROOT/'output/decision_review'/new_id('review');out.mkdir(parents=True)
++signals=[signal_check(d) for d in ['cn7','rg3']]
++write(out/'dataset_signal_check.json',signals)
+ x,y,_,dev,test,_=data('rg3')
+ products=x.loc[test].reset_index(drop=True)
+ products['record_id']=['historical-pattern-'+str(i) for i in test]
+ products['fingerprint']=fingerprints(products.iloc[:,:24])
+ guidance,rows=inspection_advice(x.loc[dev],y.loc[dev],products)
+ write_guidance(out,guidance)
+-write(out/'rg3_reinspection_examples.json',dict(scope='historical Test patterns, not new production or product defect probabilities',records=rows))
++levels=pd.Series([r['evidence_level'] for r in rows]).value_counts().to_dict()
++write(out/'rg3_reinspection_examples.json',dict(scope='historical Test patterns, not new production or product defect probabilities',
++      level_counts=levels,records=rows))
+ folder=sorted((ROOT/'output/logistic/cn7').iterdir())[-1]
+ m=read(folder/'test_metrics.json');policy=dict(min_recall=.5,min_precision=.2,max_FPR=.2)
+ reasons=usability(m,policy)
+ write(out/'cn7_current_lr_usability.json',dict(metrics=m,policy=policy,reasons=reasons,
+     selected=None,note='historical followup only; no new three-model experiment or independent performance claim'))
+-(out/'결과안내.txt').write_text(
+-    'RG3 재검사 안내 및 CN7 사용 기준 확인\n'
+-    f'RG3 기존 Test 고유 패턴 {len(rows)}개 중 재검사 권고 {sum(r["reinspection_recommended"] for r in rows)}개.\n'
+-    '이 수치는 검사 정책의 보수성 확인용이며 실제 불량 발견률이 아닙니다.\n'
+-    '구간별 위험 이력과 정보 부족을 표시하며 높은 권고 비율이면 현장 검사량 합의가 필요합니다.\n'
+-    f'CN7 현재 LR: 선정 보류. 기준 미달 사유 {reasons}.\n'
+-    'LR·RF·OCSVM 최종 선정에는 동일한 별도 평가 자료가 필요합니다. 기존 Test로 재선정하지 않았습니다.\n',encoding='utf-8')
+-print(out)
++lines=['데이터 유형 판정(개발 OOF 순열 검정, Test 미사용)']
++for s in signals:
++    lines.append(f"{s['dataset'].upper()}: OOF AUC {s['oof_auc']:.3f}, 순열 p {s['permutation_p']:.3f}, "
++                 f"상위10% 검사 위험 {s['top10']['expected_TP']:.1f}/{s['risks']} → {s['route']}")
++lines+=['',
++    'RG3 재검사 안내 (기존 Test 고유 패턴에 개발 참조 적용)',
++    f'고유 패턴 {len(rows)}개 중 재검사 권고 {sum(r["reinspection_recommended"] for r in rows)}개, 근거 단계 {levels}.',
++    '재검사 권고는 학습 범위 밖·정보 부족 근거. 구간 위험 이력은 참고 표시(예측력 미검증).',
++    '이 수치는 검사 정책 동작 확인용이며 실제 불량 발견률이 아닙니다.',
++    f'CN7 현재 LR: 선정 보류. 기준 미달 사유 {reasons}.',
++    'LR·RF·OCSVM 최종 선정에는 동일한 별도 평가 자료가 필요하며, 선정에 쓴 평가 자료로는 승격할 수 없습니다.']
++(out/'결과안내.txt').write_text('\n'.join(lines)+'\n',encoding='utf-8')
++print(out);print('\n'.join(lines))
+--- /mnt/user-data/uploads/kamp/03.modeling/tests/run_checks.py	2026-10-03 14:11:51.273343625 +0900
++++ 03.modeling/tests/run_checks.py	2026-10-03 14:15:08.808379413 +0900
+@@ -25,7 +25,7 @@
+     print(name,'PASS' if result.returncode==0 else 'FAIL',flush=True)
+ unchanged=before==hashes()
+ summary=dict(passed=all(r['passed'] for r in results) and unchanged,results=results,
+-             runtime_unchanged=unchanged,scope='49 regression/integration invocations plus saved LR audit; no field validation')
++             runtime_unchanged=unchanged,scope='53 regression/integration invocations plus saved LR audit; no field validation')
+ (out/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+ print(json.dumps(dict(**summary,report=str(out)),ensure_ascii=False,indent=2))
+ sys.exit(0 if summary['passed'] else 1)

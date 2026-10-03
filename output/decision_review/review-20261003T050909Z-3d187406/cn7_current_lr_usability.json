@@ -1,0 +1,52 @@
+{
+  "metrics": {
+    "TP": 0,
+    "FP": 0,
+    "FN": 3,
+    "TN": 119,
+    "F1": 0.0,
+    "recall": 0.0,
+    "FPR": 0.0,
+    "precision": 0.0,
+    "AP": 0.2789272030651341,
+    "ROC_AUC": 0.9131652661064426,
+    "top10": {
+      "k": 13,
+      "positives": 3,
+      "expected_TP": 2.0,
+      "min_TP": 2,
+      "max_TP": 2
+    },
+    "always_normal": {
+      "TP": 0,
+      "FP": 0,
+      "FN": 3,
+      "TN": 119,
+      "F1": 0.0,
+      "recall": 0.0,
+      "FPR": 0.0,
+      "precision": 0.0
+    },
+    "always_risk": {
+      "TP": 3,
+      "FP": 119,
+      "FN": 0,
+      "TN": 0,
+      "F1": 0.048,
+      "recall": 1.0,
+      "FPR": 1.0,
+      "precision": 0.02459016393442623
+    }
+  },
+  "policy": {
+    "min_recall": 0.5,
+    "min_precision": 0.2,
+    "max_FPR": 0.2
+  },
+  "reasons": [
+    "recall 최소 기준 0.5 미달",
+    "precision 최소 기준 0.2 미달"
+  ],
+  "selected": null,
+  "note": "historical followup only; no new three-model experiment or independent performance claim"
+}

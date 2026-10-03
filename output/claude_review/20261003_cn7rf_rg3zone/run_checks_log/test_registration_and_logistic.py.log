@@ -1,0 +1,90 @@
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator VarianceThreshold from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator OneClassSVM from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator VarianceThreshold from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator OneClassSVM from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator VarianceThreshold from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator Pipeline from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator VarianceThreshold from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator OneClassSVM from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator VarianceThreshold from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/usr/local/lib/python3.11/dist-packages/sklearn/base.py:463: InconsistentVersionWarning: Trying to unpickle estimator OneClassSVM from version 1.9.0 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+test_changed_model_after_audit_rejected (__main__.RegistrationAndLogisticTests.test_changed_model_after_audit_rejected) ... ok
+test_domain_normal_reference_alltrain_final_scaler (__main__.RegistrationAndLogisticTests.test_domain_normal_reference_alltrain_final_scaler) ... ok
+test_lr_all_training_rows_scaler (__main__.RegistrationAndLogisticTests.test_lr_all_training_rows_scaler) ... ok
+test_matching_hash_but_inconsistent_threshold_rejected (__main__.RegistrationAndLogisticTests.test_matching_hash_but_inconsistent_threshold_rejected) ... ok
+test_saved_threshold_matches_strict_rule (__main__.RegistrationAndLogisticTests.test_saved_threshold_matches_strict_rule) ... FAIL
+test_stale_split_rejected (__main__.RegistrationAndLogisticTests.test_stale_split_rejected) ... ok
+test_unchanged_audit_bound_artifact_registers (__main__.RegistrationAndLogisticTests.test_unchanged_audit_bound_artifact_registers) ... ok
+
+======================================================================
+FAIL: test_saved_threshold_matches_strict_rule (__main__.RegistrationAndLogisticTests.test_saved_threshold_matches_strict_rule)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/claude/work2/KAMP/03.modeling/tests/test_registration_and_logistic.py", line 74, in test_saved_threshold_matches_strict_rule
+    np.testing.assert_array_equal(score(b,x.loc[test]),saved.probability.to_numpy())
+  File "/usr/local/lib/python3.11/dist-packages/numpy/testing/_private/utils.py", line 1121, in assert_array_equal
+    assert_array_compare(operator.__eq__, actual, desired, err_msg=err_msg,
+  File "/usr/local/lib/python3.11/dist-packages/numpy/testing/_private/utils.py", line 983, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Arrays are not equal
+
+Mismatched elements: 42 / 122 (34.4%)
+First 5 mismatches are at indices:
+ [0]: 0.0012924214117792134 (ACTUAL), 0.0012924214117792123 (DESIRED)
+ [2]: 0.03814251619095266 (ACTUAL), 0.03814251619095259 (DESIRED)
+ [5]: 0.010785444145446021 (ACTUAL), 0.010785444145446039 (DESIRED)
+ [7]: 0.017870756083948988 (ACTUAL), 0.017870756083948974 (DESIRED)
+ [10]: 0.0011578940112025795 (ACTUAL), 0.0011578940112025784 (DESIRED)
+Max absolute difference among violations: 4.4408921e-16
+Max relative difference among violations: 3.74631659e-15
+ ACTUAL: array([1.292421e-03, 1.569535e-01, 3.814252e-02, 1.431217e-05,
+       8.966094e-04, 1.078544e-02, 8.942347e-04, 1.787076e-02,
+       1.277776e-02, 9.869638e-02, 1.157894e-03, 3.099572e-01,...
+ DESIRED: array([1.292421e-03, 1.569535e-01, 3.814252e-02, 1.431217e-05,
+       8.966094e-04, 1.078544e-02, 8.942347e-04, 1.787076e-02,
+       1.277776e-02, 9.869638e-02, 1.157894e-03, 3.099572e-01,...
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.684s
+
+FAILED (failures=1)
+
