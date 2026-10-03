@@ -2,6 +2,7 @@
 from pathlib import Path
 import io
 import json
+import os
 import sys
 import tempfile
 import unittest
@@ -13,7 +14,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 results=[]
 notebook=ROOT/'03.modeling/models/ocsvm.ipynb'
 nb=json.loads(notebook.read_text(encoding='utf-8'))
-out=ROOT/'output/operations_tests/20261003';out.mkdir(parents=True,exist_ok=True)
+out=ROOT/'output/operations_tests'/os.environ.get('KAMP_TEST_RUN_ID','manual-'+__import__('datetime').datetime.now().strftime('%Y%m%dT%H%M%S'));out.mkdir(parents=True,exist_ok=True)
 for ds in ['cn7','rg3']:
     ns={'__name__':'notebook_regression'}
     for c in nb['cells']:

@@ -1,0 +1,912 @@
+--- /mnt/user-data/outputs/kamp_final_20261003/review/codex_baseline/decision_runtime.py	2026-10-03 14:37:34.977943565 +0900
++++ 03.modeling/common/decision_runtime.py	2026-10-03 14:34:29.857561889 +0900
+@@ -1,8 +1,36 @@
+-"""Dataset-specific decision layer; preserves historical training implementation."""
++"""Dataset-specific decision layer; preserves historical training implementation.
++
++2026-10-03 Claude review revision
++- RG3: recheck is driven by 'outside the reference' / information shortage / drift, not by
++  every bin that ever saw a risk (the previous rule flagged 100% of records).
++  Bin risk history is shown as reference evidence. On development OOF it did not rank
++  risk patterns better than chance for RG3, so by default it does not trigger recheck
++  (policy rg3_history_triggers_recheck=False; switch on only by explicit agreement).
++- Re-sent batches (same content or reused product IDs) are held so one lot cannot count
++  as two drift windows. Implemented here so pipeline_runtime.py (LR audit hash) is untouched.
++- CN7: an evaluation used to choose among LR/RF/OCSVM cannot also justify promotion.
++
++2026-10-03 second revision (user decision: CN7 = RF + inspection budget, RG3 = drift-based zones)
++- CN7: default decision mode 'budget'. Active model (default kind rf) ranks each batch and the top
++  inspection_fraction of products is flagged for inspection. CD compares candidates by risk found
++  within the same inspection budget instead of fixed-threshold recall/precision.
++- RG3: every record gets an uncertainty level (high/medium/low) from drift status + record evidence,
++  and the batch gets drift-based uncertainty zones (most-changed variables, out-of-range counts).
++  Levels describe how little the model/reference can say, not defect probability.
++"""
++import math
++import hashlib
++import json
++import os
++import socket
++import time
++from contextlib import contextmanager
+ import numpy as np
+ import pandas as pd
+ from pipeline_runtime import (Operations as BaseOperations, range_guidance, write_guidance,
+-    bins, feature_columns, read, write, digest, clean_id, new_id, now)
++    bins, feature_columns, read, write, digest, clean_id, new_id, now, preprocess, score, topk)
++
++OUTSIDE_TOKENS=('unseen','below_reference_range','above_reference_range')
+ 
+ 
+ def usability(metrics, policy):
+@@ -17,11 +45,20 @@
+     return reasons
+ 
+ 
+-def inspection_advice(reference_x, reference_y, products):
+-    """Reference-label evidence only; incoming labels never determine advice."""
++def inspection_advice(reference_x, reference_y, products, history_triggers=False):
++    """Reference-label evidence only; incoming labels never determine advice.
++
++    evidence_level (priority order)
++      out_of_reference         학습 범위 밖 값·미관측 값/조합 → 판단 근거 없음, 추가 검사 권고
++      insufficient_information 해당 제품이 걸친 모든 구간이 표본 부족 → 추가 검사 권고
++      elevated_risk_history    Wilson 하한이 전체 위험 이력 비율보다 높은 구간에 걸침 → 참고 표시
++                               (history_triggers=True일 때만 재검사 권고)
++      monitor                  위 해당 없음 → 관찰. 정상 보증 아님
++    """
+     x=products[feature_columns()]
+     unique=x.drop_duplicates().reset_index(drop=True)
+     guidance=range_guidance(reference_x,reference_y,unique,None)
++    base=float(np.mean(reference_y))
+     lookup={(r['variable'],r['interval']):r for r in guidance['ranges']}
+     categories={c:bins(x[c],spec) for c,spec in guidance['definitions'].items()}
+     for a,b in [('Injection_Time','Filling_Time'),('Max_Injection_Pressure','Mold_Temperature_3')]:
+@@ -29,75 +66,296 @@
+     rows=[]
+     for i in range(len(x)):
+         matched=[lookup[(c,str(values[i]))] for c,values in categories.items()]
++        outside=[r for r in matched if r['reference_patterns']==0 or any(t in r['interval'] for t in OUTSIDE_TOKENS)]
+         risk=[r for r in matched if r['reference_risks']>0]
+-        sparse=[r for r in matched if r['status']=='insufficient_support']
+-        # A historical risk is evidence for checking, never a defect verdict.
+-        level='risk_history_recheck' if risk else 'insufficient_information' if sparse else 'monitor'
++        elevated=[r for r in risk if r['status']=='descriptive_only'
++                  and r['reference_wilson95'][0] is not None and r['reference_wilson95'][0]>base]
++        all_sparse=all(r['status']=='insufficient_support' for r in matched)
++        if outside:
++            level,recheck='out_of_reference',True
++            message='학습 자료 범위 밖 조건입니다. 모델·구간 근거가 없으므로 추가 검사로 확인해 주세요.'
++        elif all_sparse:
++            level,recheck='insufficient_information',True
++            message='정보 부족: 안전 여부를 확정할 수 없습니다. 추가 검사로 확인해 주세요.'
++        elif elevated:
++            level,recheck='elevated_risk_history',bool(history_triggers)
++            message=('과거 위험 이력 비율이 평균보다 높게 관측된 구간입니다. '
++                     +('직접 재검사를 권고합니다. ' if history_triggers else '참고 정보입니다. ')
++                     +'이 구간 정보의 불량 예측력은 검증되지 않았습니다.')
++        else:
++            level,recheck='monitor',False
++            message='분포와 검사 결과를 계속 관찰해 주세요. 정상 보증은 아닙니다.'
+         rows.append(dict(record_id=str(products.iloc[i]['record_id']),
+             fingerprint=products.iloc[i]['fingerprint'],decision='확정 불가',
+-            evidence_level=level,reinspection_recommended=bool(risk or sparse),
+-            message=('과거 위험 이력이 있는 구간입니다. 정상·불량 확정이 어려우므로 직접 재검사를 권고합니다.'
+-                     if risk else '정보 부족: 안전 여부를 확정할 수 없습니다. 추가 검사로 확인해 주세요.'
+-                     if sparse else '분포와 검사 결과를 계속 관찰해 주세요. 정상 보증은 아닙니다.'),
++            evidence_level=level,reinspection_recommended=recheck,message=message,
++            outside_reference=[dict(variable=r['variable'],interval=r['interval']) for r in outside],
++            elevated_ranges=[dict(variable=r['variable'],interval=r['interval'],
++                patterns=r['reference_patterns'],risks=r['reference_risks'],
++                wilson95=r['reference_wilson95']) for r in elevated],
+             risk_history_ranges=[dict(variable=r['variable'],interval=r['interval'],
+                 patterns=r['reference_patterns'],risks=r['reference_risks'],
+                 observed_rate=r['observed_risk_history_rate'],wilson95=r['reference_wilson95'],
+                 support=r['status']) for r in risk],
+-            insufficient_range_count=len(sparse)))
++            insufficient_range_count=sum(r['status']=='insufficient_support' for r in matched)))
+     return guidance,rows
+ 
+ 
++def batch_drift_advice(drift):
++    status=(drift or {}).get('status')
++    if status=='review':
++        return dict(level='review',message='지속적인 분포 변화: 이 배치 전체의 샘플 검사 비율을 높이고 원인(설비·금형·원료)을 확인해 주세요.')
++    if status=='watch':
++        return dict(level='watch',message='분포 변화 1회 감지: 다음 배치까지 관찰하고 샘플 검사를 유지해 주세요.')
++    if status=='waiting':
++        return dict(level='waiting',message='감지 표본 누적 중: 분포 판단을 보류합니다.')
++    return dict(level='normal',message='분포 변화 경보 없음. 정상 보증은 아닙니다.')
++
++
++UNCERTAINTY_TEXT={'high':'높음','medium':'중간','low':'낮음'}
++
++
++def uncertainty_level(record_level,drift_status):
++    """Uncertainty of judgement, NOT defect risk."""
++    if drift_status=='review' or record_level=='out_of_reference':return 'high'
++    if drift_status=='watch' or record_level=='insufficient_information':return 'medium'
++    return 'low'
++
++
++def drift_zones(drift,top=8):
++    """Variables/representations whose distribution moved most in this window (drift output)."""
++    changes=(drift or {}).get('changes') or {}
++    outside=(drift or {}).get('outside_reference') or {}
++    threshold=(drift or {}).get('threshold')
++    rows=[dict(representation=k,change_tv=float(v),over_threshold=bool(threshold is not None and v>threshold),
++               outside_reference_rows=int(outside.get(k,0)))
++          for k,v in sorted(changes.items(),key=lambda kv:-kv[1])[:top]]
++    return dict(threshold=threshold,status=(drift or {}).get('status'),zones=rows,
++                outside_reference_total={k:int(v) for k,v in outside.items() if v},
++                note='분포가 많이 바뀐 변수·조합이다. 불량 원인·불량 범위가 아니다.')
++
++
++def budget_flags(scores,fraction):
++    """Top-k inspection flags for one batch; boundary ties are all flagged (count may exceed k)."""
++    s=np.asarray(scores,float);k=max(1,int(math.ceil(len(s)*fraction)))
++    cutoff=np.sort(s)[-k];flag=s>=cutoff
++    rank=pd.Series(-s).rank(method='min').astype(int).to_numpy()
++    return flag,rank,k,float(cutoff)
++
++
++class LockHeld(FileExistsError):
++    """Writer lock already present; carries age and owner for the operator."""
++
++
+ class Operations(BaseOperations):
+     def __init__(self,dataset,state_root=None,policy=None):
+         super().__init__(dataset,state_root,policy)
+         self.policy.setdefault('min_recall',.5)
+         self.policy.setdefault('min_precision',.2)
++        self.policy.setdefault('rg3_history_triggers_recheck',False)
++        self.policy.setdefault('cn7_decision_mode','budget')      # budget | threshold
++        self.policy.setdefault('cn7_model_kind','rf')
++        self.policy.setdefault('min_budget_capture',.5)          # share of evaluation risks found within budget
++        self.policy.setdefault('lock_stale_seconds',600)
+         self.policy.setdefault('acceptance_policy_note','잠정 기준: 현장 검사 비용·누락 허용량 합의 필요')
+ 
+-    def ingest(self,*args,**kwargs):
+-        result=super().ingest(*args,**kwargs)
+-        if self.dataset!='rg3' or result['status']!='accepted':return result
++    # ---- writer lock with owner/age (overrides the bare O_EXCL lock of the base class) ----
++    @contextmanager
++    def lock(self):
++        path=self.state/'.writer.lock'
++        try:fd=os.open(path,os.O_CREAT|os.O_EXCL|os.O_WRONLY)
++        except FileExistsError:
++            age=time.time()-path.stat().st_mtime
++            try:owner=path.read_text(encoding='utf-8') or '기록 없음'
++            except OSError:owner='읽기 실패'
++            raise LockHeld(f'쓰기 잠금 사용 중({age:.0f}초 전 생성, 소유: {owner}). 실행 중인 작업이 없으면 '
++                           f'pipeline_cli.py --dataset {self.dataset} unlock --reason <사유> 로 해제하세요: {path}') from None
++        try:
++            os.write(fd,json.dumps(dict(pid=os.getpid(),host=socket.gethostname(),at=now()),ensure_ascii=False).encode('utf-8'))
++            yield
++        finally:
++            os.close(fd)
++            try:path.unlink()
++            except FileNotFoundError:pass
++
++    def clear_lock(self,reason,force=False):
++        """Remove a stale writer lock after an explicit operator decision; journaled."""
++        if not reason or not reason.strip():raise ValueError('잠금 해제 사유 필요')
++        path=self.state/'.writer.lock'
++        if not path.exists():return dict(status='no_lock')
++        age=time.time()-path.stat().st_mtime;owner=path.read_text(encoding='utf-8',errors='replace')
++        if age<self.policy['lock_stale_seconds'] and not force:
++            raise ValueError(f'잠금 생성 후 {age:.0f}초: 작업이 진행 중일 수 있음. 확인 후 --force 사용')
++        path.unlink()
++        history=read(self.state/'lock_history.json',[]);entry=dict(at=now(),reason=reason,age_seconds=age,owner=owner,force=force)
++        history.append(entry);write(self.state/'lock_history.json',history)
++        return dict(status='cleared',**entry)
++
++    # ---- duplicate batch guard (kept outside pipeline_runtime.py) ----
++    def _dedup_key(self,frame,batch_id,label_source):
++        products,_=preprocess(frame,batch_id,label_source)
++        body=products.drop(columns='record_id').sort_values('fingerprint',kind='stable')
++        content=hashlib.sha256(pd.util.hash_pandas_object(body,index=False).values.tobytes()).hexdigest()
++        # Only explicit product identifiers are compared across batches. 'Unnamed: 0' is often a
++        # per-file pandas row index (0..n-1) and would falsely collide between unrelated batches.
++        explicit=any(c in frame for c in ['record_id','product_id'])
++        return content,(set(products.record_id) if explicit else set())
++
++    def _held(self,batch_id,reason):
++        folder=self.state/'batches'/batch_id
++        with self.lock():folder.mkdir(parents=True,exist_ok=False)
++        manifest=dict(id=batch_id,status='held',reason=reason,created_at=now())
++        write(folder/'manifest.json',manifest);return manifest
++
++    def ingest(self,frame,batch_id=None,label_source=None,coordinates_confirmed=False):
++        batch_id=clean_id(batch_id or new_id('batch'))
++        index=read(self.state/'dedup_index.json',{'content':{},'ids':{}})
++        key=None
++        if coordinates_confirmed:
++            try:key=self._dedup_key(frame,batch_id,label_source)
++            except (ValueError,TypeError,KeyError):key=None   # base ingest records the precise hold reason
++        if key:
++            if key[0] in index['content']:
++                return self._held(batch_id,f"이미 수집한 배치와 동일한 내용: {index['content'][key[0]]}")
++            reused=sorted(key[1]&set(index['ids']))
++            if reused:
++                return self._held(batch_id,f"이전 배치와 제품 ID 중복 {len(reused)}건: {index['ids'][reused[0]]}")
++        result=super().ingest(frame,batch_id,label_source,coordinates_confirmed)
++        if result['status']!='accepted':return result
++        if key:
++            with self.lock():
++                index=read(self.state/'dedup_index.json',{'content':{},'ids':{}})
++                index['content'][key[0]]=result['id']
++                index['ids'].update({i:result['id'] for i in key[1]})
++                write(self.state/'dedup_index.json',index)
++        if self.dataset=='cn7':return self._cn7_priority(result)
++        if self.dataset!='rg3':return result
+         folder=self.state/'batches'/result['id']
+         baseline,manifest,_=self.baseline()
+         rp=baseline/'reference_patterns.csv'
+         if digest(rp)!=manifest['patterns_sha256']:raise ValueError('참조 패턴 해시 불일치')
+         reference=pd.read_csv(rp,float_precision='round_trip')
+         products=pd.read_csv(folder/'products.csv',float_precision='round_trip')
+-        guidance,rows=inspection_advice(reference[feature_columns()],reference.label,products)
++        guidance,rows=inspection_advice(reference[feature_columns()],reference.label,products,
++                                        self.policy['rg3_history_triggers_recheck'])
+         write_guidance(folder,guidance)
++        batch_level=batch_drift_advice(result.get('drift'))
++        drift_status=(result.get('drift') or {}).get('status')
++        for r in rows:
++            u=uncertainty_level(r['evidence_level'],drift_status)
++            r['uncertainty_level']=u;r['uncertainty_label']=UNCERTAINTY_TEXT[u]
++            r['reference_note']=bool(r['elevated_ranges'])
++            if u=='high' and not r['reinspection_recommended']:
++                r['reinspection_recommended']=True
++                r['message']='지속적인 분포 변화 구간의 제품입니다. 판단 근거가 약하므로 추가 검사를 권고합니다. '+r['message']
++        zones=drift_zones(result.get('drift'))
++        levels=pd.Series([r['evidence_level'] for r in rows]).value_counts().to_dict()
++        uncertainty=pd.Series([r['uncertainty_level'] for r in rows]).value_counts().to_dict()
+         advice=dict(dataset='rg3',baseline_id=manifest['id'],created_at=now(),
+-            drift=result['drift'],meaning='검사 권고이며 제품 불량 확률·확정 판정이 아님',
+-            note='드리프트가 없어도 위험 이력·정보 부족에 따른 검사 권고는 유지됩니다.',
++            drift=result['drift'],batch_advice=batch_level,level_counts=levels,
++            uncertainty_counts=uncertainty,uncertainty_zones=zones,
++            uncertainty_meaning='높음·중간·낮음은 판단 불확실 정도이며 불량 위험도·불량 확률이 아님',
++            history_triggers_recheck=self.policy['rg3_history_triggers_recheck'],
++            meaning='검사 권고이며 제품 불량 확률·확정 판정이 아님',
++            note=('RG3는 현재 입력으로 위험 패턴을 구분한 근거가 없다(개발 OOF 순위가 무작위와 구분 안 됨). '
++                  '재검사 권고는 학습 범위 밖·정보 부족·분포 변화에 근거하며, 구간 위험 이력은 참고 표시다.'),
+             records=rows)
+         write(folder/'inspection_advice.json',advice)
+-        flat=pd.DataFrame([{k:v for k,v in r.items() if k!='risk_history_ranges'} for r in rows])
++        flat=pd.DataFrame([{k:v for k,v in r.items() if k not in ('risk_history_ranges','elevated_ranges','outside_reference')}
++                           for r in rows])
+         flat.to_csv(folder/'inspection_advice.csv',index=False,encoding='utf-8-sig')
+         (folder/'inspection_advice.txt').write_text('\n'.join(
+-            [advice['meaning'],advice['note']]+[f"{r['record_id']}: {r['message']}" for r in rows]),encoding='utf-8')
++            [advice['meaning'],advice['note'],advice['uncertainty_meaning'],'배치 판단: '+batch_level['message'],
++             '불확실 단계별 건수: '+str({UNCERTAINTY_TEXT[k]:v for k,v in uncertainty.items()}),
++             '근거 단계별 건수: '+str(levels),
++             '분포 변화 구간(상위): '+', '.join(f"{z['representation']}({z['change_tv']:.3f})" for z in zones['zones'])]
++            +[f"{r['record_id']}: [{r['uncertainty_label']}] {r['message']}" for r in rows]),encoding='utf-8')
+         result['inspection_advice']=dict(reinspection_count=sum(r['reinspection_recommended'] for r in rows),
+-            total=len(rows),message='확정 불가: 위험 이력 또는 정보 부족 항목은 직접 재검사해 주세요.',
++            total=len(rows),batch_advice=batch_level,level_counts=levels,uncertainty_counts=uncertainty,
++            message='확정 불가: 학습 범위 밖·정보 부족 항목은 추가 검사, 분포 변화 시 샘플 검사 상향.',
+             json=str(folder/'inspection_advice.json'),csv=str(folder/'inspection_advice.csv'),
+             text=str(folder/'inspection_advice.txt'),ranges=str(folder/'distribution_guidance.csv'))
+         write(folder/'decision_manifest.json',dict(baseline_id=manifest['id'],
+             files={p.name:digest(p) for p in folder.glob('*') if p.name.startswith(('inspection_advice.','distribution_guidance.'))}))
+         return result
+ 
++    def _cn7_priority(self,result):
++        """CN7 inspection-budget ranking with the active model of policy['cn7_model_kind']."""
++        kind=self.policy['cn7_model_kind'];version=self.active().get(kind)
++        if self.policy['cn7_decision_mode']!='budget':return result
++        if not version:
++            result['inspection_priority']=dict(status='no_active_model',
++                message=f'CN7 운영 {kind.upper()} 모델이 지정되지 않아 검사 우선순위를 만들지 않았습니다.')
++            return result
++        folder=self.state/'batches'/result['id']
++        products=pd.read_csv(folder/'products.csv',float_precision='round_trip')
++        bundle,_=self.load_model(version);scores=score(bundle,products[feature_columns()])
++        flag,rank,k,cutoff=budget_flags(scores,self.policy['inspection_fraction'])
++        table=pd.DataFrame(dict(record_id=products.record_id.astype(str),fingerprint=products.fingerprint,
++            risk_score=scores,rank=rank,inspect=flag.astype(int),model_version=version))
++        table=table.sort_values(['rank','record_id'],kind='stable')
++        table.to_csv(folder/'inspection_priority.csv',index=False,encoding='utf-8-sig')
++        info=dict(status='ranked',model_kind=kind,model_version=version,batch_products=len(products),
++            inspection_fraction=self.policy['inspection_fraction'],budget_k=k,flagged=int(flag.sum()),
++            score_cutoff=cutoff,
++            meaning='배치 안에서 위험 점수 상위 제품을 검사 대상으로 표시. 점수는 위험 이력 패턴 순위이며 불량 확률이 아님',
++            note='경계 동점은 모두 포함하므로 표시 수가 예산을 넘을 수 있음. 예산 비율은 현장 검사 여력에 맞춰 사전 확정')
++        write(folder/'inspection_priority.json',info)
++        (folder/'inspection_priority.txt').write_text('\n'.join([info['meaning'],info['note'],
++            f"검사 대상 {info['flagged']}건 / 배치 {len(products)}건 (예산 {k}건, 모델 {version})"]
++            +[f"{r.record_id}: 순위 {r.rank}, 점수 {r.risk_score:.4f}" for r in table[table.inspect.eq(1)].itertuples()]),encoding='utf-8')
++        write(folder/'decision_manifest.json',dict(files={p.name:digest(p) for p in folder.glob('inspection_priority.*')}))
++        result['inspection_priority']=dict(info,csv=str(folder/'inspection_priority.csv'))
++        return result
++
++    def _budget_metrics(self,evaluation_id,candidate_bundle,current_bundle):
++        p=pd.read_csv(self.state/'evaluations'/clean_id(evaluation_id)/'patterns.csv',float_precision='round_trip')
++        y=p.label.to_numpy();x=p[feature_columns()];f=self.policy['inspection_fraction']
++        cm=topk(y,score(candidate_bundle,x),f)
++        om=topk(y,score(current_bundle,x),f) if current_bundle is not None else None
++        return cm,om
++
+     def evaluate(self,candidate,evaluation_id):
+         result=super().evaluate(candidate,evaluation_id)
+-        if self.dataset=='cn7' and result['kind'] in ('lr','rf','ocsvm'):
++        if self.dataset=='cn7' and result['kind'] in ('lr','rf','ocsvm') and self.policy['cn7_decision_mode']=='budget':
++            b,_=self.load_model(candidate);old=self.load_model(result['current'])[0] if result['current'] else None
++            cm,om=self._budget_metrics(evaluation_id,b,old)
++            result['candidate_budget_metrics']=cm;result['current_budget_metrics']=om
++            # Budget mode replaces the fixed-threshold comparison by same-budget risk capture.
++            result['reasons']=[r for r in result['reasons'] if r!='F1 개선·재현율 유지·오탐률 상한 조건 미충족']
++            enough='평가 정상/위험 고유 패턴 부족' not in result['reasons']
++            reachable=min(cm['k'],cm['positives'])   # most risks findable within the budget
++            cm['capture_of_reachable']=cm['expected_TP']/reachable if reachable else None
++            if enough and cm['expected_TP']<self.policy['min_budget_capture']*reachable:
++                result['reasons'].append(f"검사 예산 내 위험 발견 {cm['expected_TP']:.1f}/{reachable}(예산 내 최대) — 최소 비율 {self.policy['min_budget_capture']} 미달")
++            if enough and om is not None and cm['expected_TP']<=om['expected_TP']:
++                result['reasons'].append('동일 검사량 위험 발견의 개선 없음')
++            result['passed']=not result['reasons'];result['decision_mode']='budget'
++            result['acceptance_policy_note']=self.policy['acceptance_policy_note']
++            folder=self.state/'assessments'/result['id']
++            write(folder/'assessment.json',result)
++            write(folder/'integrity.json',dict(assessment_sha256=digest(folder/'assessment.json')))
++        elif self.dataset=='cn7' and result['kind'] in ('lr','rf','ocsvm'):
+             result['reasons'].extend(usability(result['candidate_metrics'],self.policy))
+-            result['passed']=not result['reasons']
++            result['passed']=not result['reasons'];result['decision_mode']='threshold'
+             result['acceptance_policy_note']=self.policy['acceptance_policy_note']
+             folder=self.state/'assessments'/result['id']
+             write(folder/'assessment.json',result)
+             write(folder/'integrity.json',dict(assessment_sha256=digest(folder/'assessment.json')))
+         return result
+ 
++    def selection_evaluations(self):
++        return {read(p)['evaluation_id'] for p in (self.state/'selections').glob('*.json')}
++
+     def promote(self,assessment_id):
+         report=read(self.state/'assessments'/clean_id(assessment_id)/'assessment.json')
+         if self.dataset=='cn7' and report and report['kind'] in ('lr','rf','ocsvm'):
+-            reasons=usability(report['candidate_metrics'],self.policy)
+-            if reasons:raise ValueError('CN7 사용 기준 미충족: '+str(reasons))
++            if report.get('decision_mode')=='budget':
++                if 'candidate_budget_metrics' not in report:raise ValueError('CN7 검사 예산 평가 기록 없음')
++            else:
++                reasons=usability(report['candidate_metrics'],self.policy)
++                if reasons:raise ValueError('CN7 사용 기준 미충족: '+str(reasons))
++        if report and report['evaluation_id'] in self.selection_evaluations():
++            raise ValueError('모델 선정에 사용한 평가 자료로는 승격할 수 없음: 별도 평가 자료 등록 필요')
+         return super().promote(assessment_id)
+ 
+     def select_cn7(self,candidates,evaluation_id):
+@@ -107,18 +365,33 @@
+         if len(candidates)!=3 or {b['kind'] for b in bundles}!={'lr','rf','ocsvm'}:
+             raise ValueError('LR·RF·OCSVM 후보를 각각 하나씩 제공해야 합니다')
+         reports=[dict(self.evaluate(v,evaluation_id)) for v in candidates]
+-        for report in reports:
++        efolder=self.state/'evaluations'/clean_id(evaluation_id)
++        evaluation=None
++        if (efolder/'patterns.csv').exists():
++            evaluation=pd.read_csv(efolder/'patterns.csv',float_precision='round_trip')
++        for report,bundle in zip(reports,bundles):
+             # Initial cross-model selection needs no incumbent of every family.
+             # Deployment still uses the unchanged assessment and explicit review.
+             report['reasons']=[r for r in report['reasons'] if r!='비교할 운영 기준 모델 미지정']
+             report['passed']=not report['reasons']
++            if evaluation is not None:
++                # Inspection-budget view (reference only): CN7 ranks well but fixed thresholds failed.
++                report['inspection_budget_reference']=topk(evaluation.label.to_numpy(),
++                    score(bundle,evaluation[feature_columns()]),self.policy['inspection_fraction'])
+         eligible=[r for r in reports if r['passed']]
+-        eligible.sort(key=lambda r:(-r['candidate_metrics']['F1'],-r['candidate_metrics']['recall'],
+-                                    r['candidate_metrics']['FPR'],r['candidate']))
++        if self.policy['cn7_decision_mode']=='budget':
++            # Same budget: more risks found first; ties prefer the simpler/explainable family.
++            order={'lr':0,'rf':1,'ocsvm':2}
++            eligible.sort(key=lambda r:(-(r.get('candidate_budget_metrics') or r.get('inspection_budget_reference') or {}).get('expected_TP',0),
++                                        order.get(r.get('kind'),9),r['candidate']))
++        else:
++            eligible.sort(key=lambda r:(-r['candidate_metrics']['F1'],-r['candidate_metrics']['recall'],
++                                        r['candidate_metrics']['FPR'],r['candidate']))
+         result=dict(id=new_id('selection'),dataset='cn7',evaluation_id=evaluation_id,
+             status='qualified_candidate' if eligible else 'selection_held',
+             selected=eligible[0]['candidate'] if eligible else None,
+             reports=reports,policy=self.policy,
+-            note='배포하지 않음. 비교 자료는 선택에 사용됐으므로 독립 최종 성능으로 주장하지 않음.')
++            note=('배포하지 않음. 비교 자료는 선택에 사용됐으므로 독립 최종 성능으로 주장하지 않으며, '
++                  '같은 평가 자료로는 승격할 수 없음(별도 평가 자료 필요).'))
+         write(self.state/'selections'/f"{result['id']}.json",result)
+         return result
+NEW(Codex 추가 후 수정): 03.modeling/common/DATASET_DECISION_POLICY.txt
+--- /home/claude/work/KAMP/03.modeling/common/TEST_FLOW.txt	2026-10-03 13:43:56.469094436 +0900
++++ 03.modeling/common/TEST_FLOW.txt	2026-10-03 14:36:35.003441398 +0900
+@@ -8,16 +8,18 @@
+ 2. 한 번에 검증
+ python 03.modeling/tests/run_checks.py
+ 결과: output/test_runs/<고유실행ID>/summary.json 및 단계별 로그.
+-43회 테스트와 LR 저장 결과 재검산을 실행한다. 전체 LR 탐색이나 운영 교체는 하지 않는다.
++61회 테스트와 LR 저장 결과 재검산을 실행한다. 테스트 산출물은 output/operations_tests/<같은 실행ID>/에 분리 저장된다. 전체 LR 탐색이나 운영 교체는 하지 않는다.
+ runtime_unchanged=true인지 확인한다. 한 단계라도 실패하면 전체 passed=false다.
+ 
+ 3. 내부 순서
+ A. test_operations.py: 배치 전처리 → 추론 → 누적 대기 → 지속 변화 → 네 모델 CT
+    → 평가 분리 → 승격 조건 → 교체/롤백 및 거부 조건. 12개, 격리 합성 테스트.
+-B. test_registration_and_logistic.py: 감사 파일 일치·임계값·분할·변환·예측 검증. 7개.
++B. test_registration_and_logistic.py: 감사 파일 일치·임계값·분할·변환·예측 검증, 노트북 LR 코드 동기화. 8개.
++   확률은 허용오차 1e-12로 비교하고 위험 판정(p>t)은 완전 일치를 요구한다(PC 환경 차이 대응).
+ C. test_existing_ocsvm.py: 노트북 내부6개 × CN7/RG3 × original/if_desc. 24회.
+-D. audit_logistic_runs.py: 최신 LR 실행별 240,240개 설정/임계값 기록 재집계,
+-   선택·OOF·학습/검증 분리·저장 예측·현재 소스 해시 확인.
++D. audit_logistic_runs.py: 완료된(audit.json·registered_candidate.json 있는) 최신 LR 실행의 240,240개 설정/임계값 기록 재집계,
++   선택·OOF·학습/검증 분리·저장 예측·현재 소스 해시 확인. 과거 LR 실행 폴더에는 파일을 추가하지 않는다.
++E. test_decision_runtime.py: CN7 RF 검사 예산·RG3 불확실 단계·배치 중복 차단·선정/승격 자료 분리·잠금 해제. 17개.
+ 
+ 4. 전체 모델링 학습을 다시 재현해야 할 때
+ python 03.modeling/models/logistic_regression.py --dataset both
+--- /home/claude/work/KAMP/03.modeling/pipeline_cli.py	2026-10-03 13:43:56.522269761 +0900
++++ 03.modeling/pipeline_cli.py	2026-10-03 14:34:29.857948297 +0900
+@@ -4,7 +4,8 @@
+ from pathlib import Path
+ import sys
+ sys.path.insert(0,str(Path(__file__).resolve().parent/'common'))
+-from pipeline_runtime import Operations,data,fit_oneclass,fit_supervised
++from pipeline_runtime import data,fit_oneclass,fit_supervised
++from decision_runtime import Operations
+ import pandas as pd
+ 
+ 
+@@ -12,6 +13,13 @@
+     p=argparse.ArgumentParser(description=__doc__)
+     p.add_argument('--dataset',choices=['cn7','rg3'],required=True)
+     p.add_argument('--state-root',type=Path,help='Isolated runtime root for rehearsal')
++    p.add_argument('--min-recall',type=float,default=.5)
++    p.add_argument('--min-precision',type=float,default=.2)
++    p.add_argument('--max-fpr',type=float,default=.2)
++    p.add_argument('--cn7-mode',choices=['budget','threshold'],default='budget',help='CN7 판정: 검사 예산(기본) 또는 고정 임계값')
++    p.add_argument('--inspection-fraction',type=float,default=.1,help='배치당 검사 비율(검사 예산)')
++    p.add_argument('--min-budget-capture',type=float,default=.5,help='평가 시 예산 내 최소 위험 발견 비율')
++    p.add_argument('--rg3-history-triggers-recheck',action='store_true',help='RG3 구간 위험 이력만으로도 재검사 권고(기본: 참고 표시만)')
+     sub=p.add_subparsers(dest='action',required=True)
+     sub.add_parser('status');sub.add_parser('baseline');sub.add_parser('drift')
+     initial=sub.add_parser('initial');initial.add_argument('--kind',choices=['if','lr','rf'],required=True)
+@@ -23,9 +31,14 @@
+     ev=sub.add_parser('register-evaluation');ev.add_argument('--input',type=Path,required=True)
+     ev.add_argument('--label-source',required=True);ev.add_argument('--purpose',choices=['independent','historical_followup'],default='independent')
+     compare=sub.add_parser('evaluate');compare.add_argument('--candidate',required=True);compare.add_argument('--evaluation-id',required=True)
++    select=sub.add_parser('select-cn7');select.add_argument('--candidates',nargs=3,required=True);select.add_argument('--evaluation-id',required=True)
+     deploy=sub.add_parser('promote');deploy.add_argument('--assessment-id',required=True)
++    unlock=sub.add_parser('unlock');unlock.add_argument('--reason',required=True);unlock.add_argument('--force',action='store_true')
+     undo=sub.add_parser('rollback');undo.add_argument('--kind',choices=['if','ocsvm','lr','rf'],required=True);undo.add_argument('--reason',required=True)
+-    a=p.parse_args();ops=Operations(a.dataset,a.state_root)
++    a=p.parse_args()
++    if not all(0<=v<=1 for v in [a.min_recall,a.min_precision,a.max_fpr,a.inspection_fraction,a.min_budget_capture]):p.error('성능 기준은 0~1이어야 합니다')
++    ops=Operations(a.dataset,a.state_root,dict(min_recall=a.min_recall,min_precision=a.min_precision,max_FPR=a.max_fpr,rg3_history_triggers_recheck=a.rg3_history_triggers_recheck,
++        cn7_decision_mode=a.cn7_mode,inspection_fraction=a.inspection_fraction,min_budget_capture=a.min_budget_capture))
+     if a.action=='status':result=ops.registry()
+     elif a.action=='baseline':result=ops.create_baseline()
+     elif a.action=='drift':result=ops.detect()
+@@ -38,6 +51,8 @@
+     elif a.action=='retrain':result=ops.retrain(a.kind,a.batch_ids,a.drift_id,a.cause)
+     elif a.action=='register-evaluation':result=ops.register_evaluation(pd.read_csv(a.input,float_precision='round_trip'),a.label_source,a.purpose)
+     elif a.action=='evaluate':result=ops.evaluate(a.candidate,a.evaluation_id)
++    elif a.action=='select-cn7':result=ops.select_cn7(a.candidates,a.evaluation_id)
++    elif a.action=='unlock':result=ops.clear_lock(a.reason,a.force)
+     elif a.action=='promote':result=ops.promote(a.assessment_id)
+     else:result=ops.rollback(a.kind,a.reason)
+     print(json.dumps(result,ensure_ascii=False,indent=2))
+--- /home/claude/work/KAMP/03.modeling/04_operations.ipynb	2026-10-03 13:43:56.464685318 +0900
++++ 03.modeling/04_operations.ipynb	2026-10-03 14:35:24.098834529 +0900
+@@ -1,93 +1,122 @@
+-{
+- "cells": [
+-  {
+-   "cell_type": "markdown",
+-   "id": "3bce1a89",
+-   "metadata": {},
+-   "source": [
+-    "# 7단계 로컬 운영 진입점\n",
+-    "배치 → 저장 모델 추론 → 분포 변화 감지 → 원인 확인 후 후보 생성 → 분리 평가 → 교체/롤백.\n",
+-    "기본 실행은 상태 조회만 합니다. 독립 평가 자료와 현장 기준이 없는 자동 운영은 시작하지 않습니다.\n",
+-    "CLI의 각 명령과 같은 공통 구현을 사용합니다. 자세한 예시는 common/OPERATIONS_GUIDE.txt를 참고하세요."
+-   ]
+-  },
+-  {
+-   "cell_type": "code",
+-   "execution_count": 1,
+-   "id": "3465769c",
+-   "metadata": {
+-    "execution": {
+-     "iopub.execute_input": "2026-10-03T04:14:02.200985Z",
+-     "iopub.status.busy": "2026-10-03T04:14:02.200779Z",
+-     "iopub.status.idle": "2026-10-03T04:14:03.951252Z",
+-     "shell.execute_reply": "2026-10-03T04:14:03.950808Z"
+-    }
+-   },
+-   "outputs": [
+-    {
+-     "data": {
+-      "text/plain": [
+-       "{'active_ocsvm': None,\n",
+-       " 'fixed_if': 'if-7e69cab8fdd04a17',\n",
+-       " 'history': [{'action': 'fix_if_reference',\n",
+-       "   'version': 'if-7e69cab8fdd04a17',\n",
+-       "   'at': '2026-10-02T01:43:12.412776+00:00'}],\n",
+-       " 'active_models': {'if': 'if-7e69cab8fdd04a17'}}"
+-      ]
+-     },
+-     "execution_count": 1,
+-     "metadata": {},
+-     "output_type": "execute_result"
+-    }
+-   ],
+-   "source": [
+-    "from pathlib import Path\n",
+-    "import sys\n",
+-    "ROOT=next(p for p in [Path.cwd(),*Path.cwd().parents] if (p/'03.modeling').is_dir())\n",
+-    "sys.path.insert(0,str(ROOT/'03.modeling/common'))\n",
+-    "from pipeline_runtime import Operations\n",
+-    "DATASET='rg3'\n",
+-    "ops=Operations(DATASET)\n",
+-    "ops.registry()"
+-   ]
+-  },
+-  {
+-   "cell_type": "markdown",
+-   "id": "32e9afdb",
+-   "metadata": {},
+-   "source": [
+-    "## 명시적으로 수행할 작업\n",
+-    "1. 초기 후보의 버전과 지정 사유를 확인한 후 `ops.initialize(version, reason)`.\n",
+-    "2. `ops.ingest(frame, label_source=\"실제 출처\", coordinates_confirmed=True)`.\n",
+-    "3. 표본이 누적되면 드리프트가 계산됩니다. 생산 시간 미확인 자료로 시간 성능을 주장하지 않습니다.\n",
+-    "4. 원인 확인 후 `ops.retrain(kind, batch_ids, drift_id, cause)`.\n",
+-    "5. `ops.register_evaluation(frame, label_source)`로 학습과 별개인 평가 패턴을 예약.\n",
+-    "6. `ops.evaluate(candidate, evaluation_id)` 결과와 분포 안내 확인.\n",
+-    "7. 통과한 평가만 `ops.promote(assessment_id)`. 필요시 `ops.rollback(kind, reason)`.\n",
+-    "비라벨은 추론·감지만 가능하고 재학습에는 쓰지 않습니다.\n",
+-    "RG3의 구간 안내에는 참조·평가 관측 수, 위험 이력, Wilson 구간과 표본 부족 표시가 들어갑니다."
+-   ]
+-  }
+- ],
+- "metadata": {
+-  "kernelspec": {
+-   "display_name": "Python 3",
+-   "language": "python",
+-   "name": "python3"
+-  },
+-  "language_info": {
+-   "codemirror_mode": {
+-    "name": "ipython",
+-    "version": 3
+-   },
+-   "file_extension": ".py",
+-   "mimetype": "text/x-python",
+-   "name": "python",
+-   "nbconvert_exporter": "python",
+-   "pygments_lexer": "ipython3",
+-   "version": "3.14.6"
+-  }
+- },
+- "nbformat": 4,
+- "nbformat_minor": 5
+-}
++{
++ "cells": [
++  {
++   "cell_type": "markdown",
++   "id": "3bce1a89",
++   "metadata": {},
++   "source": [
++    "# 7단계 로컬 운영 진입점\n",
++    "배치 → 저장 모델 추론 → 분포 변화 감지 → 원인 확인 후 후보 생성 → 분리 평가 → 교체/롤백.\n",
++    "기본 실행은 상태 조회만 합니다. 독립 평가 자료와 현장 기준이 없는 자동 운영은 시작하지 않습니다.\n",
++    "CLI의 각 명령과 같은 공통 구현을 사용합니다. 자세한 예시는 common/OPERATIONS_GUIDE.txt를 참고하세요."
++   ]
++  },
++  {
++   "cell_type": "code",
++   "execution_count": 1,
++   "id": "3465769c",
++   "metadata": {
++    "execution": {
++     "iopub.execute_input": "2026-10-03T04:14:02.200985Z",
++     "iopub.status.busy": "2026-10-03T04:14:02.200779Z",
++     "iopub.status.idle": "2026-10-03T04:14:03.951252Z",
++     "shell.execute_reply": "2026-10-03T04:14:03.950808Z"
++    }
++   },
++   "outputs": [
++    {
++     "data": {
++      "text/plain": [
++       "{'active_ocsvm': None,\n",
++       " 'fixed_if': 'if-7e69cab8fdd04a17',\n",
++       " 'history': [{'action': 'fix_if_reference',\n",
++       "   'version': 'if-7e69cab8fdd04a17',\n",
++       "   'at': '2026-10-02T01:43:12.412776+00:00'}],\n",
++       " 'active_models': {'if': 'if-7e69cab8fdd04a17'}}"
++      ]
++     },
++     "execution_count": 1,
++     "metadata": {},
++     "output_type": "execute_result"
++    }
++   ],
++   "source": [
++    "from pathlib import Path\n",
++    "import sys\n",
++    "ROOT=next(p for p in [Path.cwd(),*Path.cwd().parents] if (p/'03.modeling').is_dir())\n",
++    "sys.path.insert(0,str(ROOT/'03.modeling/common'))\n",
++    "from decision_runtime import Operations\n",
++    "DATASET='rg3'\n",
++    "ops=Operations(DATASET)\n",
++    "ops.registry()"
++   ]
++  },
++  {
++   "cell_type": "markdown",
++   "id": "32e9afdb",
++   "metadata": {},
++   "source": [
++    "## 명시적으로 수행할 작업\n",
++    "1. 초기 후보의 버전과 지정 사유를 확인한 후 `ops.initialize(version, reason)`.\n",
++    "2. `ops.ingest(frame, label_source=\"실제 출처\", coordinates_confirmed=True)`.\n",
++    "3. 표본이 누적되면 드리프트가 계산됩니다. 생산 시간 미확인 자료로 시간 성능을 주장하지 않습니다.\n",
++    "4. 원인 확인 후 `ops.retrain(kind, batch_ids, drift_id, cause)`.\n",
++    "5. `ops.register_evaluation(frame, label_source)`로 학습과 별개인 평가 패턴을 예약.\n",
++    "6. `ops.evaluate(candidate, evaluation_id)` 결과와 분포 안내 확인.\n",
++    "7. 통과한 평가만 `ops.promote(assessment_id)`. 필요시 `ops.rollback(kind, reason)`.\n",
++    "비라벨은 추론·감지만 가능하고 재학습에는 쓰지 않습니다.\n",
++    "RG3의 구간 안내에는 참조·평가 관측 수, 위험 이력, Wilson 구간과 표본 부족 표시가 들어갑니다."
++   ]
++  },
++  {
++   "cell_type": "markdown",
++   "id": "072220f2",
++   "metadata": {},
++   "source": [
++    "### 최근 배치 판단 결과 (읽기 전용)\n",
++    "CN7은 RF 검사 우선순위(상위 검사 비율), RG3는 판단 불확실 단계(높음·중간·낮음)를 보여줍니다. 불량 확률이 아닙니다."
++   ]
++  },
++  {
++   "cell_type": "code",
++   "id": "63d513f7",
++   "metadata": {},
++   "execution_count": null,
++   "outputs": [],
++   "source": [
++    "# 읽기 전용: 최근 배치의 판단 결과 확인 (변경 작업 없음)\n",
++    "import json\n",
++    "ledger=ops.state/'batch_ledger.json'\n",
++    "ids=json.loads(ledger.read_text(encoding='utf-8'))['batches'] if ledger.exists() else []\n",
++    "if not ids:\n",
++    "    print('수집된 배치 없음')\n",
++    "else:\n",
++    "    folder=ops.state/'batches'/ids[-1]\n",
++    "    for name in ['inspection_priority.txt','inspection_advice.txt']:   # CN7 검사 우선순위 / RG3 불확실 단계\n",
++    "        if (folder/name).exists():\n",
++    "            print(f'[{ids[-1]}] {name}');print('\\n'.join((folder/name).read_text(encoding='utf-8').splitlines()[:25]))"
++   ]
++  }
++ ],
++ "metadata": {
++  "kernelspec": {
++   "display_name": "Python 3",
++   "language": "python",
++   "name": "python3"
++  },
++  "language_info": {
++   "codemirror_mode": {
++    "name": "ipython",
++    "version": 3
++   },
++   "file_extension": ".py",
++   "mimetype": "text/x-python",
++   "name": "python",
++   "nbconvert_exporter": "python",
++   "pygments_lexer": "ipython3",
++   "version": "3.14.6"
++  }
++ },
++ "nbformat": 4,
++ "nbformat_minor": 5
++}
+\ No newline at end of file
+NEW(Codex 추가 후 수정): 03.modeling/tests/test_decision_runtime.py
+NEW(Codex 추가 후 수정): 03.modeling/tests/report_decision_examples.py
+--- /home/claude/work/KAMP/03.modeling/tests/run_checks.py	2026-10-03 13:43:56.522662391 +0900
++++ 03.modeling/tests/run_checks.py	2026-10-03 14:36:16.558057624 +0900
+@@ -16,8 +16,8 @@
+     return {str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
+             for p in (ROOT/'runtime').rglob('*') if p.is_file()}
+ before=hashes();results=[]
+-env=dict(os.environ,PYTHONIOENCODING='utf-8')
+-for name in ['test_operations.py','test_registration_and_logistic.py','test_existing_ocsvm.py','audit_logistic_runs.py']:
++env=dict(os.environ,PYTHONIOENCODING='utf-8',KAMP_TEST_RUN_ID=run_id)
++for name in ['test_operations.py','test_registration_and_logistic.py','test_existing_ocsvm.py','test_decision_runtime.py','audit_logistic_runs.py']:
+     result=subprocess.run([sys.executable,str(Path(__file__).parent/name)],cwd=ROOT,env=env,
+                           stdout=subprocess.PIPE,stderr=subprocess.STDOUT,encoding='utf-8',errors='replace')
+     (out/(name+'.log')).write_text(result.stdout,encoding='utf-8')
+@@ -25,7 +25,7 @@
+     print(name,'PASS' if result.returncode==0 else 'FAIL',flush=True)
+ unchanged=before==hashes()
+ summary=dict(passed=all(r['passed'] for r in results) and unchanged,results=results,
+-             runtime_unchanged=unchanged,scope='43 regression/integration invocations plus saved LR audit; no field validation')
++             runtime_unchanged=unchanged,scope='61 regression/integration invocations plus saved LR audit; no field validation')
+ (out/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
+ print(json.dumps(dict(**summary,report=str(out)),ensure_ascii=False,indent=2))
+ sys.exit(0 if summary['passed'] else 1)
+--- /home/claude/work/KAMP/03.modeling/tests/test_operations.py	2026-10-03 13:43:56.522983061 +0900
++++ 03.modeling/tests/test_operations.py	2026-10-03 14:34:56.825461558 +0900
+@@ -1,6 +1,7 @@
+ """Real source integration tests; synthetic fixtures are NOT field validation."""
+ import copy
+ import json
++import os
+ from pathlib import Path
+ import sys
+ import tempfile
+@@ -11,7 +12,7 @@
+ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'common'))
+ from pipeline_runtime import *
+ 
+-OUT=ROOT/'output/operations_tests/20261003'
++OUT=ROOT/'output/operations_tests'/os.environ.get('KAMP_TEST_RUN_ID','manual-'+__import__('datetime').datetime.now().strftime('%Y%m%dT%H%M%S'))
+ OUT.mkdir(parents=True,exist_ok=True)
+ 
+ 
+--- /home/claude/work/KAMP/03.modeling/tests/test_existing_ocsvm.py	2026-10-03 13:43:56.522766010 +0900
++++ 03.modeling/tests/test_existing_ocsvm.py	2026-10-03 14:34:56.825760324 +0900
+@@ -2,6 +2,7 @@
+ from pathlib import Path
+ import io
+ import json
++import os
+ import sys
+ import tempfile
+ import unittest
+@@ -13,7 +14,7 @@
+ results=[]
+ notebook=ROOT/'03.modeling/models/ocsvm.ipynb'
+ nb=json.loads(notebook.read_text(encoding='utf-8'))
+-out=ROOT/'output/operations_tests/20261003';out.mkdir(parents=True,exist_ok=True)
++out=ROOT/'output/operations_tests'/os.environ.get('KAMP_TEST_RUN_ID','manual-'+__import__('datetime').datetime.now().strftime('%Y%m%dT%H%M%S'));out.mkdir(parents=True,exist_ok=True)
+ for ds in ['cn7','rg3']:
+     ns={'__name__':'notebook_regression'}
+     for c in nb['cells']:
+--- /home/claude/work/KAMP/03.modeling/tests/test_registration_and_logistic.py	2026-10-03 13:43:56.523127438 +0900
++++ 03.modeling/tests/test_registration_and_logistic.py	2026-10-03 14:34:56.826375553 +0900
+@@ -1,5 +1,6 @@
+ import copy
+ import json
++import os
+ from pathlib import Path
+ import sys
+ import tempfile
+@@ -68,17 +69,27 @@
+         self.assertEqual(b['model'][1].n_samples_seen_,len(dev))
+     def test_saved_threshold_matches_strict_rule(self):
+         for ds in ['cn7','rg3']:
+-            folder=sorted((ROOT/'output/logistic'/ds).iterdir())[-1]
++            folder=sorted(p for p in (ROOT/'output/logistic'/ds).iterdir()
++                          if (p/'audit.json').exists() and (p/'registered_candidate.json').exists())[-1]
+             b=joblib.load(folder/'model.joblib');x,y,_,_,test,_=data(ds)
+             saved=pd.read_csv(folder/'test_predictions.csv',float_precision='round_trip')
+-            np.testing.assert_array_equal(score(b,x.loc[test]),saved.probability.to_numpy())
++            current=score(b,x.loc[test])
++            np.testing.assert_allclose(current,saved.probability.to_numpy(),rtol=0,atol=1e-12)
++            np.testing.assert_array_equal((current>b['threshold']).astype(int),saved.prediction.to_numpy())
+             np.testing.assert_array_equal((saved.probability>b['threshold']).astype(int),saved.prediction)
+             for k,v in metrics(y.loc[test],saved.prediction).items():self.assertAlmostEqual(v,read(folder/'test_metrics.json')[k])
+ 
++    def test_notebook_lr_code_matches_script(self):
++        nb=read(ROOT/'03.modeling/models/05_logistic_regression.ipynb')
++        cells=[''.join(c['source']) for c in nb['cells'] if c['cell_type']=='code' and 'def run(' in ''.join(c['source'])]
++        script=(ROOT/'03.modeling/models/logistic_regression.py').read_text(encoding='utf-8').split("\nif __name__=='__main__':")[0]
++        self.assertEqual(len(cells),1,'LR 노트북 실행 셀을 찾지 못함')
++        self.assertEqual(cells[0].strip(),script.strip(),'노트북 LR 코드가 logistic_regression.py와 다름: 출처 해시가 틀려짐')
++
+ 
+ if __name__=='__main__':
+     import io
+-    out=ROOT/'output/operations_tests/20261003';out.mkdir(parents=True,exist_ok=True)
++    out=ROOT/'output/operations_tests'/os.environ.get('KAMP_TEST_RUN_ID','manual-'+__import__('datetime').datetime.now().strftime('%Y%m%dT%H%M%S'));out.mkdir(parents=True,exist_ok=True)
+     stream=io.StringIO();r=unittest.TextTestRunner(stream=stream,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(RegistrationAndLogisticTests))
+     (out/'registration_logistic_tests.txt').write_text(stream.getvalue(),encoding='utf-8')
+     write(out/'registration_logistic_summary.json',dict(passed=r.wasSuccessful(),tests=r.testsRun,errors=len(r.errors),failures=len(r.failures)))
+--- /home/claude/work/KAMP/03.modeling/tests/audit_logistic_runs.py	2026-10-03 13:43:56.522552744 +0900
++++ 03.modeling/tests/audit_logistic_runs.py	2026-10-03 14:34:56.826053271 +0900
+@@ -1,42 +1,49 @@
+-from pathlib import Path
+-import sys
+-import json
+-import numpy as np
+-import pandas as pd
+-import joblib
+-ROOT=Path(__file__).resolve().parents[2]
+-sys.path.insert(0,str(ROOT/'03.modeling/common'))
+-from pipeline_runtime import data,digest,read,write,library,score,metrics
+-
+-results=[]
+-for ds in ['cn7','rg3']:
+-    folder=sorted((ROOT/'output/logistic'/ds).iterdir())[-1]
+-    config=read(folder/'run_config.json');audit=read(folder/'audit.json');choice=read(folder/'selection_manifest.json')['choice']
+-    assert config['code_sha256']==digest(ROOT/'03.modeling/models/logistic_regression.py')
+-    assert config['runtime_code_sha256']==digest(ROOT/'03.modeling/common/pipeline_runtime.py')
+-    assert all(digest(folder/n)==h for n,h in audit['artifact_sha256'].items())
+-    ns=library(ds);top=[];rows=0
+-    for chunk in pd.read_csv(folder/'threshold_search.csv',float_precision='round_trip',chunksize=30000):
+-        rows+=len(chunk)
+-        np.testing.assert_allclose(chunk.F1,2*chunk.TP/(2*chunk.TP+chunk.FP+chunk.FN),atol=1e-15,rtol=0)
+-        top.append(ns['rank_candidates'](chunk).head(1))
+-    winner=ns['rank_candidates'](pd.concat(top)).iloc[0]
+-    assert winner.candidate_id==choice['candidate_id'] and winner.threshold==choice['threshold']
+-    assert rows==240*1001
+-    x,y,assign,dev,test,_=data(ds)
+-    for a in read(folder/'fold_audit.json'):
+-        tr,va=set(a['train']),set(a['validation'])
+-        assert tr.isdisjoint(va) and (tr|va)==set(dev) and tr.isdisjoint(test)
+-        assert y.loc[list(tr)].sum()>0
+-    p=pd.read_csv(folder/'selected_oof_predictions.csv',float_precision='round_trip')
+-    assert p.pattern_row.is_unique and set(p.pattern_row)==set(dev)
+-    assert metrics(p.label,p.prediction)['F1']==choice['F1']
+-    b=joblib.load(folder/'model.joblib');saved=pd.read_csv(folder/'test_predictions.csv',float_precision='round_trip')
+-    np.testing.assert_array_equal(score(b,x.loc[test]),saved.probability)
+-    assert b['threshold']==choice['threshold']
+-    result=dict(dataset=ds,run=str(folder.relative_to(ROOT)),passed=True,joint_trials_verified=rows,
+-                candidate_selection_reproduced=True,source_hashes_current=True,oof_exactly_once=True,
+-                fold_roles_verified=True,test_predictions_reproduced=True)
+-    write(folder/'independent_audit.json',result);results.append(result)
+-write(ROOT/'output/operations_tests/20261003/logistic_independent_audit.json',results)
+-print(json.dumps(results,indent=2))
++from pathlib import Path
++import os
++import sys
++import json
++import numpy as np
++import pandas as pd
++import joblib
++ROOT=Path(__file__).resolve().parents[2]
++sys.path.insert(0,str(ROOT/'03.modeling/common'))
++from pipeline_runtime import data,digest,read,write,library,score,metrics
++
++results=[]
++for ds in ['cn7','rg3']:
++    # Latest COMPLETED run only: an aborted run leaves a folder without audit/registration files.
++    folder=sorted(p for p in (ROOT/'output/logistic'/ds).iterdir()
++                  if (p/'audit.json').exists() and (p/'registered_candidate.json').exists())[-1]
++    config=read(folder/'run_config.json');audit=read(folder/'audit.json');choice=read(folder/'selection_manifest.json')['choice']
++    assert config['code_sha256']==digest(ROOT/'03.modeling/models/logistic_regression.py')
++    assert config['runtime_code_sha256']==digest(ROOT/'03.modeling/common/pipeline_runtime.py')
++    assert all(digest(folder/n)==h for n,h in audit['artifact_sha256'].items())
++    ns=library(ds);top=[];rows=0
++    for chunk in pd.read_csv(folder/'threshold_search.csv',float_precision='round_trip',chunksize=30000):
++        rows+=len(chunk)
++        np.testing.assert_allclose(chunk.F1,2*chunk.TP/(2*chunk.TP+chunk.FP+chunk.FN),atol=1e-15,rtol=0)
++        top.append(ns['rank_candidates'](chunk).head(1))
++    winner=ns['rank_candidates'](pd.concat(top)).iloc[0]
++    assert winner.candidate_id==choice['candidate_id'] and winner.threshold==choice['threshold']
++    assert rows==240*1001
++    x,y,assign,dev,test,_=data(ds)
++    for a in read(folder/'fold_audit.json'):
++        tr,va=set(a['train']),set(a['validation'])
++        assert tr.isdisjoint(va) and (tr|va)==set(dev) and tr.isdisjoint(test)
++        assert y.loc[list(tr)].sum()>0
++    p=pd.read_csv(folder/'selected_oof_predictions.csv',float_precision='round_trip')
++    assert p.pattern_row.is_unique and set(p.pattern_row)==set(dev)
++    assert metrics(p.label,p.prediction)['F1']==choice['F1']
++    b=joblib.load(folder/'model.joblib');saved=pd.read_csv(folder/'test_predictions.csv',float_precision='round_trip')
++    # Probabilities may differ in the last bits across OS/BLAS/sklearn builds; decisions must not.
++    current=score(b,x.loc[test]);np.testing.assert_allclose(current,saved.probability,rtol=0,atol=1e-12)
++    np.testing.assert_array_equal((current>b['threshold']).astype(int),saved.prediction)
++    assert b['threshold']==choice['threshold']
++    result=dict(dataset=ds,run=str(folder.relative_to(ROOT)),passed=True,joint_trials_verified=rows,
++                candidate_selection_reproduced=True,source_hashes_current=True,oof_exactly_once=True,
++                fold_roles_verified=True,test_predictions_reproduced=True)
++    results.append(result)
++# Do not add files to the immutable LR run folder; store the audit with this test run.
++out=ROOT/'output/operations_tests'/os.environ.get('KAMP_TEST_RUN_ID','manual-'+__import__('datetime').datetime.now().strftime('%Y%m%dT%H%M%S'));out.mkdir(parents=True,exist_ok=True)
++write(out/'logistic_independent_audit.json',results)
++print(json.dumps(results,indent=2))

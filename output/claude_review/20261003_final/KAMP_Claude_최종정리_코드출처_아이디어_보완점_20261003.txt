@@ -1,0 +1,125 @@
+KAMP 최종 정리 — 코드 출처, 최종 아이디어, 코드 보완 (Claude, 2026-10-03)
+
+[질문]
+현재 코드 구성은 Claude가 한 것인가, Codex가 한 것인가?
+최종 아이디어와 코드 보완은 Claude가 마무리한 것으로 간다.
+
+[답]
+- 현재 D:\workspace\kamp의 판정 정책 관련 코드는 Claude가 마지막으로 수정한 버전이다.
+  기기의 파일을 다시 받아 Claude 사본과 바이트 단위로 비교해 동일함을 확인했다.
+- 그 아래의 기반(전처리, 분할, 모델 학습, 7단계 운영 파이프라인)은 Codex가 만든 것이다.
+- 아래 1장에 파일별 출처를 정리했고, 3장의 최종 보완까지 이번에 반영했다.
+
+======================================================================
+1. 코드 출처
+======================================================================
+[Codex가 만들고 Claude가 수정하지 않은 것]
+| 파일 | 내용 |
+|---|---|
+| 02.preprocessing/02_preprocess.ipynb, 03_split.ipynb | 패턴 통합·max 라벨, 고정 분할 |
+| 03.modeling/common/pipeline_runtime.py | 7단계 운영: 배치 전처리·추론·드리프트·CT·CD·롤백 |
+| 03.modeling/models/logistic_regression.py, 05 노트북 | LR 240설정 탐색 |
+| 03.modeling/models/ocsvm.ipynb, 04.1_isolation_forest.ipynb | OCSVM·IF |
+| 03.modeling/common/00_pipeline_core.ipynb | 후보 등록·해시 검증 |
+| output/logistic/*, runtime/* | LR 실행 결과, 등록 모델 |
+※ pipeline_runtime.py와 LR 결과를 건드리지 않았기 때문에 LR 감사 해시가 그대로 유효하다.
+
+[Codex가 처음 만들고 Claude가 고친 것]
+| 파일 | Codex 원본 | Claude 수정 |
+|---|---|---|
+| common/decision_runtime.py | RG3 재검사 규칙(위험 1건 구간 → 재검사), CN7 고정 임계값 기준, select-cn7 | 아래 2장 전체 |
+| common/DATASET_DECISION_POLICY.txt | 정책 문서 1판 | 최종 정책으로 재작성 |
+| pipeline_cli.py | select-cn7, 임계값 옵션 | 검사 예산·RG3·잠금 해제 옵션 |
+| tests/test_decision_runtime.py | 테스트 6개 | 11개 추가(총 17개) |
+| tests/report_decision_examples.py | RG3 예시, CN7 LR 확인 | 데이터 유형 판정, CN7 3모델 비교 추가 |
+| tests/run_checks.py | 5개 스크립트 일괄 실행 | 실행 ID 전달, 테스트 수 갱신 |
+| 04_operations.ipynb | 상태 조회 셀 | 최근 배치 판단 결과 보기(읽기 전용) 추가 |
+
+[Codex가 만들고 이번 최종 보완에서 Claude가 고친 테스트·문서]
+tests/test_operations.py, test_existing_ocsvm.py, test_registration_and_logistic.py,
+tests/audit_logistic_runs.py, common/TEST_FLOW.txt (3장 참고)
+
+======================================================================
+2. 최종 아이디어 (Claude 확정본)
+======================================================================
+[데이터 유형 분기 — 근거를 숫자로]
+- 개발 데이터 4-fold OOF에서 순위가 무작위보다 나은지 순열 검정(Test 미사용).
+- CN7: AUC 0.870, p 0.001 → 입력에 신호 있음 → 모델 판정
+- RG3: AUC 0.451, p 0.776 → 신호 없음 → 분포 감시
+
+[CN7 — 랜덤 포레스트 + 검사 예산]
+- 근거(개발 OOF, 위험 11개, 상위 10% 검사): RF 9개(AUC 0.940) > LR 8개(0.882) > OCSVM 4개(0.798)
+- 배치마다 RF 점수 상위 10% 제품을 검사 대상으로 표시(inspection_priority.*).
+- 모델 교체는 "같은 검사량에서 위험을 더 많이 찾는가"로 판단. 고정 임계값 기준은 쓰지 않음.
+- 선정에 쓴 평가 자료로는 승격 불가(선정용·승격용 자료 분리).
+
+[RG3 — 드리프트 기반 불확실 구간]
+- 제품별 불확실 단계: 높음(지속 변화·학습 범위 밖) / 중간(1회 변화·정보 부족) / 낮음.
+- 배치별 불확실 구간: 분포가 가장 많이 바뀐 변수·조합 상위 8개.
+- 과거 위험 이력 구간은 참고 표시만(예측력 미검증).
+- "불량 위험도"가 아니라 "판단 불확실 정도"로 설명한다.
+
+[공통 안전장치]
+- 같은 배치 재전송·제품 ID 중복 차단(같은 로트가 두 번 집계되어 재학습이 열리는 문제 방지).
+- Test는 모델·임계값 선택에 쓰지 않음. 비라벨은 감시·추론에만 사용.
+
+======================================================================
+3. 이번 최종 보완 (이전 검토의 P3 항목 처리)
+======================================================================
+| 항목 | 이전 문제 | 보완 |
+|---|---|---|
+| 비트 단위 비교 | PC마다 확률 마지막 자리 차이(4e-16)로 테스트 실패 | 확률은 허용오차 1e-12, 위험 판정(p>t)은 완전 일치 요구 |
+| 미완료 실행 폴더 | 중단된 LR 폴더를 최신으로 골라 감사 오류 | audit.json·registered_candidate.json이 있는 완료 실행만 선택 |
+| 고정 테스트 출력 | output/operations_tests/20261003에 덮어씀 | run_checks 실행 ID별 폴더로 분리 |
+| 과거 실행 폴더 수정 | 감사가 LR 실행 폴더에 파일 추가 | 감사 결과는 테스트 실행 폴더에만 저장 |
+| 노트북 LR 코드 복사본 | .py와 어긋나도 모름 | 동기화 테스트 추가(다르면 실패) |
+| 잠금 파일 | 남으면 수동 삭제 전까지 멈춤 | 소유자·시각 기록, 안내 메시지, unlock 명령(사유 필수, 이력 저장) |
+| 제품 ID 중복 판단 | 'Unnamed: 0'(파일 행 번호)도 ID로 봐 오탐 가능 | record_id·product_id만 배치 간 비교 |
+| 운영 노트북 | 결과 확인 셀 없음 | 최근 배치의 CN7 우선순위·RG3 불확실 단계 보기(읽기 전용) |
+
+수정하지 않은 것(의도적)
+- pipeline_runtime.py: 수정하면 LR 감사 해시가 깨져 LR 재실행이 필요하다. 필요한 보완은 상속한
+  decision_runtime.py에서 처리했다.
+- requirements의 IPython 명시: 검증 환경 버전 고정 파일이라 문서에만 남긴다(ipykernel 설치 시 포함됨).
+
+======================================================================
+4. 검증 결과
+======================================================================
+run_checks.py (Claude 클라우드 환경: Python 3.11 / sklearn 1.8.0)
+| 스크립트 | 결과 |
+|---|---|
+| test_operations.py | 12/12 통과 |
+| test_registration_and_logistic.py | 8/8 통과 (노트북 동기화 테스트 추가) |
+| test_existing_ocsvm.py | 24/24 통과 |
+| test_decision_runtime.py | 17/17 통과 |
+| audit_logistic_runs.py | 통과 (CN7·RG3) |
+| runtime_unchanged | true |
+- 처음으로 다른 환경에서도 전체 통과했다(이전에는 비트 단위 비교 2건 실패).
+- 원본 데이터·분할·runtime·LR 결과 해시는 작업 전후 동일.
+- 중단된 LR 폴더를 일부러 만들어도 감사가 완료된 실행만 골라 통과함을 확인.
+- 사용자 PC(Python 3.14 / sklearn 1.9.0)에서 run_checks.py를 한 번 더 실행해 최종 확인한다.
+
+======================================================================
+5. 남은 결정 사항
+======================================================================
+1) 검사 비율(10%)과 최소 발견 비율(50%): 현장 검사 여력에 맞춰 Test 보기 전에 확정.
+2) CN7 RF 운영 지정: initial --kind rf → initialize. 이번 작업에서는 운영 포인터를 바꾸지 않았다.
+3) CN7 최종 확정: 새로 라벨된 평가 자료(선정용·승격용) 필요.
+4) RG3: 생산 순서·라벨 의미를 대회 측에 확인하면 시간 맥락 특징을 검토할 수 있다.
+
+======================================================================
+6. 변경 파일 (D:\workspace\kamp 반영)
+======================================================================
+03.modeling/common/decision_runtime.py
+03.modeling/common/DATASET_DECISION_POLICY.txt
+03.modeling/common/TEST_FLOW.txt
+03.modeling/pipeline_cli.py
+03.modeling/04_operations.ipynb
+03.modeling/tests/test_decision_runtime.py
+03.modeling/tests/report_decision_examples.py
+03.modeling/tests/run_checks.py
+03.modeling/tests/test_operations.py
+03.modeling/tests/test_existing_ocsvm.py
+03.modeling/tests/test_registration_and_logistic.py
+03.modeling/tests/audit_logistic_runs.py
+검토 자료: output\claude_review\20261003_final\ (본 문서, Codex 대비 diff, 최종 run_checks 로그)

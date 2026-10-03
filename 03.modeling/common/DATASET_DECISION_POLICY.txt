@@ -37,6 +37,12 @@ RG3
 - 같은 로트 재전송이 두 개의 감지 윈도로 집계되어 지속 변화(review)·CT를 여는 문제를 막는다.
 - 상태 저장: runtime/<dataset>/dedup_index.json. 이 기능 도입 전 배치는 색인되지 않는다.
 - 제품 ID가 없는 배치는 내용 해시로만 판단하므로, 운영 배치에는 제품 ID 제공을 권장한다.
+- 제품 ID 비교는 record_id·product_id 열만 사용한다. 'Unnamed: 0'은 파일별 행 번호(0..n-1)일 수 있어 배치 간 비교에서 제외한다.
+
+쓰기 잠금
+- 잠금 파일에 PID·호스트·시각을 기록하고, 잠금 중이면 생성 경과 시간과 해제 방법을 안내한다.
+- 작업 중단으로 잠금이 남으면: python 03.modeling/pipeline_cli.py --dataset <cn7|rg3> unlock --reason <사유> [--force]
+  (기본 600초 이내 잠금은 --force 없이는 해제하지 않음. 해제 이력은 runtime/<dataset>/lock_history.json)
 
 CN7 — 기본 판정: 랜덤 포레스트 + 검사 예산(cn7_decision_mode='budget')
 - 운영 모델 종류 cn7_model_kind 기본 'rf'. accepted 배치마다 위험 점수 순위를 매겨

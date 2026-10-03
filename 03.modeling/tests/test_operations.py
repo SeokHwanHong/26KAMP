@@ -1,6 +1,7 @@
 """Real source integration tests; synthetic fixtures are NOT field validation."""
 import copy
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -11,7 +12,7 @@ import pandas as pd
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'common'))
 from pipeline_runtime import *
 
-OUT=ROOT/'output/operations_tests/20261003'
+OUT=ROOT/'output/operations_tests'/os.environ.get('KAMP_TEST_RUN_ID','manual-'+__import__('datetime').datetime.now().strftime('%Y%m%dT%H%M%S'))
 OUT.mkdir(parents=True,exist_ok=True)
 
 

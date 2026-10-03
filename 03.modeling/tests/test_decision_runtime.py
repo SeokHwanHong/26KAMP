@@ -143,5 +143,22 @@ class DecisionTests(unittest.TestCase):
         advice=read(r['inspection_advice']['json'])
         self.assertTrue(all(rec['uncertainty_level']=='high' and rec['reinspection_recommended'] for rec in advice['records']))
         self.assertTrue(advice['uncertainty_zones']['zones'])
+    def test_stale_lock_reports_owner_and_can_be_cleared(self):
+        from decision_runtime import LockHeld
+        with self.ops.lock():
+            with self.assertRaises(LockHeld) as ctx:
+                with self.ops.lock():pass
+            self.assertIn('unlock',str(ctx.exception))
+            with self.assertRaisesRegex(ValueError,'진행 중'):self.ops.clear_lock('test')
+        self.assertEqual(self.ops.clear_lock('nothing to clear')['status'],'no_lock')
+        (self.ops.state/'.writer.lock').write_text('crashed job')
+        self.assertEqual(self.ops.clear_lock('crashed run',force=True)['status'],'cleared')
+        self.assertFalse((self.ops.state/'.writer.lock').exists())
+    def test_pandas_row_index_is_not_cross_batch_product_id(self):
+        ops=Operations('rg3',Path(self.tmp.name)/'idx',dict(min_window_rows=10**6))
+        x,y=self.frame();v=ops.save_candidate(fit_supervised('rg3',x,y),x,y,source={});ops.initialize(v,'synthetic')
+        for seed in [21,22]:
+            ex,_=self.frame(30,seed);r=ops.ingest(ex.assign(**{'Unnamed: 0':range(30)}),coordinates_confirmed=True)
+            self.assertEqual(r['status'],'accepted')
 
 if __name__=='__main__':unittest.main(verbosity=2)

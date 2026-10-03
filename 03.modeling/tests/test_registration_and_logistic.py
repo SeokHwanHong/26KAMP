@@ -1,5 +1,6 @@
 import copy
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -68,17 +69,27 @@ class RegistrationAndLogisticTests(unittest.TestCase):
         self.assertEqual(b['model'][1].n_samples_seen_,len(dev))
     def test_saved_threshold_matches_strict_rule(self):
         for ds in ['cn7','rg3']:
-            folder=sorted((ROOT/'output/logistic'/ds).iterdir())[-1]
+            folder=sorted(p for p in (ROOT/'output/logistic'/ds).iterdir()
+                          if (p/'audit.json').exists() and (p/'registered_candidate.json').exists())[-1]
             b=joblib.load(folder/'model.joblib');x,y,_,_,test,_=data(ds)
             saved=pd.read_csv(folder/'test_predictions.csv',float_precision='round_trip')
-            np.testing.assert_array_equal(score(b,x.loc[test]),saved.probability.to_numpy())
+            current=score(b,x.loc[test])
+            np.testing.assert_allclose(current,saved.probability.to_numpy(),rtol=0,atol=1e-12)
+            np.testing.assert_array_equal((current>b['threshold']).astype(int),saved.prediction.to_numpy())
             np.testing.assert_array_equal((saved.probability>b['threshold']).astype(int),saved.prediction)
             for k,v in metrics(y.loc[test],saved.prediction).items():self.assertAlmostEqual(v,read(folder/'test_metrics.json')[k])
+
+    def test_notebook_lr_code_matches_script(self):
+        nb=read(ROOT/'03.modeling/models/05_logistic_regression.ipynb')
+        cells=[''.join(c['source']) for c in nb['cells'] if c['cell_type']=='code' and 'def run(' in ''.join(c['source'])]
+        script=(ROOT/'03.modeling/models/logistic_regression.py').read_text(encoding='utf-8').split("\nif __name__=='__main__':")[0]
+        self.assertEqual(len(cells),1,'LR 노트북 실행 셀을 찾지 못함')
+        self.assertEqual(cells[0].strip(),script.strip(),'노트북 LR 코드가 logistic_regression.py와 다름: 출처 해시가 틀려짐')
 
 
 if __name__=='__main__':
     import io
-    out=ROOT/'output/operations_tests/20261003';out.mkdir(parents=True,exist_ok=True)
+    out=ROOT/'output/operations_tests'/os.environ.get('KAMP_TEST_RUN_ID','manual-'+__import__('datetime').datetime.now().strftime('%Y%m%dT%H%M%S'));out.mkdir(parents=True,exist_ok=True)
     stream=io.StringIO();r=unittest.TextTestRunner(stream=stream,verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(RegistrationAndLogisticTests))
     (out/'registration_logistic_tests.txt').write_text(stream.getvalue(),encoding='utf-8')
     write(out/'registration_logistic_summary.json',dict(passed=r.wasSuccessful(),tests=r.testsRun,errors=len(r.errors),failures=len(r.failures)))

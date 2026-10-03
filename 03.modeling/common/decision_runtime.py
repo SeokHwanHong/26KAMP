@@ -20,6 +20,11 @@
 """
 import math
 import hashlib
+import json
+import os
+import socket
+import time
+from contextlib import contextmanager
 import numpy as np
 import pandas as pd
 from pipeline_runtime import (Operations as BaseOperations, range_guidance, write_guidance,
@@ -137,6 +142,10 @@ def budget_flags(scores,fraction):
     return flag,rank,k,float(cutoff)
 
 
+class LockHeld(FileExistsError):
+    """Writer lock already present; carries age and owner for the operator."""
+
+
 class Operations(BaseOperations):
     def __init__(self,dataset,state_root=None,policy=None):
         super().__init__(dataset,state_root,policy)
@@ -146,14 +155,49 @@ class Operations(BaseOperations):
         self.policy.setdefault('cn7_decision_mode','budget')      # budget | threshold
         self.policy.setdefault('cn7_model_kind','rf')
         self.policy.setdefault('min_budget_capture',.5)          # share of evaluation risks found within budget
+        self.policy.setdefault('lock_stale_seconds',600)
         self.policy.setdefault('acceptance_policy_note','잠정 기준: 현장 검사 비용·누락 허용량 합의 필요')
+
+    # ---- writer lock with owner/age (overrides the bare O_EXCL lock of the base class) ----
+    @contextmanager
+    def lock(self):
+        path=self.state/'.writer.lock'
+        try:fd=os.open(path,os.O_CREAT|os.O_EXCL|os.O_WRONLY)
+        except FileExistsError:
+            age=time.time()-path.stat().st_mtime
+            try:owner=path.read_text(encoding='utf-8') or '기록 없음'
+            except OSError:owner='읽기 실패'
+            raise LockHeld(f'쓰기 잠금 사용 중({age:.0f}초 전 생성, 소유: {owner}). 실행 중인 작업이 없으면 '
+                           f'pipeline_cli.py --dataset {self.dataset} unlock --reason <사유> 로 해제하세요: {path}') from None
+        try:
+            os.write(fd,json.dumps(dict(pid=os.getpid(),host=socket.gethostname(),at=now()),ensure_ascii=False).encode('utf-8'))
+            yield
+        finally:
+            os.close(fd)
+            try:path.unlink()
+            except FileNotFoundError:pass
+
+    def clear_lock(self,reason,force=False):
+        """Remove a stale writer lock after an explicit operator decision; journaled."""
+        if not reason or not reason.strip():raise ValueError('잠금 해제 사유 필요')
+        path=self.state/'.writer.lock'
+        if not path.exists():return dict(status='no_lock')
+        age=time.time()-path.stat().st_mtime;owner=path.read_text(encoding='utf-8',errors='replace')
+        if age<self.policy['lock_stale_seconds'] and not force:
+            raise ValueError(f'잠금 생성 후 {age:.0f}초: 작업이 진행 중일 수 있음. 확인 후 --force 사용')
+        path.unlink()
+        history=read(self.state/'lock_history.json',[]);entry=dict(at=now(),reason=reason,age_seconds=age,owner=owner,force=force)
+        history.append(entry);write(self.state/'lock_history.json',history)
+        return dict(status='cleared',**entry)
 
     # ---- duplicate batch guard (kept outside pipeline_runtime.py) ----
     def _dedup_key(self,frame,batch_id,label_source):
         products,_=preprocess(frame,batch_id,label_source)
         body=products.drop(columns='record_id').sort_values('fingerprint',kind='stable')
         content=hashlib.sha256(pd.util.hash_pandas_object(body,index=False).values.tobytes()).hexdigest()
-        explicit=any(c in frame for c in ['record_id','product_id','Unnamed: 0'])
+        # Only explicit product identifiers are compared across batches. 'Unnamed: 0' is often a
+        # per-file pandas row index (0..n-1) and would falsely collide between unrelated batches.
+        explicit=any(c in frame for c in ['record_id','product_id'])
         return content,(set(products.record_id) if explicit else set())
 
     def _held(self,batch_id,reason):
