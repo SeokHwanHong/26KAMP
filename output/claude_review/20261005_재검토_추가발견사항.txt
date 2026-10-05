@@ -1,0 +1,43 @@
+2026-10-05 재검토: 추가 장애 주입 결과
+
+검토 대상: develop_seo 최신 작업 트리의 workflow_runtime / decision_runtime / checks-only 실행기.
+이번 검토에서 소스, 운영 runtime, 기존 LR 결과는 변경하지 않았다.
+
+1. [재현 / 보통] 기준선 이상이 checks-only 실패 종료 코드에 반영되지 않음
+위치: run_checks_only.py 56~57행.
+방법: 임시 출력 폴더에서 회귀 검사 subprocess 결과를 성공(0)으로 주입하고,
+Operations.baseline_status()가 valid=False를 반환하도록 대체하여 main() 실행.
+실제: runtime_status_read_only에 invalid 상태가 있어도 passed=true, exit_code=0.
+영향: 자동 실행에서 종료 코드만 보면 운영 기준선 이상을 성공으로 오인할 수 있다.
+권고: 회귀 검사 결과와 운영 상태 검증 결과를 구분해서 기록하고, 기준선 오류/상태 조회 예외를 최종 종료 코드에 반영.
+이는 실제 운영 기준선을 손상시킨 실험이 아니며, 실행기 분기 검증을 위한 격리 mock 재현이다.
+
+2. [재현 / 보통] 완료 배치 resume 경로는 저장 제품 파일 무결성을 확인하지 않음
+위치: decision_runtime.py resume() 483행, _retry() 586행 완료 분기.
+방법: 임시 state-root에 합성 RG3 배치를 수집해 완료 처리한 후 products.csv 삭제,
+resume(batch_id) 호출.
+실제: status=accepted, retry=already_completed 반환. 파일 누락 경고 없음.
+원인: resume은 key=None으로 _retry를 호출하므로 key가 있을 때만 수행되는 _stored_link 검증을 건너뜀.
+영향: 완료 상태 응답이 보존 자료의 정상 상태까지 보장하지 않음. 이번 재현에서는 중복 수집은 발생하지 않았다.
+권고: resume의 완료 응답 전에 저장 자료 검증을 수행하거나, 자료 검증 실패를 별도 명시 상태로 반환.
+기존 ingest 재전송 보호와는 별도 경로이므로 회귀 테스트 축에 추가할 필요가 있다.
+
+3. [재현 / 낮음] processing.json의 advice_context 기록이 완료 처리에서 사라짐
+위치: workflow_runtime.py _advise() 148~152행 및 decision_runtime.py _finish() 628행.
+방법: 임시 배치 완료 후 processing.json 확인. advice_context 키 없음.
+원인: _advise가 별도로 읽은 proc에 context를 기록한 뒤, _finish가 이전에 읽은 proc 전체를 다시 저장.
+현재 advice_history/<revision>/context.json에는 출처가 보존되며,
+저장 drift와 manifest에서도 재구성이 가능하므로 전체 출처 소실이나 잘못된 모델 선택으로 단정하지 않는다.
+권고: _finish 저장 직전 최신 proc 병합 또는 context 영속 기록 책임을 한 계층으로 통일.
+
+추가 재현 결과: 20261005_recheck_extra_probes.json.
+기존 전체 회귀 검사 결과 및 보존 검증은 별도 최종 결과 기록 참조.
+현장 예측 성능 검증이나 새로운 240개 설정 전체 탐색은 이번 검토에 포함하지 않았다.
+
+최종 회귀 결과: 115개 통과 + CN7/RG3 저장 LR 감사 통과.
+종료 코드 0. 운영 runtime 및 기존 output/logistic 파일 SHA-256 전후 동일.
+회귀 결과: output/test_runs/20261005T123707Z-af8889fd/summary.json
+검사 실행기 결과: output/claude_review/checks_only_20261005T213706.json
+종합 판정: 기존 회귀 통과, 추가 장애 경로 2건 및 출처 기록 일관성 1건 보완 필요(부분 통과).
+
+실제 운영 상태의 읽기 전용 확인: CN7 기준선 valid=true. RG3는 기준선 포인터 없음으로 valid=false. 두 데이터셋 pending 목록은 비어 있음. 이번 실제 실행도 전체 검사 종료 코드 0이므로 1번 문제는 mock 외 실제 상태 보고에서도 확인됨. 기준선은 자동 생성하거나 수정하지 않았음. RG3 초기 준비가 덜 된 상태인지, 기존 포인터가 유실된 것인지는 이번 결과만으로 구분하지 않음.

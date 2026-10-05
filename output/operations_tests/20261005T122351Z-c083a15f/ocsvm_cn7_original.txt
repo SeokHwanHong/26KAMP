@@ -1,0 +1,11 @@
+test_all_scenario_transforms_and_reload (notebook_regression.WorkflowTests.test_all_scenario_transforms_and_reload) ... ok
+test_f1_ties_use_fold_f1_variation_then_feature_count (notebook_regression.WorkflowTests.test_f1_ties_use_fold_f1_variation_then_feature_count) ... ok
+test_final_fit_uses_all_normals_and_preserves_selected_t (notebook_regression.WorkflowTests.test_final_fit_uses_all_normals_and_preserves_selected_t) ... ok
+test_selection_uses_f1_without_fpr_or_ap_constraints (notebook_regression.WorkflowTests.test_selection_uses_f1_without_fpr_or_ap_constraints) ... ok
+test_split_and_development_only_smoke (notebook_regression.WorkflowTests.test_split_and_development_only_smoke) ... ok
+test_threshold_grid_matches_brute_force_and_ties (notebook_regression.WorkflowTests.test_threshold_grid_matches_brute_force_and_ties) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.780s
+
+OK

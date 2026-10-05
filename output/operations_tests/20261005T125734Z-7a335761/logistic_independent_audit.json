@@ -1,0 +1,34 @@
+[
+  {
+    "dataset": "cn7",
+    "run": "output\\logistic\\cn7\\lr-20261003T040927Z-66e8d685",
+    "passed": true,
+    "joint_trials_verified": 240240,
+    "candidate_selection_reproduced": true,
+    "lr_code_hash_current": true,
+    "runtime_source": "archived_source_verified+training_definitions_unchanged",
+    "selected_config_refit_reproduced": true,
+    "notebook_library_hash_recorded_at_run": false,
+    "notebook_library": "unchanged_since_20261005_snapshot",
+    "scope_note": "저장 모델 예측 재현 + 선택 설정 재학습 재현. 탐색한 240개 설정 전부의 재학습 재현은 아님",
+    "oof_exactly_once": true,
+    "fold_roles_verified": true,
+    "test_predictions_reproduced": true
+  },
+  {
+    "dataset": "rg3",
+    "run": "output\\logistic\\rg3\\lr-20261003T040950Z-8c8b16ec",
+    "passed": true,
+    "joint_trials_verified": 240240,
+    "candidate_selection_reproduced": true,
+    "lr_code_hash_current": true,
+    "runtime_source": "archived_source_verified+training_definitions_unchanged",
+    "selected_config_refit_reproduced": true,
+    "notebook_library_hash_recorded_at_run": false,
+    "notebook_library": "unchanged_since_20261005_snapshot",
+    "scope_note": "저장 모델 예측 재현 + 선택 설정 재학습 재현. 탐색한 240개 설정 전부의 재학습 재현은 아님",
+    "oof_exactly_once": true,
+    "fold_roles_verified": true,
+    "test_predictions_reproduced": true
+  }
+]

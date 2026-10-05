@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "script": "test_operations.py",
+      "exit_code": 0,
+      "passed": true,
+      "tests": 12
+    },
+    {
+      "script": "test_registration_and_logistic.py",
+      "exit_code": 0,
+      "passed": true,
+      "tests": 8
+    },
+    {
+      "script": "test_existing_ocsvm.py",
+      "exit_code": 0,
+      "passed": true,
+      "tests": 24
+    },
+    {
+      "script": "test_decision_runtime.py",
+      "exit_code": 0,
+      "passed": true,
+      "tests": 58
+    },
+    {
+      "script": "test_workflow_runtime.py",
+      "exit_code": 0,
+      "passed": true,
+      "tests": 13
+    },
+    {
+      "script": "audit_logistic_runs.py",
+      "exit_code": 0,
+      "passed": true,
+      "tests": null
+    }
+  ],
+  "tests": 115,
+  "runtime_unchanged": true,
+  "scope": "115 regression/integration invocations plus saved LR audit; no field validation"
+}

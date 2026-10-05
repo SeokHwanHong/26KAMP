@@ -408,10 +408,29 @@ class Operations(Runtime):
         for a,b in [('Injection_Time','Filling_Time'),('Max_Injection_Pressure','Mold_Temperature_3')]:
             out[a+' × '+b]=np.char.add(np.char.add(out[a],' / '),out[b])
         return out
+    def _apply_unrecorded_drift(self,monitor):
+        """Recovery (2026-10-05): a drift record is saved before monitor.json. If the process stopped in
+        between, apply that record's consumption/history once, keyed by drift id (idempotent)."""
+        known={h['id'] for h in monitor['history']}
+        records=[read(p) for p in sorted((self.state/'drift').glob('drift-*.json'))]
+        missing=sorted((r for r in records if r and r.get('id') and r['id'] not in known),key=lambda r:r['created_at'])
+        for r in missing:
+            monitor['consumed'].extend(i for i in r['batch_ids'] if i not in monitor['consumed'])
+            monitor['history'].append(dict(id=r['id'],baseline=r['baseline'],status=r['status'],streak=r['streak'],
+                                           calibration_policy=r.get('calibration_policy'),recovered=True))
+        return [r['id'] for r in missing]
+    def reconcile_monitor(self):
+        """Explicit recovery entry point; returns the drift ids that were applied."""
+        with self.lock():
+            monitor=read(self.state/'monitor.json',{'consumed':[],'history':[]})
+            applied=self._apply_unrecorded_drift(monitor)
+            if applied:write(self.state/'monitor.json',monitor)
+            return applied
     def detect(self):
         folder,m,reference=self.baseline()
         with self.lock():
             monitor=read(self.state/'monitor.json',{'consumed':[],'history':[]})
+            if self._apply_unrecorded_drift(monitor):write(self.state/'monitor.json',monitor)
             ids=[i for i in read(self.state/'batch_ledger.json',{'batches':[]})['batches'] if i not in monitor['consumed']]
             if not ids:return {'status':'waiting','reason':'no new batches'}
             products=pd.concat([self.batch(i)[1] for i in ids],ignore_index=True)
@@ -436,18 +455,21 @@ class Operations(Runtime):
                     note='iid empirical bootstrap proxy, no temporal dependence claim')
                 write(cache,calibration)
             threshold=calibration['threshold'];exceeded=max(changes.values())>threshold
-            recent=[r for r in monitor['history'] if r['baseline']==m['id']]
+            # Streak continues only over confirmed windows of the same baseline AND alarm policy.
+            policy_key=dict(quantile=float(self.policy['drift_quantile']),repeats=int(self.policy['bootstrap_repeats']))
+            recent=[r for r in monitor['history'] if r['baseline']==m['id'] and r.get('calibration_policy')==policy_key]
             streak=(recent[-1]['streak'] if recent else 0)+1 if exceeded else 0
             status='review' if streak>=self.policy['persistence'] else 'watch' if exceeded else 'normal'
             reference_fingerprints=set(fingerprints(reference))
             did=new_id('drift');result=dict(id=did,baseline=m['id'],versions=m['versions'],created_at=now(),
                 status=status,rows=len(x),patterns=unique,batch_ids=ids,changes=changes,
-                threshold=threshold,streak=streak,calibration=calibration,
+                threshold=threshold,streak=streak,calibration=calibration,calibration_policy=policy_key,
                 new_pattern_fraction=float(np.mean([f not in reference_fingerprints for f in fingerprints(x)])),
                 outside_reference={c:int(((x[c]<m['specs'][c]['minimum'])|(x[c]>m['specs'][c]['maximum'])).sum()) for c in x},
                 interpretation='변화 검토 신호; 불량/원인 확정 또는 자동 재학습 명령 아님')
             write(self.state/'drift'/f'{did}.json',result)
-            monitor['consumed'].extend(ids);monitor['history'].append(dict(id=did,baseline=m['id'],status=status,streak=streak))
+            monitor['consumed'].extend(ids);monitor['history'].append(dict(id=did,baseline=m['id'],status=status,streak=streak,
+                                                                          calibration_policy=policy_key))
             write(self.state/'monitor.json',monitor)
             return result
     def retrain(self,kind,batch_ids,drift_id,cause,base_version=None):

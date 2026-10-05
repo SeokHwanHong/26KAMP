@@ -367,4 +367,360 @@ class ReviewFixTests(unittest.TestCase):
         version=ops.active()['rf']
         with self.assertRaisesRegex(ValueError,'변경'):ops.evaluate(version,eid)
 
+
+class Phase1Tests(unittest.TestCase):
+    """2026-10-05 team review 2 / phase 1 (P0): R01 drift ledger recovery, R02 completed-batch link protection,
+    R03 exact_k-only selection/promotion, product ID contract, read-only baseline status. Synthetic fixtures."""
+    def setUp(self):
+        (ROOT/'tmp').mkdir(exist_ok=True)
+        self.tmp=tempfile.TemporaryDirectory(dir=ROOT/'tmp')
+    def tearDown(self):self.tmp.cleanup()
+    def ops(self,name,dataset='rg3',**policy):
+        base=dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=40);base.update(policy)
+        ops=Operations(dataset,Path(self.tmp.name)/name,base)
+        x=pd.DataFrame(np.random.default_rng(31).normal(size=(120,24)),columns=feature_columns());y=(x.iloc[:,0]>0).astype(int)
+        v=ops.save_candidate(fit_supervised(dataset,x,y,kind='rf' if dataset=='cn7' else 'lr'),x,y,source={'fixture':True})
+        ops.initialize(v,'synthetic');return ops
+    def batch(self,seed,n=45,ids=None,shift=0.):
+        x=pd.DataFrame(np.random.default_rng(seed).normal(size=(n,24))+shift,columns=feature_columns())
+        f=x.assign(PassOrFail=(x.iloc[:,0]>shift).astype(int))
+        return f.assign(product_id=ids) if ids is not None else f
+    def fail_write(self,module,match,nth=1):
+        import importlib
+        mod=importlib.import_module(module);real=mod.write;state={'n':0}
+        def bad(path,value):
+            if match(Path(path).name):
+                state['n']+=1
+                if state['n']==nth:raise OSError('injected '+Path(path).name)
+            return real(path,value)
+        return patch.object(mod,'write',side_effect=bad)
+    def monitor(self,ops):return read(ops.state/'monitor.json',{'consumed':[],'history':[]})
+
+    # ---- R01 ----
+    def test_r01_monitor_failure_then_resume_does_not_reconsume(self):
+        ops=self.ops('r01a')
+        with self.fail_write('pipeline_runtime',lambda n:n=='monitor.json'):
+            r=ops.ingest(self.batch(1),batch_id='M1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r['processing']['stage'],'drift_failed')
+        self.assertEqual(len(list((ops.state/'drift').glob('drift-*.json'))),1)   # record saved, ledger not
+        for _ in range(3):self.assertEqual(ops.resume('M1')['processing']['stage'] if _==0 else ops.resume('M1')['processing']['retry'],
+                                           'completed' if _==0 else 'already_completed')
+        m=self.monitor(ops);self.assertEqual(m['consumed'],['M1']);self.assertEqual(len(m['history']),1)
+        r2=ops.ingest(self.batch(2),batch_id='M2',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r2['drift']['batch_ids'],['M2'])
+        m=self.monitor(ops);self.assertEqual(m['consumed'],['M1','M2']);self.assertEqual(len(m['history']),2)
+        self.assertEqual(len({h['id'] for h in m['history']}),2)
+    def test_r01_next_detect_repairs_ledger_even_without_resume(self):
+        ops=self.ops('r01b')
+        with self.fail_write('pipeline_runtime',lambda n:n=='monitor.json'):
+            ops.ingest(self.batch(3),batch_id='M1',label_source='s',coordinates_confirmed=True)
+        r2=ops.ingest(self.batch(4),batch_id='M2',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r2['drift']['batch_ids'],['M2'])
+        h=self.monitor(ops)['history'];self.assertTrue(h[0].get('recovered'));self.assertEqual(len(h),2)
+        self.assertEqual(ops.resume('M1')['processing']['stage'],'completed');self.assertEqual(len(self.monitor(ops)['history']),2)
+    def test_r01_drift_record_failure_reruns_detection_once(self):
+        ops=self.ops('r01c')
+        with self.fail_write('pipeline_runtime',lambda n:n.startswith('drift-')):
+            self.assertEqual(ops.ingest(self.batch(5),batch_id='M1',label_source='s',coordinates_confirmed=True)['processing']['stage'],'drift_failed')
+        self.assertFalse(list((ops.state/'drift').glob('drift-*.json')));self.assertEqual(self.monitor(ops)['consumed'],[])
+        self.assertEqual(ops.resume('M1')['processing']['stage'],'completed')
+        m=self.monitor(ops);self.assertEqual((m['consumed'],len(m['history'])),(['M1'],1))
+    def test_r01_processing_failure_after_drift_reuses_record(self):
+        ops=self.ops('r01d')
+        with self.fail_write('decision_runtime',lambda n:n=='processing.json',nth=2):    # 1st = commit, 2nd = after drift
+            with self.assertRaises(OSError):ops.ingest(self.batch(6),batch_id='M1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(ops.pending_batches()[0]['stage'],'drift_pending')
+        self.assertEqual(ops.resume('M1')['processing']['stage'],'completed')
+        self.assertEqual(len(list((ops.state/'drift').glob('drift-*.json'))),1);self.assertEqual(len(self.monitor(ops)['history']),1)
+    def test_r01_streak_does_not_cross_alarm_policy(self):
+        ops=self.ops('r01e')
+        r1=ops.ingest(self.batch(7,shift=9),batch_id='S1',coordinates_confirmed=True,label_source='s')
+        self.assertEqual(r1['drift']['status'],'watch')
+        ops2=Operations('rg3',ops.state.parent,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=40,drift_quantile=.95))
+        r2=ops2.ingest(self.batch(8,shift=9),batch_id='S2',coordinates_confirmed=True,label_source='s')
+        self.assertEqual((r2['drift']['status'],r2['drift']['streak']),('watch',1))        # policy changed: streak restarts
+        r3=ops2.ingest(self.batch(9,shift=9),batch_id='S3',coordinates_confirmed=True,label_source='s')
+        self.assertEqual((r3['drift']['status'],r3['drift']['streak']),('review',2))
+
+    # ---- R02 / product ID contract ----
+    def test_r02_completed_batch_link_is_protected(self):
+        ops=self.ops('r02a');ids=[f'P-{i}' for i in range(45)];f=self.batch(10,ids=ids)
+        first=ops.ingest(f,batch_id='B1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(first['processing']['stage'],'completed')
+        proc=read(ops.state/'batches'/'B1'/'processing.json');self.assertEqual(proc['id_mode'],'explicit_product_id')
+        same=ops.ingest(f.sample(frac=1,random_state=0).reset_index(drop=True),batch_id='B1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(same['processing']['retry'],'already_completed')                 # reorder only
+        cases={'ids replaced':f.assign(product_id=[f'X-{i}' for i in range(45)])}
+        swap=f.copy();swap.loc[[0,1],'product_id']=[ids[1],ids[0]];cases['inputs swapped between IDs']=swap
+        relabel=f.copy();relabel.loc[0,'PassOrFail']=1-relabel.loc[0,'PassOrFail'];cases['label changed']=relabel
+        for name,frame in cases.items():
+            r=ops.ingest(frame,batch_id='B1',label_source='s',coordinates_confirmed=True)
+            self.assertEqual(r['status'],'conflict',name)
+        bad=ops.ingest(f,batch_id='B1',label_source='s',coordinates_confirmed=False)        # cannot compare -> no success
+        self.assertEqual(bad['status'],'rejected')
+        stored=pd.read_csv(ops.state/'batches'/'B1'/'products.csv');self.assertEqual(sorted(stored.record_id),sorted(ids))
+        self.assertEqual(read(ops.state/'batch_ledger.json')['batches'],['B1'])
+    def test_r02_interrupted_batch_rejects_id_wise_swap(self):
+        ops=self.ops('r02b');ids=[f'P-{i}' for i in range(45)];f=self.batch(11,ids=ids)
+        with self.fail_write('pipeline_runtime',lambda n:n=='manifest.json'):
+            with self.assertRaises(OSError):ops.ingest(f,batch_id='B2',label_source='s',coordinates_confirmed=True)
+        swap=f.copy();swap.loc[[0,1],'product_id']=[ids[1],ids[0]]
+        self.assertEqual(ops.ingest(swap,batch_id='B2',label_source='s',coordinates_confirmed=True)['status'],'conflict')
+        self.assertEqual(ops.ingest(f,batch_id='B2',label_source='s',coordinates_confirmed=True)['processing']['stage'],'completed')
+    def test_r02_no_id_batch_uses_compat_path(self):
+        ops=self.ops('r02c');f=self.batch(12)
+        ops.ingest(f,batch_id='N1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(read(ops.state/'batches'/'N1'/'processing.json')['id_mode'],'no_product_id_compat')
+        r=ops.ingest(f.iloc[::-1].reset_index(drop=True),batch_id='N1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r['processing']['retry'],'already_completed')
+        self.assertEqual(ops.ingest(f,batch_id='N2',label_source='s',coordinates_confirmed=True)['status'],'held')
+    def test_same_input_new_production_is_collected_and_patterns_merge(self):
+        ops=self.ops('r02d');f=self.batch(13)
+        ops.ingest(f.assign(product_id=[f'A-{i}' for i in range(45)]),batch_id='P1',label_source='s',coordinates_confirmed=True)
+        r=ops.ingest(f.assign(product_id=[f'B-{i}' for i in range(45)]),batch_id='P2',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r['status'],'accepted')
+        prods=pd.read_csv(ops.state/'batches'/'P2'/'products.csv');pats=pd.read_csv(ops.state/'batches'/'P2'/'patterns.csv')
+        self.assertEqual(len(prods),45);self.assertEqual(int(pats.product_count.sum()),45)
+        self.assertEqual(pats.fingerprint.nunique(),len(pats))
+
+    def test_r02_legacy_completed_batch_is_checked_against_stored_products(self):
+        ops=self.ops('r02e');ids=[f'P-{i}' for i in range(45)];f=self.batch(14,ids=ids)
+        ops.ingest(f,batch_id='L1',label_source='s',coordinates_confirmed=True)
+        from pipeline_runtime import write
+        path=ops.state/'batches'/'L1'/'processing.json';proc=read(path)
+        for k in ('link_sha256','id_mode'):proc.pop(k)                       # record from before link hashes existed
+        write(path,proc)
+        self.assertEqual(ops.ingest(f.assign(product_id=[f'X-{i}' for i in range(45)]),batch_id='L1',label_source='s',
+                                    coordinates_confirmed=True)['status'],'conflict')
+        swap=f.copy();swap.loc[[0,1],'product_id']=[ids[1],ids[0]]
+        self.assertEqual(ops.ingest(swap,batch_id='L1',label_source='s',coordinates_confirmed=True)['status'],'conflict')
+        self.assertEqual(ops.ingest(f.drop(columns='product_id'),batch_id='L1',label_source='s',coordinates_confirmed=True)['status'],'conflict')
+        self.assertEqual(ops.ingest(f.iloc[::-1].reset_index(drop=True),batch_id='L1',label_source='s',
+                                    coordinates_confirmed=True)['processing']['retry'],'already_completed')
+        (ops.state/'batches'/'L1'/'products.csv').write_text('tampered',encoding='utf-8')   # evidence gone
+        self.assertEqual(ops.ingest(f,batch_id='L1',label_source='s',coordinates_confirmed=True)['status'],'rejected')
+    def test_contract_a_rejects_invalid_product_ids(self):
+        ops=self.ops('ida');f=self.batch(15)
+        cases={'empty':['']+[f'P-{i}' for i in range(1,45)],'blank':['  ']+[f'P-{i}' for i in range(1,45)],
+               'missing mixed':[None]+[f'P-{i}' for i in range(1,45)],'nan mixed':[np.nan]+[f'P-{i}' for i in range(1,45)],
+               'float':[float(i)+.5 for i in range(45)],'padded':[' P-0']+[f'P-{i}' for i in range(1,45)]}
+        for n,(name,ids) in enumerate(cases.items()):
+            r=ops.ingest(f.assign(product_id=pd.Series(ids,dtype=object)),batch_id=f'BAD{n}',label_source='s',coordinates_confirmed=True)
+            self.assertEqual(r['status'],'held',name);self.assertIn('유효한 생산 제품 ID가 아님',r['reason'],name)
+        self.assertEqual(read(ops.state/'dedup_index.json',{'reservations':{}})['reservations'],{})
+        self.assertFalse((ops.state/'batch_ledger.json').exists())
+        ok=ops.ingest(f.assign(product_id=list(range(1000,1045))),batch_id='GOOD',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(ok['status'],'accepted')                                        # integer IDs are valid
+        bad=ops.ingest(f.assign(product_id=['']*45),batch_id='GOOD',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(bad['status'],'rejected')                                       # existing batch untouched
+
+    # ---- R03 ----
+    def test_r03_all_ties_is_reference_only(self):
+        from decision_runtime import budget_metrics
+        m=budget_metrics(np.array([1]*5+[0]*5),[.5]*10,.1,'all_ties',[f'f{i}' for i in range(10)])
+        self.assertEqual((m['k'],m['inspected'],m['over_budget'],m['found_TP']),(1,10,9,5));self.assertTrue(m['reference_only'])
+        ops=self.ops('r03',dataset='cn7',cn7_tie_rule='all_ties')
+        with self.assertRaisesRegex(ValueError,'exact_k'):ops.select_cn7(['a','b','c'],'e')
+        ex=pd.DataFrame(np.random.default_rng(90).normal(size=(200,24)),columns=feature_columns())
+        eid=ops.register_evaluation(ex.assign(PassOrFail=(ex.iloc[:,0]>1.3).astype(int)),'s')
+        x=pd.DataFrame(np.random.default_rng(91).normal(size=(160,24)),columns=feature_columns());y=(x.iloc[:,0]>1.3).astype(int)
+        cand=ops.save_candidate(fit_supervised('cn7',x,y,kind='rf'),x,y,source={},parent=ops.active()['rf'])
+        a=ops.evaluate(cand,eid);self.assertFalse(a['passed']);self.assertTrue(any('all_ties' in r for r in a['reasons']))
+        cm=a['candidate_budget_metrics'];self.assertLessEqual(cm['capture_of_reachable'] or 0,1.0)
+        from pipeline_runtime import write
+        a['passed']=True;a['reasons']=[];folder=ops.state/'assessments'/a['id'];write(folder/'assessment.json',a)
+        with self.assertRaisesRegex(ValueError,'exact_k'):ops.promote(a['id'])
+    def test_exact_k_small_batch_and_untied(self):
+        from decision_runtime import budget_flags
+        flag,_,k,_,ties=budget_flags([.9,.1,.5],.1,['a','b','c'],fingerprints=['x','y','z'])
+        self.assertEqual((k,list(flag),ties['ties_cut']),(1,[True,False,False],False))
+
+    # ---- baseline status (read-only) ----
+    def test_baseline_status_is_read_only_and_detects_mismatch(self):
+        ops=self.ops('bs');st=ops.baseline_status();self.assertFalse(st['valid'])
+        self.assertFalse((ops.state/'baseline_pointer.json').exists())                       # did not create one
+        ops.create_baseline();self.assertTrue(ops.baseline_status()['valid'])
+        from pipeline_runtime import write
+        reg=read(ops.state/'registry.json');reg['active_models']['lr']='lr-other';write(ops.state/'registry.json',reg)
+        self.assertIn('기준선 모델 버전이 현재 운영 모델과 다름',ops.baseline_status()['reasons'])
+
+
+class ResendMatrixTests(unittest.TestCase):
+    """Re-send comparison over every combination instead of one reported case (2026-10-05, after Codex re-review).
+    ID source x resend variant x processing stage (+ legacy records, + evidence file state)."""
+    SOURCES=['record_id','product_id','Unnamed: 0','none']
+    # variant -> expected outcome per contract (A = record_id/product_id, C = Unnamed: 0 / none). None = not applicable.
+    EXPECT={'identical':('ok','ok'),'reordered':('ok','ok'),'ids_replaced':('conflict','ok'),'ids_swapped':('conflict','ok'),
+            'label_changed':('conflict','conflict'),'id_column_removed':('conflict','ok'),'id_column_added':(None,'conflict')}
+    def setUp(self):
+        (ROOT/'tmp').mkdir(exist_ok=True);self.tmp=tempfile.TemporaryDirectory(dir=ROOT/'tmp');self.n=0
+    def tearDown(self):self.tmp.cleanup()
+    def fresh(self):
+        self.n+=1
+        ops=Operations('rg3',Path(self.tmp.name)/f's{self.n}',dict(min_window_rows=10**6))   # drift waits: fast
+        x=pd.DataFrame(np.random.default_rng(31).normal(size=(120,24)),columns=feature_columns());y=(x.iloc[:,0]>0).astype(int)
+        ops.initialize(ops.save_candidate(fit_supervised('rg3',x,y),x,y,source={}),'synthetic');return ops
+    def frame(self,source):
+        x=pd.DataFrame(np.random.default_rng(55).normal(size=(30,24)),columns=feature_columns())
+        x.iloc[1]=x.iloc[0].to_numpy().copy()
+        y=(x.iloc[:,0]>0).astype(int).to_numpy().copy();y[0],y[1]=0,1
+        f=x.assign(PassOrFail=y)
+        if source=='Unnamed: 0':f.insert(0,'Unnamed: 0',range(30))
+        elif source!='none':f[source]=[f'{source[0].upper()}-{i}' for i in range(30)]
+        return f
+    def variant(self,f,source,name):
+        idc=None if source=='none' else source;g=f.copy()
+        if name=='identical':return g
+        if name=='reordered':return g.sample(frac=1,random_state=1).reset_index(drop=True)
+        if name=='ids_replaced':
+            if idc is None:return None
+            g[idc]=[f'Z-{i}' for i in range(30)] if idc!='Unnamed: 0' else list(range(100,130));return g
+        if name=='ids_swapped':
+            if idc is None:return None
+            v=g[idc].tolist();v[2],v[3]=v[3],v[2];g[idc]=v;return g
+        if name=='label_changed':g.loc[2,'PassOrFail']=1-g.loc[2,'PassOrFail'];return g
+        if name=='id_column_removed':return None if idc is None else g.drop(columns=idc)
+        if name=='id_column_added':return g.assign(product_id=[f'N-{i}' for i in range(30)])
+    def expected(self,source,name):
+        return self.EXPECT[name][0 if source in ('record_id','product_id') else 1]
+    def stage_batch(self,ops,f,stage):
+        """Bring batch B into the given stage."""
+        import importlib
+        if stage=='completed':
+            self.assertEqual(ops.ingest(f,batch_id='B',label_source='s',coordinates_confirmed=True)['status'],'accepted');return
+        if stage in ('drift_failed','advice_failed'):
+            target='_run_detect' if stage=='drift_failed' else '_advise'
+            with patch.object(ops,target,side_effect=RuntimeError('injected')):
+                r=ops.ingest(f,batch_id='B',label_source='s',coordinates_confirmed=True)
+            self.assertEqual(r['processing']['stage'],stage);return
+        mod,name=('decision_runtime','processing.json') if stage=='commit_incomplete' else ('pipeline_runtime','manifest.json')
+        mod=importlib.import_module(mod);real=mod.write;state={'n':0}
+        def bad(path,value):
+            if Path(path).name==name and state['n']==0:state['n']+=1;raise OSError('injected')
+            return real(path,value)
+        with patch.object(mod,'write',side_effect=bad):
+            with self.assertRaises(OSError):ops.ingest(f,batch_id='B',label_source='s',coordinates_confirmed=True)
+        self.assertEqual([p['stage'] for p in ops.pending_batches()],[stage])
+    def outcome(self,r):
+        return 'ok' if r['status']=='accepted' else r['status']
+    def test_matrix_by_source_variant_stage(self):
+        checked=0
+        for stage in ['completed','commit_incomplete','reserved_not_stored','drift_failed','advice_failed']:
+            for source in self.SOURCES:
+                for name in self.EXPECT:
+                    exp=self.expected(source,name);f=self.frame(source);g=self.variant(f,source,name)
+                    if exp is None or g is None:continue
+                    with self.subTest(stage=stage,source=source,variant=name):
+                        ops=self.fresh();self.stage_batch(ops,f,stage)
+                        before={str(p):p.read_bytes() for p in (ops.state/'batches'/'B').glob('*') if p.is_file()}
+                        r=ops.ingest(g,batch_id='B',label_source='s',coordinates_confirmed=True)
+                        self.assertEqual(self.outcome(r),exp,r.get('reason'))
+                        if stage=='completed' and exp=='ok':self.assertEqual(r['processing']['retry'],'already_completed')
+                        if exp!='ok' or stage=='completed':
+                            self.assertEqual(before,{str(p):p.read_bytes() for p in (ops.state/'batches'/'B').glob('*') if p.is_file()})
+                        self.assertEqual(read(ops.state/'batch_ledger.json',{'batches':[]})['batches'].count('B'),
+                                         0 if (stage=='reserved_not_stored' and exp!='ok') else 1)
+                        checked+=1
+        self.assertEqual(checked,115)
+    def test_matrix_legacy_records_without_link_or_mode(self):
+        from pipeline_runtime import write
+        for source in self.SOURCES:
+            for name in self.EXPECT:
+                exp=self.expected(source,name);f=self.frame(source);g=self.variant(f,source,name)
+                if exp is None or g is None:continue
+                with self.subTest(source=source,variant=name):
+                    ops=self.fresh();ops.ingest(f,batch_id='B',label_source='s',coordinates_confirmed=True)
+                    path=ops.state/'batches'/'B'/'processing.json';proc=read(path)
+                    for k in ('link_sha256','id_mode'):proc.pop(k,None)
+                    write(path,proc)
+                    self.assertEqual(self.outcome(ops.ingest(g,batch_id='B',label_source='s',coordinates_confirmed=True)),exp)
+    def test_evidence_file_states_are_explicit_rejections(self):
+        import shutil
+        for state in ['missing','corrupted','directory','manifest_missing','read_denied']:
+            for source in self.SOURCES:
+                with self.subTest(state=state,source=source):
+                    ops=self.fresh();f=self.frame(source);ops.ingest(f,batch_id='B',label_source='s',coordinates_confirmed=True)
+                    folder=ops.state/'batches'/'B';pc=folder/'products.csv'
+                    if state=='missing':pc.unlink()
+                    elif state=='corrupted':pc.write_text('x',encoding='utf-8')
+                    elif state=='directory':pc.unlink();pc.mkdir()
+                    elif state=='manifest_missing':
+                        m=read(folder/'manifest.json');m['files'].pop('products.csv')
+                        from pipeline_runtime import write;write(folder/'manifest.json',m)
+                    if state=='read_denied':
+                        import decision_runtime
+                        real=decision_runtime.digest
+                        def denied(path):
+                            if Path(path).name=='products.csv':raise PermissionError('injected read denial')
+                            return real(path)
+                        with patch.object(decision_runtime,'digest',side_effect=denied):
+                            r=ops.ingest(f,batch_id='B',label_source='s',coordinates_confirmed=True)
+                    else:r=ops.ingest(f,batch_id='B',label_source='s',coordinates_confirmed=True)
+                    self.assertEqual(r['status'],'rejected');self.assertIn('비교하지 못했습니다',r['reason'])
+
+    def test_manifest_damage_never_reregisters_committed_batch(self):
+        from pipeline_runtime import write
+        for stage in ('completed','commit_incomplete'):
+            for source in self.SOURCES:
+                for damage in ('missing','invalid_json','wrong_type','directory'):
+                    with self.subTest(stage=stage,source=source,damage=damage):
+                        ops=self.fresh();f=self.frame(source);self.stage_batch(ops,f,stage)
+                        path=ops.state/'batches/B/manifest.json'
+                        if damage=='missing':path.unlink()
+                        elif damage=='directory':path.unlink();path.mkdir()
+                        elif damage=='wrong_type':write(path,[])
+                        else:path.write_text('{broken',encoding='utf-8')
+                        ledger=read(ops.state/'batch_ledger.json');index=read(ops.state/'dedup_index.json')
+                        r=ops.ingest(f,batch_id='B',label_source='s',coordinates_confirmed=True)
+                        self.assertEqual(r['status'],'rejected')
+                        self.assertEqual(read(ops.state/'batch_ledger.json'),ledger)
+                        self.assertEqual(read(ops.state/'dedup_index.json'),index)
+
+    def test_legacy_contract_requires_positive_evidence(self):
+        from pipeline_runtime import write
+        for source in self.SOURCES:
+            for damage in ('missing_index','empty_ids','partial_ids','invalid_json','wrong_type'):
+                with self.subTest(source=source,damage=damage):
+                    ops=self.fresh();f=self.frame(source);ops.ingest(f,'B','s',True)
+                    proc_path=ops._processing_path('B');proc=read(proc_path)
+                    for k in ('id_mode','link_sha256'):proc.pop(k,None)
+                    write(proc_path,proc)
+                    manifest_path=ops.state/'batches/B/manifest.json';manifest=read(manifest_path)
+                    manifest.pop('id_mode',None);write(manifest_path,manifest)
+                    index_path=ops.state/'dedup_index.json';index=read(index_path)
+                    if damage=='missing_index':index_path.unlink()
+                    elif damage=='invalid_json':index_path.write_text('{broken',encoding='utf-8')
+                    elif damage=='wrong_type':write(index_path,dict(ids=[]))
+                    else:
+                        index['ids']=dict(list(index['ids'].items())[:1]) if damage=='partial_ids' else {}
+                        write(index_path,index)
+                    for g in (f,f.drop(columns=source) if source!='none' else f):
+                        self.assertEqual(ops.ingest(g,'B','s',True)['status'],'rejected')
+
+    def test_contract_source_survives_proc_and_index_loss(self):
+        from pipeline_runtime import write
+        for source in self.SOURCES:
+            with self.subTest(source=source):
+                ops=self.fresh();f=self.frame(source);ops.ingest(f,'B','s',True)
+                proc=read(ops._processing_path('B'))
+                for k in ('id_mode','link_sha256'):proc.pop(k,None)
+                write(ops._processing_path('B'),proc)
+                (ops.state/'dedup_index.json').unlink()
+                r=ops.ingest(f.iloc[::-1].reset_index(drop=True),'B','s',True)
+                self.assertEqual(r['processing']['retry'],'already_completed')
+
+    def test_label_presence_and_same_pattern_label_swap(self):
+        for source in self.SOURCES:
+            for variant in ('add_label','remove_label','swap_labels'):
+                with self.subTest(source=source,variant=variant):
+                    ops=self.fresh();f=self.frame(source)
+                    if variant=='add_label':original=f.drop(columns='PassOrFail');changed=f
+                    elif variant=='remove_label':original=f;changed=f.drop(columns='PassOrFail')
+                    else:
+                        original=f;changed=f.copy();changed.loc[[0,1],'PassOrFail']=[1,0]
+                    ops.ingest(original,'B','s',True)
+                    r=ops.ingest(changed,'B','s',True)
+                    expected='ok' if variant=='swap_labels' and source in ('none','Unnamed: 0') else 'conflict'
+                    self.assertEqual(self.outcome(r),expected)
+
 if __name__=='__main__':unittest.main(verbosity=2)

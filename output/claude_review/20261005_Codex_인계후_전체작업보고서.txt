@@ -1,0 +1,91 @@
+KAMP Codex 인계 후 작업 보고서 | 2026-10-05
+대상: develop_seo 최신 작업 트리. 기존 팀원 변경과 원본 데이터 보존.
+
+1. 인계 내용 확인
+Claude 인계 파일의 P0 두 결함은 직전 Codex 수정으로 해결된 상태였다.
+중복 작업 대신 P1-1부터 P2와 격리 종단 리허설까지 진행했다.
+실제 runtime의 모델·레지스트리·기준선과 기존 LR 실행 결과는 변경하지 않았다.
+
+2. 코드 구조
+pipeline_runtime.py: 학습/저장/감지 공통 하위 계층. 이번 인계 작업에서 변경하지 않았다.
+decision_runtime.py: ID 계약, 재전송 검증, 검사 정책. 처리 상태 파일 누락/손상 시 성공 응답 대신 rejected 보완.
+workflow_runtime.py: 신규 운영 계층. 버전 고정, 감지 후속 연결, 공통 운영 잠금, 전환 복구, 평가 역할/재등록 이력.
+pipeline_cli.py와 04_operations.ipynb의 실제 운영 진입점을 workflow_runtime.Operations로 연결했다.
+run_checks_only.py 및 RF 준비 실행기도 동일 운영 계층을 사용한다. RF 준비 실행기는 이번에 실행하지 않았다.
+
+3. P1-1 안내·추론·감지 버전 고정
+processing에 advice_context(모델 버전/기준선/정책)를 저장하고 안내 재개에서 동일 근거를 사용한다.
+과거 모델 또는 기준선이 없거나 해시가 바뀌면 실패를 명시한다.
+advice_history/<revision>에 성공한 안내와 근거를 보존하고 advice_latest로 최신 출력 연결.
+CN7/RG3 안내 실패 후 모델 교체·재개, CN7 실제 RF 검사 우선순위 버전 고정 테스트 통과.
+자동 새 모델 점수 재산출 기능은 추가하지 않았다. 후속 감지 안내 revision과 모델 재예측을 구분한다.
+
+4. P1-2 waiting 후속 연결
+batch_drift_links에 배치와 확정된 감지 윈도 연결. batch-status로 처리 완료와 분포 판단 상태를 분리 조회한다.
+앞선 waiting 배치가 후속 윈도에 소비되면 새 안내 revision 생성, 초기 안내 보존.
+후속 안내 실패는 latest_advice_error/pending에 표시하고 refresh-advice로 재개한다.
+기존 감지 원장 복구 시에도 후속 연결을 복구한다. 재수집하거나 같은 윈도를 다시 소비하지 않는다.
+시간순을 확인한 생산 시계열 검증은 아니며 도착 배치의 운영 기록을 연결하는 기능이다.
+
+5. P1-3 공통 잠금
+운영 API는 operation 잠금을 먼저, 내부 ingest/writer 잠금을 다음으로 획득한다.
+같은 스레드에서만 재진입 가능하다. 실제 두 프로세스 경쟁 및 동일 객체의 두 스레드 경쟁 차단 확인.
+수동 잠금 해제는 작업 종료 확인 후 unlock --lock operation --reason으로 수행한다.
+과거 하위 계층을 직접 호출하는 기존 테스트는 운영 진입점 검증과 구분한다.
+
+6. P1-4 승격/롤백 기준선 실패 복구
+평가 근거를 재검증하고 새 모델 출력 기준선을 먼저 준비한다. 입력 참조는 개발 분포로 유지.
+transition_pending의 preparing/prepared/completed로 추적한다.
+레지스트리·포인터 저장 중 실패하면 전환 미완료로 남고 추론/감지/CT/평가를 차단한다.
+resume-transition이 같은 목표 버전·기준선으로 재개한다. 롤백도 같은 경로.
+기준선 준비 실패, 포인터 저장 실패, 롤백 준비 실패 후 복구 테스트 통과.
+실제 운영 전환은 수행하지 않았으며 격리 상태의 합성 모델로 기능을 검증했다.
+
+7. P1-5 검사 예산
+기존 exact_k 및 all_ties 참고 전용 정책 유지. CN7 예산 모드의 found_TP 비교 유지.
+제품 단위 검사량과 고유 위험 이력 패턴 발견 지표를 구분한다.
+실제 검사 비율·오탐 비용·누락 허용량에 대한 현장 합의는 미완료다.
+
+8. P2-1 평가 정합성·재등록 이력
+평가 CSV에서 fingerprint 재계산, 저장 열·manifest 목록과 일치 및 고유성 확인.
+라벨 0/1, dataset/purpose 유효성 확인.
+정규화 내용 해시와 이전 평가 ID를 기록하고 과거 후속 평가의 역할을 유지한다.
+선정에 사용한 자료와 패턴이 겹치면 동일 자료 재등록·부분 자료라도 최종 승격 차단.
+변조된 fingerprint, 새 ID 재등록, 부분 겹침 차단 테스트 통과.
+hash는 기록 불일치 감지 수단이며 악의적인 전체 기록 변조를 막는 인증 장치가 아니다.
+
+9. P2-2 라벨 정정
+재전송으로 기존 라벨을 변경하면 conflict. 별도 정정 API는 이번 범위대로 구현하지 않았다.
+향후 정정에 필요한 제품/배치 ID, 원천 검사·시각, 사유·승인, 이전/새 라벨,
+패턴/모델/평가 영향 이력 및 재검증 절차를 문서화했다.
+
+10. P2-3 문서·구성도
+common/WORKFLOW_ACCEPTANCE.md에 현재 7단계 Mermaid 구성도, 단계별 진입점/입출력/상태/실패/복구를 작성했다.
+README, 전체구조 문서, OPERATIONS_GUIDE, TEST_FLOW와 CLI를 연결했다.
+IF/OCSVM/LR/RF의 구현, RF 초기 기준과 탐색 결과, 합성 기능 검증과 현장 성능을 구분했다.
+원래 PNG를 덮어쓰지 않고 최신 구성도를 프로젝트 문서로 제공했다.
+
+11. 검증
+최종 전체 115개 테스트 및 저장 CN7/RG3 LR 감사 통과. 종료 코드 0.
+운영 12 + 등록/LR 8 + OCSVM 24 + 판단/복구/재전송 58 + 신규 운영 13 = 115.
+CN7/RG3 종단 리허설: 초기 기준 -> 라벨 배치 -> watch/review -> 원인 확인 -> LR CT 후보 ->
+평가 보류/유지 -> 별도 통과 후보 평가 -> 승격 -> 롤백. 비라벨 추론도 확인.
+종단 CT의 부모 임계값 유지로 미달 후보가 유지되는 경로를 확인했다.
+기존 4종 CT는 기존 통합 테스트에 포함돼 있다. 신규 종단 테스트가 모든 모델 조합을 확인한 것은 아니다.
+실제 runtime과 기존 output/logistic의 실행 전후 SHA-256 동일.
+출처 보관본 및 LR 학습 구현은 유지했다. 선택 설정 재학습 재현이며 과거 240개 설정 전부의 재학습은 아니다.
+
+결과:
+output/test_runs/20261005T122351Z-c083a15f/summary.json
+output/test_runs/20261005T122351Z-c083a15f/test_workflow_runtime.py.log
+output/claude_review/checks_only_20261005T212349.json
+
+12. 실행 명령
+python run_checks_only.py
+python 03.modeling/pipeline_cli.py --dataset rg3 --state-root <격리폴더> batch-status --batch-id <ID>
+python 03.modeling/pipeline_cli.py --dataset rg3 --state-root <격리폴더> refresh-advice --batch-id <ID>
+python 03.modeling/pipeline_cli.py --dataset rg3 --state-root <격리폴더> resume-transition
+
+남은 외부 조건
+생산 시간순, 좌표 정합, 독립 실제 검사 라벨, 현장 검사 예산/허용 누락 합의 및 현장 성능은 확인되지 않았다.
+기능 구축·격리 인수 검증 통과를 실제 최적 모델 선정 또는 현장 성능 입증으로 제시하지 않는다.

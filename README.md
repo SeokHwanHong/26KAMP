@@ -1,5 +1,7 @@
 # CN7 · RG3 공정 데이터·모델·로컬 운영 파이프라인
 
+2026-10-05 운영 연결 보완: CLI와 운영 노트북은 `workflow_runtime.Operations`를 사용합니다. 안내 버전 고정·후속 감지 연결·공통 작업 잠금·모델/기준선 전환 복구·평가 재등록 이력을 추가했습니다. [현재 7단계 구성과 인수 기준](03.modeling/common/WORKFLOW_ACCEPTANCE.md)을 참고하세요. 검증은 `python run_checks_only.py`로 실행합니다.
+
 2026-10-03: 배치 추론·드리프트·모델별 CT·평가·승격/롤백의 로컬 실행 경로를 추가했습니다. [운영 가이드](03.modeling/common/OPERATIONS_GUIDE.txt), [운영 노트북](03.modeling/04_operations.ipynb), [로지스틱 실험 노트북](03.modeling/models/05_logistic_regression.ipynb)을 진입점으로 사용합니다. 실제 운영 모델은 이번 작업에서 교체하지 않았습니다.
 
 팀 공유 검증: `python 03.modeling/tests/run_checks.py`. [테스트 플로우](03.modeling/common/TEST_FLOW.txt)와 [Claude 전달 프롬프트](exports/Claude_KAMP_프로젝트학습_테스트_검토_프롬프트.txt)를 함께 참고하세요. 임시 파일에 의존하지 않는 정식 검증 진입점입니다.

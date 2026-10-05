@@ -1,0 +1,18 @@
+test_candidate_cannot_train_on_registered_eval (__main__.OperationsTests.test_candidate_cannot_train_on_registered_eval) ... ok
+test_cd_promotion_rollback_and_guidance (__main__.OperationsTests.test_cd_promotion_rollback_and_guidance) ... ok
+test_drift_persistence_and_ct_all_model_types (__main__.OperationsTests.test_drift_persistence_and_ct_all_model_types) ... ok
+test_evaluation_cannot_overlap_training (__main__.OperationsTests.test_evaluation_cannot_overlap_training) ... ok
+test_insufficient_labels_prevent_promotion (__main__.OperationsTests.test_insufficient_labels_prevent_promotion) ... ok
+test_insufficient_window_waits_and_does_not_consume (__main__.OperationsTests.test_insufficient_window_waits_and_does_not_consume) ... ok
+test_missing_risk_not_called_safe (__main__.OperationsTests.test_missing_risk_not_called_safe) ... ok
+test_model_tamper_rejected (__main__.OperationsTests.test_model_tamper_rejected) ... ok
+test_original_test_forced_historical (__main__.OperationsTests.test_original_test_forced_historical) ... ok
+test_preprocess_preserves_counts_and_conflicts (__main__.OperationsTests.test_preprocess_preserves_counts_and_conflicts) ... ok
+test_unaligned_unlabeled_held (__main__.OperationsTests.test_unaligned_unlabeled_held) ... ok
+test_unlabeled_ct_rejected (__main__.OperationsTests.test_unlabeled_ct_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 15.736s
+
+OK
+

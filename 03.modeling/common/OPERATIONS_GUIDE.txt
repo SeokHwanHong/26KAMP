@@ -11,6 +11,9 @@ KAMP 7단계 로컬 실행 가이드 — 2026-10-03
 03.modeling/models/05_logistic_regression.ipynb: 실행 결과 열람, 선택적으로 재학습.
 03.modeling/pipeline_cli.py: 명시적 로컬 운영 명령.
 03.modeling/common/pipeline_runtime.py: 공통 구현.
+03.modeling/common/workflow_runtime.py: 운영 API. 버전 고정·공통 잠금·후속 안내·전환 복구·평가 이력.
+새 운영 API는 from workflow_runtime import Operations로 가져온다.
+최신 7단계 연결·상태·한계: common/WORKFLOW_ACCEPTANCE.md
 
 프로젝트 루트에서 실행
 python 03.modeling/pipeline_cli.py --dataset rg3 status
@@ -26,6 +29,16 @@ python 03.modeling/pipeline_cli.py --dataset rg3 promote --assessment-id <통과
 python 03.modeling/pipeline_cli.py --dataset rg3 rollback --kind lr --reason <사유>
 python 03.modeling/pipeline_cli.py --dataset rg3 pending                       (감지·안내 미완료 배치)
 python 03.modeling/pipeline_cli.py --dataset rg3 resume --batch-id <배치ID>     (미완료 단계만 재실행)
+python 03.modeling/pipeline_cli.py --dataset rg3 baseline-status               (기준선이 운영 모델·파일과 맞는지, 읽기 전용)
+python 03.modeling/pipeline_cli.py --dataset rg3 reconcile-monitor             (감지 결과는 있는데 소비 장부에 빠진 윈도 복구)
+python 03.modeling/pipeline_cli.py --dataset rg3 batch-status --batch-id <배치ID>
+python 03.modeling/pipeline_cli.py --dataset rg3 refresh-advice --batch-id <배치ID>
+python 03.modeling/pipeline_cli.py --dataset rg3 resume-transition
+
+검사 실행기 (프로젝트 루트)
+run_checks_only.bat / run_checks_only.py   전체 검사만. 운영 runtime을 바꾸지 않음. 종료 코드 0 통과, 1 실패, 2 실행기 오류.
+                                            결과 output/claude_review/checks_only_<시각>.json, checks_only_latest.json
+run_20261005.bat / run_20261005_checks_and_rf.py   검사 후 RF가 없으면 실제 runtime에 RF 등록. 검수 목적으로는 쓰지 않음.
 
 꺾쇠 항목은 실제 값으로 교체한다. --state-root <별도경로>를 전역 인자로 주면 격리 저장소로 리허설한다.
 coordinates-confirmed는 운영자가 제공 좌표계/스케일 정합을 확인했다는 명시적 선언이다.
@@ -85,3 +98,9 @@ python 03.modeling/tests/test_registration_and_logistic.py
 python 03.modeling/tests/test_existing_ocsvm.py
 python 03.modeling/tests/audit_logistic_runs.py
 운영 통합 테스트는 합성 입력을 이용한 기술 검증이며 실제 공정 성능 검증이 아니다.
+
+재전송 근거 손상 보완 (2026-10-05 Codex)
+원장/처리 상태에 수집 이력이 있는데 manifest가 없거나 손상되면 rejected이며 재수집하지 않는다.
+신규 수집의 A/C 계약은 manifest에도 기록한다. 이전 기록에서 계약과 ID 색인 근거가 부족하면 rejected다.
+증거가 없는 이전 C 배치를 자동으로 C로 인정하거나 과거 파일을 자동 보정하지 않는다. 원천 계약 확인이 필요하다.
+다음 단계 Claude 요청: exports/Claude_다음단계_P1_구현요청_20261005.txt

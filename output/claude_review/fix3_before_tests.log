@@ -1,0 +1,422 @@
+test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) ... 
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='missing') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='directory') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='unreadable') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='changed') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_missing') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_json') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_type') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_files') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='patterns_changed') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='intact') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='missing') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='directory') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='unreadable') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='changed') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_missing') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_json') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_type') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_files') ... FAIL
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='patterns_changed') ... FAIL
+test_failure_context_survives_transition_and_resume (__main__.RecoveryTests.test_failure_context_survives_transition_and_resume) ... ERROR
+test_initial_context_survives_completion_and_waiting_refresh (__main__.RecoveryTests.test_initial_context_survives_completion_and_waiting_refresh) ... ERROR
+test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) ... 
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='advice_failed') ... FAIL
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='latest_advice_failed') ... FAIL
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='processing_evidence_missing') ... FAIL
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='reservation_pending') ... FAIL
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='unknown') ... FAIL
+test_normal_waiting_is_not_failure (__main__.RunnerTests.test_normal_waiting_is_not_failure) ... ERROR
+test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) ... 
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='valid') ... ERROR
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='invalid') ... FAIL
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='exception') ... FAIL
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='valid') ... ERROR
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='invalid') ... ERROR
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='exception') ... ERROR
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 89, in test_completed_resume_evidence_matrix
+    result=ops.resume(bid)
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 96, in resume
+    self._ready();return super().resume(batch_id)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 489, in resume
+    raise ValueError('���� ������ ������� ���� ��ġ: ���� batch_id�� ���� ������ �ٽ� ��������')
+ValueError: ���� ������ ������� ���� ��ġ: ���� batch_id�� ���� ������ �ٽ� ��������
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 89, in test_completed_resume_evidence_matrix
+    result=ops.resume(bid)
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 96, in resume
+    self._ready();return super().resume(batch_id)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 487, in resume
+    m=read(self.state/'batches'/batch_id/'manifest.json')
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 32, in read
+    def read(path, default=None): return json.loads(Path(path).read_text(encoding='utf-8')) if Path(path).exists() else default
+                                         ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\ProgramData\Anaconda3\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_type')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 89, in test_completed_resume_evidence_matrix
+    result=ops.resume(bid)
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 96, in resume
+    self._ready();return super().resume(batch_id)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 489, in resume
+    raise ValueError('���� ������ ������� ���� ��ġ: ���� batch_id�� ���� ������ �ٽ� ��������')
+ValueError: ���� ������ ������� ���� ��ġ: ���� batch_id�� ���� ������ �ٽ� ��������
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='intact')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 90, in test_completed_resume_evidence_matrix
+    if damage=='intact':self.assertEqual(result['processing']['retry'],'already_completed')
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'retry'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 89, in test_completed_resume_evidence_matrix
+    result=ops.resume(bid)
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 96, in resume
+    self._ready();return super().resume(batch_id)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 489, in resume
+    raise ValueError('���� ������ ������� ���� ��ġ: ���� batch_id�� ���� ������ �ٽ� ��������')
+ValueError: ���� ������ ������� ���� ��ġ: ���� batch_id�� ���� ������ �ٽ� ��������
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 89, in test_completed_resume_evidence_matrix
+    result=ops.resume(bid)
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 96, in resume
+    self._ready();return super().resume(batch_id)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 487, in resume
+    m=read(self.state/'batches'/batch_id/'manifest.json')
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 32, in read
+    def read(path, default=None): return json.loads(Path(path).read_text(encoding='utf-8')) if Path(path).exists() else default
+                                         ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\json\__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\ProgramData\Anaconda3\Lib\json\decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\json\decoder.py", line 361, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ~~~~~~~~~~~~~~^^^^^^^^
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_type')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 89, in test_completed_resume_evidence_matrix
+    result=ops.resume(bid)
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 96, in resume
+    self._ready();return super().resume(batch_id)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 489, in resume
+    raise ValueError('���� ������ ������� ���� ��ġ: ���� batch_id�� ���� ������ �ٽ� ��������')
+ValueError: ���� ������ ������� ���� ��ġ: ���� batch_id�� ���� ������ �ٽ� ��������
+
+======================================================================
+ERROR: test_failure_context_survives_transition_and_resume (__main__.RecoveryTests.test_failure_context_survives_transition_and_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 116, in test_failure_context_survives_transition_and_resume
+    self.assertEqual(before['advice_context']['versions']['lr'],old)
+                     ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'advice_context'
+
+======================================================================
+ERROR: test_initial_context_survives_completion_and_waiting_refresh (__main__.RecoveryTests.test_initial_context_survives_completion_and_waiting_refresh)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 99, in test_initial_context_survives_completion_and_waiting_refresh
+    initial=read(ops._processing_path('W'))['advice_context']
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'advice_context'
+
+======================================================================
+ERROR: test_normal_waiting_is_not_failure (__main__.RunnerTests.test_normal_waiting_is_not_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 50, in test_normal_waiting_is_not_failure
+    self.assertTrue(result['runtime_validation']['passed'])
+                    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'runtime_validation'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='valid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 45, in test_regression_and_runtime_exit_matrix
+    self.assertEqual(result['runtime_validation']['passed'],baseline=='valid')
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'runtime_validation'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='valid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 45, in test_regression_and_runtime_exit_matrix
+    self.assertEqual(result['runtime_validation']['passed'],baseline=='valid')
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'runtime_validation'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 45, in test_regression_and_runtime_exit_matrix
+    self.assertEqual(result['runtime_validation']['passed'],baseline=='valid')
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'runtime_validation'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='exception')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 45, in test_regression_and_runtime_exit_matrix
+    self.assertEqual(result['runtime_validation']['passed'],baseline=='valid')
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'runtime_validation'
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='directory')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='unreadable')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_files')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='patterns_changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='directory')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='unreadable')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_files')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='patterns_changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 91, in test_completed_resume_evidence_matrix
+    else:self.assertEqual(result['status'],'rejected')
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'accepted' != 'rejected'
+- accepted
++ rejected
+
+
+======================================================================
+FAIL: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='advice_failed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 56, in test_failed_and_unknown_pending_are_not_success
+    self.assertEqual(code,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='latest_advice_failed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 56, in test_failed_and_unknown_pending_are_not_success
+    self.assertEqual(code,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='processing_evidence_missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 56, in test_failed_and_unknown_pending_are_not_success
+    self.assertEqual(code,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='reservation_pending')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 56, in test_failed_and_unknown_pending_are_not_success
+    self.assertEqual(code,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='unknown')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 56, in test_failed_and_unknown_pending_are_not_success
+    self.assertEqual(code,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 43, in test_regression_and_runtime_exit_matrix
+    self.assertEqual(code,expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='exception')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 43, in test_regression_and_runtime_exit_matrix
+    self.assertEqual(code,expected)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 6 tests in 7.413s
+
+FAILED (failures=19, errors=14)

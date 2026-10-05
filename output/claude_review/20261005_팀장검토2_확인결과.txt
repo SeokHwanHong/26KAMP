@@ -1,0 +1,51 @@
+KAMP 팀장 검토 2차(변경사항 중심 통계·논리·흐름, 2026-10-05 개정) — Claude 확인 결과
+대상: 현재 D:\workspace\kamp (Claude 3차 수정 반영, PC 전체 검사 81회 통과 상태)
+작업: 확인만 함. 소스·운영 모델 변경 없음. 수정은 Codex 방향성·프롬프트 받은 뒤 진행.
+
+[한 줄 요약]
+팀장님 결론에 동의. 1~3차 수정 방향(예약, exact_k, pending, 캐시 서명, 평가 해시)은 적절하다고 평가받았고,
+새로 재현된 결함 3건(R01~R03)은 모두 코드에서 사실로 확인됨. 나머지 정적 지적도 코드 구조상 맞음.
+
+[재현 결함 — 코드 대조 결과]
+R01 감지 기록과 소비 장부(monitor.json) 불일치 — 확인
+  pipeline_runtime.detect(): drift/<ID>.json 저장(449행) 후 monitor.json 기록(450~451행).
+  그 사이 실패 → 내 resume는 남은 drift 기록을 찾아 재사용(_drift_containing)하지만 consumed/history는 복구 안 함
+  → 다음 감지에 같은 배치가 다시 포함(재현: 다음 윈도 [M1, M2]). 연속 경보 횟수가 부풀 수 있음.
+  수정 방향: resume에서 drift ID 기준으로 consumed/history를 한 번만 복구(중복 추가 금지).
+            pipeline_runtime 수정 금지 원칙이 있어 decision_runtime에서 처리하는 방식 검토 필요.
+
+R02 완료된 배치를 같은 ID로 제품 ID만 바꿔 재전송 → already_completed — 확인
+  _retry(): 완료 배치는 content_sha256만 비교. 내용 해시는 제품 ID를 포함하지 않음.
+  예약 단계의 ID 비교는 완료 시 예약이 삭제되면서 사라짐.
+  수정 방향: 최초 "제품 ID-입력-라벨" 연결 해시를 processing에 고정, 모든 재시도에서 비교.
+            행 순서만 다른 재전송 → already_completed, ID·연결 변경 → conflict. 라벨 정정은 별도 경로.
+
+R03 all_ties의 검사량 비교 — 확인
+  all_ties는 flagged가 k를 넘는데 found_TP만 비교, capture_of_reachable=found_TP/min(k,위험수)
+  → 예시 k=1, flagged=10, found_TP=5, capture=5.0(1을 넘음). 동일 검사량 비교가 아님.
+  수정 방향: 모델 선정·승격 평가는 exact_k로 제한(all_ties면 거부 또는 참고 표시만),
+            all_ties 유지 시 실제 검사량을 포함한 별도 비용 계약. 후보별 flagged 함께 기록.
+
+[정적 지적 — 코드 구조상 맞음]
+- waiting(pending) 안내는 이후 윈도가 review가 돼도 자동 갱신 안 됨 → 배치↔감지 윈도 연결·안내 최신성 표시 필요
+- 안내 재개 시 버전: CN7은 현재 active RF, RG3는 현재 baseline 사용 → 실패 후 승격하고 재개하면 최초 추론과 버전 불일치
+- detect·promote·rollback 별도 명령은 ingest 잠금 범위 밖 → 잠금 순서·직렬화 범위 정의 필요
+- 실행기(run_20261005_checks_and_rf.py) 실패해도 프로세스 종료 코드 0, RF는 존재만 확인하고 baseline 유효성 미확인
+- 평가: CSV에서 fingerprint 재계산해 manifest 목록과 대조 안 함, 재등록 시 이전 ID·사용 이력 연결 없음
+- 승격/롤백 후 기준선 생성 실패 시 복구 절차 없음
+- 제품 ID 없는 동일 내용 보류는 안전장치일 뿐 → batch/event ID·제품 ID를 필수 계약으로, 내용 해시는 보조
+
+[팀장 우선순위 (그대로)]
+P0: 생산/event ID 계약, R01 감지 소비 장부 복구, R02 완료 재시도 보호
+P1: 안내 버전 고정·waiting 후속 연결, exact_k 운영 예산 합의·all_ties 제한, 승격/롤백 기준선 실패 복구
+P2: 평가 지문 재계산·재등록 이력, 실행기 종료 코드·의존성 고정
+최종: CN7/RG3 격리 state-root 종단 리허설(장애·재개 포함)
+
+[문서 표현 보완 요청]
+- "선택과 평가 완전히 일치" → "기본 exact_k의 선택 규칙 일치"로 한정
+- "모델·학습 결과 불변" → 기존 학습 구현 유지와 신규 RF 운영 추가를 구분
+- 테스트 통과를 현장 검증이나 남은 장애 경로 해결로 확대 해석하지 않음
+
+[참고]
+팀장 독립 실행 환경: Python 3.11.2, numpy 1.24.2, pandas 1.5.3, sklearn 1.2.1 (의사결정 테스트 37개 통과)
+확인 소스 커밋: 013a948

@@ -7,8 +7,9 @@ KAMP 팀 공유 테스트 플로우
 
 2. 한 번에 검증
 python 03.modeling/tests/run_checks.py
+(또는 프로젝트 루트 run_checks_only.bat 더블클릭: 운영 runtime 변경 없음, 종료 코드·버전·해시 기록)
 결과: output/test_runs/<고유실행ID>/summary.json 및 단계별 로그.
-81회 테스트와 LR 저장 결과 재검산을 실행한다. 테스트 산출물은 output/operations_tests/<같은 실행ID>/에 분리 저장된다. 전체 LR 탐색이나 운영 교체는 하지 않는다.
+테스트 수는 실제 실행 출력에서 집계하고 LR 저장 결과도 재검산한다. 테스트 산출물은 output/operations_tests/<같은 실행ID>/에 분리 저장된다. 전체 LR 탐색이나 운영 교체는 하지 않는다.
 runtime_unchanged=true인지 확인한다. 한 단계라도 실패하면 전체 passed=false다.
 
 3. 내부 순서
@@ -23,7 +24,13 @@ E. test_decision_runtime.py: CN7 RF 검사 예산·RG3 불확실 단계·배치 
    + 팀장 검토 F01~F07 회귀 11개(행 순서 재전송, 감지/안내 실패 후 재시도, 동시 수집 잠금, 판단 대기,
    동점 규칙, 경보선 캐시 정책, 평가 용도 기록 변경)
    + Codex 검수 추가 7개(수집 확정 도중 실패 4종 복구·중복 차단, 실행·평가 동점 선택 일치, 검사 비율 0% 거부)
-   + Codex 2차 검수 2개(중단된 예약 배치에 같은 ID로 다른 자료 재전송 차단). 37개.
+   + Codex 2차 검수 2개(중단된 예약 배치에 같은 ID로 다른 자료 재전송 차단)
+   + 팀장 2차 검토 1차 작업 12개(R01 감지 소비 장부 장애 4종·경보 정책별 streak, R02 완료 배치 연결 보호·ID 없는 경로·새 생산,
+     R03 all_ties 선정·승격 차단, 작은 배치 exact_k, 읽기 전용 기준선 상태)
+   + 1차 Codex 검수 보완 2개(연결 해시 없는 기존 완료 배치를 저장 제품 파일로 검증, A 계약 ID 결측·빈 값·자료형 거부)
+   + 재전송 비교 조합 표 3개(ID 출처 4 × 재전송 7 × 단계 3, 이전 형식 기록, 증거 파일 상태 4종: 하위 사례 104개). 54개.
+   LR 감사(D)는 pipeline_runtime.py가 바뀐 경우 provenance 보관본으로 출처를 확인하고 학습 경로 정의 동일성을 검사한다.
+   또 선택된 설정을 현재 코드(노트북 학습 정의 포함)로 다시 학습해 저장 모델과 예측을 비교한다(탐색 전체 재현은 아님).
 
 4. 전체 모델링 학습을 다시 재현해야 할 때
 python 03.modeling/models/logistic_regression.py --dataset both
@@ -46,3 +53,15 @@ python 03.modeling/models/logistic_regression.py --dataset both
 7. Claude 전달
 exports/Claude_KAMP_프로젝트학습_테스트_검토_프롬프트.txt와 최신 프로젝트 ZIP을 함께 전달한다.
 설명만 전달하고 소스가 없는 경우 실제 구현을 검토한 것으로 인정하지 않는다.
+
+2026-10-05 Codex 운영 연결 보완
+test_workflow_runtime.py가 안내 버전 고정·후속 안내·프로세스/스레드 경쟁·전환 장애 복구·평가 재등록과 종단 흐름을 검증한다.
+python 03.modeling/tests/test_workflow_runtime.py
+새 운영 API: workflow_runtime.Operations. 상세 명령·검증 한계는 common/WORKFLOW_ACCEPTANCE.md 참고.
+전체 검증 스크립트는 실제 테스트 수를 집계하며 실행 결과는 새 run_id에 저장한다.
+2026-10-05 재검토 3건 추가:
+- test_recheck_fixes.py: 회귀 성공/실패 × 운영 기준선 정상/오류/조회 예외, 정상 대기와 복구 필요 상태 검증.
+- 완료 resume: A/C 계약 × 제품 파일 누락/디렉터리/읽기 실패/해시 변경/manifest 손상 및 패턴 파일 변경을 격리 검증.
+- 최초 advice_context: 완료/실패/모델 교체 후 재개/후속 waiting 안내 갱신에서 출처와 이력 보존.
+- run_checks_only 종료 코드에는 운영 준비 상태도 반영된다. 회귀 통과 + RG3 기준선 부재이면 회귀 결과 passed=true,
+  runtime_validation.passed=false, 최종 종료 코드 1이 기대 동작이다. 실제 운영 상태는 검사에서 변경하지 않는다.

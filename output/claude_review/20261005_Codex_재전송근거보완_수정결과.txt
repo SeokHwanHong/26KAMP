@@ -1,0 +1,39 @@
+2026-10-05 Codex 재전송 근거 보완
+
+구현
+1. accepted manifest 누락/손상 + 원장 또는 processing 수집 이력이 있으면 rejected.
+   기존 자료를 보관 폴더로 옮겨 다시 수집하지 않으며 동일 batch_id 원장 중복을 방지한다.
+2. 신규 수집 ID 계약은 수집 manifest에도 기록한다. processing 계약 유실 시 manifest를 확인한다.
+3. 실제 이전 기록에서 계약 정보가 없으면 모든 저장 제품 ID가 해당 배치로 등록돼 있어야 A로 확인한다.
+   색인 누락·부분 누락·JSON 손상·잘못된 형식은 rejected. 미등록을 C로 간주하지 않는다.
+4. 이전 C 자료의 계약 근거가 없는 경우는 원천 확인이 필요하다. 자동 이관/기록 수정은 수행하지 않았다.
+5. 테스트 집계는 실제 실행 출력으로 계산한다.
+
+검증
+run_checks_only.py 종료 코드 0.
+운영 12 + 등록/LR 8 + 기존 OCSVM 24 + 판단/복구/재전송 58 = 102개 테스트 통과.
+저장 CN7/RG3 LR 감사 및 선택 설정 재학습 재현 통과.
+ResendMatrixTests: 7개 메서드, 226개 하위 조합. 전체 데카르트 곱을 완전히 검사했다는 뜻은 아니다.
+일반 115, 이전 기록 23, 제품 파일 오류 20, manifest 손상 32, 이전 계약 근거 손상 20,
+기록 유실 후 manifest 계약 확인 4, 라벨 존재/같은 패턴 라벨 교환 12개 조합이다.
+허용/거부 응답뿐 아니라 원장 횟수, 완료 재시도, 거부 시 배치 파일 보존을 확인한다.
+다음 P1 단계의 버전·안내·모델 전환 종단 검증 완료를 의미하지 않는다.
+
+결과 파일
+output/test_runs/20261005T120058Z-9b384db6/summary.json
+output/claude_review/checks_only_20261005T210057.json
+실제 runtime과 기존 output/logistic 파일들의 실행 전후 SHA-256 동일.
+원본 데이터·학습 분할·모델 학습 구현·과거 LR 결과를 변경하지 않았다.
+
+수정 파일
+03.modeling/common/decision_runtime.py
+03.modeling/tests/test_decision_runtime.py
+03.modeling/tests/run_checks.py
+03.modeling/common/DATASET_DECISION_POLICY.txt
+03.modeling/common/OPERATIONS_GUIDE.txt
+03.modeling/common/TEST_FLOW.txt
+
+다음 Claude 요청
+exports/Claude_다음단계_P1_구현요청_20261005.txt
+P1-1 안내 근거 버전 고정, P1-2 waiting 후속 연결, P1-3 모델/기준선 전환 복구·동시 명령.
+직접 Claude에 메시지를 전송하지 않았으며, 사용자가 전달할 프롬프트를 준비했다.

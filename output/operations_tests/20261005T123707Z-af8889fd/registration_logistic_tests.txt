@@ -1,0 +1,13 @@
+test_changed_model_after_audit_rejected (__main__.RegistrationAndLogisticTests.test_changed_model_after_audit_rejected) ... ok
+test_domain_normal_reference_alltrain_final_scaler (__main__.RegistrationAndLogisticTests.test_domain_normal_reference_alltrain_final_scaler) ... ok
+test_lr_all_training_rows_scaler (__main__.RegistrationAndLogisticTests.test_lr_all_training_rows_scaler) ... ok
+test_matching_hash_but_inconsistent_threshold_rejected (__main__.RegistrationAndLogisticTests.test_matching_hash_but_inconsistent_threshold_rejected) ... ok
+test_notebook_lr_code_matches_script (__main__.RegistrationAndLogisticTests.test_notebook_lr_code_matches_script) ... ok
+test_saved_threshold_matches_strict_rule (__main__.RegistrationAndLogisticTests.test_saved_threshold_matches_strict_rule) ... ok
+test_stale_split_rejected (__main__.RegistrationAndLogisticTests.test_stale_split_rejected) ... ok
+test_unchanged_audit_bound_artifact_registers (__main__.RegistrationAndLogisticTests.test_unchanged_audit_bound_artifact_registers) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.647s
+
+OK

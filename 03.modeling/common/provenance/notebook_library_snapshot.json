@@ -1,0 +1,7 @@
+{
+  "notebook": "03.modeling/models/ocsvm.ipynb",
+  "cells": "code cells tagged pipeline_library (joined, each + newline)",
+  "library_code_sha256": "37df683b491f268d24207f4cc535a82a4e81207d340e005e639eabc25e4731cc",
+  "taken_at": "2026-10-05",
+  "note": "LR 실행(2026-10-03)은 이 노트북 학습 정의(fit_features·transform_features·rank_candidates·load_data)의 해시를 기록하지 않았다. 이 스냅샷은 실행 당시 기록이 아니라 2026-10-05 기준값이며, 이후 변경 탐지용이다. 실행 당시와의 동일성은 audit의 선택 설정 재학습 재현(저장 모델과 예측 비교)으로 확인한다."
+}

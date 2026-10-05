@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent/'common'))
 from pipeline_runtime import data,fit_oneclass,fit_supervised
-from decision_runtime import Operations
+from workflow_runtime import Operations
 import pandas as pd
 
 
@@ -25,6 +25,11 @@ def main():
     sub=p.add_subparsers(dest='action',required=True)
     sub.add_parser('status');sub.add_parser('baseline');sub.add_parser('drift')
     sub.add_parser('pending',help='수집은 됐지만 감지·안내가 끝나지 않은 배치 목록')
+    sub.add_parser('baseline-status',help='현재 기준선이 운영 모델·파일과 맞는지 읽기 전용 확인')
+    sub.add_parser('reconcile-monitor',help='감지 기록은 있는데 소비 장부에 빠진 윈도를 한 번만 반영')
+    sub.add_parser('resume-transition',help='미완료 모델/기준선 전환 재개')
+    status=sub.add_parser('batch-status',help='배치 처리 상태·최신 감지·안내 이력 조회');status.add_argument('--batch-id',required=True)
+    refresh=sub.add_parser('refresh-advice',help='실패한 후속 윈도 안내 갱신 재개');refresh.add_argument('--batch-id',required=True)
     resume=sub.add_parser('resume',help='수집 완료 배치의 미완료 단계(감지·안내)만 다시 실행');resume.add_argument('--batch-id',required=True)
     initial=sub.add_parser('initial');initial.add_argument('--kind',choices=['if','lr','rf'],required=True)
     activate=sub.add_parser('initialize');activate.add_argument('--version',required=True);activate.add_argument('--reason',required=True)
@@ -38,7 +43,7 @@ def main():
     select=sub.add_parser('select-cn7');select.add_argument('--candidates',nargs=3,required=True);select.add_argument('--evaluation-id',required=True)
     deploy=sub.add_parser('promote');deploy.add_argument('--assessment-id',required=True)
     unlock=sub.add_parser('unlock');unlock.add_argument('--reason',required=True);unlock.add_argument('--force',action='store_true')
-    unlock.add_argument('--lock',choices=['writer','ingest'],default='writer',help='해제할 잠금(기본 writer)')
+    unlock.add_argument('--lock',choices=['writer','ingest','operation'],default='writer',help='해제할 잠금(기본 writer)')
     undo=sub.add_parser('rollback');undo.add_argument('--kind',choices=['if','ocsvm','lr','rf'],required=True);undo.add_argument('--reason',required=True)
     a=p.parse_args()
     if not all(0<=v<=1 for v in [a.min_recall,a.min_precision,a.max_fpr,a.inspection_fraction,a.min_budget_capture]):p.error('성능 기준은 0~1이어야 합니다')
@@ -50,6 +55,11 @@ def main():
     elif a.action=='baseline':result=ops.create_baseline()
     elif a.action=='drift':result=ops.detect()
     elif a.action=='pending':result=ops.pending_batches()
+    elif a.action=='baseline-status':result=ops.baseline_status()
+    elif a.action=='reconcile-monitor':result=dict(applied_drift_ids=ops.reconcile_monitor())
+    elif a.action=='resume-transition':result=dict(version=ops.resume_transition())
+    elif a.action=='batch-status':result=ops.batch_status(a.batch_id)
+    elif a.action=='refresh-advice':result=ops.refresh_advice(a.batch_id)
     elif a.action=='resume':result=ops.resume(a.batch_id)
     elif a.action=='initialize':result=ops.initialize(a.version,a.reason)
     elif a.action=='initial':

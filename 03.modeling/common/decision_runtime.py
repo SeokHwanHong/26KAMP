@@ -27,6 +27,7 @@
 - Drift calibration cache tied to quantile/repeats/baseline/code; evaluation purpose record hashed.
 """
 import math
+import re
 import hashlib
 import json
 import os
@@ -34,6 +35,7 @@ import shutil
 import socket
 import time
 from contextlib import contextmanager
+from pathlib import Path
 import numpy as np
 import pandas as pd
 from pipeline_runtime import (Operations as BaseOperations, range_guidance, write_guidance,
@@ -193,11 +195,44 @@ def budget_metrics(y,scores,fraction,rule='exact_k',fingerprints=None):
     y=np.asarray(y).astype(int);s=np.asarray(scores,float)
     flag,_,k,cutoff,ties=budget_flags(s,fraction,None,rule,fingerprints)
     found=int(y[flag].sum());ref=topk(y,s,fraction)
-    return dict(k=k,positives=int(y.sum()),flagged=int(flag.sum()),found_TP=found,
+    flagged=int(flag.sum())
+    return dict(k=k,positives=int(y.sum()),flagged=flagged,inspected=flagged,over_budget=flagged-k,found_TP=found,
+                reference_only=rule!='exact_k',
                 tie_rule=rule,tie_break=ties['tie_break'],tied_at_cutoff=ties['tied_at_cutoff'],
                 ties_cut=ties['ties_cut'],unit='unique_pattern',
                 random_tie_expected_TP=ref['expected_TP'],random_tie_min_TP=ref['min_TP'],random_tie_max_TP=ref['max_TP'],
-                note='판정은 found_TP(실제 선택 규칙과 동일). random_tie_*는 동점을 무작위로 고를 때의 참고값')
+                note=('판정은 found_TP(실제 선택 규칙과 동일). random_tie_*는 동점을 무작위로 고를 때의 참고값. '
+                      'all_ties는 실제 검사 수가 후보마다 달라 동일 검사량 비교가 아니므로 참고 전용'))
+
+
+class ProductIdError(ValueError):
+    """Explicit product ID column present but values are not valid production identifiers (contract A)."""
+
+
+ID_COLUMNS=('record_id','product_id')
+
+
+def validate_product_ids(frame):
+    """Contract A: if record_id/product_id exists, every value must be a usable production ID.
+    Returns the column used (record_id preferred, same as preprocess) or None (contract C)."""
+    col=next((c for c in ID_COLUMNS if c in frame),None)
+    if col is None:return None
+    bad=[]
+    for i,v in enumerate(frame[col].tolist()):
+        if v is None or isinstance(v,(bool,np.bool_)) or (isinstance(v,float) and not math.isfinite(v)):
+            bad.append((i,'결측'));continue
+        if isinstance(v,(float,np.floating)):
+            bad.append((i,'실수형(정수·문자 ID만 허용)'));continue
+        if not isinstance(v,(str,int,np.integer)):
+            bad.append((i,f'허용하지 않는 자료형 {type(v).__name__}'));continue
+        text=str(v)
+        if not text.strip():bad.append((i,'빈 값'))
+        elif text!=text.strip():bad.append((i,'앞뒤 공백'))
+    if bad:
+        head=', '.join(f'{i}행 {why}' for i,why in bad[:5])
+        raise ProductIdError(f'{col} 열이 있으나 유효한 생산 제품 ID가 아님({len(bad)}건: {head}). '
+                             'ID 열을 고치거나, 생산 ID가 없는 자료면 ID 열 없이 보내세요(내용 기반 중복 의심 경로).')
+    return col
 
 
 class LockHeld(FileExistsError):
@@ -280,14 +315,24 @@ class Operations(BaseOperations):
         Content = per-pattern summary (fingerprint, product/normal/defect counts, max label), so a
         re-sent file with reordered rows gives the same key. Row order and pandas row numbers are ignored.
         """
+        validate_product_ids(frame)
         products,patterns=preprocess(frame,batch_id,label_source)
         cols=['fingerprint','product_count']+[c for c in ('label','normal_count','defect_count') if c in patterns]
         body=patterns[cols].sort_values('fingerprint',kind='stable').reset_index(drop=True)
         content=hashlib.sha256(body.to_csv(index=False,lineterminator='\n').encode('utf-8')).hexdigest()
-        # Only explicit product identifiers are compared across batches. 'Unnamed: 0' is often a
-        # per-file pandas row index (0..n-1) and would falsely collide between unrelated batches.
-        explicit=any(c in frame for c in ['record_id','product_id'])
-        return content,(set(products.record_id) if explicit else set()),explicit
+        # Product ID contract (2026-10-05, A + C):
+        #  A) record_id/product_id present -> production product ID, unique within the dataset (cn7/rg3),
+        #     issued by the source system. Primary evidence for duplicates and for the product-input-label link.
+        #  C) absent -> compatibility path: internal '<batch_id>:<row>' ids are NOT compared across batches;
+        #     duplicates can only be suspected from content. 'Unnamed: 0' is a per-file row number, never an ID.
+        explicit=any(c in frame for c in ID_COLUMNS)
+        link=None
+        if explicit:
+            label=products['label'].astype(str) if 'label' in products else pd.Series(['NA']*len(products))
+            rows=pd.DataFrame(dict(id=products.record_id.astype(str),fp=products.fingerprint,label=label.to_numpy()))
+            rows=rows.sort_values(['id','fp','label'],kind='stable').reset_index(drop=True)
+            link=hashlib.sha256(rows.to_csv(index=False,lineterminator='\n').encode('utf-8')).hexdigest()
+        return content,(set(products.record_id) if explicit else set()),explicit,link
 
     def _held(self,batch_id,reason):
         folder=self.state/'batches'/batch_id
@@ -303,10 +348,10 @@ class Operations(BaseOperations):
     def _duplicate_check(self,key,index,batch_id=None):
         """Return (held_reason or None, note or None). IDs first; content is the fallback evidence.
         Entries reserved by this same batch_id (an earlier interrupted attempt) are not duplicates."""
-        content,ids,explicit=key
+        content,ids,explicit=key[:3]
         same=index['content'].get(content)
         if same==batch_id:same=None
-        reused=sorted(i for i in ids if index['ids'].get(i) not in (None,batch_id))
+        reused=sorted(str(i) for i in ids if index['ids'].get(i) not in (None,batch_id))
         if reused:
             head='이미 수집한 배치와 동일한 내용, ' if same else ''
             return f"{head}이전 배치와 제품 ID 중복 {len(reused)}건: {index['ids'][reused[0]]}",None
@@ -329,7 +374,8 @@ class Operations(BaseOperations):
             index=self._index()
             index['content'].setdefault(key[0],batch_id)
             index['ids'].update({i:batch_id for i in key[1]})
-            index['reservations'][batch_id]=dict(content_sha256=key[0],ids=sorted(key[1]),note=note,reserved_at=now())
+            index['reservations'][batch_id]=dict(content_sha256=key[0],ids=sorted(map(str,key[1])),link_sha256=key[3],
+                id_mode='explicit_product_id' if key[2] else 'no_product_id_compat',note=note,reserved_at=now())
             write(self.state/'dedup_index.json',index)
 
     def _release(self,batch_id):
@@ -342,42 +388,78 @@ class Operations(BaseOperations):
                     if index['ids'].get(i)==batch_id:index['ids'].pop(i)
             write(self.state/'dedup_index.json',index)
 
+    @staticmethod
+    def _conflict(batch_id,reason):
+        return dict(id=batch_id,status='conflict',reason=reason)
+
+    LINK_CONFLICT=('제품 ID·입력·라벨 연결이 최초 수집과 다릅니다(제품 ID 교체, ID별 입력·라벨 변경, 라벨 정정 포함). '
+                   '기존 배치는 그대로 두었습니다. 같은 자료의 재전송만 허용합니다. 새 생산은 새 batch_id로 보내고, '
+                   '라벨 정정은 재전송으로 처리하지 않습니다(별도 정정 절차 필요, 현재 미구현).')
+
     def _reservation_conflict(self,batch_id,key):
         """Same batch_id re-sent while its reservation is still open: content and product IDs must match.
         Otherwise refuse and keep the reservation (the old products were never collected, the new ones
         must not inherit or overwrite their IDs)."""
         reservation=self._index()['reservations'].get(batch_id)
-        if not reservation or not key:return None
-        if key[0]==reservation['content_sha256'] and sorted(key[1])==sorted(reservation['ids']):return None
+        if not reservation:return None
+        if not key:return None   # base ingest will hold it (coordinates/input); reservation stays as is
+        if (key[0]==reservation['content_sha256'] and sorted(map(str,key[1]))==sorted(map(str,reservation['ids']))
+                and key[3]==reservation.get('link_sha256')):return None
         return dict(id=batch_id,status='conflict',reservation_kept=True,
-            reason=('이 batch_id는 이전 시도가 중단돼 다른 내용(제품 ID)으로 예약돼 있습니다. 기존 예약은 그대로 두었습니다. '
+            reason=('이 batch_id는 이전 시도가 중단돼 다른 내용·제품 ID·연결로 예약돼 있습니다. 기존 예약은 그대로 두었습니다. '
                     '이전 파일을 같은 batch_id로 다시 보내 마무리하거나, 새 자료는 새 batch_id로 보내세요.'))
 
-    def _commit(self,batch_id,content_sha,note):
+    def _commit(self,batch_id,content_sha,note,link=None,id_mode=None):
         """Commit point after the base stored files + ledger: processing state first, then clear the reservation."""
         with self.lock():
+            manifest_path=self.state/'batches'/batch_id/'manifest.json'
+            manifest=read(manifest_path)
+            if id_mode and 'id_mode' not in manifest:
+                manifest['id_mode']=id_mode
+                write(manifest_path,manifest)
             ledger=read(self.state/'batch_ledger.json',{'batches':[]})
             if batch_id not in ledger['batches']:          # base stored manifest but the ledger write failed
                 ledger['batches'].append(batch_id);write(self.state/'batch_ledger.json',ledger)
             if not self._processing_path(batch_id).exists():
                 write(self._processing_path(batch_id),dict(batch_id=batch_id,stage='drift_pending',
-                    content_sha256=content_sha,committed_at=now(),duplicate_note=note,attempts=[]))
+                    content_sha256=content_sha,link_sha256=link,id_mode=id_mode,committed_at=now(),
+                    duplicate_note=note,attempts=[]))
             index=self._index()
             if index['reservations'].pop(batch_id,None) is not None:write(self.state/'dedup_index.json',index)
 
     def ingest(self,frame,batch_id=None,label_source=None,coordinates_confirmed=False):
         batch_id=clean_id(batch_id or new_id('batch'))
         with self._exclusive('ingest'):
-            key=None
-            if coordinates_confirmed:
-                try:key=self._dedup_key(frame,batch_id,label_source)
-                except (ValueError,TypeError,KeyError):key=None   # base ingest records the precise hold reason
+            key=None;key_error='coordinates_confirmed 없음(좌표·스케일 정합 미확인)';id_error=None
+            try:validate_product_ids(frame)
+            except ProductIdError as exc:id_error=str(exc)
+            if coordinates_confirmed and not id_error:
+                try:key=self._dedup_key(frame,batch_id,label_source);key_error=None
+                except (ValueError,TypeError,KeyError) as exc:key_error=str(exc)   # base ingest records the hold reason
+            if id_error:key_error=id_error
             folder=self.state/'batches'/batch_id
-            if folder.exists() and read(folder/'manifest.json',{}).get('status')=='accepted':
-                return self._retry(batch_id,key)
+            try:
+                previous=read(folder/'manifest.json',{}) if folder.exists() else {}
+                if not isinstance(previous,dict):raise ValueError('배치 manifest 형식 오류')
+                registered=batch_id in read(self.state/'batch_ledger.json',{'batches':[]})['batches']
+                if previous.get('status')!='accepted' and (registered or self._processing_path(batch_id).exists()):
+                    raise ValueError('수집 이력이 있으나 accepted manifest가 없거나 손상됨')
+            except (ValueError,OSError,TypeError,KeyError) as exc:
+                return dict(id=batch_id,status='rejected',reason=f'기존 수집 근거를 검증할 수 없습니다({exc}). 재수집하지 않았습니다.')
+            if previous.get('status')=='accepted':
+                if key is None:
+                    # Never answer 'already completed / resumed' for a re-sent file that could not be compared.
+                    return dict(id=batch_id,status='rejected',
+                        reason=f'이미 수집된 batch_id의 재전송 자료를 검증할 수 없어 비교하지 않았습니다({key_error}). '
+                               '기존 배치는 그대로입니다. 미완료 단계 재개는 resume 명령을 쓰세요.')
+                return self._retry(batch_id,key,frame)
             # A reservation left by an interrupted attempt belongs to that exact content and those product IDs.
             conflict=self._reservation_conflict(batch_id,key)
             if conflict:return conflict
+            if id_error:
+                if folder.exists() or self._index()['reservations'].get(batch_id):
+                    return dict(id=batch_id,status='rejected',reason=id_error)   # keep the earlier attempt untouched
+                return self._held(batch_id,id_error)
             if folder.exists():
                 # Nothing was committed (held or interrupted before the manifest): archive and process again.
                 archive=self.state/'held_archive'/f"{batch_id}-{datetime_stamp()}"
@@ -394,7 +476,8 @@ class Operations(BaseOperations):
                 if key:self._release(batch_id)
                 return result
             result.pop('drift',None)
-            self._commit(batch_id,key[0] if key else None,note)
+            self._commit(batch_id,key[0] if key else None,note,key[3] if key else None,
+                         ('explicit_product_id' if key[2] else 'no_product_id_compat') if key else None)
             if note:result['duplicate_note']=note
             return self._finish(result)
 
@@ -402,10 +485,25 @@ class Operations(BaseOperations):
         """Re-run unfinished stages of an accepted batch (incl. an interrupted commit). Never re-stores it."""
         batch_id=clean_id(batch_id)
         with self._exclusive('ingest'):
-            m=read(self.state/'batches'/batch_id/'manifest.json')
-            if not m or m.get('status')!='accepted':
-                raise ValueError('수집 파일이 저장되지 않은 배치: 같은 batch_id로 원본 파일을 다시 보내세요')
+            try:
+                m=read(self.state/'batches'/batch_id/'manifest.json')
+                if not isinstance(m,dict) or m.get('status')!='accepted':
+                    raise ValueError('수집 완료 manifest 근거 없음')
+            except (ValueError,OSError) as exc:
+                return dict(id=batch_id,status='rejected',reason=f'저장 배치 근거를 검증할 수 없어 재개 거부: {exc}')
             return self._retry(batch_id,None)
+
+    def baseline_status(self):
+        """Read-only check: current baseline exists, matches active model versions, files unchanged.
+        Never creates a baseline (unlike baseline())."""
+        reasons=[];pointer=read(self.state/'baseline_pointer.json')
+        if not pointer:return dict(valid=False,reasons=['기준선 포인터 없음'],active=self.active())
+        folder=self.state/'baselines'/pointer['id'];m=read(folder/'manifest.json')
+        if not m:return dict(valid=False,baseline=pointer['id'],reasons=['기준선 manifest 없음'],active=self.active())
+        if m['versions']!=self.active():reasons.append('기준선 모델 버전이 현재 운영 모델과 다름')
+        for name,key in [('reference_products.csv','reference_sha256'),('reference_patterns.csv','patterns_sha256')]:
+            if not (folder/name).exists() or digest(folder/name)!=m[key]:reasons.append(f'{name} 해시 불일치')
+        return dict(valid=not reasons,baseline=pointer['id'],versions=m['versions'],active=self.active(),reasons=reasons)
 
     def pending_batches(self):
         out=[]
@@ -423,22 +521,97 @@ class Operations(BaseOperations):
                     message='중복 예약만 있고 파일 저장 전 중단. 같은 batch_id로 원본 파일을 다시 보내세요'))
         return out
 
-    def _retry(self,batch_id,key):
-        proc=read(self._processing_path(batch_id))
+    def _stored_link(self,batch_id,recorded_mode=None,frame=None):
+        """Link hash recomputed from the stored, hash-verified products.csv (does not trust processing.json).
+
+        A/C is taken from processing or collection manifest (id_mode), never guessed from ID shape.
+        Before id_mode existed, every stored ID must have a positive registration for this batch to prove A.
+        Absence or partial loss cannot prove C: ambiguous legacy evidence is explicitly rejected.
+        Returns (link or None for contract C, explicit). Any missing/unreadable/changed evidence -> ValueError."""
+        folder=self.state/'batches'/batch_id
+        try:
+            m=read(folder/'manifest.json')
+            if not m or 'products.csv' not in m.get('files',{}):raise ValueError('저장 제품 파일 기록 없음')
+            if not (folder/'products.csv').is_file():raise ValueError('저장 제품 파일 없음')
+            if digest(folder/'products.csv')!=m['files']['products.csv']:raise ValueError('저장 제품 파일 해시 불일치')
+            p=pd.read_csv(folder/'products.csv',dtype={'record_id':str},keep_default_na=False,float_precision='round_trip')
+            if not {'record_id','fingerprint'}<=set(p):raise ValueError('저장 제품 파일 열 누락')
+        except ValueError:raise
+        except Exception as exc:raise ValueError(f'저장 제품 파일 읽기 실패: {type(exc).__name__}: {exc}') from None
+        mode=recorded_mode or m.get('id_mode')
+        if recorded_mode and m.get('id_mode') and recorded_mode!=m['id_mode']:
+            raise ValueError('처리 상태와 수집 manifest의 ID 계약이 다름')
+        if mode is None:
+            try:
+                registered=self._index()['ids']
+                if not isinstance(registered,dict):raise ValueError('ID 색인 형식 오류')
+            except Exception as exc:
+                raise ValueError(f'이전 배치의 ID 계약 색인을 검증할 수 없음: {type(exc).__name__}') from None
+            if not all(registered.get(i)==batch_id for i in p.record_id.tolist()):
+                raise ValueError('이전 배치의 ID 계약 근거 부족: 미등록 ID를 C 계약으로 추정하지 않음. 수집 출처 확인 필요')
+            mode='explicit_product_id'
+        if mode not in ('explicit_product_id','no_product_id_compat'):
+            raise ValueError('알 수 없는 수집 ID 계약')
+        if mode=='no_product_id_compat':return None,False
+        label=p['label'].astype(int).astype(str) if 'label' in p else pd.Series(['NA']*len(p))
+        rows=pd.DataFrame(dict(id=p.record_id.astype(str),fp=p.fingerprint,label=label.to_numpy()))
+        rows=rows.sort_values(['id','fp','label'],kind='stable').reset_index(drop=True)
+        return hashlib.sha256(rows.to_csv(index=False,lineterminator='\n').encode('utf-8')).hexdigest(),True
+
+    def _verify_resume_files(self,batch_id,manifest,proc):
+        """Verify immutable collection files and the recorded ID contract before resume mutates state."""
+        try:
+            if manifest.get('id')!=batch_id or manifest.get('dataset')!=self.dataset:
+                raise ValueError('배치 ID/데이터셋 기록 불일치')
+            files=manifest.get('files')
+            if not isinstance(files,dict) or not {'products.csv','patterns.csv','predictions.csv'}<=set(files):
+                raise ValueError('수집 파일 해시 기록 누락')
+            folder=self.state/'batches'/batch_id
+            for name,expected in files.items():
+                if not isinstance(name,str) or Path(name).name!=name or name in ('.','..'):
+                    raise ValueError('수집 파일 이름 형식 오류')
+                path=folder/name
+                if not path.is_file() or digest(path)!=expected:raise ValueError(f'{name} 누락/해시 불일치')
+            # A stored-but-not-committed batch may only have its original reservation contract.
+            evidence=proc if proc is not None else self._index()['reservations'].get(batch_id,{})
+            stored,_=self._stored_link(batch_id,evidence.get('id_mode'))
+            if 'link_sha256' in evidence and evidence['link_sha256']!=stored:
+                raise ValueError('처리 기록의 연결 해시가 저장 제품 파일과 다름')
+        except Exception as exc:
+            raise ValueError(f'저장 배치 자료 검증 실패: {type(exc).__name__}: {exc}') from None
+
+    def _retry(self,batch_id,key,frame=None):
+        try:
+            proc=read(self._processing_path(batch_id))
+            if proc is not None and (not isinstance(proc,dict) or 'stage' not in proc):
+                raise ValueError('처리 상태 형식 오류')
+        except (ValueError,OSError) as exc:
+            return dict(id=batch_id,status='rejected',reason=f'처리 상태 근거 손상: {exc}. 기존 배치를 유지합니다.')
         manifest=read(self.state/'batches'/batch_id/'manifest.json')
+        if key is None:
+            try:self._verify_resume_files(batch_id,manifest,proc)
+            except ValueError as exc:return dict(id=batch_id,status='rejected',reason=str(exc))
         if proc is None:
             reservation=self._index()['reservations'].get(batch_id)
             if reservation is None:
-                return dict(manifest,processing=dict(stage='unknown_legacy',
-                    message='처리 상태 기록 도입 전 배치입니다. 다시 수집하지 않았습니다.'))
+                return dict(id=batch_id,status='rejected',reason='처리 상태 및 예약 근거가 없어 완료/재개를 확인할 수 없습니다. 기존 배치를 유지합니다.')
             conflict=self._reservation_conflict(batch_id,key)
             if conflict:return conflict
             # Interrupted commit: finish it (ledger/processing state), then run the later stages.
-            self._commit(batch_id,reservation['content_sha256'],reservation.get('note'))
+            self._commit(batch_id,reservation['content_sha256'],reservation.get('note'),
+                         reservation.get('link_sha256'),reservation.get('id_mode'))
             proc=read(self._processing_path(batch_id))
-        if key and proc.get('content_sha256') and key[0]!=proc['content_sha256']:
-            return dict(id=batch_id,status='conflict',
-                reason='같은 batch_id로 다른 내용이 들어왔습니다. 기존 배치는 그대로 두었습니다. 새 batch_id를 사용하세요.')
+        if key:
+            if proc.get('content_sha256') and key[0]!=proc['content_sha256']:return self._conflict(batch_id,self.LINK_CONFLICT)
+            # Compare with the link recomputed from the stored product file, for every batch including ones
+            # committed before link_sha256 existed. No usable evidence -> refuse instead of answering success.
+            try:stored,_=self._stored_link(batch_id,proc.get('id_mode'),frame)
+            except ValueError as exc:
+                return dict(id=batch_id,status='rejected',
+                    reason=f'최초 수집 제품 기록을 검증할 수 없어 재전송을 비교하지 못했습니다({exc}). 기존 배치는 그대로입니다.')
+            if key[3]!=stored:return self._conflict(batch_id,self.LINK_CONFLICT)
+            if 'link_sha256' in proc and proc['link_sha256']!=stored:
+                return dict(id=batch_id,status='rejected',reason='처리 기록의 연결 해시가 저장 제품 파일과 다릅니다. 기존 배치는 그대로입니다.')
         if proc['stage']=='completed':
             return dict(manifest,processing=dict(stage='completed',retry='already_completed',
                 message='이미 수집·감지·안내가 끝난 배치입니다. 다시 처리하지 않았습니다.',summary=proc.get('summary')),
@@ -455,6 +628,10 @@ class Operations(BaseOperations):
     def _finish(self,result,resumed=False):
         bid=result['id'];path=self._processing_path(bid);proc=read(path)
         proc['attempts'].append(dict(at=now(),resumed=resumed))
+        if resumed:
+            # A drift record may exist whose consumption/history was never written (stop between the two
+            # writes). Apply it once by drift id before reusing it, so the next window does not re-consume.
+            self.reconcile_monitor()
         if proc.get('drift') is None:
             try:
                 # A later batch's drift run may already have consumed this batch.
@@ -470,10 +647,13 @@ class Operations(BaseOperations):
         result['drift']=proc['drift']
         try:result=self._advise(result)
         except Exception as exc:
+            # The orchestration hook may persist advice_context; preserve it and this attempt.
+            attempts=proc['attempts'];proc.update(read(path));proc['attempts']=attempts
             proc.update(stage='advice_failed',error=f'{type(exc).__name__}: {exc}');write(path,proc)
             result['processing']=dict(stage='advice_failed',error=proc['error'],
                 message='수집·분포 감지는 완료됐고 검사 안내 생성이 실패했습니다. 같은 batch_id로 다시 보내거나 resume 명령을 실행하세요.')
             return result
+        attempts=proc['attempts'];proc.update(read(path));proc['attempts']=attempts
         summary=dict(drift_status=(proc['drift'] or {}).get('status'),
                      inspection_priority=(result.get('inspection_priority') or {}).get('status'),
                      reinspection_count=(result.get('inspection_advice') or {}).get('reinspection_count'))
@@ -595,10 +775,11 @@ class Operations(BaseOperations):
         table=table.sort_values(['rank','record_id'],kind='stable')
         table.to_csv(folder/'inspection_priority.csv',index=False,encoding='utf-8-sig')
         tie_note=('정확히 예산 수만 표시. 경계 동점은 입력 패턴 지문(fingerprint)→record_id 순으로 선택(평가도 같은 규칙)'
-                  if rule=='exact_k' else '경계 동점은 모두 표시하므로 표시 수가 예산을 넘을 수 있음(over_budget에 기록)')
+                  if rule=='exact_k' else '경계 동점은 모두 표시하므로 실제 검사 수가 예산을 넘을 수 있음(over_budget에 기록). '
+                  'all_ties 결과는 열람용이며 모델 선정·승격 비교에 쓰지 않음')
         info=dict(status='ranked',model_kind=kind,model_version=version,unit='product',batch_products=len(products),
             batch_patterns=int(products.fingerprint.nunique()),
-            inspection_fraction=self.policy['inspection_fraction'],budget_k=k,flagged=int(flag.sum()),
+            inspection_fraction=self.policy['inspection_fraction'],budget_k=k,flagged=int(flag.sum()),inspected=int(flag.sum()),
             score_cutoff=cutoff,**ties,
             meaning='배치 안에서 위험 점수 상위 제품을 검사 대상으로 표시. 점수는 위험 이력 패턴 순위이며 불량 확률이 아님',
             note=tie_note+'. 배치 예산은 제품 수 기준, 평가 예산은 고유 패턴 수 기준이라 반복 제품이 많으면 같은 비율의 뜻이 다름. '
@@ -648,7 +829,9 @@ class Operations(BaseOperations):
             # Budget mode replaces the fixed-threshold comparison by same-budget risk capture.
             result['reasons']=[r for r in result['reasons'] if r!='F1 개선·재현율 유지·오탐률 상한 조건 미충족']
             enough='평가 정상/위험 고유 패턴 부족' not in result['reasons']
-            reachable=min(cm['k'],cm['positives'])   # most risks findable within the budget
+            if self.policy['cn7_tie_rule']!='exact_k':
+                result['reasons'].append('all_ties 평가는 참고 전용: 실제 검사 수가 예산과 달라 선정·승격 근거로 쓸 수 없음(exact_k 필요)')
+            reachable=min(cm['inspected'],cm['positives'])   # most risks findable with the inspections actually made
             cm['capture_of_reachable']=cm['found_TP']/reachable if reachable else None
             if enough and cm['found_TP']<self.policy['min_budget_capture']*reachable:
                 result['reasons'].append(f"검사 예산 내 위험 발견 {cm['found_TP']}/{reachable}(예산 내 최대) — 최소 비율 {self.policy['min_budget_capture']} 미달")
@@ -674,6 +857,8 @@ class Operations(BaseOperations):
         if self.dataset=='cn7' and report and report['kind'] in ('lr','rf','ocsvm'):
             if report.get('decision_mode')=='budget':
                 if 'candidate_budget_metrics' not in report:raise ValueError('CN7 검사 예산 평가 기록 없음')
+                if report['candidate_budget_metrics'].get('tie_rule')!='exact_k':
+                    raise ValueError('exact_k가 아닌 검사 예산 평가로는 승격할 수 없음(all_ties는 참고 전용)')
             else:
                 reasons=usability(report['candidate_metrics'],self.policy)
                 if reasons:raise ValueError('CN7 사용 기준 미충족: '+str(reasons))
@@ -688,6 +873,8 @@ class Operations(BaseOperations):
     def select_cn7(self,candidates,evaluation_id):
         """Same independent evaluation, qualified candidates only, no activation."""
         if self.dataset!='cn7':raise ValueError('CN7 전용 모델 선정')
+        if self.policy['cn7_decision_mode']=='budget' and self.policy['cn7_tie_rule']!='exact_k':
+            raise ValueError('모델 선정은 exact_k 동점 규칙에서만 가능(all_ties는 실제 검사 수가 달라 참고 전용)')
         bundles=[self.load_model(v)[0] for v in candidates]
         if len(candidates)!=3 or {b['kind'] for b in bundles}!={'lr','rf','ocsvm'}:
             raise ValueError('LR·RF·OCSVM 후보를 각각 하나씩 제공해야 합니다')

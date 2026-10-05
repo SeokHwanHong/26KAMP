@@ -1,0 +1,17 @@
+{
+  "completed_processing_has_advice_context": false,
+  "resume_with_missing_products": {
+    "status": "accepted",
+    "processing": {
+      "stage": "completed",
+      "retry": "already_completed",
+      "message": "이미 수집·감지·안내가 끝난 배치입니다. 다시 처리하지 않았습니다.",
+      "summary": {
+        "drift_status": "waiting",
+        "inspection_priority": null,
+        "reinspection_count": 20
+      }
+    }
+  },
+  "checks_only_with_invalid_baseline_exit": 0
+}

@@ -1,0 +1,59 @@
+KAMP 재검토 후 보완 작업 인계 프롬프트
+
+D:\workspace\kamp, develop_seo 최신 작업 트리에서 아래 3건을 수정하고 실제 Python 테스트로 확인해 줘.
+기존 변경·미추적 파일을 보존하고 reset/clean/commit/push하지 마.
+소스와 테스트·보고서 수정은 가능하지만 실제 runtime/ 및 기존 output/logistic/ 결과는 변경하지 마.
+임시 state-root에서 장애를 주입하고, 운영 파일은 전후 SHA-256 비교로 보존을 확인해.
+
+먼저 읽을 파일:
+- output/claude_review/20261005_재검토_추가발견사항.txt
+- output/claude_review/20261005_recheck_extra_probes.json
+- 03.modeling/common/WORKFLOW_ACCEPTANCE.md
+- 03.modeling/common/workflow_runtime.py
+- 03.modeling/common/decision_runtime.py
+- run_checks_only.py
+
+1. 검사 실행기 실패 판정
+run_checks_only.py는 회귀 subprocess 종료 코드만 최종 코드에 반영한다.
+baseline_status valid=false나 상태 조회 예외가 있어도 passed=true/exit_code=0이 된다.
+실제 20261005T213706 실행에서 CN7 기준선은 valid=true, RG3는 기준선 포인터 없음으로 valid=false였지만 전체 종료 코드 0이었다.
+회귀 테스트 통과와 운영 준비 상태를 별도로 기록하고 기준선 오류·상태 조회 실패를 최종 실패 코드에 반영해.
+미완료 배치의 처리 정책은 정상 대기와 오류를 구분해 명시하고, 모든 pending을 무조건 실패로 간주하지 마.
+기준선을 자동 생성하거나 RG3 운영 상태를 임의로 고치지 마. 초기 미준비인지 유실인지 현재 자료만으로 단정하지 마.
+mock 상태(valid/invalid/exception)와 회귀 성공/실패 조합으로 테스트해.
+수정 후 실제 RG3 기준선 부재 때문에 checks-only가 비정상 종료하는 것은 기대 동작이다.
+이를 회귀 테스트 자체의 실패와 구분하여 보고해.
+
+2. 완료 배치 resume 저장 자료 검증
+decision_runtime.Operations.resume은 _retry(batch_id,None)을 호출한다.
+_retry의 저장 products.csv 검증은 key가 있을 때만 실행되므로 완료 배치 products.csv를 삭제해도
+resume이 accepted/already_completed를 반환한다. 임시 RG3 배치에서 재현했다.
+완료 응답 전에 저장 자료의 무결성을 검증하고, 검증 불가이면 명시적 rejected/오류를 반환해.
+원본 재전송과 resume은 입력 유무가 다르므로 기존 _stored_link 로직을 기계적으로 적용하지 말고 필요한 계약을 검토해.
+누락·디렉터리·읽기 실패·해시 변경·manifest 손상과 정상 완료의 조합을 검사해.
+중복 수집, 장부 재소비, 기존 R01/R02 복구, A/C ID 계약 보호를 유지해.
+
+3. advice_context 영속 기록
+workflow_runtime._advise가 새로 읽은 processing.json에 advice_context를 저장하지만,
+decision_runtime._finish가 이전 proc 전체를 저장해 이 키를 지운다.
+합성 배치 정상 완료 후 키가 없는 것을 확인했다.
+별도 advice_history/<revision>/context.json에는 출처가 남으므로 전체 출처 소실로 과장하지 마.
+완료·실패 처리의 최신 상태 병합 또는 단일 저장 책임으로 고쳐.
+정상 완료, advice 실패 후 재개, 모델 교체 후 재개, waiting 후속 안내 갱신에서
+최초 context/후속 revision의 모델·기준선·정책 연결과 원래 오류/단계 정보 보존을 검증해.
+
+검증 순서:
+- 각 문제를 수정 전 실패 테스트로 재현하고 수정 후 관련 테스트부터 실행.
+- 수정 범위가 안정화되면 전체 회귀/LR 감사 한 번 실행. 의미 없는 전체 재실행 반복 금지.
+- 최근 기존 기준은 115개 테스트 + 저장 LR 감사 통과:
+  output/test_runs/20261005T123707Z-af8889fd/summary.json
+  output/claude_review/checks_only_20261005T213706.json
+- 실제 runtime/ 및 기존 output/logistic/ 전후 해시 동일 확인.
+- 모델 학습 알고리즘·임계값·데이터 분할 변경, 전체 240개 설정 재탐색, 실제 모델 승격은 범위 밖.
+- pipeline_runtime.py 학습 관련 출처를 건드려야 하면 기존 provenance/LR 감사 계약을 먼저 확인하고 과거 실행 기록은 수정하지 마.
+- 수정 파일, 재현 근거, 테스트 결과, 예상된 checks-only 실패와 진짜 실패, 미실행 사항을 보고서로 남겨.
+
+현재 운영 진입점은 workflow_runtime.Operations이며 decision_runtime/pipeline_runtime을 상속한다.
+이 프로젝트는 입력 24개가 같은데 라벨이 다른 위험 이력 패턴을 다룬다.
+CN7은 검사 예산 exact_k 순위, RG3는 확정 판정보다 정보 부족·분포 변화에 근거한 재검사 안내가 핵심이다.
+기능 테스트 통과를 현장 예측 성능이나 최적 모델 입증이라고 표현하지 마.

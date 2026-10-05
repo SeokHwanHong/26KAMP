@@ -1,0 +1,66 @@
+{
+  "started": "2026-10-05T21:37:06",
+  "kind": "checks_only",
+  "versions": {
+    "python": "3.14.6",
+    "executable": "C:\\ProgramData\\Anaconda3\\python.exe",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.18.0",
+    "sklearn": "1.9.0",
+    "joblib": "1.5.3"
+  },
+  "source_sha256": {
+    "03.modeling/common/pipeline_runtime.py": "dd9879db5024d5e76e72d41c7d539f9db40c9a2e1787e824fe33fadd94f185b5",
+    "03.modeling/common/decision_runtime.py": "f4794c8ae0b675321f2197dacfc1255ca0efac67a1e190a59e4a0584aae888ab",
+    "03.modeling/pipeline_cli.py": "0be9934d0f87a0fe39e2ffcac74c791564dc270179fa99552995eaad30a94921",
+    "03.modeling/common/workflow_runtime.py": "e04ae31efa8994888c6e03d0c34837750cec1c6905624e65c5294ad1e35ff465",
+    "03.modeling/tests/test_workflow_runtime.py": "181330ac38cf2af71333646112549829f090ef978cd8cf0ab0695a368f1e3f3e",
+    "03.modeling/tests/test_decision_runtime.py": "2a62b56cb03981cbf8f505f26c8a9e8558bcc0a53ef80b74f6282089b89a01a6",
+    "03.modeling/tests/audit_logistic_runs.py": "04c34694479efe4f558cb19434e4d98314f86a597a52d9cd425e7efb1c982936"
+  },
+  "run_checks": {
+    "exit_code": 0,
+    "passed": true,
+    "output": "test_operations.py PASS\ntest_registration_and_logistic.py PASS\ntest_existing_ocsvm.py PASS\ntest_decision_runtime.py PASS\ntest_workflow_runtime.py PASS\naudit_logistic_runs.py PASS\n{\n  \"passed\": true,\n  \"results\": [\n    {\n      \"script\": \"test_operations.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 12\n    },\n    {\n      \"script\": \"test_registration_and_logistic.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 8\n    },\n    {\n      \"script\": \"test_existing_ocsvm.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 24\n    },\n    {\n      \"script\": \"test_decision_runtime.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 58\n    },\n    {\n      \"script\": \"test_workflow_runtime.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 13\n    },\n    {\n      \"script\": \"audit_logistic_runs.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": null\n    }\n  ],\n  \"tests\": 115,\n  \"runtime_unchanged\": true,\n  \"scope\": \"115 regression/integration invocations plus saved LR audit; no field validation\",\n  \"report\": \"D:\\\\workspace\\\\kamp\\\\output\\\\test_runs\\\\20261005T123707Z-af8889fd\"\n}\n"
+  },
+  "runtime_status_read_only": {
+    "cn7": {
+      "active": {
+        "if": "if-a7a2fcba54e54d58",
+        "rf": "rf-20261005T070541Z-eee06bbc"
+      },
+      "baseline": {
+        "valid": true,
+        "baseline": "baseline-20261005T070541Z-8461282d",
+        "versions": {
+          "if": "if-a7a2fcba54e54d58",
+          "rf": "rf-20261005T070541Z-eee06bbc"
+        },
+        "active": {
+          "if": "if-a7a2fcba54e54d58",
+          "rf": "rf-20261005T070541Z-eee06bbc"
+        },
+        "reasons": []
+      },
+      "pending": []
+    },
+    "rg3": {
+      "active": {
+        "if": "if-7e69cab8fdd04a17"
+      },
+      "baseline": {
+        "valid": false,
+        "reasons": [
+          "기준선 포인터 없음"
+        ],
+        "active": {
+          "if": "if-7e69cab8fdd04a17"
+        }
+      },
+      "pending": []
+    }
+  },
+  "exit_code": 0,
+  "finished": "2026-10-05T21:42:02"
+}
