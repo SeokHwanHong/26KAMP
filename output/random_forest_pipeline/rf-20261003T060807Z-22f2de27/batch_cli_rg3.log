@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\modeling\rf_pipeline.py", line 477, in <module>
+    rf_pipeline.main()
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\modeling\rf_pipeline.py", line 447, in main
+    patterns, metadata, products = predict_batch(artifact, frame, coordinates_confirmed=args.coordinates_confirmed, label_source=args.label_source)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\modeling\rf_pipeline.py", line 145, in predict_batch
+    raise ValueError("Batch coordinates/scale have not been confirmed")
+ValueError: Batch coordinates/scale have not been confirmed
+
+CONFIRMED SYNTHETIC FIXTURE
+C:\Users\seolh\Documents\GitHub\26KAMP\output\random_forest_pipeline\rf-20261003T060807Z-22f2de27\rg3\batch-ffae5891198c

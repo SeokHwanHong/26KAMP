@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "dataset": "cn7",
+      "passed": true,
+      "unconfirmed_input_rejected": true,
+      "product_rows": 3,
+      "unique_patterns": 2,
+      "conflict_max_label_preserved": true,
+      "synthetic": true,
+      "output": "C:\\Users\\seolh\\Documents\\GitHub\\26KAMP\\output\\random_forest_pipeline\\rf-20261003T060807Z-22f2de27\\cn7\\batch-5a481d3726e2"
+    },
+    {
+      "dataset": "rg3",
+      "passed": true,
+      "unconfirmed_input_rejected": true,
+      "product_rows": 3,
+      "unique_patterns": 2,
+      "conflict_max_label_preserved": true,
+      "synthetic": true,
+      "output": "C:\\Users\\seolh\\Documents\\GitHub\\26KAMP\\output\\random_forest_pipeline\\rf-20261003T060807Z-22f2de27\\rg3\\batch-ffae5891198c"
+    }
+  ]
+}

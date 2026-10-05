@@ -1,0 +1,31 @@
+cn7: raw_no_scaler 1 settings x 4 folds, cold fit
+cn7: raw_no_scaler complete (3.2s)
+cn7: domain_all 1 settings x 4 folds, cold fit
+cn7: domain_all complete (2.8s)
+cn7: selected raw_no_scaler, threshold=0.40800000000000003, OOF F1=0.428571, Test F1=0.000000; audit=True
+rg3: raw_no_scaler 1 settings x 4 folds, cold fit
+rg3: raw_no_scaler complete (1.4s)
+rg3: domain_all 1 settings x 4 folds, cold fit
+rg3: domain_all complete (1.3s)
+rg3: selected raw_no_scaler, threshold=0.014, OOF F1=0.083333, Test F1=0.080645; audit=True
+test_actual_fixed_folds_no_overlap (__main__.RFTests.test_actual_fixed_folds_no_overlap) ... ok
+test_all_seven_transforms_and_skipped_sensor_pairs (__main__.RFTests.test_all_seven_transforms_and_skipped_sensor_pairs) ... ok
+test_bad_input_and_ids_rejected (__main__.RFTests.test_bad_input_and_ids_rejected) ... ok
+test_baseline_frequency_same_version_and_fixed_bins (__main__.RFTests.test_baseline_frequency_same_version_and_fixed_bins) ... ok
+test_batch_conflicts_products_and_prediction_order (__main__.RFTests.test_batch_conflicts_products_and_prediction_order) ... ok
+test_cold_runs_audit_and_tamper_rejected (__main__.RFTests.test_cold_runs_audit_and_tamper_rejected) ... [Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+[Parallel(n_jobs=2)]: Using backend LokyBackend with 2 concurrent workers.
+ok
+test_derived_values_against_hand_calculation (__main__.RFTests.test_derived_values_against_hand_calculation) ... ok
+test_normal_reference_and_supervised_all_train (__main__.RFTests.test_normal_reference_and_supervised_all_train) ... ok
+test_pooled_f1_selection_and_ties_ignore_test (__main__.RFTests.test_pooled_f1_selection_and_ties_ignore_test) ... ok
+test_saved_prediction_and_transform_immutable (__main__.RFTests.test_saved_prediction_and_transform_immutable) ... ok
+test_threshold_counts_match_brute_force_and_strict_boundary (__main__.RFTests.test_threshold_counts_match_brute_force_and_strict_boundary) ... ok
+test_unlabeled_keeps_no_labels_and_alignment_required (__main__.RFTests.test_unlabeled_keeps_no_labels_and_alignment_required) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 28.375s
+
+OK

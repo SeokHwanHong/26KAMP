@@ -1,0 +1,2044 @@
+{
+  "raw_no_scaler": [
+    {
+      "fold": 0,
+      "train_rows": 363,
+      "normal_reference_rows": 354,
+      "scenario": "raw_no_scaler",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 1,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "raw_no_scaler",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 2,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "raw_no_scaler",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 3,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "raw_no_scaler",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {}
+    }
+  ],
+  "without_cycle": [
+    {
+      "fold": 0,
+      "train_rows": 363,
+      "normal_reference_rows": 354,
+      "scenario": "without_cycle",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 1,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "without_cycle",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 2,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "without_cycle",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 3,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "without_cycle",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {}
+    }
+  ],
+  "pressure": [
+    {
+      "fold": 0,
+      "train_rows": 363,
+      "normal_reference_rows": 354,
+      "scenario": "pressure",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "사출_전환압력_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "사출_전환압력_상대편차",
+          "group": "pressure",
+          "operation": "difference",
+          "columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "active_columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 1,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "pressure",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "사출_전환압력_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "사출_전환압력_상대편차",
+          "group": "pressure",
+          "operation": "difference",
+          "columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "active_columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 2,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "pressure",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "사출_전환압력_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "사출_전환압력_상대편차",
+          "group": "pressure",
+          "operation": "difference",
+          "columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "active_columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 3,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "pressure",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "사출_전환압력_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "사출_전환압력_상대편차",
+          "group": "pressure",
+          "operation": "difference",
+          "columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "active_columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    }
+  ],
+  "plasticizing": [
+    {
+      "fold": 0,
+      "train_rows": 363,
+      "normal_reference_rows": 354,
+      "scenario": "plasticizing",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "스크루RPM_상대편차",
+        "배압_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "스크루RPM_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ],
+          "active_columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ]
+        },
+        {
+          "feature": "배압_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "active_columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 1,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "plasticizing",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "스크루RPM_상대편차",
+        "배압_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "스크루RPM_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ],
+          "active_columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ]
+        },
+        {
+          "feature": "배압_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "active_columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 2,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "plasticizing",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "스크루RPM_상대편차",
+        "배압_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "스크루RPM_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ],
+          "active_columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ]
+        },
+        {
+          "feature": "배압_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "active_columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 3,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "plasticizing",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "스크루RPM_상대편차",
+        "배압_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "스크루RPM_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ],
+          "active_columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ]
+        },
+        {
+          "feature": "배압_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "active_columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    }
+  ],
+  "thermal": [
+    {
+      "fold": 0,
+      "train_rows": 363,
+      "normal_reference_rows": 354,
+      "scenario": "thermal",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "배럴_상대수준평균",
+        "배럴_상대편차표준편차",
+        "금형_상대수준평균",
+        "금형온도_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "배럴_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "배럴_상대편차표준편차",
+          "group": "thermal",
+          "operation": "std",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "금형_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        },
+        {
+          "feature": "금형온도_상대편차",
+          "group": "thermal",
+          "operation": "difference",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 1,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "thermal",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "배럴_상대수준평균",
+        "배럴_상대편차표준편차",
+        "금형_상대수준평균",
+        "금형온도_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "배럴_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "배럴_상대편차표준편차",
+          "group": "thermal",
+          "operation": "std",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "금형_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        },
+        {
+          "feature": "금형온도_상대편차",
+          "group": "thermal",
+          "operation": "difference",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 2,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "thermal",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "배럴_상대수준평균",
+        "배럴_상대편차표준편차",
+        "금형_상대수준평균",
+        "금형온도_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "배럴_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "배럴_상대편차표준편차",
+          "group": "thermal",
+          "operation": "std",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "금형_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        },
+        {
+          "feature": "금형온도_상대편차",
+          "group": "thermal",
+          "operation": "difference",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 3,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "thermal",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "배럴_상대수준평균",
+        "배럴_상대편차표준편차",
+        "금형_상대수준평균",
+        "금형온도_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "배럴_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "배럴_상대편차표준편차",
+          "group": "thermal",
+          "operation": "std",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "금형_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        },
+        {
+          "feature": "금형온도_상대편차",
+          "group": "thermal",
+          "operation": "difference",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    }
+  ],
+  "domain_all": [
+    {
+      "fold": 0,
+      "train_rows": 363,
+      "normal_reference_rows": 354,
+      "scenario": "domain_all",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "사출_전환압력_상대편차",
+        "스크루RPM_상대편차",
+        "배압_상대편차",
+        "배럴_상대수준평균",
+        "배럴_상대편차표준편차",
+        "금형_상대수준평균",
+        "금형온도_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "사출_전환압력_상대편차",
+          "group": "pressure",
+          "operation": "difference",
+          "columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "active_columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ]
+        },
+        {
+          "feature": "스크루RPM_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ],
+          "active_columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ]
+        },
+        {
+          "feature": "배압_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "active_columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ]
+        },
+        {
+          "feature": "배럴_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "배럴_상대편차표준편차",
+          "group": "thermal",
+          "operation": "std",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "금형_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        },
+        {
+          "feature": "금형온도_상대편차",
+          "group": "thermal",
+          "operation": "difference",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 1,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "domain_all",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "사출_전환압력_상대편차",
+        "스크루RPM_상대편차",
+        "배압_상대편차",
+        "배럴_상대수준평균",
+        "배럴_상대편차표준편차",
+        "금형_상대수준평균",
+        "금형온도_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "사출_전환압력_상대편차",
+          "group": "pressure",
+          "operation": "difference",
+          "columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "active_columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ]
+        },
+        {
+          "feature": "스크루RPM_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ],
+          "active_columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ]
+        },
+        {
+          "feature": "배압_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "active_columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ]
+        },
+        {
+          "feature": "배럴_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "배럴_상대편차표준편차",
+          "group": "thermal",
+          "operation": "std",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "금형_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        },
+        {
+          "feature": "금형온도_상대편차",
+          "group": "thermal",
+          "operation": "difference",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 2,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "domain_all",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "사출_전환압력_상대편차",
+        "스크루RPM_상대편차",
+        "배압_상대편차",
+        "배럴_상대수준평균",
+        "배럴_상대편차표준편차",
+        "금형_상대수준평균",
+        "금형온도_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "사출_전환압력_상대편차",
+          "group": "pressure",
+          "operation": "difference",
+          "columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "active_columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ]
+        },
+        {
+          "feature": "스크루RPM_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ],
+          "active_columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ]
+        },
+        {
+          "feature": "배압_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "active_columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ]
+        },
+        {
+          "feature": "배럴_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "배럴_상대편차표준편차",
+          "group": "thermal",
+          "operation": "std",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "금형_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        },
+        {
+          "feature": "금형온도_상대편차",
+          "group": "thermal",
+          "operation": "difference",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    },
+    {
+      "fold": 3,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "domain_all",
+      "feature_names": [
+        "Injection_Time",
+        "Filling_Time",
+        "Plasticizing_Time",
+        "Cycle_Time",
+        "Clamp_Close_Time",
+        "Cushion_Position",
+        "Plasticizing_Position",
+        "Max_Injection_Speed",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure",
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature",
+        "Mold_Temperature_3",
+        "Mold_Temperature_4",
+        "사출_전환압력_상대편차",
+        "스크루RPM_상대편차",
+        "배압_상대편차",
+        "배럴_상대수준평균",
+        "배럴_상대편차표준편차",
+        "금형_상대수준평균",
+        "금형온도_상대편차"
+      ],
+      "derived_specs": [
+        {
+          "feature": "사출_전환압력_상대편차",
+          "group": "pressure",
+          "operation": "difference",
+          "columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "active_columns": [
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ]
+        },
+        {
+          "feature": "스크루RPM_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ],
+          "active_columns": [
+            "Max_Screw_RPM",
+            "Average_Screw_RPM"
+          ]
+        },
+        {
+          "feature": "배압_상대편차",
+          "group": "plasticizing",
+          "operation": "difference",
+          "columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "active_columns": [
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ]
+        },
+        {
+          "feature": "배럴_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "배럴_상대편차표준편차",
+          "group": "thermal",
+          "operation": "std",
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ],
+          "active_columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6"
+          ]
+        },
+        {
+          "feature": "금형_상대수준평균",
+          "group": "thermal",
+          "operation": "mean",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        },
+        {
+          "feature": "금형온도_상대편차",
+          "group": "thermal",
+          "operation": "difference",
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "active_columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ]
+        }
+      ],
+      "skipped_specs": [],
+      "pca_groups": {}
+    }
+  ],
+  "group_pca": [
+    {
+      "fold": 0,
+      "train_rows": 363,
+      "normal_reference_rows": 354,
+      "scenario": "group_pca",
+      "feature_names": [
+        "충전과 전환_PC1",
+        "충전과 전환_PC2",
+        "충전과 전환_재구성RMSE",
+        "계량과 가소화_PC1",
+        "계량과 가소화_PC2",
+        "계량과 가소화_재구성RMSE",
+        "실린더와 호퍼 온도_PC1",
+        "실린더와 호퍼 온도_PC2",
+        "실린더와 호퍼 온도_재구성RMSE",
+        "금형 온도_PC1",
+        "금형 온도_PC2",
+        "형체와 전체 주기_PC1",
+        "형체와 전체 주기_PC2"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {
+        "충전과 전환": {
+          "columns": [
+            "Injection_Time",
+            "Filling_Time",
+            "Cushion_Position",
+            "Max_Injection_Speed",
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "components": 2
+        },
+        "계량과 가소화": {
+          "columns": [
+            "Plasticizing_Time",
+            "Plasticizing_Position",
+            "Max_Screw_RPM",
+            "Average_Screw_RPM",
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "components": 2
+        },
+        "실린더와 호퍼 온도": {
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6",
+            "Hopper_Temperature"
+          ],
+          "components": 2
+        },
+        "금형 온도": {
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "components": 2
+        },
+        "형체와 전체 주기": {
+          "columns": [
+            "Clamp_Close_Time",
+            "Cycle_Time"
+          ],
+          "components": 2
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "group_pca",
+      "feature_names": [
+        "충전과 전환_PC1",
+        "충전과 전환_PC2",
+        "충전과 전환_재구성RMSE",
+        "계량과 가소화_PC1",
+        "계량과 가소화_PC2",
+        "계량과 가소화_재구성RMSE",
+        "실린더와 호퍼 온도_PC1",
+        "실린더와 호퍼 온도_PC2",
+        "실린더와 호퍼 온도_재구성RMSE",
+        "금형 온도_PC1",
+        "금형 온도_PC2",
+        "형체와 전체 주기_PC1",
+        "형체와 전체 주기_PC2"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {
+        "충전과 전환": {
+          "columns": [
+            "Injection_Time",
+            "Filling_Time",
+            "Cushion_Position",
+            "Max_Injection_Speed",
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "components": 2
+        },
+        "계량과 가소화": {
+          "columns": [
+            "Plasticizing_Time",
+            "Plasticizing_Position",
+            "Max_Screw_RPM",
+            "Average_Screw_RPM",
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "components": 2
+        },
+        "실린더와 호퍼 온도": {
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6",
+            "Hopper_Temperature"
+          ],
+          "components": 2
+        },
+        "금형 온도": {
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "components": 2
+        },
+        "형체와 전체 주기": {
+          "columns": [
+            "Clamp_Close_Time",
+            "Cycle_Time"
+          ],
+          "components": 2
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "group_pca",
+      "feature_names": [
+        "충전과 전환_PC1",
+        "충전과 전환_PC2",
+        "충전과 전환_재구성RMSE",
+        "계량과 가소화_PC1",
+        "계량과 가소화_PC2",
+        "계량과 가소화_재구성RMSE",
+        "실린더와 호퍼 온도_PC1",
+        "실린더와 호퍼 온도_PC2",
+        "실린더와 호퍼 온도_재구성RMSE",
+        "금형 온도_PC1",
+        "금형 온도_PC2",
+        "형체와 전체 주기_PC1",
+        "형체와 전체 주기_PC2"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {
+        "충전과 전환": {
+          "columns": [
+            "Injection_Time",
+            "Filling_Time",
+            "Cushion_Position",
+            "Max_Injection_Speed",
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "components": 2
+        },
+        "계량과 가소화": {
+          "columns": [
+            "Plasticizing_Time",
+            "Plasticizing_Position",
+            "Max_Screw_RPM",
+            "Average_Screw_RPM",
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "components": 2
+        },
+        "실린더와 호퍼 온도": {
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6",
+            "Hopper_Temperature"
+          ],
+          "components": 2
+        },
+        "금형 온도": {
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "components": 2
+        },
+        "형체와 전체 주기": {
+          "columns": [
+            "Clamp_Close_Time",
+            "Cycle_Time"
+          ],
+          "components": 2
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "train_rows": 363,
+      "normal_reference_rows": 355,
+      "scenario": "group_pca",
+      "feature_names": [
+        "충전과 전환_PC1",
+        "충전과 전환_PC2",
+        "충전과 전환_재구성RMSE",
+        "계량과 가소화_PC1",
+        "계량과 가소화_PC2",
+        "계량과 가소화_재구성RMSE",
+        "실린더와 호퍼 온도_PC1",
+        "실린더와 호퍼 온도_PC2",
+        "실린더와 호퍼 온도_재구성RMSE",
+        "금형 온도_PC1",
+        "금형 온도_PC2",
+        "형체와 전체 주기_PC1",
+        "형체와 전체 주기_PC2"
+      ],
+      "derived_specs": [],
+      "skipped_specs": [],
+      "pca_groups": {
+        "충전과 전환": {
+          "columns": [
+            "Injection_Time",
+            "Filling_Time",
+            "Cushion_Position",
+            "Max_Injection_Speed",
+            "Max_Injection_Pressure",
+            "Max_Switch_Over_Pressure"
+          ],
+          "components": 2
+        },
+        "계량과 가소화": {
+          "columns": [
+            "Plasticizing_Time",
+            "Plasticizing_Position",
+            "Max_Screw_RPM",
+            "Average_Screw_RPM",
+            "Max_Back_Pressure",
+            "Average_Back_Pressure"
+          ],
+          "components": 2
+        },
+        "실린더와 호퍼 온도": {
+          "columns": [
+            "Barrel_Temperature_1",
+            "Barrel_Temperature_2",
+            "Barrel_Temperature_3",
+            "Barrel_Temperature_4",
+            "Barrel_Temperature_5",
+            "Barrel_Temperature_6",
+            "Hopper_Temperature"
+          ],
+          "components": 2
+        },
+        "금형 온도": {
+          "columns": [
+            "Mold_Temperature_3",
+            "Mold_Temperature_4"
+          ],
+          "components": 2
+        },
+        "형체와 전체 주기": {
+          "columns": [
+            "Clamp_Close_Time",
+            "Cycle_Time"
+          ],
+          "components": 2
+        }
+      }
+    }
+  ]
+}

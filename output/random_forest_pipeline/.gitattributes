@@ -1,0 +1,2 @@
+# Preserve audited artifact bytes when committing new RF runs on Windows.
+* -text

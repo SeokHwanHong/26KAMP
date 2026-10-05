@@ -1,0 +1,34 @@
+{
+  "dataset": "rg3",
+  "scenario": "group_pca",
+  "params": {
+    "max_depth": null,
+    "min_samples_leaf": 1,
+    "max_features": 1.0,
+    "class_weight": "balanced"
+  },
+  "threshold": 0.47000000000000003,
+  "oof": {
+    "tp": 3,
+    "fp": 9,
+    "fn": 17,
+    "tn": 443,
+    "f1": 0.1875,
+    "precision": 0.25,
+    "recall": 0.15,
+    "fpr": 0.01991150442477876
+  },
+  "test": {
+    "tp": 0,
+    "fp": 3,
+    "fn": 5,
+    "tn": 111,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "fpr": 0.02631578947368421,
+    "average_precision": 0.04696059319920619,
+    "roc_auc": 0.3921052631578948
+  },
+  "test_status": "historical follow-up; previously observed"
+}

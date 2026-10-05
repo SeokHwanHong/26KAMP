@@ -1,0 +1,4 @@
+source_row,source_id,pattern_row,probability,prediction,model_version,original_label,representative_label
+0,synthetic-rg3-0,0,0.0033333333333333335,0,rf-20261003T060807Z-22f2de27-rg3,0,1
+1,synthetic-rg3-1,0,0.0033333333333333335,0,rf-20261003T060807Z-22f2de27-rg3,1,1
+2,synthetic-rg3-2,1,0.0,0,rf-20261003T060807Z-22f2de27-rg3,0,0

@@ -1,0 +1,109 @@
+RUN_FOLDER=C:\Users\seolh\Documents\GitHub\26KAMP\output\random_forest_pipeline\rf-20261003T060635Z-535798ac
+cn7: raw_no_scaler 108 settings x 4 folds, cold fit
+[Parallel(n_jobs=4)]: Using backend LokyBackend with 4 concurrent workers.
+����: �׼����� �źεǾ����ϴ�.
+
+C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py:63: UserWarning: Failed to kill subprocesses on this platform. Please installpsutil: https://github.com/giampaolo/psutil
+Details:
+Traceback (most recent call last):
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py", line 58, in _kill_process_tree_without_psutil
+    _windows_taskkill_process_tree(process.pid)
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py", line 81, in _windows_taskkill_process_tree
+    subprocess.check_output(
+  File "C:\Users\seolh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seolh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['taskkill', '/F', '/T', '/PID', '1512']' returned non-zero exit status 1.
+
+  warnings.warn(
+����: �׼����� �źεǾ����ϴ�.
+
+C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py:63: UserWarning: Failed to kill subprocesses on this platform. Please installpsutil: https://github.com/giampaolo/psutil
+Details:
+Traceback (most recent call last):
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py", line 58, in _kill_process_tree_without_psutil
+    _windows_taskkill_process_tree(process.pid)
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py", line 81, in _windows_taskkill_process_tree
+    subprocess.check_output(
+  File "C:\Users\seolh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seolh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['taskkill', '/F', '/T', '/PID', '15660']' returned non-zero exit status 1.
+
+  warnings.warn(
+����: �׼����� �źεǾ����ϴ�.
+
+C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py:63: UserWarning: Failed to kill subprocesses on this platform. Please installpsutil: https://github.com/giampaolo/psutil
+Details:
+Traceback (most recent call last):
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py", line 58, in _kill_process_tree_without_psutil
+    _windows_taskkill_process_tree(process.pid)
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py", line 81, in _windows_taskkill_process_tree
+    subprocess.check_output(
+  File "C:\Users\seolh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seolh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['taskkill', '/F', '/T', '/PID', '5172']' returned non-zero exit status 1.
+
+  warnings.warn(
+����: �׼����� �źεǾ����ϴ�.
+
+C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py:63: UserWarning: Failed to kill subprocesses on this platform. Please installpsutil: https://github.com/giampaolo/psutil
+Details:
+Traceback (most recent call last):
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py", line 58, in _kill_process_tree_without_psutil
+    _windows_taskkill_process_tree(process.pid)
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\backend\utils.py", line 81, in _windows_taskkill_process_tree
+    subprocess.check_output(
+  File "C:\Users\seolh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seolh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['taskkill', '/F', '/T', '/PID', '16800']' returned non-zero exit status 1.
+
+  warnings.warn(
+joblib.externals.loky.process_executor._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\externals\loky\process_executor.py", line 453, in _process_worker
+    call_item = call_queue.get(block=True, timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seolh\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\multiprocessing\queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: Can't get attribute 'definitions' on <module '__main__' (<class '_frozen_importlib.BuiltinImporter'>)>
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\modeling\rf_pipeline.py", line 474, in <module>
+    main()
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\modeling\rf_pipeline.py", line 467, in main
+    summaries = [run_dataset(d, folder / d, jobs=args.jobs) for d in datasets]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\modeling\rf_pipeline.py", line 327, in run_dataset
+    results = Parallel(n_jobs=jobs, prefer="processes", verbose=5)(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\parallel.py", line 2098, in __call__
+    return output if self.return_generator else list(output)
+                                                ^^^^^^^^^^^^
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\parallel.py", line 1704, in _get_outputs
+    yield from self._retrieve()
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\parallel.py", line 1806, in _retrieve
+    self._raise_error_fast()
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\parallel.py", line 1885, in _raise_error_fast
+    error_job.get_result(self.timeout)
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\parallel.py", line 780, in get_result
+    return self._return_or_raise()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seolh\Documents\GitHub\26KAMP\.work\rf-env\Lib\site-packages\joblib\parallel.py", line 795, in _return_or_raise
+    raise self._result
+joblib.externals.loky.process_executor.BrokenProcessPool: A task has failed to un-serialize. Please ensure that the arguments of the function are all picklable.

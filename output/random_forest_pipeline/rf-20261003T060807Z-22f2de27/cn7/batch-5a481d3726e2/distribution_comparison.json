@@ -1,0 +1,154 @@
+{
+  "model_version": "rf-20261003T060807Z-22f2de27-cn7",
+  "product_rows": 3,
+  "unique_patterns": 2,
+  "feature_changes": [
+    {
+      "feature": "Injection_Time",
+      "tv": 0.8397104446742503,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Filling_Time",
+      "tv": 0.8831437435367115,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Plasticizing_Time",
+      "tv": 0.8148914167528438,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Cycle_Time",
+      "tv": 0.983453981385729,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Clamp_Close_Time",
+      "tv": 0.5522233712512927,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Cushion_Position",
+      "tv": 0.3805584281282316,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Plasticizing_Position",
+      "tv": 0.7745604963805585,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Clamp_Open_Position",
+      "tv": 0.0,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Max_Injection_Speed",
+      "tv": 0.9141675284384695,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Max_Screw_RPM",
+      "tv": 0.6049638055842813,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Average_Screw_RPM",
+      "tv": 0.2564632885211996,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Max_Injection_Pressure",
+      "tv": 0.17545673905549813,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Max_Switch_Over_Pressure",
+      "tv": 0.889348500517063,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Max_Back_Pressure",
+      "tv": 0.9038262668045501,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Average_Back_Pressure",
+      "tv": 0.9017580144777663,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Barrel_Temperature_1",
+      "tv": 0.8241985522233712,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Barrel_Temperature_2",
+      "tv": 0.7249224405377456,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Barrel_Temperature_3",
+      "tv": 0.7290589451913132,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Barrel_Temperature_4",
+      "tv": 0.7621509824198551,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Barrel_Temperature_5",
+      "tv": 0.6783867631851086,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Barrel_Temperature_6",
+      "tv": 0.7414684591520165,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Hopper_Temperature",
+      "tv": 0.749741468459152,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Mold_Temperature_3",
+      "tv": 0.9348500517063081,
+      "out_of_range_fraction": 0.0
+    },
+    {
+      "feature": "Mold_Temperature_4",
+      "tv": 0.8293691830403309,
+      "out_of_range_fraction": 0.0
+    }
+  ],
+  "pair_changes": [
+    {
+      "columns": [
+        "Injection_Time",
+        "Filling_Time"
+      ],
+      "tv": 0.8831437435367114
+    },
+    {
+      "columns": [
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure"
+      ],
+      "tv": 0.9017580144777663
+    },
+    {
+      "columns": [
+        "Barrel_Temperature_1",
+        "Mold_Temperature_3"
+      ],
+      "tv": 0.9875904860392968
+    }
+  ],
+  "score_tv": 0.9007238883143743,
+  "risk_fraction": 0.0,
+  "risk_fraction_change": -0.008273009307135471,
+  "status": "metrics_only; drift thresholds/persistence and CT not implemented"
+}

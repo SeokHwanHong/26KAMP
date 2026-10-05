@@ -1,0 +1,9 @@
+# Environment actually used for this RF run; shared requirements are preserved.
+# Python 3.12.14 on Windows. Direct dependencies, not a transitive lockfile.
+numpy==2.3.5
+pandas==3.0.1
+scipy==1.18.1
+scikit-learn==1.9.1
+joblib==1.6.0
+threadpoolctl==3.7.0
+nbformat==5.11.1

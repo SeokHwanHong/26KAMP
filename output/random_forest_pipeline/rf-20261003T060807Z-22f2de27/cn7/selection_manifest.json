@@ -1,0 +1,27 @@
+{
+  "dataset": "cn7",
+  "scenario": "pressure",
+  "candidate_id": 237,
+  "params": {
+    "max_depth": 3,
+    "min_samples_leaf": 5,
+    "max_features": 0.5,
+    "class_weight": null
+  },
+  "threshold": 0.222,
+  "oof_metrics": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 7,
+    "tn": 473,
+    "f1": 0.5333333333333333,
+    "precision": 1.0,
+    "recall": 0.36363636363636365,
+    "fpr": 0.0
+  },
+  "fold_f1_std": 0.08333333333333331,
+  "feature_count": 24,
+  "selection_metric": "pooled OOF F1",
+  "test_used_for_selection": false,
+  "plan_sha256": "6e9a7512621cfc0727ffd3415807a179fedd1ba3b9f013c05f0f03ee0db19860"
+}
