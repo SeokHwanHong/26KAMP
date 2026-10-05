@@ -1,0 +1,73 @@
+{
+  "fold": null,
+  "train_rows": 472,
+  "normal_reference_rows": 452,
+  "scenario": "group_pca",
+  "feature_names": [
+    "충전과 전환_PC1",
+    "충전과 전환_PC2",
+    "충전과 전환_재구성RMSE",
+    "계량과 가소화_PC1",
+    "계량과 가소화_PC2",
+    "계량과 가소화_재구성RMSE",
+    "실린더와 호퍼 온도_PC1",
+    "실린더와 호퍼 온도_PC2",
+    "실린더와 호퍼 온도_재구성RMSE",
+    "금형 온도_PC1",
+    "금형 온도_PC2",
+    "형체와 전체 주기_PC1",
+    "형체와 전체 주기_PC2"
+  ],
+  "derived_specs": [],
+  "skipped_specs": [],
+  "pca_groups": {
+    "충전과 전환": {
+      "columns": [
+        "Injection_Time",
+        "Filling_Time",
+        "Cushion_Position",
+        "Max_Injection_Speed",
+        "Max_Injection_Pressure",
+        "Max_Switch_Over_Pressure"
+      ],
+      "components": 2
+    },
+    "계량과 가소화": {
+      "columns": [
+        "Plasticizing_Time",
+        "Plasticizing_Position",
+        "Max_Screw_RPM",
+        "Average_Screw_RPM",
+        "Max_Back_Pressure",
+        "Average_Back_Pressure"
+      ],
+      "components": 2
+    },
+    "실린더와 호퍼 온도": {
+      "columns": [
+        "Barrel_Temperature_1",
+        "Barrel_Temperature_2",
+        "Barrel_Temperature_3",
+        "Barrel_Temperature_4",
+        "Barrel_Temperature_5",
+        "Barrel_Temperature_6",
+        "Hopper_Temperature"
+      ],
+      "components": 2
+    },
+    "금형 온도": {
+      "columns": [
+        "Mold_Temperature_3",
+        "Mold_Temperature_4"
+      ],
+      "components": 2
+    },
+    "형체와 전체 주기": {
+      "columns": [
+        "Clamp_Close_Time",
+        "Cycle_Time"
+      ],
+      "components": 2
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "input_sha256": "549ec91404b0c1917951c71d377a34dc4509f5640f93465ed0c55665c6911eb6",
+  "model_version": "rf-20261003T060807Z-22f2de27-rg3",
+  "label_source": "synthetic CLI test; not production truth",
+  "coordinates_confirmed": true,
+  "product_rows": 3,
+  "unique_patterns": 2
+}
