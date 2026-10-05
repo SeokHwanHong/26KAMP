@@ -1,0 +1,15 @@
+{
+  "started": "2026-10-05T16:24:11",
+  "python": "3.14.6 | packaged by Anaconda, Inc. | (main, Jul  9 2026, 14:29:05) [MSC v.1942 64 bit (AMD64)]",
+  "executable": "C:\\ProgramData\\Anaconda3\\python.exe",
+  "run_checks": {
+    "exit_code": 0,
+    "passed": true,
+    "output": "test_operations.py PASS\ntest_registration_and_logistic.py PASS\ntest_existing_ocsvm.py PASS\ntest_decision_runtime.py PASS\naudit_logistic_runs.py PASS\n{\n  \"passed\": true,\n  \"results\": [\n    {\n      \"script\": \"test_operations.py\",\n      \"exit_code\": 0,\n      \"passed\": true\n    },\n    {\n      \"script\": \"test_registration_and_logistic.py\",\n      \"exit_code\": 0,\n      \"passed\": true\n    },\n    {\n      \"script\": \"test_existing_ocsvm.py\",\n      \"exit_code\": 0,\n      \"passed\": true\n    },\n    {\n      \"script\": \"test_decision_runtime.py\",\n      \"exit_code\": 0,\n      \"passed\": true\n    },\n    {\n      \"script\": \"audit_logistic_runs.py\",\n      \"exit_code\": 0,\n      \"passed\": true\n    }\n  ],\n  \"runtime_unchanged\": true,\n  \"scope\": \"81 regression/integration invocations plus saved LR audit; no field validation\",\n  \"report\": \"D:\\\\workspace\\\\kamp\\\\output\\\\test_runs\\\\20261005T072411Z-4e3a423e\"\n}\n"
+  },
+  "rf": {
+    "status": "already_active",
+    "version": "rf-20261005T070541Z-eee06bbc"
+  },
+  "finished": "2026-10-05T16:26:46"
+}

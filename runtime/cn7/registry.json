@@ -6,6 +6,17 @@
       "action": "fix_if_reference",
       "version": "if-a7a2fcba54e54d58",
       "at": "2026-10-02T01:43:06.075225+00:00"
+    },
+    {
+      "action": "initialize_reference",
+      "kind": "rf",
+      "version": "rf-20261005T070541Z-eee06bbc",
+      "reason": "CN7 RF + 검사 예산 운영 기준 (2026-10-05 팀 결정)",
+      "at": "2026-10-05T07:05:41.648873+00:00"
     }
-  ]
+  ],
+  "active_models": {
+    "if": "if-a7a2fcba54e54d58",
+    "rf": "rf-20261005T070541Z-eee06bbc"
+  }
 }

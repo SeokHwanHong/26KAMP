@@ -1,0 +1,37 @@
+KAMP develop_seo — Codex 검수 지적 3건 추가 수정 (2026-10-05 2차, Claude)
+pipeline_runtime.py는 이번에도 수정하지 않음. 운영 runtime(등록된 RF 포함)도 건드리지 않음.
+
+[1] 수집 확정 도중 실패하면 중복 수집 가능 → 수정
+원인: 파일·장부를 먼저 저장하고 중복 방지 목록은 나중에 기록함. 그 사이에서 실패하면
+      처리 상태 파일이 없어 pending에 안 보였고, 다른 batch_id로 같은 자료가 다시 수집됨. (Claude 환경에서도 재현함)
+수정: 순서를 바꿈 — 중복 방지 목록에 먼저 "예약"을 기록한 뒤 파일·장부를 저장.
+  - 예약 기록 자체가 실패 → 아무것도 저장 안 됨(정상적인 첫 수집으로 다시 받을 수 있음)
+  - 저장·장부·처리 상태 기록 중 어디서 실패하든 → 같은 내용/제품 ID는 다른 batch_id로 들어오면 보류(held)
+  - pending 목록에 commit_incomplete(파일 저장됨) 또는 reserved_not_stored(저장 전 중단)로 표시
+  - 같은 batch_id로 다시 보내거나 resume → 빠진 장부·처리 상태를 채우고 감지·안내까지 완료, 끝나면 예약 삭제
+  - 기본 수집이 보류로 끝나면(모델 미지정 등) 예약을 되돌림
+검증한 장애 지점: 예약 기록 실패 / 기본 장부 기록 실패 / 처리 상태 기록 실패 / 장부 뒤 중복 색인 기록 실패(Codex 재현 상황)
+
+[2] CN7 동점: 실제 선택(ID 순)과 평가(무작위 기대값)가 다름 → 수정
+수정: 실행과 평가가 같은 순서로 고름 — 점수 높은 순 → 입력 패턴 지문(fingerprint) 순 → record_id 순(라벨 미사용).
+  - 평가 판정 지표를 found_TP(이 순서로 실제 고른 패턴의 위험 수)로 변경. 승격·선정 비교도 found_TP 사용
+  - 무작위 동점 기대값은 random_tie_expected_TP / min / max로 참고만 기록
+  - 기존 재현 예(동점 10개 중 1개 검사): 이제 실제 선택과 평가가 같은 항목으로 계산됨
+  - 지문 순으로 바꾼 이유: 평가 자료는 패턴 단위라 record_id가 없음. 지문은 실행·평가 양쪽에 있고 라벨과 무관
+  - 배치=제품 단위, 평가=고유 패턴 단위 차이는 그대로이며 결과에 unit으로 표시
+
+[3] 검사 비율 0%를 허용하지만 실제로는 1개 검사 → 0% 금지로 통일
+  - CLI·Operations·계산 함수 모두 0 초과 1 이하만 허용. 0이면 오류 메시지(최소 1개 검사 정책)
+
+[검증 — Claude 환경]
+- test_decision_runtime.py 35개 통과(기존 28 + 이번 7)
+- pipeline_runtime.py 원본과 동일
+- 사용자 PC 전체 검사: run_20261005.bat 다시 실행(테스트 79회 + LR 재검산). RF는 이미 등록돼 있어 다시 만들지 않음
+
+[바뀐 파일]
+03.modeling/common/decision_runtime.py, 03.modeling/pipeline_cli.py, 03.modeling/tests/test_decision_runtime.py,
+03.modeling/tests/run_checks.py(테스트 수 문구), 03.modeling/common/DATASET_DECISION_POLICY.txt, TEST_FLOW.txt
+
+[참고 — Codex 의견에 동의]
+CN7 RF 운영 등록은 "비교 기준 지정"이지 성능 검증을 통과한 최종 선정이 아님.
+최종 판단에는 새 라벨 평가 자료(독립, 위험 5개 이상)가 필요함.

@@ -1,4 +1,5 @@
-"""Reinspection and absolute acceptance checks; synthetic cases are technical tests."""
+"""Reinspection and absolute acceptance checks; synthetic cases are technical tests.
+2026-10-05: F01-F07 team review regression tests added (ReviewFixTests), incl. commit-stage failure and tie/evaluation rule."""
 import sys
 from pathlib import Path
 import tempfile
@@ -103,7 +104,7 @@ class DecisionTests(unittest.TestCase):
         ops,v,_,_=self._cn7_with_rf('budget')
         ex,_=self.frame(40,12);r=ops.ingest(ex,coordinates_confirmed=True)
         info=r['inspection_priority'];self.assertEqual(info['status'],'ranked')
-        self.assertEqual(info['budget_k'],4);self.assertGreaterEqual(info['flagged'],4)
+        self.assertEqual(info['budget_k'],4);self.assertEqual(info['flagged'],4);self.assertEqual(info['tie_rule'],'exact_k')
         table=pd.read_csv(info['csv']);self.assertEqual(len(table),40)
         top=table[table.inspect.eq(1)];self.assertGreaterEqual(top.risk_score.min(),table[table.inspect.eq(0)].risk_score.max())
     def test_cn7_without_active_rf_reports_status(self):
@@ -160,5 +161,210 @@ class DecisionTests(unittest.TestCase):
         for seed in [21,22]:
             ex,_=self.frame(30,seed);r=ops.ingest(ex.assign(**{'Unnamed: 0':range(30)}),coordinates_confirmed=True)
             self.assertEqual(r['status'],'accepted')
+
+
+class ReviewFixTests(unittest.TestCase):
+    """2026-10-05 team review F01-F07. Synthetic fixtures; technical behaviour only."""
+    def setUp(self):
+        (ROOT/'tmp').mkdir(exist_ok=True)
+        self.tmp=tempfile.TemporaryDirectory(dir=ROOT/'tmp')
+    def tearDown(self):self.tmp.cleanup()
+    def ops(self,name,dataset='rg3',n_ref=120,**policy):
+        base=dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=40);base.update(policy)
+        ops=Operations(dataset,Path(self.tmp.name)/name,base)
+        x=pd.DataFrame(np.random.default_rng(31).normal(size=(n_ref,24)),columns=feature_columns());y=(x.iloc[:,0]>0).astype(int)
+        self.reference=x
+        kind='rf' if dataset=='cn7' else 'lr'
+        v=ops.save_candidate(fit_supervised(dataset,x,y,kind=kind),x,y,source={'fixture':True});ops.initialize(v,'synthetic')
+        return ops
+    def batch(self,n=45,seed=40):
+        x=pd.DataFrame(np.random.default_rng(seed).normal(size=(n,24)),columns=feature_columns())
+        x.iloc[1]=x.iloc[0].to_numpy().copy()  # same input pattern twice, conflicting labels
+        y=(x.iloc[:,0]>0).astype(int).to_numpy().copy();y[0],y[1]=0,1
+        return x.assign(PassOrFail=y)
+
+    def test_f01_reordered_resend_without_ids_is_held(self):
+        ops=self.ops('f01');frame=self.batch()
+        first=ops.ingest(frame,label_source='synthetic',coordinates_confirmed=True)
+        self.assertEqual(first['status'],'accepted')
+        swapped=frame.iloc[[1,0]+list(range(2,len(frame)))].reset_index(drop=True)
+        again=ops.ingest(swapped,label_source='synthetic',coordinates_confirmed=True)
+        self.assertEqual(again['status'],'held');self.assertIn('중복 의심',again['reason'])
+        self.assertEqual(read(ops.state/'batch_ledger.json')['batches'],[first['id']])
+    def test_f01_same_content_new_ids_is_separate_production(self):
+        ops=self.ops('f01b');frame=self.batch()
+        first=ops.ingest(frame.assign(product_id=[f'A-{i}' for i in range(45)]),label_source='s',coordinates_confirmed=True)
+        second=ops.ingest(frame.assign(product_id=[f'B-{i}' for i in range(45)]),label_source='s',coordinates_confirmed=True)
+        self.assertEqual(second['status'],'accepted');self.assertIn(first['id'],second['duplicate_note'])
+    def test_f02_drift_failure_keeps_commit_and_resumes_same_batch_id(self):
+        ops=self.ops('f02');frame=self.batch()
+        with patch.object(ops,'_run_detect',side_effect=RuntimeError('injected')):
+            r=ops.ingest(frame,batch_id='LOT-1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r['status'],'accepted');self.assertEqual(r['processing']['stage'],'drift_failed')
+        self.assertIn('LOT-1',read(ops.state/'dedup_index.json')['content'].values())
+        self.assertEqual(ops.pending_batches()[0]['stage'],'drift_failed')
+        other=ops.ingest(frame,batch_id='LOT-2',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(other['status'],'held')                # different id = duplicate, not a second lot
+        again=ops.ingest(frame,batch_id='LOT-1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(again['processing'],dict(stage='completed',resumed=True));self.assertIn('inspection_advice',again)
+        self.assertEqual(read(ops.state/'batch_ledger.json')['batches'],['LOT-1'])
+        done=ops.ingest(frame,batch_id='LOT-1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(done['processing']['retry'],'already_completed');self.assertEqual(ops.pending_batches(),[])
+    def test_f02_advice_failure_resumes_without_new_drift_window(self):
+        ops=self.ops('f02b');frame=self.batch()
+        with patch.object(ops,'_rg3_advice',side_effect=RuntimeError('injected')):
+            r=ops.ingest(frame,batch_id='LOT-9',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r['processing']['stage'],'advice_failed');drift_id=r['drift']['id']
+        again=ops.resume('LOT-9')
+        self.assertEqual(again['processing']['stage'],'completed');self.assertEqual(again['drift']['id'],drift_id)
+        self.assertEqual(len(list((ops.state/'drift').glob('*.json'))),1)
+    def test_f02_same_batch_id_with_other_content_is_conflict(self):
+        ops=self.ops('f02c')
+        ops.ingest(self.batch(),batch_id='LOT-3',label_source='s',coordinates_confirmed=True)
+        r=ops.ingest(self.batch(seed=41),batch_id='LOT-3',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r['status'],'conflict')
+    def test_f02_held_batch_id_can_be_resent_after_fix(self):
+        ops=self.ops('f02d');frame=self.batch()
+        self.assertEqual(ops.ingest(frame,batch_id='LOT-4',label_source='s')['status'],'held')
+        self.assertEqual(ops.ingest(frame,batch_id='LOT-4',label_source='s',coordinates_confirmed=True)['status'],'accepted')
+        self.assertTrue(list((ops.state/'held_archive').glob('LOT-4-*')))
+    def test_f03_ingest_lock_blocks_concurrent_registration(self):
+        from decision_runtime import LockHeld
+        ops=self.ops('f03')
+        with ops._exclusive('ingest'):
+            with self.assertRaises(LockHeld) as ctx:ops.ingest(self.batch(),label_source='s',coordinates_confirmed=True)
+            self.assertIn('--lock ingest',str(ctx.exception))
+        self.assertFalse((ops.state/'batch_ledger.json').exists())
+    def test_f04_waiting_is_pending_not_low(self):
+        from decision_runtime import uncertainty_level
+        self.assertEqual(uncertainty_level('monitor','waiting'),'pending')
+        self.assertEqual(uncertainty_level('out_of_reference','waiting'),'high')
+        from pipeline_runtime import data
+        ops=self.ops('f04');xx,_,_,dev,_,_=data('rg3');x=xx.loc[dev].iloc[:8].reset_index(drop=True)  # baseline rows: in range
+        r=ops.ingest(x,coordinates_confirmed=True);self.assertEqual(r['drift']['status'],'waiting')
+        recs=read(r['inspection_advice']['json'])['records']
+        self.assertFalse(any(rec['uncertainty_level']=='low' for rec in recs))
+        self.assertTrue(any(rec['uncertainty_label']=='판단 대기' for rec in recs))
+    def test_f05_ties_follow_one_rule(self):
+        from decision_runtime import budget_flags,budget_metrics
+        fps=[f'f{9-i}' for i in range(10)]                     # f9..f0: the tie winner is f0 (index 9)
+        flag,_,k,_,ties=budget_flags([.5]*10,.1,[f'r{i}' for i in range(10)],fingerprints=fps)
+        self.assertEqual((k,int(flag.sum())),(1,1));self.assertTrue(flag[9]);self.assertTrue(ties['ties_cut'])
+        flag,_,_,_,ties=budget_flags([.5]*10,.1,rule='all_ties')
+        self.assertEqual(int(flag.sum()),10);self.assertEqual(ties['over_budget'],9)
+    def test_f05_evaluation_uses_the_same_selection_as_operation(self):
+        from decision_runtime import budget_flags,budget_metrics
+        fps=[f'f{9-i}' for i in range(10)];s=[.5]*10
+        picked=budget_flags(s,.1,fingerprints=fps)[0]
+        for y in [np.array([0]*9+[1]),np.array([1]+[0]*9)]:
+            m=budget_metrics(y,s,.1,fingerprints=fps)
+            self.assertEqual(m['found_TP'],int(y[picked].sum()))     # same item decides both
+            self.assertAlmostEqual(m['random_tie_expected_TP'],.1)  # random tie value kept as reference only
+        self.assertEqual(budget_metrics(np.array([1]+[0]*9),s,.1,'all_ties',fps)['found_TP'],1)
+    def test_zero_inspection_fraction_is_rejected(self):
+        from decision_runtime import budget_flags
+        with self.assertRaisesRegex(ValueError,'0 초과'):budget_flags([.1,.2],0)
+        with self.assertRaisesRegex(ValueError,'0 초과'):Operations('cn7',Path(self.tmp.name)/'z',dict(inspection_fraction=0))
+    def _fail_on(self,module,filename):
+        import importlib
+        mod=importlib.import_module(module);real=mod.write;state={'n':0}
+        def bad(path,value):
+            if Path(path).name==filename and state['n']==0:
+                state['n']+=1;raise OSError('injected '+filename)
+            return real(path,value)
+        return patch.object(mod,'write',side_effect=bad)
+    def test_commit_interrupted_after_ledger_is_recovered_and_blocks_duplicates(self):
+        ops=self.ops('c1');frame=self.batch()
+        with self._fail_on('decision_runtime','processing.json'):
+            with self.assertRaises(OSError):ops.ingest(frame,batch_id='LOT-C',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(read(ops.state/'batch_ledger.json')['batches'],['LOT-C'])
+        self.assertEqual([p['stage'] for p in ops.pending_batches()],['commit_incomplete'])
+        self.assertEqual(ops.ingest(frame,batch_id='LOT-D',label_source='s',coordinates_confirmed=True)['status'],'held')
+        again=ops.ingest(frame,batch_id='LOT-C',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(again['processing']['stage'],'completed')
+        self.assertEqual(read(ops.state/'batch_ledger.json')['batches'],['LOT-C']);self.assertEqual(ops.pending_batches(),[])
+        self.assertEqual(read(ops.state/'dedup_index.json')['reservations'],{})
+    def test_commit_interrupted_at_base_ledger_write_is_recovered(self):
+        ops=self.ops('c2');frame=self.batch()
+        with self._fail_on('pipeline_runtime','batch_ledger.json'):
+            with self.assertRaises(OSError):ops.ingest(frame,batch_id='LOT-E',label_source='s',coordinates_confirmed=True)
+        self.assertFalse((ops.state/'batch_ledger.json').exists())
+        self.assertEqual([p['stage'] for p in ops.pending_batches()],['commit_incomplete'])
+        self.assertEqual(ops.ingest(frame,batch_id='LOT-F',label_source='s',coordinates_confirmed=True)['status'],'held')
+        self.assertEqual(ops.resume('LOT-E')['processing']['stage'],'completed')
+        self.assertEqual(read(ops.state/'batch_ledger.json')['batches'],['LOT-E'])
+    def test_reservation_write_failure_stores_nothing(self):
+        ops=self.ops('c3');frame=self.batch()
+        with self._fail_on('decision_runtime','dedup_index.json'):
+            with self.assertRaises(OSError):ops.ingest(frame,batch_id='LOT-G',label_source='s',coordinates_confirmed=True)
+        self.assertFalse((ops.state/'batches'/'LOT-G').exists());self.assertEqual(ops.pending_batches(),[])
+        self.assertEqual(ops.ingest(frame,batch_id='LOT-G',label_source='s',coordinates_confirmed=True)['processing']['stage'],'completed')
+    def test_index_failure_after_ledger_is_listed_and_blocks_duplicates(self):
+        ops=self.ops('c5');frame=self.batch()
+        import decision_runtime;real=decision_runtime.write;n={'c':0}
+        def bad(path,value):
+            if Path(path).name=='dedup_index.json':
+                n['c']+=1
+                if n['c']==2:raise OSError('injected')        # 2nd index write = after files+ledger
+            return real(path,value)
+        with patch.object(decision_runtime,'write',side_effect=bad):
+            with self.assertRaises(OSError):ops.ingest(frame,batch_id='LOT-J',label_source='s',coordinates_confirmed=True)
+        self.assertEqual([p['batch_id'] for p in ops.pending_batches()],['LOT-J'])
+        self.assertEqual(ops.ingest(frame,batch_id='LOT-K',label_source='s',coordinates_confirmed=True)['status'],'held')
+        self.assertEqual(ops.ingest(frame,batch_id='LOT-J',label_source='s',coordinates_confirmed=True)['processing']['stage'],'completed')
+        self.assertEqual(read(ops.state/'dedup_index.json')['reservations'],{})
+        self.assertEqual(read(ops.state/'batch_ledger.json')['batches'],['LOT-J'])
+    def test_interrupted_reservation_rejects_other_content_with_same_batch_id(self):
+        ops=self.ops('c6');abc=self.batch(seed=80).assign(product_id=[f'A-{i}' for i in range(45)])
+        deff=self.batch(seed=81).assign(product_id=[f'D-{i}' for i in range(45)])
+        with self._fail_on('pipeline_runtime','manifest.json'):         # stop before the batch is stored
+            with self.assertRaises(OSError):ops.ingest(abc,batch_id='LOT1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual([p['stage'] for p in ops.pending_batches()],['reserved_not_stored'])
+        r=ops.ingest(deff,batch_id='LOT1',label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r['status'],'conflict');self.assertTrue(r['reservation_kept'])
+        idx=read(ops.state/'dedup_index.json')
+        self.assertEqual(idx['reservations']['LOT1']['ids'],sorted(f'A-{i}' for i in range(45)))
+        self.assertFalse(any(i.startswith('D-') for i in idx['ids']))
+        # same IDs, different content is also refused
+        self.assertEqual(ops.ingest(self.batch(seed=82).assign(product_id=[f'A-{i}' for i in range(45)]),
+                                    batch_id='LOT1',label_source='s',coordinates_confirmed=True)['status'],'conflict')
+        self.assertEqual(ops.ingest(deff,batch_id='LOT2',label_source='s',coordinates_confirmed=True)['status'],'accepted')
+        done=ops.ingest(abc,batch_id='LOT1',label_source='s',coordinates_confirmed=True)   # original file finishes LOT1
+        self.assertEqual(done['processing']['stage'],'completed')
+        self.assertEqual(sorted(read(ops.state/'batch_ledger.json')['batches']),['LOT1','LOT2'])
+        self.assertEqual(read(ops.state/'dedup_index.json')['reservations'],{});self.assertEqual(ops.pending_batches(),[])
+        self.assertEqual(ops.ingest(abc,batch_id='LOT3',label_source='s',coordinates_confirmed=True)['status'],'held')
+    def test_interrupted_commit_rejects_other_ids_with_same_batch_id(self):
+        ops=self.ops('c7');abc=self.batch(seed=83).assign(product_id=[f'A-{i}' for i in range(45)])
+        with self._fail_on('decision_runtime','processing.json'):        # stored + ledger, commit unfinished
+            with self.assertRaises(OSError):ops.ingest(abc,batch_id='LOT5',label_source='s',coordinates_confirmed=True)
+        other=abc.assign(product_id=[f'X-{i}' for i in range(45)])       # same content, other IDs
+        self.assertEqual(ops.ingest(other,batch_id='LOT5',label_source='s',coordinates_confirmed=True)['status'],'conflict')
+        self.assertEqual(ops.ingest(abc,batch_id='LOT5',label_source='s',coordinates_confirmed=True)['processing']['stage'],'completed')
+    def test_held_after_reservation_releases_it(self):
+        ops=self.ops('c4');frame=self.batch().assign(product_id=[f'P-{i}' for i in range(45)])
+        with patch('pipeline_runtime.Operations.active',return_value={}):   # base holds: no reference model
+            self.assertEqual(ops.ingest(frame,batch_id='LOT-H',label_source='s',coordinates_confirmed=True)['status'],'held')
+        idx=read(ops.state/'dedup_index.json')
+        self.assertEqual((idx['reservations'],idx['ids']),({},{}))
+        self.assertEqual(ops.ingest(frame,batch_id='LOT-I',label_source='s',coordinates_confirmed=True)['status'],'accepted')
+    def test_f06_quantile_change_recalibrates(self):
+        ops=self.ops('f06')
+        r1=ops.ingest(self.batch(seed=60),label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r1['drift']['calibration']['quantile'],.99)
+        ops2=Operations('rg3',ops.state.parent,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=40,drift_quantile=.5))
+        r2=ops2.ingest(self.batch(seed=61),label_source='s',coordinates_confirmed=True)
+        self.assertEqual(r2['drift']['calibration']['quantile'],.5)
+        self.assertEqual(r2['drift']['calibration_signature']['quantile'],.5)
+        self.assertLess(r2['drift']['threshold'],r1['drift']['threshold'])
+        self.assertTrue(list(ops.state.glob('baselines/*/calibration_archive/*.json')))
+    def test_f07_changed_purpose_blocks_evaluate_and_promote(self):
+        from pipeline_runtime import write
+        ops=self.ops('f07','cn7');ex=pd.DataFrame(np.random.default_rng(70).normal(size=(100,24)),columns=feature_columns())
+        eid=ops.register_evaluation(ex.assign(PassOrFail=(ex.iloc[:,0]>1).astype(int)),'s',purpose='historical_followup')
+        m=read(ops.state/'evaluations'/eid/'manifest.json');m['purpose']='independent'
+        write(ops.state/'evaluations'/eid/'manifest.json',m)
+        version=ops.active()['rf']
+        with self.assertRaisesRegex(ValueError,'변경'):ops.evaluate(version,eid)
 
 if __name__=='__main__':unittest.main(verbosity=2)

@@ -1,0 +1,48 @@
+{
+  "id": "assessment-20261005T072415Z-36031f63",
+  "candidate": "lr-20261005T072415Z-0aa096c4",
+  "kind": "lr",
+  "current": "lr-20261005T072415Z-2e2ca1b4",
+  "evaluation_id": "eval-20261005T072415Z-8323a5a6",
+  "created_at": "2026-10-05T07:24:15.398239+00:00",
+  "candidate_metrics": {
+    "TP": 82,
+    "FP": 4,
+    "FN": 1,
+    "TN": 73,
+    "F1": 0.9704142011834319,
+    "recall": 0.9879518072289156,
+    "FPR": 0.05194805194805195,
+    "precision": 0.9534883720930233
+  },
+  "current_metrics": {
+    "TP": 0,
+    "FP": 0,
+    "FN": 83,
+    "TN": 77,
+    "F1": 0.0,
+    "recall": 0.0,
+    "FPR": 0.0,
+    "precision": 0.0
+  },
+  "passed": true,
+  "reasons": [],
+  "policy": {
+    "min_window_rows": 40,
+    "min_window_patterns": 30,
+    "bootstrap_repeats": 40,
+    "drift_quantile": 0.99,
+    "persistence": 2,
+    "min_train_normal": 30,
+    "min_train_risk": 5,
+    "min_eval_normal": 30,
+    "min_eval_risk": 5,
+    "max_FPR": 0.2,
+    "inspection_fraction": 0.1
+  },
+  "candidate_sha256": "93a3d482f7c76a34bddde82f9b539a6627dcd5abaca4314821fe7c64e24b0295",
+  "current_sha256": "a7aba33f029aa2b0dbe008a56e2286d6e5f7e8fae6b6f05ae703c9530643f8ce",
+  "evaluation_sha256": "3e60ba9d4271fbb66424aae67802780db7ab03df59f7b8c94f7b3663d4133b06",
+  "guidance_sha256": "2abc7d8cfe1e9bfbf7389c315ef6b690542b67474601d34aee93c345c974b518",
+  "guidance_use": "구간별 관측 위험 안내; 임계값 조정/승격 점수에 사용하지 않음"
+}

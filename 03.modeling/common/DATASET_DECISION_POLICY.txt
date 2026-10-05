@@ -1,4 +1,5 @@
 CN7 / RG3 판단 정책 변경 (2026-10-03, Claude 2차 반영본: CN7=RF+검사 예산, RG3=드리프트 기반 불확실 구간)
+2026-10-05 팀장 검토(F01~F07) 반영: 배치 중복·재시도·판단 대기·동점 규칙·보정 캐시·평가 용도 기록
 
 운영 진입점: pipeline_cli.py와 04_operations.ipynb는 decision_runtime.Operations를 사용한다.
 pipeline_runtime.py는 기존 학습·저장 결과의 재현성을 위해 유지한 하위 모듈이다(수정하지 않음).
@@ -26,28 +27,61 @@ RG3
 - 불확실 단계(제품별 uncertainty_level) — 판단 불확실 정도이며 불량 위험도·불량 확률이 아님
   높음: 드리프트 review(지속 변화) 또는 학습 범위 밖 값 → 추가 검사 권고(review면 배치 전체)
   중간: 드리프트 watch(1회 변화) 또는 정보 부족
-  낮음: 위 해당 없음(정상 보증 아님). 위험 이력 참고 구간이면 reference_note=true로 표시
+  판단 대기: 감지 표본이 모자라(drift waiting) 배치 변화 판단이 아직 없음. 낮음(정상)으로 읽지 않는다
+  낮음: 드리프트 normal이고 위 해당 없음(정상 보증 아님). 위험 이력 참고 구간이면 reference_note=true로 표시
 - 불확실 구간(uncertainty_zones): 드리프트에서 분포가 가장 많이 바뀐 변수·조합 상위 8개,
   경보선 초과 여부, 범위 밖 값 개수. 불량 원인·불량 범위가 아니다.
 - 입력 배치 라벨로 권고를 만들지 않음. 고정 개발 참조 라벨만 사용.
 - 수치형 고/중/저 불량 확률은 보정 근거가 없으므로 제공하지 않음.
 
 배치 중복 차단 (CN7·RG3 공통)
-- 이전 배치와 내용(입력·라벨) 해시가 같거나 명시 제품 ID가 겹치면 held.
+- 1차 근거는 명시 제품 ID(record_id·product_id). 이전 배치와 겹치면 held.
+- 제품 ID가 없으면 내용으로만 판단: 이전 배치와 내용이 같으면 '중복 의심'으로 held.
+- 제품 ID가 모두 새롭고 내용만 같으면 별도 생산 건으로 수집하고 duplicate_note에 기록한다
+  (같은 조건에서 실제로 새로 생산된 제품의 빈도를 지우지 않기 위해).
+- 내용 키는 패턴 요약(fingerprint별 제품 수·정상 수·불량 수·대표 라벨)의 해시다.
+  행 순서만 바뀐 재전송도 같은 내용으로 판단한다(2026-10-05, 이전에는 행 순서에 따라 해시가 달라졌음).
 - 같은 로트 재전송이 두 개의 감지 윈도로 집계되어 지속 변화(review)·CT를 여는 문제를 막는다.
 - 상태 저장: runtime/<dataset>/dedup_index.json. 이 기능 도입 전 배치는 색인되지 않는다.
 - 제품 ID가 없는 배치는 내용 해시로만 판단하므로, 운영 배치에는 제품 ID 제공을 권장한다.
 - 제품 ID 비교는 record_id·product_id 열만 사용한다. 'Unnamed: 0'은 파일별 행 번호(0..n-1)일 수 있어 배치 간 비교에서 제외한다.
 
-쓰기 잠금
+배치 처리 단계와 재시도 (2026-10-05)
+- 수집(ingest)은 세 단계로 나눠 batches/<ID>/processing.json에 기록한다.
+  수집 확정(파일·장부·중복 색인 등록) → 분포 감지(drift) → 검사 안내(CN7 우선순위 / RG3 불확실 단계)
+  stage: drift_pending → advice_pending → completed, 실패 시 drift_failed / advice_failed(+error)
+- 감지·안내가 실패해도 수집은 유지된다. 같은 batch_id로 다시 보내거나 resume 명령으로 못 끝낸 단계만 다시 실행한다.
+  다시 저장하거나 장부에 두 번 넣지 않는다. 다른 batch_id로 다시 보내면 중복으로 held.
+- 같은 batch_id에 다른 내용이 오면 status=conflict로 거부하고 기존 배치는 건드리지 않는다.
+- held 배치(좌표 미확인 등)는 저장된 것이 없으므로 같은 batch_id로 다시 보낼 수 있다(이전 시도는 held_archive에 보관).
+- 이미 끝난 배치를 다시 보내면 already_completed로 알려주고 아무것도 바꾸지 않는다.
+- 수집 확정 도중 실패 대비(2026-10-05 2차): 파일 저장 '전에' 중복 색인에 예약(reservations)을 먼저 기록한다.
+  저장·장부·처리 상태 기록 중 어디서 멈춰도 같은 내용·제품 ID는 다른 batch_id로 들어오지 못하고(held),
+  pending 목록에 commit_incomplete(파일 저장됨) 또는 reserved_not_stored(저장 전 중단)로 표시된다.
+  같은 batch_id로 다시 보내거나 resume하면 장부·처리 상태를 마저 기록하고 감지·안내까지 끝낸다. 끝나면 예약은 지운다.
+  예약 기록 자체가 실패하면 아무것도 저장되지 않는다. 기본 수집이 held로 끝나면 예약을 되돌린다.
+  예약이 남은 batch_id로 다른 내용이나 다른 제품 ID가 오면 conflict로 거부하고 기존 예약을 유지한다(2026-10-05 3차).
+  이전 파일을 같은 batch_id로 다시 보내 마무리하거나, 새 자료는 새 batch_id로 보낸다.
+- 미완료 배치 확인: pipeline_cli.py --dataset <cn7|rg3> pending
+
+잠금
+- writer 잠금: 짧은 상태 기록. ingest 잠금: 중복 검사부터 등록·감지·안내까지 배치 수집 전체를 한 번에 하나만 실행.
+  (이전에는 중복 검사와 등록 사이에 틈이 있어 두 작업이 같은 배치를 동시에 등록할 수 있었음)
 - 잠금 파일에 PID·호스트·시각을 기록하고, 잠금 중이면 생성 경과 시간과 해제 방법을 안내한다.
-- 작업 중단으로 잠금이 남으면: python 03.modeling/pipeline_cli.py --dataset <cn7|rg3> unlock --reason <사유> [--force]
+- 작업 중단으로 잠금이 남으면: python 03.modeling/pipeline_cli.py --dataset <cn7|rg3> unlock --lock <writer|ingest> --reason <사유> [--force]
   (기본 600초 이내 잠금은 --force 없이는 해제하지 않음. 해제 이력은 runtime/<dataset>/lock_history.json)
 
 CN7 — 기본 판정: 랜덤 포레스트 + 검사 예산(cn7_decision_mode='budget')
 - 운영 모델 종류 cn7_model_kind 기본 'rf'. accepted 배치마다 위험 점수 순위를 매겨
   상위 inspection_fraction(기본 10%) 제품을 검사 대상으로 표시: inspection_priority.json/csv/txt.
-  경계 동점은 모두 포함하므로 표시 수가 예산을 넘을 수 있다. RF 운영 모델이 없으면 status=no_active_model.
+  경계 동점 규칙 cn7_tie_rule(기본 exact_k): 정확히 예산 수(k)만 표시한다.
+  선택 순서(실행·평가 공통): 점수 높은 순 → 입력 패턴 지문(fingerprint) 문자열 순 → record_id 순. 라벨은 쓰지 않는다.
+  평가의 판정 지표 found_TP는 이 순서로 실제 고른 패턴의 위험 수다(2026-10-05 2차: 이전엔 무작위 동점 기대값을 써서 실행과 달랐음).
+  무작위로 동점을 고를 때의 값은 random_tie_expected_TP/min/max로 참고만 기록한다.
+  all_ties를 고르면 동점을 모두 표시하고 예산 초과 수(over_budget)를 기록하며, 평가도 동점 전부로 계산한다.
+  검사 비율은 0 초과 1 이하만 허용한다(0%는 거부, 배치당 최소 1개 검사).
+  배치 예산은 제품 수 기준(unit=product), 평가 예산은 고유 패턴 수 기준(unit=unique_pattern)이다.
+  RF 운영 모델이 없으면 status=no_active_model.
 - 근거(개발 OOF만, Test 미사용, 위험 11개): 상위 10% 검사 시 위험 발견
   RF(운영 고정 설정) 9개·AUC 0.940 / LR(튜닝 설정) 8개·0.882 / OCSVM(선택 설정) 4개·0.798.
   재현: report_decision_examples.py → cn7_budget_comparison.json
@@ -79,6 +113,16 @@ budget 모드 select-cn7은 같은 검사량 위험 발견 수가 많은 순(동
 라벨이 있는 batch는 --label-source 검사출처도 지정한다.
 python 03.modeling/tests/run_checks.py
 python 03.modeling/tests/report_decision_examples.py
+
+감지 경보선 캐시 (2026-10-05)
+- 경보선 계산 결과(baselines/<ID>/calibration_*.json)에 분위수·반복 수·기준선 ID·pipeline_runtime 코드 해시를 기록한다.
+- 정책(예: drift_quantile 0.99 → 0.95)이나 코드가 바뀌면 이전 캐시를 calibration_archive로 옮기고 다시 계산한다.
+- 드리프트 결과(drift/<ID>.json)에도 calibration_signature로 사용한 정책을 남긴다.
+
+평가 용도 기록 (2026-10-05)
+- register_evaluation 시 manifest.json(용도 purpose·패턴 목록·CSV 해시)의 해시를 manifest_integrity.json에 고정한다.
+- evaluate·promote에서 다시 대조한다. 등록 후 용도가 바뀌면 평가·승격을 거부한다.
+- 이 기능 도입 전에 등록한 평가 자료는 다시 등록해야 평가할 수 있다.
 
 현재 데이터의 한계
 CN7 기존 Test 위험은 3개로 최소 평가 위험 5개에 미달한다. 이미 관찰한 후속 평가 자료이기도 하다.

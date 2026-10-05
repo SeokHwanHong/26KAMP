@@ -1,0 +1,45 @@
+KAMP develop_seo — 팀장 검토(통계·논리·흐름, 2026-10-05 개정본) 확인 결과
+확인 대상: 로컬 D:\workspace\kamp (develop_seo 브랜치) 코드와 대조
+  - 03.modeling/common/pipeline_runtime.py, decision_runtime.py, pipeline_cli.py, runtime/{cn7,rg3}/registry.json
+
+[결론]
+팀장 검토는 코드와 대조해 정확함. F01~F07 지적이 모두 코드에서 확인됨.
+보고서 수치(TV 예시 0.30, Wilson 0/20=0~16.1%, 1/20=0.9~23.6%, 5/100=2.2~11.2%)도 재계산 결과와 일치.
+F01은 이 환경에서 직접 재현함(행 순서만 바꾸면 해시가 달라짐, fingerprint+label로 정렬하면 같아짐).
+
+[지적별 코드 확인]
+F01 행 순서 재전송  확인  decision_runtime._dedup_key: fingerprint만 stable 정렬 → 같은 패턴 안 label 순서가 그대로 남음
+F02 감지 실패 후 상태  확인  base ingest: manifest(accepted)·ledger 기록 → detect() 예외 → dedup_index 기록 전에 중단
+F03 동시 수집 경쟁  확인(정적)  중복 검사가 잠금 밖에서 수행되고 등록은 뒤에서 따로 잠금
+F04 waiting=low  확인  uncertainty_level(): review/watch 외에는 모두 'low'
+F05 동점 전량 표시  확인  budget_flags는 동점 전부 표시, topk 평가는 동점 중 k개 무작위 선택 기대값
+F06 보정 캐시 키  확인  calibration_{n_eff}_{repeats}.json — drift_quantile이 키에 없음
+F07 평가 manifest 무결성  확인  patterns.csv 해시만 있고 manifest(purpose 등) 해시는 없음
+운영 상태  확인  CN7·RG3 모두 fixed_if만 있고 RF 운영 지정 없음 → CN7 검사 우선순위는 현재 no_active_model
+
+[검토에 덧붙일 점]
+1) F01은 제품 ID가 없는 배치에서 더 심각함
+   record_id/product_id 열이 없으면 ID 중복 검사를 건너뛰므로(explicit=False) 내용 해시가 유일한 방어선.
+   → ID 없는 파일을 행 순서만 바꿔 재전송하면 두 검사를 모두 통과함.
+2) F02 재시도 시 같은 batch_id를 쓰면 '보류'가 아니라 예외로 멈춤
+   base ingest의 folder.mkdir(exist_ok=False)가 FileExistsError를 내는데 except는 ValueError/TypeError/KeyError만 잡음.
+   6절의 "같은 batch_id로 재시도" 완료 조건을 만족하려면 이 부분도 바꿔야 함.
+3) F05는 CN7에서 드문 상황이 아님
+   배치 안 같은 입력 패턴 제품은 점수가 똑같음(CN7 1,211행 → 606패턴). 경계 동점이 자주 생겨 표시 수가 예산 k를 쉽게 넘음.
+4) 수정 위치 제약
+   pipeline_runtime.py는 LR 감사 해시(runtime_code_sha256) 유지를 위해 수정 금지로 정해 둠.
+   F02·재시도 처리는 base ingest 흐름을 바꾸는 일이라 decision_runtime에서 ingest를 재정의할지, 감사 해시 변경을 감수할지 먼저 정해야 함.
+
+[우선순위 제안]
+1순위(실제 오동작, 수정 쉬움): F04, F01, F05 정책 확정
+  - F04: waiting을 별도 단계(판단 대기)로 분리 — 한두 줄 수정
+  - F01: 패턴 단위 요약(fingerprint, product_count, normal_count, defect_count)으로 해시하거나 ['fingerprint','label']로 정렬
+  - F05: 경계 동점 처리 규칙을 정하고(예: record_id 순으로 정확히 k개, 또는 전량 표시 + 실제 검사량 기록) 평가에도 같은 규칙 적용. 제품 단위/패턴 단위 구분 기록
+2순위: F02(상태 분리: committed/drift_pending/completed + 같은 batch_id 재시도), CN7 RF 운영 지정(initial → initialize → baseline)
+3순위: F06(캐시 키에 quantile·기준선·코드 버전 포함), F07(평가 manifest 해시 기록·승격 시 대조), F03(로컬 단일 사용자 환경이면 발생 가능성 낮음)
+마지막: 동일 의존성 환경 종단 리허설 — 팀장도 지적한 대로 현 PC 구버전 환경에서 저장 모델 감사 일부 실패. 고정 환경에서 다시 실행 필요.
+
+[결정이 필요한 것]
+- 수정 위치: decision_runtime 재정의 vs pipeline_runtime 직접 수정(LR 감사 해시 재발급)
+- F05 동점 정책과 검사 비율(0% 허용 여부, 최소 1건)
+- 식별자 없는 배치의 중복 의심 처리(보류 기록만 할지, 수집을 막을지)

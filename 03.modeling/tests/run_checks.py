@@ -25,7 +25,7 @@ for name in ['test_operations.py','test_registration_and_logistic.py','test_exis
     print(name,'PASS' if result.returncode==0 else 'FAIL',flush=True)
 unchanged=before==hashes()
 summary=dict(passed=all(r['passed'] for r in results) and unchanged,results=results,
-             runtime_unchanged=unchanged,scope='61 regression/integration invocations plus saved LR audit; no field validation')
+             runtime_unchanged=unchanged,scope='81 regression/integration invocations plus saved LR audit; no field validation')
 (out/'summary.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
 print(json.dumps(dict(**summary,report=str(out)),ensure_ascii=False,indent=2))
 sys.exit(0 if summary['passed'] else 1)
