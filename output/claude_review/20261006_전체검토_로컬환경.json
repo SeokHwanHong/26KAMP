@@ -1,0 +1,19 @@
+{
+  "local_head": "2fa27483407289fd72ec53447144e54716da9815",
+  "pdf_head": "9c953eef54a9dc9cfccd1c9266cdfbf5c647c422",
+  "pyarrow_available": true,
+  "lr_source": {
+    "cn7": {
+      "recorded": "b1583df71445a79f1ea731118a014279c2b12af0de8ef91d7d4f007b6843ed5c",
+      "byte_sha": "b1583df71445a79f1ea731118a014279c2b12af0de8ef91d7d4f007b6843ed5c",
+      "lf_sha": "b1583df71445a79f1ea731118a014279c2b12af0de8ef91d7d4f007b6843ed5c",
+      "crlf_present": false
+    },
+    "rg3": {
+      "recorded": "b1583df71445a79f1ea731118a014279c2b12af0de8ef91d7d4f007b6843ed5c",
+      "byte_sha": "b1583df71445a79f1ea731118a014279c2b12af0de8ef91d7d4f007b6843ed5c",
+      "lf_sha": "b1583df71445a79f1ea731118a014279c2b12af0de8ef91d7d4f007b6843ed5c",
+      "crlf_present": false
+    }
+  }
+}

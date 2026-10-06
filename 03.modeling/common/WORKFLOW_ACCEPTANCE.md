@@ -65,6 +65,26 @@ flowchart TD
 라벨 정정 API는 구현하지 않았다. 재전송으로 기존 라벨을 변경하면 conflict다.
 향후 정정에는 원천 제품/배치 ID, 검사 출처·시각, 정정 사유·승인자, 이전/새 라벨, 영향받는 패턴·학습/평가/모델 버전 이력과 재검증 절차가 필요하다.
 
+### 2026-10-06 실행·복구 보완
+
+- 경보 연속성은 바로 이전 확정 윈도의 기준선·정책과 비교한다. A→B→A 복귀는 새 연속 구간이다.
+  `continuity_version=2`로 과거 횟수를 이어 쓰지 않으며, 소비 장부의 오래된 누락을 복구해도 최신 순서를 유지한다.
+- 새 평가 등록은 `evaluation_staging/<ID>`에서 파일·manifest·integrity를 준비·검증한 뒤 폴더를 전환한다.
+  실패 준비 폴더는 학습 보호·평가 목록에 포함되지 않는다. `evaluation-registration-status`로 조회하고 같은 입력·출처·purpose·ID로 재시도한다.
+- 구형 평가의 CSV·입력 지문을 검증해 신규 자료 등록을 막지 않도록 했다. 구형 자료와 겹치는 패턴은 `historical_followup`으로 제한한다.
+  `migrate-evaluation`은 원본을 보존하고 후속 평가 사본을 만든다. 과거 독립성이나 실행 당시 무결성을 소급 인증하지 않는다.
+- `pyarrow==23.0.1`은 저장 RF 로드 의존성으로 선언했다. 새 인터프리터 프로세스에서 현재 활성 모델의 로드·추론을 검증했다.
+- Python 소스는 LF 체크아웃을 선언한다. 과거 소스 감사는 바이트 일치 또는 LF/CRLF만의 변환을 구분해 기록한다.
+  실제 코드 변경은 실패하며 모델·평가·LR 결과 산출물은 바이트 해시 그대로 검증한다. 과거 실행 기록은 수정하지 않는다.
+
+구형 평가의 원천 파일이나 manifest까지 손상되었으면 이관을 거부한다. 독립 승격 평가에는 새 근거가 있는 분리 자료를 확보해야 한다.
+
+```powershell
+python 03.modeling/pipeline_cli.py --dataset rg3 --state-root tmp/rehearsal evaluation-registration-status
+python 03.modeling/pipeline_cli.py --dataset rg3 --state-root tmp/rehearsal register-evaluation --input new.csv --label-source "검사 출처" --evaluation-id RECOVER
+python 03.modeling/pipeline_cli.py --dataset rg3 --state-root tmp/rehearsal migrate-evaluation --evaluation-id OLD --new-evaluation-id COPY --label-source "원천 검사 출처" --reason "구형 평가 복구"
+```
+
 ## 검증의 범위
 
 운영 계층 테스트는 독립 state-root의 합성 fixture로 정상·실패·재개·보류·승격·롤백을 확인한다.

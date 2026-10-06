@@ -1,3 +1,9 @@
 # Preserve exact CSV bytes on clone; the RF parts manifest validates SHA-256.
 /output/random_forest_cn7/manual_seven_scenarios_v1/threshold_search_part[12].csv -text
 /output/random_forest_rg3/manual_seven_scenarios_v1/threshold_search_part[12].csv -text
+# Source hashes use a declared LF checkout; legacy CRLF audits are source-only compatible.
+*.py text eol=lf
+# Preserve original evidence and model/experiment bytes. Do not renormalize these files.
+/runtime/** -text
+/output/logistic/** -text
+/03.modeling/common/provenance/** -text

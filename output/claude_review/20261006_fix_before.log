@@ -1,0 +1,62 @@
+Failed to find real location of C:\ProgramData\Anaconda3\python.exe
+test_legacy_does_not_block_new_registration_or_leave_partial (__main__.ReviewTests.test_legacy_does_not_block_new_registration_or_leave_partial) ... ERROR
+test_line_endings_are_equivalent_but_code_edits_are_not (__main__.ReviewTests.test_line_endings_are_equivalent_but_code_edits_are_not) ... ERROR
+test_policy_return_restarts_consecutive_alarm (__main__.ReviewTests.test_policy_return_restarts_consecutive_alarm) ... FAIL
+test_registration_failure_is_staged_and_same_id_retry_recovers (__main__.ReviewTests.test_registration_failure_is_staged_and_same_id_retry_recovers) ... FAIL
+
+======================================================================
+ERROR: test_legacy_does_not_block_new_registration_or_leave_partial (__main__.ReviewTests.test_legacy_does_not_block_new_registration_or_leave_partial)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_review_20261006.py", line 48, in test_legacy_does_not_block_new_registration_or_leave_partial
+    new=ops.register_evaluation(x.assign(PassOrFail=y),'new labels')
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 319, in register_evaluation
+    self._verify_evaluation_manifest(f.parent.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 300, in _verify_evaluation_manifest
+    sha=super()._verify_evaluation_manifest(eid)
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 817, in _verify_evaluation_manifest
+    raise ValueError('�� �뵵 ���(manifest) ���Ἲ ���� ����: �� ��� ���� ���� ����� �� �ڷ�� �ٽ� ����ϼ���')
+ValueError: �� �뵵 ���(manifest) ���Ἲ ���� ����: �� ��� ���� ���� ����� �� �ڷ�� �ٽ� ����ϼ���
+
+======================================================================
+ERROR: test_line_endings_are_equivalent_but_code_edits_are_not (__main__.ReviewTests.test_line_endings_are_equivalent_but_code_edits_are_not)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_review_20261006.py", line 65, in test_line_endings_are_equivalent_but_code_edits_are_not
+    from source_provenance import verify_source_digest
+ModuleNotFoundError: No module named 'source_provenance'
+
+======================================================================
+FAIL: test_policy_return_restarts_consecutive_alarm (__main__.ReviewTests.test_policy_return_restarts_consecutive_alarm)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_review_20261006.py", line 41, in test_policy_return_restarts_consecutive_alarm
+    self.assertEqual(runs,[('watch',1),('normal',0),('watch',1),('review',2)])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [('watch', 1), ('normal', 0), ('review', 2), ('review', 3)] != [('watch', 1), ('normal', 0), ('watch', 1), ('review', 2)]
+
+First differing element 2:
+('review', 2)
+('watch', 1)
+
+- [('watch', 1), ('normal', 0), ('review', 2), ('review', 3)]
+?                                            ---------------
+
++ [('watch', 1), ('normal', 0), ('watch', 1), ('review', 2)]
+?                              ++++++++++++++
+
+
+======================================================================
+FAIL: test_registration_failure_is_staged_and_same_id_retry_recovers (__main__.ReviewTests.test_registration_failure_is_staged_and_same_id_retry_recovers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_review_20261006.py", line 60, in test_registration_failure_is_staged_and_same_id_retry_recovers
+    self.assertFalse((ops.state/'evaluations/RECOVER').exists())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 4 tests in 4.155s
+
+FAILED (failures=2, errors=2)

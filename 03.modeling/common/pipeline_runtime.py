@@ -418,6 +418,10 @@ class Operations(Runtime):
             monitor['consumed'].extend(i for i in r['batch_ids'] if i not in monitor['consumed'])
             monitor['history'].append(dict(id=r['id'],baseline=r['baseline'],status=r['status'],streak=r['streak'],
                                            calibration_policy=r.get('calibration_policy'),recovered=True))
+        if missing:
+            # Recovering an older missing entry must not make it the last confirmed window.
+            times={r['id']:r['created_at'] for r in records if r and r.get('id')}
+            monitor['history'].sort(key=lambda h:times.get(h['id'],''))
         return [r['id'] for r in missing]
     def reconcile_monitor(self):
         """Explicit recovery entry point; returns the drift ids that were applied."""
@@ -456,9 +460,11 @@ class Operations(Runtime):
                 write(cache,calibration)
             threshold=calibration['threshold'];exceeded=max(changes.values())>threshold
             # Streak continues only over confirmed windows of the same baseline AND alarm policy.
-            policy_key=dict(quantile=float(self.policy['drift_quantile']),repeats=int(self.policy['bootstrap_repeats']))
-            recent=[r for r in monitor['history'] if r['baseline']==m['id'] and r.get('calibration_policy')==policy_key]
-            streak=(recent[-1]['streak'] if recent else 0)+1 if exceeded else 0
+            policy_key=dict(quantile=float(self.policy['drift_quantile']),repeats=int(self.policy['bootstrap_repeats']),
+                            persistence=int(self.policy['persistence']),continuity_version=2)
+            previous=monitor['history'][-1] if monitor['history'] else None
+            continues=bool(previous and previous['baseline']==m['id'] and previous.get('calibration_policy')==policy_key)
+            streak=(previous['streak'] if continues else 0)+1 if exceeded else 0
             status='review' if streak>=self.policy['persistence'] else 'watch' if exceeded else 'normal'
             reference_fingerprints=set(fingerprints(reference))
             did=new_id('drift');result=dict(id=did,baseline=m['id'],versions=m['versions'],created_at=now(),

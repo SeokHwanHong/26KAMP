@@ -1,0 +1,16 @@
+Failed to find real location of C:\ProgramData\Anaconda3\python.exe
+test_atomic_registration_rename_failure_can_retry (__main__.ReviewTests.test_atomic_registration_rename_failure_can_retry) ... ok
+test_baseline_return_restarts_alarm (__main__.ReviewTests.test_baseline_return_restarts_alarm) ... ok
+test_legacy_does_not_block_new_registration_or_leave_partial (__main__.ReviewTests.test_legacy_does_not_block_new_registration_or_leave_partial) ... ok
+test_legacy_overlap_and_migration_never_claim_independence (__main__.ReviewTests.test_legacy_overlap_and_migration_never_claim_independence) ... ok
+test_line_endings_are_equivalent_but_code_edits_are_not (__main__.ReviewTests.test_line_endings_are_equivalent_but_code_edits_are_not) ... ok
+test_missing_older_monitor_entry_does_not_replace_latest_policy (__main__.ReviewTests.test_missing_older_monitor_entry_does_not_replace_latest_policy) ... ok
+test_policy_return_restarts_consecutive_alarm (__main__.ReviewTests.test_policy_return_restarts_consecutive_alarm) ... ok
+test_registration_failure_is_staged_and_same_id_retry_recovers (__main__.ReviewTests.test_registration_failure_is_staged_and_same_id_retry_recovers) ... ok
+test_saved_active_models_load_and_score_in_fresh_process (__main__.ReviewTests.test_saved_active_models_load_and_score_in_fresh_process) ... ok
+test_staged_retry_cannot_replace_original_content (__main__.ReviewTests.test_staged_retry_cannot_replace_original_content) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 13.555s
+
+OK

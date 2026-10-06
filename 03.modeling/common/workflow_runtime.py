@@ -10,7 +10,7 @@ import threading
 import pandas as pd
 from decision_runtime import Operations as DecisionOperations, LockHeld, LOCK_FILES
 from pipeline_runtime import (read,write,digest,now,new_id,clean_id,feature_columns,
-    fingerprints,data,ROOT,bin_spec,score)
+    fingerprints,data,ROOT,bin_spec,score,preprocess)
 import numpy as np
 
 LOCK_FILES.setdefault('operation','.operation.lock')
@@ -296,43 +296,104 @@ class Operations(DecisionOperations):
             r['history'].append(dict(action='rollback',kind=kind,previous=current,version=old,reason=reason,at=now()))
             return self._transition(r,old)
 
-    def _verify_evaluation_manifest(self,eid):
-        sha=super()._verify_evaluation_manifest(eid)
-        folder=self.state/'evaluations'/clean_id(eid);m=read(folder/'manifest.json')
+    def _evaluation_evidence(self,folder,allow_legacy=False):
+        """Legacy evidence can restrict independence, but never acquires audit trust implicitly."""
+        m=read(folder/'manifest.json')
+        if not isinstance(m,dict) or m.get('id')!=folder.name:raise ValueError('평가 manifest 형식/ID 오류')
+        integrity=read(folder/'manifest_integrity.json')
+        if integrity:
+            if digest(folder/'manifest.json')!=integrity['manifest_sha256']:raise ValueError('평가 manifest 변경')
+        elif not allow_legacy:raise ValueError('구형 평가: migrate-evaluation으로 후속 평가 사본을 이관하세요')
         if digest(folder/'patterns.csv')!=m['sha256']:raise ValueError('평가 CSV 변경')
         p=pd.read_csv(folder/'patterns.csv',float_precision='round_trip')
         if m['dataset']!=self.dataset or m['purpose'] not in ('independent','historical_followup'):raise ValueError('평가 역할/데이터셋 오류')
         if 'label' not in p or not set(p.label.unique())<={0,1}:raise ValueError('평가 정답은 완전한 0/1이어야 함')
         fp=fingerprints(p[feature_columns()])
         if fp!=p.fingerprint.tolist() or fp!=m['fingerprints'] or len(set(fp))!=len(fp):raise ValueError('평가 fingerprint 정합성 오류')
-        return sha
+        return m,p,bool(integrity)
 
-    def register_evaluation(self,*args,**kwargs):
+    def _verify_evaluation_manifest(self,eid):
+        folder=self.state/'evaluations'/clean_id(eid)
+        self._evaluation_evidence(folder)
+        return digest(folder/'manifest.json')
+
+    def register_evaluation(self,frame,label_source,purpose='independent',evaluation_id=None,*,migration=None):
         with self.operation():
-            eid=super().register_evaluation(*args,**kwargs);folder=self.state/'evaluations'/eid;m=read(folder/'manifest.json')
-            p=pd.read_csv(folder/'patterns.csv',float_precision='round_trip')
+            if purpose not in ('independent','historical_followup'):raise ValueError('evaluation purpose')
+            eid=clean_id(evaluation_id or new_id('eval'));folder=self.state/'evaluations'/eid
+            if folder.exists():raise ValueError('이미 등록된 평가 ID')
+            # Preflight prior evidence before creating any registered evaluation folder.
+            prior=[]
+            for f in sorted((self.state/'evaluations').glob('*/manifest.json')):
+                m0,p0,verified=self._evaluation_evidence(f.parent,allow_legacy=True)
+                prior.append((m0,p0,verified))
+            _,p=preprocess(frame,eid,label_source)
+            if 'label' not in p:raise ValueError('평가에는 실제 라벨 필요')
+            trained=set()
+            for f in (self.state/'models').glob('*/manifest.json'):
+                trained.update(read(f).get('train_fingerprints',[]))
+            x,_,_,dev,test,_=data(self.dataset);trained.update(fingerprints(x.loc[dev]))
+            target=set(p.fingerprint)
+            if target & trained:raise ValueError('학습 이력이 있는 패턴은 독립 평가 자료로 등록 불가')
+            if target & set(fingerprints(x.loc[test])) or migration:purpose='historical_followup'
             content=sorted(zip(fingerprints(p[feature_columns()]),p.label.astype(int)))
             canonical=hashlib.sha256(json.dumps(content).encode()).hexdigest()
-            previous=[]
-            for f in (self.state/'evaluations').glob('*/manifest.json'):
-                if f.parent==folder:continue
-                self._verify_evaluation_manifest(f.parent.name)
-                pp=pd.read_csv(f.parent/'patterns.csv',float_precision='round_trip')
-                cc=hashlib.sha256(json.dumps(sorted(zip(fingerprints(pp[feature_columns()]),pp.label.astype(int)))).encode()).hexdigest()
+            previous=[];legacy_overlap=[]
+            for m0,p0,verified in prior:
+                old_content=sorted(zip(p0.fingerprint,p0.label.astype(int)))
+                cc=hashlib.sha256(json.dumps(old_content).encode()).hexdigest()
                 if cc==canonical:
-                    previous.append(f.parent.name)
-                    if read(f)['purpose']=='historical_followup':m['purpose']='historical_followup'
-            m.update(canonical_sha256=canonical,previous_evaluation_ids=previous)
-            write(folder/'manifest.json',m)
-            write(folder/'manifest_integrity.json',dict(manifest_sha256=digest(folder/'manifest.json'),patterns_sha256=m['sha256'],created_at=now()))
+                    previous.append(m0['id'])
+                    if m0['purpose']=='historical_followup':purpose='historical_followup'
+                if not verified and target & set(p0.fingerprint):
+                    legacy_overlap.append(m0['id']);purpose='historical_followup'
+            # A failed registration lives outside evaluations, so it cannot protect/poison new data.
+            stage=self.state/'evaluation_staging'/eid
+            contract=dict(id=eid,dataset=self.dataset,canonical_sha256=canonical,label_source=label_source,
+                          purpose=purpose,migration=migration)
+            with self.lock():
+                stage.mkdir(parents=True,exist_ok=True)
+                old_contract=read(stage/'registration_contract.json')
+                if old_contract and old_contract!=contract:raise ValueError('등록 재개 자료/역할이 최초 요청과 다름')
+                if not old_contract and any(stage.iterdir()):raise ValueError('등록 준비 근거 손상: 자동 재사용 불가')
+                write(stage/'registration_contract.json',contract)
+                p.to_csv(stage/'patterns.csv',index=False)
+                m=dict(id=eid,dataset=self.dataset,purpose=purpose,label_source=label_source,
+                       fingerprints=p.fingerprint.tolist(),created_at=now(),sha256=digest(stage/'patterns.csv'),
+                       canonical_sha256=canonical,previous_evaluation_ids=previous,legacy_evaluation_ids=legacy_overlap,
+                       migration=migration,legacy_note='구형 자료와 겹치면 후속 평가만 허용; 과거 기록은 수정하지 않음')
+                write(stage/'manifest.json',m)
+                write(stage/'manifest_integrity.json',dict(manifest_sha256=digest(stage/'manifest.json'),
+                                                         patterns_sha256=m['sha256'],created_at=now()))
+                self._evaluation_evidence(stage)
+                folder.parent.mkdir(parents=True,exist_ok=True)
+                os.replace(stage,folder)
             return eid
+
+    def migrate_evaluation(self,evaluation_id,label_source,reason,new_evaluation_id=None):
+        """Explicit immutable legacy copy. Historical status can never be upgraded to independent."""
+        if not reason.strip() or not label_source.strip():raise ValueError('이관 사유와 라벨 출처 필요')
+        with self.operation():
+            folder=self.state/'evaluations'/clean_id(evaluation_id)
+            m,p,verified=self._evaluation_evidence(folder,allow_legacy=True)
+            if verified:raise ValueError('이미 무결성 기록이 있는 평가')
+            migration=dict(source_evaluation_id=evaluation_id,source_manifest_sha256=digest(folder/'manifest.json'),
+                           source_patterns_sha256=digest(folder/'patterns.csv'),original_purpose=m['purpose'],reason=reason,
+                           policy='historical copy only; original evidence and independence are not retroactively certified')
+            return self.register_evaluation(p[feature_columns()].assign(PassOrFail=p.label),label_source,
+                                            'historical_followup',new_evaluation_id,migration=migration)
+
+    def evaluation_registration_status(self):
+        return [dict(evaluation_id=p.name,contract=read(p/'registration_contract.json'),
+                     message='동일 입력·출처·purpose와 evaluation_id로 register-evaluation 재시도')
+                for p in sorted((self.state/'evaluation_staging').glob('*')) if p.is_dir()]
 
     def _selection_overlap(self,eid):
         self._verify_evaluation_manifest(eid)
         target=set(read(self.state/'evaluations'/eid/'manifest.json')['fingerprints'])
         for selected in self.selection_evaluations():
-            self._verify_evaluation_manifest(selected)
-            if target & set(read(self.state/'evaluations'/selected/'manifest.json')['fingerprints']):return True
+            m,_,_=self._evaluation_evidence(self.state/'evaluations'/clean_id(selected),allow_legacy=True)
+            if target & set(m['fingerprints']):return True
         return False
 
     def evaluate(self,*args,**kwargs):

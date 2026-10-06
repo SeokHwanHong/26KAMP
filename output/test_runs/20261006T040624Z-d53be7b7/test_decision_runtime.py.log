@@ -1,0 +1,64 @@
+Failed to find real location of C:\ProgramData\Anaconda3\python.exe
+test_actual_evaluate_blocks_historical_even_if_good (__main__.DecisionTests.test_actual_evaluate_blocks_historical_even_if_good) ... ok
+test_bad_absolute_performance_rejected (__main__.DecisionTests.test_bad_absolute_performance_rejected) ... ok
+test_batch_writes_user_reinspection_results (__main__.DecisionTests.test_batch_writes_user_reinspection_results) ... ok
+test_cn7_batch_flags_inspection_budget (__main__.DecisionTests.test_cn7_batch_flags_inspection_budget) ... ok
+test_cn7_budget_gate_compares_same_budget (__main__.DecisionTests.test_cn7_budget_gate_compares_same_budget) ... ok
+test_cn7_without_active_rf_reports_status (__main__.DecisionTests.test_cn7_without_active_rf_reports_status) ... ok
+test_history_alone_is_reference_not_recheck_by_default (__main__.DecisionTests.test_history_alone_is_reference_not_recheck_by_default) ... ok
+test_incoming_labels_do_not_drive_advice (__main__.DecisionTests.test_incoming_labels_do_not_drive_advice) ... ok
+test_information_shortage_not_called_safe (__main__.DecisionTests.test_information_shortage_not_called_safe) ... ok
+test_out_of_reference_value_recommends_check (__main__.DecisionTests.test_out_of_reference_value_recommends_check) ... ok
+test_pandas_row_index_is_not_cross_batch_product_id (__main__.DecisionTests.test_pandas_row_index_is_not_cross_batch_product_id) ... ok
+test_resent_batch_held (__main__.DecisionTests.test_resent_batch_held) ... ok
+test_rg3_review_drift_marks_batch_high (__main__.DecisionTests.test_rg3_review_drift_marks_batch_high) ... ok
+test_rg3_uncertainty_levels_and_zones (__main__.DecisionTests.test_rg3_uncertainty_levels_and_zones) ... ok
+test_select_holds_all_unusable_and_selects_qualified_only (__main__.DecisionTests.test_select_holds_all_unusable_and_selects_qualified_only) ... ok
+test_selection_evaluation_cannot_justify_promotion (__main__.DecisionTests.test_selection_evaluation_cannot_justify_promotion) ... ok
+test_stale_lock_reports_owner_and_can_be_cleared (__main__.DecisionTests.test_stale_lock_reports_owner_and_can_be_cleared) ... ok
+test_baseline_status_is_read_only_and_detects_mismatch (__main__.Phase1Tests.test_baseline_status_is_read_only_and_detects_mismatch) ... ok
+test_contract_a_rejects_invalid_product_ids (__main__.Phase1Tests.test_contract_a_rejects_invalid_product_ids) ... ok
+test_exact_k_small_batch_and_untied (__main__.Phase1Tests.test_exact_k_small_batch_and_untied) ... ok
+test_r01_drift_record_failure_reruns_detection_once (__main__.Phase1Tests.test_r01_drift_record_failure_reruns_detection_once) ... ok
+test_r01_monitor_failure_then_resume_does_not_reconsume (__main__.Phase1Tests.test_r01_monitor_failure_then_resume_does_not_reconsume) ... ok
+test_r01_next_detect_repairs_ledger_even_without_resume (__main__.Phase1Tests.test_r01_next_detect_repairs_ledger_even_without_resume) ... ok
+test_r01_processing_failure_after_drift_reuses_record (__main__.Phase1Tests.test_r01_processing_failure_after_drift_reuses_record) ... ok
+test_r01_streak_does_not_cross_alarm_policy (__main__.Phase1Tests.test_r01_streak_does_not_cross_alarm_policy) ... ok
+test_r02_completed_batch_link_is_protected (__main__.Phase1Tests.test_r02_completed_batch_link_is_protected) ... ok
+test_r02_interrupted_batch_rejects_id_wise_swap (__main__.Phase1Tests.test_r02_interrupted_batch_rejects_id_wise_swap) ... ok
+test_r02_legacy_completed_batch_is_checked_against_stored_products (__main__.Phase1Tests.test_r02_legacy_completed_batch_is_checked_against_stored_products) ... ok
+test_r02_no_id_batch_uses_compat_path (__main__.Phase1Tests.test_r02_no_id_batch_uses_compat_path) ... ok
+test_r03_all_ties_is_reference_only (__main__.Phase1Tests.test_r03_all_ties_is_reference_only) ... ok
+test_same_input_new_production_is_collected_and_patterns_merge (__main__.Phase1Tests.test_same_input_new_production_is_collected_and_patterns_merge) ... ok
+test_contract_source_survives_proc_and_index_loss (__main__.ResendMatrixTests.test_contract_source_survives_proc_and_index_loss) ... ok
+test_evidence_file_states_are_explicit_rejections (__main__.ResendMatrixTests.test_evidence_file_states_are_explicit_rejections) ... ok
+test_label_presence_and_same_pattern_label_swap (__main__.ResendMatrixTests.test_label_presence_and_same_pattern_label_swap) ... ok
+test_legacy_contract_requires_positive_evidence (__main__.ResendMatrixTests.test_legacy_contract_requires_positive_evidence) ... ok
+test_manifest_damage_never_reregisters_committed_batch (__main__.ResendMatrixTests.test_manifest_damage_never_reregisters_committed_batch) ... ok
+test_matrix_by_source_variant_stage (__main__.ResendMatrixTests.test_matrix_by_source_variant_stage) ... ok
+test_matrix_legacy_records_without_link_or_mode (__main__.ResendMatrixTests.test_matrix_legacy_records_without_link_or_mode) ... ok
+test_commit_interrupted_after_ledger_is_recovered_and_blocks_duplicates (__main__.ReviewFixTests.test_commit_interrupted_after_ledger_is_recovered_and_blocks_duplicates) ... ok
+test_commit_interrupted_at_base_ledger_write_is_recovered (__main__.ReviewFixTests.test_commit_interrupted_at_base_ledger_write_is_recovered) ... ok
+test_f01_reordered_resend_without_ids_is_held (__main__.ReviewFixTests.test_f01_reordered_resend_without_ids_is_held) ... ok
+test_f01_same_content_new_ids_is_separate_production (__main__.ReviewFixTests.test_f01_same_content_new_ids_is_separate_production) ... ok
+test_f02_advice_failure_resumes_without_new_drift_window (__main__.ReviewFixTests.test_f02_advice_failure_resumes_without_new_drift_window) ... ok
+test_f02_drift_failure_keeps_commit_and_resumes_same_batch_id (__main__.ReviewFixTests.test_f02_drift_failure_keeps_commit_and_resumes_same_batch_id) ... ok
+test_f02_held_batch_id_can_be_resent_after_fix (__main__.ReviewFixTests.test_f02_held_batch_id_can_be_resent_after_fix) ... ok
+test_f02_same_batch_id_with_other_content_is_conflict (__main__.ReviewFixTests.test_f02_same_batch_id_with_other_content_is_conflict) ... ok
+test_f03_ingest_lock_blocks_concurrent_registration (__main__.ReviewFixTests.test_f03_ingest_lock_blocks_concurrent_registration) ... ok
+test_f04_waiting_is_pending_not_low (__main__.ReviewFixTests.test_f04_waiting_is_pending_not_low) ... ok
+test_f05_evaluation_uses_the_same_selection_as_operation (__main__.ReviewFixTests.test_f05_evaluation_uses_the_same_selection_as_operation) ... ok
+test_f05_ties_follow_one_rule (__main__.ReviewFixTests.test_f05_ties_follow_one_rule) ... ok
+test_f06_quantile_change_recalibrates (__main__.ReviewFixTests.test_f06_quantile_change_recalibrates) ... ok
+test_f07_changed_purpose_blocks_evaluate_and_promote (__main__.ReviewFixTests.test_f07_changed_purpose_blocks_evaluate_and_promote) ... ok
+test_held_after_reservation_releases_it (__main__.ReviewFixTests.test_held_after_reservation_releases_it) ... ok
+test_index_failure_after_ledger_is_listed_and_blocks_duplicates (__main__.ReviewFixTests.test_index_failure_after_ledger_is_listed_and_blocks_duplicates) ... ok
+test_interrupted_commit_rejects_other_ids_with_same_batch_id (__main__.ReviewFixTests.test_interrupted_commit_rejects_other_ids_with_same_batch_id) ... ok
+test_interrupted_reservation_rejects_other_content_with_same_batch_id (__main__.ReviewFixTests.test_interrupted_reservation_rejects_other_content_with_same_batch_id) ... ok
+test_reservation_write_failure_stores_nothing (__main__.ReviewFixTests.test_reservation_write_failure_stores_nothing) ... ok
+test_zero_inspection_fraction_is_rejected (__main__.ReviewFixTests.test_zero_inspection_fraction_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 58 tests in 206.484s
+
+OK

@@ -14,8 +14,12 @@ def sample(n=120,seed=1,shift=0):
     return x,(x.iloc[:,0]>shift).astype(int)
 
 class WorkflowTests(unittest.TestCase):
-    def setUp(self):self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
-    def tearDown(self):self.tmp.cleanup()
+    def setUp(self):
+        (ROOT/'tmp').mkdir(exist_ok=True)
+        self.tmp=tempfile.TemporaryDirectory(dir=ROOT/'tmp',prefix='workflow_test_');self.root=Path(self.tmp.name)
+    def tearDown(self):
+        assert self.root.resolve().is_relative_to((ROOT/'tmp').resolve())
+        self.tmp.cleanup()
     def ops(self,ds='rg3'):
         ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
         x,y=sample();model=fit_supervised(ds,x,y,C=100);model['threshold']=1

@@ -20,6 +20,7 @@ OUT=ROOT/'output/claude_review'
 SOURCES=['03.modeling/common/pipeline_runtime.py','03.modeling/common/decision_runtime.py','03.modeling/pipeline_cli.py',
          '03.modeling/common/workflow_runtime.py','03.modeling/tests/test_workflow_runtime.py',
          'run_checks_only.py','03.modeling/tests/test_recheck_fixes.py',
+         '03.modeling/common/source_provenance.py','03.modeling/tests/test_review_20261006.py',
          '03.modeling/tests/test_decision_runtime.py','03.modeling/tests/audit_logistic_runs.py']
 
 
@@ -30,7 +31,7 @@ def sha(path):
 
 def versions():
     out={'python':platform.python_version(),'executable':sys.executable}
-    for name in ['numpy','pandas','scipy','sklearn','joblib']:
+    for name in ['numpy','pandas','scipy','sklearn','joblib','pyarrow']:
         try:out[name]=__import__(name).__version__
         except Exception as exc:out[name]=f'unavailable: {exc}'
     return out

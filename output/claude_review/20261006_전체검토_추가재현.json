@@ -1,0 +1,42 @@
+{
+  "policy_return_probe": {
+    "windows": [
+      {
+        "policy": 0.5,
+        "status": "watch",
+        "streak": 1
+      },
+      {
+        "policy": 0.999,
+        "status": "normal",
+        "streak": 0
+      },
+      {
+        "policy": 0.5,
+        "status": "review",
+        "streak": 2
+      }
+    ],
+    "calibration": "injected thresholds 0/1 to isolate continuity; actual detect/state path executed"
+  },
+  "legacy_evaluation_probe": {
+    "error": "ValueError: 평가 용도 기록(manifest) 무결성 정보 없음: 이 기능 도입 전에 등록한 평가 자료는 다시 등록하세요",
+    "new_folders_after_failure": [
+      "eval-20261006T034428Z-f9575724"
+    ],
+    "legacy_preserved": true
+  },
+  "dependency_probes": {
+    "rf": {
+      "exit_code": 7,
+      "stdout": "ModuleNotFoundError: injected absent dependency: pyarrow",
+      "stderr": "Failed to find real location of C:\\ProgramData\\Anaconda3\\python.exe\n"
+    },
+    "if": {
+      "exit_code": 0,
+      "stdout": "loaded",
+      "stderr": "Failed to find real location of C:\\ProgramData\\Anaconda3\\python.exe\n"
+    }
+  },
+  "runtime_and_lr_unchanged": true
+}

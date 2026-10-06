@@ -104,3 +104,11 @@ python 03.modeling/tests/audit_logistic_runs.py
 신규 수집의 A/C 계약은 manifest에도 기록한다. 이전 기록에서 계약과 ID 색인 근거가 부족하면 rejected다.
 증거가 없는 이전 C 배치를 자동으로 C로 인정하거나 과거 파일을 자동 보정하지 않는다. 원천 계약 확인이 필요하다.
 다음 단계 Claude 요청: exports/Claude_다음단계_P1_구현요청_20261005.txt
+2026-10-06 현행 보완
+공식 운영은 workflow_runtime.Operations, pipeline_cli.py, 04_operations.ipynb를 사용한다.
+평가 준비 실패 조회: evaluation-registration-status
+동일 입력으로 준비 재개: register-evaluation --input <CSV> --label-source <출처> --evaluation-id <최초ID>
+구형 평가 원본 보존 이관: migrate-evaluation --evaluation-id <구형ID> --label-source <출처> --reason <사유>
+이관 결과는 historical_followup이며 독립 승격 평가로 쓰지 않는다. CSV/manifest 손상은 먼저 원천 근거를 복구해야 한다.
+Python 소스의 LF/CRLF 차이는 소스 감사에서 구분하고, 모델·배치·평가·기존 LR 산출물은 바이트 해시를 유지한다.
+선언 환경 설치 파일: 03.modeling/requirements_operations.txt (저장 RF에 필요한 pyarrow 포함)

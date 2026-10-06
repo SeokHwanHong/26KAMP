@@ -27,10 +27,12 @@ class RunnerTests(unittest.TestCase):
                 if baseline=='exception':raise OSError('injected status failure')
                 return dict(valid=baseline=='valid',reasons=[] if baseline=='valid' else ['injected invalid baseline'])
             def pending_batches(self):return pending or []
-        with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+        (runner.ROOT/'tmp').mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=runner.ROOT/'tmp',prefix='runner_test_') as td,patch.object(runner,'OUT',Path(td)), \
              patch.object(runner,'versions',return_value={}), \
              patch.object(runner.subprocess,'run',return_value=types.SimpleNamespace(returncode=regression_code,stdout='fixture')), \
              patch('workflow_runtime.Operations',FakeOperations),contextlib.redirect_stdout(io.StringIO()):
+            assert Path(td).resolve().is_relative_to((runner.ROOT/'tmp').resolve())
             code=runner.main()
             return code,json.loads((Path(td)/'checks_only_latest.json').read_text(encoding='utf-8'))
 

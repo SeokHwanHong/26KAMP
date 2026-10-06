@@ -8,3 +8,5 @@ joblib==1.5.3
 nbformat==5.10.4
 nbclient==0.11.0
 ipykernel==6.31.0
+# Stored pandas-backed RF corpus requires this during joblib unpickling.
+pyarrow==23.0.1

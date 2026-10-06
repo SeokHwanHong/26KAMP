@@ -65,3 +65,9 @@ python 03.modeling/tests/test_workflow_runtime.py
 - 최초 advice_context: 완료/실패/모델 교체 후 재개/후속 waiting 안내 갱신에서 출처와 이력 보존.
 - run_checks_only 종료 코드에는 운영 준비 상태도 반영된다. 회귀 통과 + RG3 기준선 부재이면 회귀 결과 passed=true,
   runtime_validation.passed=false, 최종 종료 코드 1이 기대 동작이다. 실제 운영 상태는 검사에서 변경하지 않는다.
+2026-10-06 PDF 검토 대응:
+- test_review_20261006.py: 정책 A→B→A 및 기준선 복귀 초기화, 오래된 장부 누락 복구 순서,
+  구형 평가 원본 보존/후속 사본 이관, 실패 등록 준비·원본 일치 재개·폴더 전환 실패,
+  LF/CRLF 소스 일치와 실제 코드 변경 차단, 새 프로세스의 현재 활성 모델 로드·추론.
+- 감사는 source_provenance.py로 소스 줄바꿈만 호환하며 불변 모델/평가/LR 산출물 바이트 검증은 유지한다.
+- 새 프로세스 검증은 현재 설치 환경을 사용한다. 깨끗한 환경에서 requirements 신규 설치한 검증과 구분한다.

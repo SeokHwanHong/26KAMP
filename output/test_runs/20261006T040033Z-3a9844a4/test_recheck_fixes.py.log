@@ -1,0 +1,1738 @@
+Failed to find real location of C:\ProgramData\Anaconda3\python.exe
+test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) ... 
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='intact') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='missing') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='directory') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='unreadable') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='changed') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_missing') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_json') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_type') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_files') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='patterns_changed') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='intact') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='missing') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='directory') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='unreadable') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='changed') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_missing') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_json') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_type') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_files') ... ERROR
+  test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='patterns_changed') ... ERROR
+test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) ... ERROR
+test_failed_waiting_refresh_restores_initial_context (__main__.RecoveryTests.test_failed_waiting_refresh_restores_initial_context) ... ERROR
+test_failed_waiting_refresh_restores_initial_context (__main__.RecoveryTests.test_failed_waiting_refresh_restores_initial_context) ... ERROR
+test_failure_context_survives_transition_and_resume (__main__.RecoveryTests.test_failure_context_survives_transition_and_resume) ... ERROR
+test_failure_context_survives_transition_and_resume (__main__.RecoveryTests.test_failure_context_survives_transition_and_resume) ... ERROR
+test_initial_context_survives_completion_and_waiting_refresh (__main__.RecoveryTests.test_initial_context_survives_completion_and_waiting_refresh) ... ERROR
+test_initial_context_survives_completion_and_waiting_refresh (__main__.RecoveryTests.test_initial_context_survives_completion_and_waiting_refresh) ... ERROR
+test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) ... 
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='advice_failed') ... ERROR
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='latest_advice_failed') ... ERROR
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='processing_evidence_missing') ... ERROR
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='reservation_pending') ... ERROR
+  test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='unknown') ... ERROR
+test_normal_waiting_is_not_failure (__main__.RunnerTests.test_normal_waiting_is_not_failure) ... ERROR
+test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) ... 
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='valid') ... ERROR
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='invalid') ... ERROR
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='exception') ... ERROR
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='valid') ... ERROR
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='invalid') ... ERROR
+  test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='exception') ... ERROR
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='intact')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-intact\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-intact'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-missing\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-missing'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='directory')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-directory\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-directory'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='unreadable')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-unreadable\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-unreadable'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-changed\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-changed'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-manifest_missing\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-manifest_missing'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-manifest_json\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-manifest_json'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_type')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-manifest_type\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-manifest_type'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='manifest_files')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-manifest_files\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-manifest_files'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=False, damage='patterns_changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-patterns_changed\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B0-patterns_changed'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='intact')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-intact\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-intact'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-missing\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-missing'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='directory')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-directory\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-directory'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='unreadable')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-unreadable\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-unreadable'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-changed\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-changed'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-manifest_missing\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-manifest_missing'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-manifest_json\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-manifest_json'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_type')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-manifest_type\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-manifest_type'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='manifest_files')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-manifest_files\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-manifest_files'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix) (explicit=True, damage='patterns_changed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileNotFoundError: [WinError 3] 지정된 경로를 찾을 수 없습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-patterns_changed\\rg3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 72, in test_completed_resume_evidence_matrix
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1015, in mkdir
+    self.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji\\B1-patterns_changed'
+
+======================================================================
+ERROR: test_completed_resume_evidence_matrix (__main__.RecoveryTests.test_completed_resume_evidence_matrix)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp8_hfdrji'
+
+======================================================================
+ERROR: test_failed_waiting_refresh_restores_initial_context (__main__.RecoveryTests.test_failed_waiting_refresh_restores_initial_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 135, in test_failed_waiting_refresh_restores_initial_context
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpkwz1fyms\\rg3'
+
+======================================================================
+ERROR: test_failed_waiting_refresh_restores_initial_context (__main__.RecoveryTests.test_failed_waiting_refresh_restores_initial_context)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpkwz1fyms'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpkwz1fyms'
+
+======================================================================
+ERROR: test_failure_context_survives_transition_and_resume (__main__.RecoveryTests.test_failure_context_survives_transition_and_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 117, in test_failure_context_survives_transition_and_resume
+    ops,x,y,old=self.ops()
+                ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpqpdxduqv\\rg3'
+
+======================================================================
+ERROR: test_failure_context_survives_transition_and_resume (__main__.RecoveryTests.test_failure_context_survives_transition_and_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpqpdxduqv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpqpdxduqv'
+
+======================================================================
+ERROR: test_initial_context_survives_completion_and_waiting_refresh (__main__.RecoveryTests.test_initial_context_survives_completion_and_waiting_refresh)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 99, in test_initial_context_survives_completion_and_waiting_refresh
+    ops,x,y,old=self.ops()
+                ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpekxu_7lt\\rg3'
+
+======================================================================
+ERROR: test_initial_context_survives_completion_and_waiting_refresh (__main__.RecoveryTests.test_initial_context_survives_completion_and_waiting_refresh)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpekxu_7lt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpekxu_7lt'
+
+======================================================================
+ERROR: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='advice_failed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp35p134tl\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp35p134tl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 55, in test_failed_and_unknown_pending_are_not_success
+    code,result=self.run_case(0,pending=[dict(batch_id='B',stage=stage,error=None)])
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp35p134tl'
+
+======================================================================
+ERROR: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='latest_advice_failed')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp72csnfan\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp72csnfan'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 55, in test_failed_and_unknown_pending_are_not_success
+    code,result=self.run_case(0,pending=[dict(batch_id='B',stage=stage,error=None)])
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp72csnfan'
+
+======================================================================
+ERROR: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='processing_evidence_missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp70qbl_p8\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp70qbl_p8'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 55, in test_failed_and_unknown_pending_are_not_success
+    code,result=self.run_case(0,pending=[dict(batch_id='B',stage=stage,error=None)])
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp70qbl_p8'
+
+======================================================================
+ERROR: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='reservation_pending')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpt0oq0ivl\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpt0oq0ivl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 55, in test_failed_and_unknown_pending_are_not_success
+    code,result=self.run_case(0,pending=[dict(batch_id='B',stage=stage,error=None)])
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpt0oq0ivl'
+
+======================================================================
+ERROR: test_failed_and_unknown_pending_are_not_success (__main__.RunnerTests.test_failed_and_unknown_pending_are_not_success) (stage='unknown')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmphz7xgv9x\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmphz7xgv9x'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 55, in test_failed_and_unknown_pending_are_not_success
+    code,result=self.run_case(0,pending=[dict(batch_id='B',stage=stage,error=None)])
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmphz7xgv9x'
+
+======================================================================
+ERROR: test_normal_waiting_is_not_failure (__main__.RunnerTests.test_normal_waiting_is_not_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp02hh2nqw\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp02hh2nqw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 48, in test_normal_waiting_is_not_failure
+    code,result=self.run_case(0,pending=[dict(batch_id='W',stage='waiting',error=None)])
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp02hh2nqw'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='valid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpmy1uz395\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpmy1uz395'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 41, in test_regression_and_runtime_exit_matrix
+    code,result=self.run_case(regression,baseline)
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpmy1uz395'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpy21zgg62\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpy21zgg62'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 41, in test_regression_and_runtime_exit_matrix
+    code,result=self.run_case(regression,baseline)
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpy21zgg62'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=0, baseline='exception')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpmh3x5kxz\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpmh3x5kxz'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 41, in test_regression_and_runtime_exit_matrix
+    code,result=self.run_case(regression,baseline)
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpmh3x5kxz'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='valid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpr12n6chr\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpr12n6chr'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 41, in test_regression_and_runtime_exit_matrix
+    code,result=self.run_case(regression,baseline)
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpr12n6chr'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='invalid')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpfqv8_e8z\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpfqv8_e8z'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 41, in test_regression_and_runtime_exit_matrix
+    code,result=self.run_case(regression,baseline)
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpfqv8_e8z'
+
+======================================================================
+ERROR: test_regression_and_runtime_exit_matrix (__main__.RunnerTests.test_regression_and_runtime_exit_matrix) (regression=1, baseline='exception')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 34, in run_case
+    code=runner.main()
+  File "D:\workspace\kamp\run_checks_only.py", line 84, in main
+    (OUT/f'checks_only_{stamp}.json').write_text(text,encoding='utf-8');(OUT/'checks_only_latest.json').write_text(text,encoding='utf-8')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpvookx9gg\\checks_only_20261006T130438.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpvookx9gg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 41, in test_regression_and_runtime_exit_matrix
+    code,result=self.run_case(regression,baseline)
+                ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_recheck_fixes.py", line 30, in run_case
+    with tempfile.TemporaryDirectory() as td,patch.object(runner,'OUT',Path(td)), \
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpvookx9gg'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.155s
+
+FAILED (errors=39)
