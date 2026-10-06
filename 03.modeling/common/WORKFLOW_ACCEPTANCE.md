@@ -1,6 +1,8 @@
 # KAMP 7단계 운영 연결과 인수 기준
 
-2026-10-05 구현. 실제 운영 진입점은 `workflow_runtime.Operations`, `pipeline_cli.py`, `04_operations.ipynb`다.
+2026-10-06 권장안 1~5 확정 반영. 실제 운영 진입점은 `governance_runtime.Operations`, `pipeline_cli.py`, `04_operations.ipynb`다.
+승인·검사 계획·참조 갱신·학습 범위는 [GOVERNANCE_OPERATIONS.md](GOVERNANCE_OPERATIONS.md)를 따른다.
+계층은 pipeline → decision → workflow → governance이며 workflow는 버전·복구 기반 구현이다.
 `decision_runtime.py`는 재전송·검사 정책, `pipeline_runtime.py`는 학습/저장/감지의 하위 구현이며 직접 호출한 과거 테스트와 운영 계층의 검증을 구분한다.
 
 ```mermaid
@@ -10,11 +12,11 @@ flowchart TD
     C --> D[4. 재전송 검증 · 예약 · 저장 추론 · 확정]
     D --> E[5. 누적 분포 감지 · waiting/normal/watch/review]
     E --> G[CN7: exact_k 검사 우선순위 / RG3: 불확실성·검사 근거]
-    E --> F{6. review · 원인 · 실제 라벨 · 표본 충분?}
+    E --> F{6. review · 원인 · 실제 라벨 · 표본 · 담당 승인?}
     F -->|아니오| H[유지 · 자료/원인 확인 대기]
     F -->|예| I[IF/OCSVM 정상만 · LR/RF 정상/위험 전체 재학습]
     I --> J[7. 분리 평가 · 선정 자료 중복 차단]
-    J --> K{후보 기준 통과?}
+    J --> K{기준 · CN7 제품 검사 성과 · 승격 승인?}
     K -->|아니오| H
     K -->|예| L[새 모델 출력 기준선 준비 · 명시적 전환]
     L --> M[운영 모델/기준선 · 이전 버전 보존]
@@ -52,7 +54,7 @@ flowchart TD
 운영 API는 `.operation.lock`을 먼저, 내부 수집·writer 잠금을 다음으로 획득한다. 다른 프로세스/스레드의 수집·감지·전환을 동시에 허용하지 않는다.
 잠금 해제는 작업 종료 확인 후 `unlock --lock operation --reason ...`으로 명시적으로 수행한다.
 
-승격·롤백은 새 기준선을 먼저 준비한다. 입력 참조는 고정 개발 분포를 유지하고 모델 출력 구간만 새 모델로 계산한다.
+승격·롤백은 새 기준선을 먼저 준비한다. 입력 참조는 초기 개발 또는 승인된 현재 참조를 유지하고 모델 출력 구간만 새 모델로 계산한다.
 `transition_pending.json`의 preparing/prepared/completed 상태로 기록하며 부분 전환 상태에서는 추론·CT·평가를 차단한다.
 기준선 준비, 레지스트리/포인터 기록 실패는 `resume-transition`으로 같은 전환을 재개한다. 자동 현장 모델 교체는 하지 않는다.
 

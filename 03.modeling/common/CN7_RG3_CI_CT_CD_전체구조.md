@@ -1,6 +1,6 @@
 # CN7 · RG3 전체 파이프라인 — 전처리 통합 7단계
 
-2026-10-05 최신 운영 연결·상태·실패 복구는 [WORKFLOW_ACCEPTANCE.md](WORKFLOW_ACCEPTANCE.md)를 기준으로 확인합니다. 실제 운영 진입점은 `workflow_runtime.Operations`입니다. 아래 기존 흐름은 7단계 개념을 유지합니다.
+2026-10-06 최신 운영 연결·상태·실패 복구는 [WORKFLOW_ACCEPTANCE.md](WORKFLOW_ACCEPTANCE.md), 승인·검사·참조·학습 범위는 [GOVERNANCE_OPERATIONS.md](GOVERNANCE_OPERATIONS.md)를 기준으로 확인합니다. 실제 운영 진입점은 `governance_runtime.Operations`입니다. 아래 기존 흐름은 7단계 개념을 유지합니다.
 
 [개정 이미지](전체파이프라인_7단계.png) · [이전 8단계 시안](전체파이프라인_찐막.png)
 

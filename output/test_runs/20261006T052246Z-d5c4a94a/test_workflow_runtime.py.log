@@ -1,0 +1,19 @@
+Failed to find real location of C:\ProgramData\Anaconda3\python.exe
+test_actual_second_process_cannot_enter_operation (__main__.WorkflowTests.test_actual_second_process_cannot_enter_operation) ... ok
+test_advice_failure_resume_uses_original_versions (__main__.WorkflowTests.test_advice_failure_resume_uses_original_versions) ... ok
+test_cn7_rf_advice_reuses_original_rf_after_transition (__main__.WorkflowTests.test_cn7_rf_advice_reuses_original_rf_after_transition) ... ok
+test_evaluation_fingerprint_is_recomputed (__main__.WorkflowTests.test_evaluation_fingerprint_is_recomputed) ... ok
+test_full_labeled_unlabeled_ct_hold_promote_rollback (__main__.WorkflowTests.test_full_labeled_unlabeled_ct_hold_promote_rollback) ... ok
+test_missing_or_corrupt_processing_is_rejected_without_resend (__main__.WorkflowTests.test_missing_or_corrupt_processing_is_rejected_without_resend) ... ok
+test_overlap_subset_cannot_be_final_evaluation (__main__.WorkflowTests.test_overlap_subset_cannot_be_final_evaluation) ... ok
+test_pointer_failure_and_rollback_failure_are_recoverable (__main__.WorkflowTests.test_pointer_failure_and_rollback_failure_are_recoverable) ... ok
+test_same_object_second_thread_cannot_reenter (__main__.WorkflowTests.test_same_object_second_thread_cannot_reenter) ... ok
+test_selection_re_registration_overlap_blocks_promotion (__main__.WorkflowTests.test_selection_re_registration_overlap_blocks_promotion) ... ok
+test_transition_preparation_failure_and_resume (__main__.WorkflowTests.test_transition_preparation_failure_and_resume) ... ok
+test_waiting_followup_advice_failure_is_repairable (__main__.WorkflowTests.test_waiting_followup_advice_failure_is_repairable) ... ok
+test_waiting_followup_preserves_history_and_no_resend (__main__.WorkflowTests.test_waiting_followup_preserves_history_and_no_resend) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 33.247s
+
+OK

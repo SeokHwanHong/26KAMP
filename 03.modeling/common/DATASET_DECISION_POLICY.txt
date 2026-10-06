@@ -1,8 +1,9 @@
 CN7 / RG3 판단 정책 변경 (2026-10-03, Claude 2차 반영본: CN7=RF+검사 예산, RG3=드리프트 기반 불확실 구간)
 2026-10-05 팀장 검토(F01~F07) 반영: 배치 중복·재시도·판단 대기·동점 규칙·보정 캐시·평가 용도 기록
 
-2026-10-06 현행 운영 진입점: pipeline_cli.py와 04_operations.ipynb는 workflow_runtime.Operations를 사용한다.
-운영 호출은 from workflow_runtime import Operations를 사용한다. decision_runtime/pipeline_runtime은 하위 구현이다.
+2026-10-06 권장안 1~5 확정 운영 진입점: pipeline_cli.py와 04_operations.ipynb는 governance_runtime.Operations를 사용한다.
+운영 호출은 from governance_runtime import Operations를 사용한다. workflow/decision/pipeline은 하위 기반 구현이다.
+승인 담당자·RG3 검사 비율 미설정 시 실제 검사 계획·CT·승격은 보류한다. GOVERNANCE 설정과 사용법은 GOVERNANCE_OPERATIONS.md 참조.
 공식 기준은 WORKFLOW_ACCEPTANCE.md → CLI/운영 노트북 → 모델별 학습 경로 → 연구/과거 기록 순서다.
 pipeline_runtime 운영 복구 로직은 보완되었고, 과거 LR 학습 출처는 보관본·학습 정의 대조로 감사한다.
 

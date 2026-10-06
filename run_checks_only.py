@@ -21,6 +21,7 @@ SOURCES=['03.modeling/common/pipeline_runtime.py','03.modeling/common/decision_r
          '03.modeling/common/workflow_runtime.py','03.modeling/tests/test_workflow_runtime.py',
          'run_checks_only.py','03.modeling/tests/test_recheck_fixes.py',
          '03.modeling/common/source_provenance.py','03.modeling/tests/test_review_20261006.py',
+         '03.modeling/common/governance_runtime.py','03.modeling/tests/test_governance_runtime.py',
          '03.modeling/tests/test_decision_runtime.py','03.modeling/tests/audit_logistic_runs.py']
 
 
@@ -67,11 +68,12 @@ def main():
         result['run_checks']=dict(exit_code=r.returncode,passed=r.returncode==0,output=r.stdout[-8000:])
         print(r.stdout[-3000:],flush=True)
         sys.path.insert(0,str(ROOT/'03.modeling/common'))
-        from workflow_runtime import Operations
+        from governance_runtime import Operations
         status={}
         for ds in ['cn7','rg3']:
             try:
                 ops=Operations(ds);status[ds]=dict(active=ops.active(),baseline=ops.baseline_status(),pending=ops.pending_batches())
+                if hasattr(ops,'governance_status'):status[ds]['governance']=ops.governance_status()
             except Exception as exc:status[ds]=dict(error=f'{type(exc).__name__}: {exc}')
         result['runtime_status_read_only']=status
         result['runtime_validation']=validate_runtime_status(status)

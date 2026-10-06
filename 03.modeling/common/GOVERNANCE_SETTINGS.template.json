@@ -1,0 +1,7 @@
+{
+  "approvers": {},
+  "rg3_sampling": null,
+  "training_selection": {
+    "mode": "cumulative"
+  }
+}

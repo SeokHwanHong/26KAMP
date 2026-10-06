@@ -11,8 +11,9 @@ KAMP 7단계 로컬 실행 가이드 — 2026-10-03
 03.modeling/models/05_logistic_regression.ipynb: 실행 결과 열람, 선택적으로 재학습.
 03.modeling/pipeline_cli.py: 명시적 로컬 운영 명령.
 03.modeling/common/pipeline_runtime.py: 공통 구현.
-03.modeling/common/workflow_runtime.py: 운영 API. 버전 고정·공통 잠금·후속 안내·전환 복구·평가 이력.
-새 운영 API는 from workflow_runtime import Operations로 가져온다.
+03.modeling/common/governance_runtime.py: 공식 운영 API. 승인·검사 역할·실제 검사 계획·참조 갱신·학습 범위.
+03.modeling/common/workflow_runtime.py: 하위 버전 고정·공통 잠금·후속 안내·전환 복구·평가 이력 기반.
+새 운영 API는 from governance_runtime import Operations로 가져온다. 현재 승인 필수 명령은 GOVERNANCE_OPERATIONS.md를 따른다.
 최신 7단계 연결·상태·한계: common/WORKFLOW_ACCEPTANCE.md
 
 프로젝트 루트에서 실행
@@ -105,7 +106,9 @@ python 03.modeling/tests/audit_logistic_runs.py
 증거가 없는 이전 C 배치를 자동으로 C로 인정하거나 과거 파일을 자동 보정하지 않는다. 원천 계약 확인이 필요하다.
 다음 단계 Claude 요청: exports/Claude_다음단계_P1_구현요청_20261005.txt
 2026-10-06 현행 보완
-공식 운영은 workflow_runtime.Operations, pipeline_cli.py, 04_operations.ipynb를 사용한다.
+공식 운영은 governance_runtime.Operations, pipeline_cli.py, 04_operations.ipynb를 사용한다.
+권장안 1~5는 확정 정책이다. 승인/검사 비율·실제 생산 시각·참조 갱신·학습 범위는 GOVERNANCE_OPERATIONS.md를 따른다.
+CT/promote/rollback/update-reference에는 approval-id가 필요하며 CN7 검사 모델 승격에는 product-validation-id도 필요하다.
 평가 준비 실패 조회: evaluation-registration-status
 동일 입력으로 준비 재개: register-evaluation --input <CSV> --label-source <출처> --evaluation-id <최초ID>
 구형 평가 원본 보존 이관: migrate-evaluation --evaluation-id <구형ID> --label-source <출처> --reason <사유>
