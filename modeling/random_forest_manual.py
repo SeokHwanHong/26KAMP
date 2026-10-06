@@ -26,12 +26,11 @@ from sklearn.decomposition import PCA
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.metrics import average_precision_score, roc_auc_score
-from sklearn.preprocessing import StandardScaler
 
 
 DATASET = os.environ.get("RF_DATASET", "cn7")
 assert DATASET in {"cn7", "rg3"}
-EXPERIMENT = "manual_seven_scenarios_v1"
+EXPERIMENT = "manual_seven_scenarios_provided_scale_v2"
 SEED = 42
 THRESHOLDS = np.linspace(0.0, 1.0, 1001)
 SCENARIOS = (
@@ -56,19 +55,19 @@ GROUPS = {
     "형체와 전체 주기": ["Clamp_Close_Time", "Clamp_Open_Position", "Cycle_Time"],
 }
 DOMAIN_SPEC = [
-    dict(feature="사출_전환압력_상대편차", group="pressure", operation="difference",
+    dict(feature="사출_전환압력_제공값차", group="pressure", operation="difference",
          columns=["Max_Injection_Pressure", "Max_Switch_Over_Pressure"]),
-    dict(feature="스크루RPM_상대편차", group="plasticizing", operation="difference",
+    dict(feature="스크루RPM_제공값차", group="plasticizing", operation="difference",
          columns=["Max_Screw_RPM", "Average_Screw_RPM"]),
-    dict(feature="배압_상대편차", group="plasticizing", operation="difference",
+    dict(feature="배압_제공값차", group="plasticizing", operation="difference",
          columns=["Max_Back_Pressure", "Average_Back_Pressure"]),
-    dict(feature="배럴_상대수준평균", group="thermal", operation="mean",
+    dict(feature="배럴_제공값평균", group="thermal", operation="mean",
          columns=[f"Barrel_Temperature_{i}" for i in range(1, 7)]),
-    dict(feature="배럴_상대편차표준편차", group="thermal", operation="std",
+    dict(feature="배럴_제공값센서간산포", group="thermal", operation="std",
          columns=[f"Barrel_Temperature_{i}" for i in range(1, 7)]),
-    dict(feature="금형_상대수준평균", group="thermal", operation="mean",
+    dict(feature="금형_제공값평균", group="thermal", operation="mean",
          columns=["Mold_Temperature_3", "Mold_Temperature_4"]),
-    dict(feature="금형온도_상대편차", group="thermal", operation="difference",
+    dict(feature="금형온도_제공값차", group="thermal", operation="difference",
          columns=["Mold_Temperature_3", "Mold_Temperature_4"]),
 ]
 
@@ -164,6 +163,7 @@ Xdev, ydev = X.iloc[dev], y[dev]
 folds = assignment.iloc[dev].cv_fold.to_numpy(dtype=int)
 PLAN = dict(
     dataset=DATASET, experiment=EXPERIMENT, seed=SEED, scenarios=list(SCENARIOS),
+    feature_coordinates="provided_v1", additional_standardization=False,
     model="RandomForestClassifier", n_estimators=300, criterion="gini", bootstrap=True,
     candidate_settings=len(PARAMS), threshold_values=THRESHOLDS.tolist(),
     selection="pooled OOF F1 desc; fold F1 sample std asc; max feature count asc; candidate ID asc; abs(t) asc; t desc",
@@ -188,10 +188,10 @@ SCENARIO_GROUPS = {
 }
 
 
-def derived_frame(z: pd.DataFrame, specs: list[dict]) -> pd.DataFrame:
-    result = pd.DataFrame(index=z.index)
+def derived_frame(coordinates: pd.DataFrame, specs: list[dict]) -> pd.DataFrame:
+    result = pd.DataFrame(index=coordinates.index)
     for spec in specs:
-        values = z[spec["active_columns"]]
+        values = coordinates[spec["active_columns"]]
         if spec["operation"] == "difference":
             result[spec["feature"]] = values.iloc[:, 0] - values.iloc[:, 1]
         elif spec["operation"] == "mean":
@@ -208,12 +208,19 @@ def feature_frame(bundle: dict, inputs: pd.DataFrame) -> pd.DataFrame:
     scenario = bundle["scenario"]
     if scenario == "raw_no_scaler" or scenario == "without_cycle":
         return inputs.loc[:, bundle["base_columns"]].copy()
-    z = pd.DataFrame(bundle["normal_scaler"].transform(inputs),
-                     index=inputs.index, columns=inputs.columns)
+    if bundle.get("feature_coordinates") == "provided_v1":
+        coordinates = inputs
+    elif "feature_coordinates" not in bundle and "normal_scaler" in bundle:
+        # Read-only compatibility for models fitted before the scale change.
+        # Existing forests must receive the coordinates they were trained on.
+        coordinates = pd.DataFrame(bundle["normal_scaler"].transform(inputs),
+                                   index=inputs.index, columns=inputs.columns)
+    else:
+        raise ValueError("Unknown RF feature coordinates; retrain the model")
     if scenario == "group_pca":
         result = pd.DataFrame(index=inputs.index)
         for group, item in bundle["pcas"].items():
-            values = z[item["columns"]].to_numpy()
+            values = coordinates[item["columns"]].to_numpy()
             scores = item["pca"].transform(values)
             for j in range(scores.shape[1]):
                 result[f"{group}_PC{j+1}"] = scores[:, j]
@@ -223,7 +230,7 @@ def feature_frame(bundle: dict, inputs: pd.DataFrame) -> pd.DataFrame:
         return result
     # Unlike OCSVM, RF retains the supplied 24-feature scale for base columns.
     return pd.concat([inputs.loc[:, bundle["base_columns"]],
-                      derived_frame(z, bundle["specs"])], axis=1)
+                      derived_frame(coordinates, bundle["specs"])], axis=1)
 
 
 def fit_features(Xtrain: pd.DataFrame, ytrain: np.ndarray, scenario: str):
@@ -233,9 +240,10 @@ def fit_features(Xtrain: pd.DataFrame, ytrain: np.ndarray, scenario: str):
     base = [column for column in Xtrain if scenario != "without_cycle"
             or column not in GROUPS["형체와 전체 주기"]]
     bundle = dict(scenario=scenario, input_columns=list(Xtrain.columns),
-                  base_columns=base, specs=[], skipped_specs=[], pcas={})
-    if scenario not in ("raw_no_scaler", "without_cycle"):
-        bundle["normal_scaler"] = StandardScaler().fit(normal)
+                  base_columns=base, specs=[], skipped_specs=[], pcas={},
+                  feature_coordinates="provided_v1")
+    # Supplied inputs are already standardized. Keep that scale for derived
+    # features and PCA; do not fit another per-sensor StandardScaler.
     for spec in DOMAIN_SPEC:
         if spec["group"] not in SCENARIO_GROUPS[scenario]:
             continue
@@ -245,14 +253,12 @@ def fit_features(Xtrain: pd.DataFrame, ytrain: np.ndarray, scenario: str):
         else:
             bundle["specs"].append({**spec, "active_columns": cols})
     if scenario == "group_pca":
-        z = pd.DataFrame(bundle["normal_scaler"].transform(normal),
-                         columns=normal.columns, index=normal.index)
         for group, columns in GROUPS.items():
             cols = [column for column in columns if column in active]
             if cols:
                 bundle["pcas"][group] = dict(
                     columns=cols,
-                    pca=PCA(n_components=min(2, len(cols)), svd_solver="full").fit(z[cols].to_numpy()),
+                    pca=PCA(n_components=min(2, len(cols)), svd_solver="full").fit(normal[cols].to_numpy()),
                 )
     frame = feature_frame(bundle, Xtrain)
     bundle["variance"] = VarianceThreshold(0.0).fit(frame)

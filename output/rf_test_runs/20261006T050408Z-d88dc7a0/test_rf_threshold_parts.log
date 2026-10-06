@@ -1,0 +1,119 @@
+{
+  "dataset": "cn7",
+  "scenario": "pressure",
+  "params": {
+    "max_depth": 3,
+    "min_samples_leaf": 5,
+    "max_features": 0.5,
+    "class_weight": null
+  },
+  "threshold": 0.222,
+  "oof": {
+    "tp": 4,
+    "fp": 0,
+    "fn": 7,
+    "tn": 473,
+    "f1": 0.5333333333333333,
+    "precision": 1.0,
+    "recall": 0.36363636363636365,
+    "fpr": 0.0
+  },
+  "test": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 3,
+    "tn": 119,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "fpr": 0.0,
+    "average_precision": 0.19794584500466852,
+    "roc_auc": 0.9019607843137255
+  },
+  "all_normal_test": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 3,
+    "tn": 119,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "fpr": 0.0
+  },
+  "all_risk_test": {
+    "tp": 3,
+    "fp": 119,
+    "fn": 0,
+    "tn": 0,
+    "f1": 0.048,
+    "precision": 0.02459016393442623,
+    "recall": 1.0,
+    "fpr": 1.0
+  },
+  "test_status": "Already observed in earlier work; subsequent assessment is not an independent holdout"
+}
+cn7: all values/order equal; verification passed without legacy CSV
+{
+  "dataset": "rg3",
+  "scenario": "group_pca",
+  "params": {
+    "max_depth": null,
+    "min_samples_leaf": 1,
+    "max_features": 1.0,
+    "class_weight": "balanced"
+  },
+  "threshold": 0.47,
+  "oof": {
+    "tp": 3,
+    "fp": 9,
+    "fn": 17,
+    "tn": 443,
+    "f1": 0.1875,
+    "precision": 0.25,
+    "recall": 0.15,
+    "fpr": 0.01991150442477876
+  },
+  "test": {
+    "tp": 0,
+    "fp": 3,
+    "fn": 5,
+    "tn": 111,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "fpr": 0.02631578947368421,
+    "average_precision": 0.04696059319920619,
+    "roc_auc": 0.3921052631578948
+  },
+  "all_normal_test": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 5,
+    "tn": 114,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "fpr": 0.0
+  },
+  "all_risk_test": {
+    "tp": 5,
+    "fp": 114,
+    "fn": 0,
+    "tn": 0,
+    "f1": 0.08064516129032258,
+    "precision": 0.04201680672268908,
+    "recall": 1.0,
+    "fpr": 1.0
+  },
+  "test_status": "Already observed in earlier work; subsequent assessment is not an independent holdout"
+}
+rg3: all values/order equal; verification passed without legacy CSV
+test_missing_part_and_tampered_part_are_rejected (__main__.ThresholdPartTests.test_missing_part_and_tampered_part_are_rejected) ... ok
+test_notebooks_match_source_and_compile (__main__.ThresholdPartTests.test_notebooks_match_source_and_compile) ... ok
+test_real_exports_and_actual_verification_cell_without_original_csv (__main__.ThresholdPartTests.test_real_exports_and_actual_verification_cell_without_original_csv) ... ok
+test_writer_reader_and_legacy_fallback (__main__.ThresholdPartTests.test_writer_reader_and_legacy_fallback) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 8.834s
+
+OK

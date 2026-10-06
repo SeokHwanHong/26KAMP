@@ -49,6 +49,8 @@ def main():
     rf.check_protected(read(run / "protected_before.json"))
     logs = list(tests.glob("*.log"))
     count = sum(sum(int(n) for n in re.findall(r"Ran (\d+) tests? in", p.read_text(encoding="utf-8"))) for p in logs)
+    provided_scale = all(read(run / dataset / "run_plan.json").get("feature_coordinates") == "provided_v1"
+                         for dataset in ("cn7", "rg3"))
     report = ["KAMP 랜덤 포레스트 모델링·테스트 결과 보고서", "",
               f"작성: {datetime.now(timezone.utc).astimezone(timezone(timedelta(hours=9))).isoformat()}",
               f"담당: seoloo / 실행 ID: {overview['run_id']}", "상위 기준: 사용자 제공 PNG의 드리프트 기반 7단계 파이프라인", "",
@@ -68,8 +70,10 @@ def main():
               "Test는 선택 후에만 후속 평가하며 임계값을 조정하지 않았다.",
               "4fold OOF는 튜닝 성적이며, 기존 Test도 과거 관찰한 후속 평가 자료다.", "",
               "4. 파생변수",
-              "압력 상대편차(사출/전환), 스크루 RPM 상대편차, 배압 상대편차, 배럴 상대수준 평균·표준편차, 금형 상대수준 평균·편차가 정의되어 있다.",
-              "값은 fold 정상 train의 z 기준이다. 실제 압력 차·RPM 폭·섭씨 온도 차·불량 인과효과로 해석하지 않는다.",
+              "압력 차이(사출/전환), 스크루 RPM 차이, 배압 차이, 배럴 평균·센서 간 산포, 금형 평균·차이가 정의되어 있다.",
+              ("값은 제공된 표준화 좌표에서 직접 계산하며 추가 StandardScaler를 사용하지 않는다. PCA의 평균 중심화는 유지한다."
+               if provided_scale else "과거 실행의 값은 fold 정상 train의 z 기준이다."),
+              "실제 압력 차·RPM 폭·섭씨 온도 차·불량 인과효과로 해석하지 않는다.",
               "활성 센서가 2개 미만이면 해당 항목을 생략한다. PCA는 정상 train에서 공정군별 적합한다.",
               "상수 제거·RF는 정상+위험 train 전체를 사용하며 추론에서 변환을 다시 적합하지 않는다."]
     comparisons = {}
@@ -111,7 +115,7 @@ def main():
                    pd.read_csv(folder / "group_permutation_importance.csv").sort_values("f1_drop_mean", ascending=False).to_string(index=False),
                    "중요도는 모델 검증 민감도이며 실제 공정 불량 원인의 증명이 아니다."]
     rf.write_json(run / "independent_comparison.json", comparisons)
-    report += ["", "6. 테스트와 보존", f"총 {count}개 명명된 테스트 통과(분할 저장 4개 + RF 12개, 하위 케이스 별도).",
+    report += ["", "6. 테스트와 보존", f"총 {count}개 명명된 테스트 통과(하위 케이스 별도).",
                "파생변수 수식·적합 범위·분할·엄격한 임계값·저장/재로드·제품 ID/빈도/상충 라벨·잘못된 입력 거부·변조 모델 거부·동일 버전 기준선 비교를 확인했다.",
                "소규모 실제 CN7/RG3 학습과 Windows 병렬 실행을 포함했다. 배치 동작 테스트의 입력은 합성 자료다.",
                "추가로 완료된 CN7/RG3 저장 모델의 실제 CLI에서 합성 배치 각 1회씩 원본 복원·상충 라벨 보존과 정합 미확인 입력 거부를 확인했다.",

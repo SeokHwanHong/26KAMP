@@ -101,6 +101,7 @@ def fit_candidate(dataset, candidate_id, params, prepared, ydev, folds, scenario
 
 def describe_features(bundle, fold=None, train_rows=None, normal_rows=None):
     return dict(fold=fold, train_rows=train_rows, normal_reference_rows=normal_rows,
+                feature_coordinates=bundle.get("feature_coordinates", "normal_standardized_v1"),
                 scenario=bundle["scenario"], feature_names=bundle["feature_names"],
                 derived_specs=bundle["specs"], skipped_specs=bundle["skipped_specs"],
                 pca_groups={k: {"columns": v["columns"], "components": v["pca"].n_components_}
@@ -302,6 +303,7 @@ def run_dataset(dataset, folder, *, jobs=4, scenarios=None, params=None):
     scenarios = list(lib["SCENARIOS"] if scenarios is None else scenarios)
     params = list(lib["PARAMS"] if params is None else params)
     plan = dict(dataset=dataset, scenarios=scenarios, params=params, seed=42, n_estimators=300,
+                feature_coordinates="provided_v1", additional_standardization=False,
                 threshold_values=lib["THRESHOLDS"].tolist(), environment=environment(), training="normal+risk patterns",
                 selection="pooled OOF F1 desc; fold std asc; feature count asc; candidate ID asc; threshold asc",
                 source_sha256=sha256(LEGACY), pipeline_sha256=sha256(__file__), test_used_for_selection=False,

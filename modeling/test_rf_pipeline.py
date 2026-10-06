@@ -8,6 +8,8 @@ import unittest
 import joblib
 import numpy as np
 import pandas as pd
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
 
 import rf_pipeline as rf
 
@@ -22,6 +24,7 @@ class RFTests(unittest.TestCase):
         # but vary in risk rows, to test reference/fit scope distinctions.
         cols = json.loads((rf.ROOT / "data/schema/input_features.json").read_text(encoding="utf-8"))["feature_columns"]
         cls.X = pd.DataFrame(rng.normal(size=(80, 24)), columns=cols)
+        cls.X = cls.X * np.linspace(.2, 5., 24) + np.linspace(-7., 4., 24)
         cls.y = np.r_[np.zeros(60, dtype=int), np.ones(20, dtype=int)]
         cls.X.loc[:59, "Mold_Temperature_4"] = 0.
         cls.X.loc[:59, "Barrel_Temperature_6"] = 0.
@@ -30,12 +33,14 @@ class RFTests(unittest.TestCase):
         cls.artifact = dict(dataset="cn7", input_columns=cols, bundle=cls.bundle, forest=cls.forest,
                             threshold=.2, model_version="rf-test")
 
-    def test_normal_reference_and_supervised_all_train(self):
-        normal = self.X.iloc[:60]
-        np.testing.assert_allclose(self.bundle["normal_scaler"].mean_, normal.mean().to_numpy(), rtol=0, atol=1e-14)
-        self.assertEqual(self.bundle["normal_scaler"].n_samples_seen_, 60)
+    def test_provided_coordinates_and_supervised_all_train(self):
+        self.assertNotIn("normal_scaler", self.bundle)
+        self.assertEqual(self.bundle["feature_coordinates"], "provided_v1")
         frame = self.lib["feature_frame"](self.bundle, self.X)
-        np.testing.assert_allclose(self.bundle["variance"].variances_, frame.var(ddof=0).to_numpy(), rtol=0, atol=1e-14)
+        np.testing.assert_array_equal(frame[self.bundle["base_columns"]], self.X)
+        np.testing.assert_allclose(frame["사출_전환압력_제공값차"],
+                                   self.X.Max_Injection_Pressure - self.X.Max_Switch_Over_Pressure)
+        np.testing.assert_array_equal(self.bundle["variance"].get_support(), frame.nunique().gt(1).to_numpy())
         self.assertIn("Mold_Temperature_4", self.bundle["feature_names"])
         np.testing.assert_array_equal(self.forest.classes_, [0, 1])
 
@@ -43,12 +48,54 @@ class RFTests(unittest.TestCase):
         for scenario in self.lib["SCENARIOS"]:
             with self.subTest(scenario=scenario):
                 bundle, values = self.lib["fit_features"](self.X, self.y, scenario)
+                self.assertNotIn("normal_scaler", bundle)
+                self.assertEqual(bundle["feature_coordinates"], "provided_v1")
                 np.testing.assert_array_equal(values, self.lib["transform_features"](bundle, self.X))
                 self.assertTrue(np.isfinite(values).all())
                 if scenario == "domain_all":
-                    self.assertNotIn("금형온도_상대편차", bundle["feature_names"])
-                    barrel = next(s for s in bundle["specs"] if s["feature"] == "배럴_상대수준평균")
+                    self.assertNotIn("금형온도_제공값차", bundle["feature_names"])
+                    barrel = next(s for s in bundle["specs"] if s["feature"] == "배럴_제공값평균")
                     self.assertNotIn("Barrel_Temperature_6", barrel["active_columns"])
+
+    def test_pca_axes_and_rmse_use_provided_coordinates(self):
+        bundle, _ = self.lib["fit_features"](self.X, self.y, "group_pca")
+        # A separate fit on the supplied values catches accidental scaling
+        # before PCA, while shifted validation values exercise saved centering.
+        validation = self.X.iloc[60:] + 13.
+        frame = self.lib["feature_frame"](bundle, validation)
+        for group, item in bundle["pcas"].items():
+            normal = self.X.iloc[:60][item["columns"]].to_numpy()
+            expected = PCA(n_components=min(2, normal.shape[1]), svd_solver="full").fit(normal)
+            np.testing.assert_allclose(item["pca"].mean_, normal.mean(axis=0))
+            np.testing.assert_allclose(item["pca"].components_, expected.components_)
+            values = validation[item["columns"]].to_numpy()
+            scores = expected.transform(values)
+            np.testing.assert_allclose(frame[[f"{group}_PC{j+1}" for j in range(scores.shape[1])]], scores)
+            if values.shape[1] > scores.shape[1]:
+                rmse = np.sqrt(np.mean((values - expected.inverse_transform(scores)) ** 2, axis=1))
+                np.testing.assert_allclose(frame[f"{group}_재구성RMSE"], rmse)
+
+    def test_legacy_saved_transform_keeps_training_coordinates(self):
+        for scenario in ("domain_all", "group_pca"):
+            with self.subTest(scenario=scenario):
+                legacy, _ = self.lib["fit_features"](self.X, self.y, scenario)
+                del legacy["feature_coordinates"]
+                legacy["normal_scaler"] = StandardScaler().fit(self.X.iloc[:60])
+                z = pd.DataFrame(legacy["normal_scaler"].transform(self.X), columns=self.X.columns)
+                if scenario == "group_pca":
+                    expected = pd.DataFrame(index=self.X.index)
+                    for group, item in legacy["pcas"].items():
+                        item["pca"].fit(z.iloc[:60][item["columns"]].to_numpy())
+                        values = z[item["columns"]].to_numpy()
+                        scores = item["pca"].transform(values)
+                        for j in range(scores.shape[1]):
+                            expected[f"{group}_PC{j+1}"] = scores[:, j]
+                        if values.shape[1] > scores.shape[1]:
+                            expected[f"{group}_재구성RMSE"] = np.sqrt(np.mean(
+                                (values - item["pca"].inverse_transform(scores)) ** 2, axis=1))
+                else:
+                    expected = pd.concat([self.X, self.lib["derived_frame"](z, legacy["specs"])], axis=1)
+                np.testing.assert_allclose(self.lib["feature_frame"](legacy, self.X), expected)
 
     def test_derived_values_against_hand_calculation(self):
         z = pd.DataFrame([[2., -1., 4.], [0., 2., 2.]], columns=["a", "b", "c"])
@@ -82,10 +129,10 @@ class RFTests(unittest.TestCase):
         self.assertEqual(best.threshold, .1)
 
     def test_saved_prediction_and_transform_immutable(self):
-        before = self.bundle["normal_scaler"].mean_.copy()
+        before = joblib.hash(self.bundle)
         reference = rf.predict(self.artifact, self.X)
         rf.predict(self.artifact, self.X*1000)
-        np.testing.assert_array_equal(before, self.bundle["normal_scaler"].mean_)
+        self.assertEqual(before, joblib.hash(self.bundle))
         artifact = copy.copy(self.artifact)
         artifact["threshold"] = float(reference[0][0])
         self.assertEqual(rf.predict(artifact, self.X.iloc[:1])[1][0], 0)
@@ -171,11 +218,12 @@ class RFTests(unittest.TestCase):
             with self.subTest(dataset=dataset), tempfile.TemporaryDirectory() as directory:
                 folder = Path(directory)/dataset
                 lib = rf.definitions(dataset)
-                rf.run_dataset(dataset, folder, jobs=2, scenarios=["raw_no_scaler", "domain_all"], params=lib["PARAMS"][:1])
+                rf.run_dataset(dataset, folder, jobs=2, scenarios=["raw_no_scaler", "domain_all", "group_pca"], params=lib["PARAMS"][:1])
                 artifact = rf.load_artifact(folder)
                 self.assertEqual(artifact["dataset"], dataset)
                 audit = json.loads((folder/"audit.json").read_text(encoding="utf-8"))
-                self.assertEqual(audit["joint_rows"], 2002)
+                self.assertEqual(audit["joint_rows"], 3003)
+                self.assertNotIn("normal_scaler", artifact["bundle"])
                 with (folder/"model.joblib").open("ab") as handle:
                     handle.write(b"tampered")
                 with self.assertRaises(ValueError):
