@@ -1,0 +1,92 @@
+{
+  "started": "2026-10-06T13:06:22",
+  "kind": "checks_only",
+  "versions": {
+    "python": "3.14.6",
+    "executable": "C:\\ProgramData\\Anaconda3\\python.exe",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.18.0",
+    "sklearn": "1.9.0",
+    "joblib": "1.5.3",
+    "pyarrow": "23.0.1"
+  },
+  "source_sha256": {
+    "03.modeling/common/pipeline_runtime.py": "367f2405ad3edef50260e047089c9f44a6a18a9fb08e5472f7d2af19cd359c1b",
+    "03.modeling/common/decision_runtime.py": "3db9fa9cf2bc8f9931257be6c6a977b36b46e530f1f644360800c2cea54491dc",
+    "03.modeling/pipeline_cli.py": "fa203cdc96171a7cde9ed422716e51341f9f9e684f991bd2e9a4a49bffe88751",
+    "03.modeling/common/workflow_runtime.py": "518e92a2ec2ff6f1bf94214bdf4f72cd22e6c2bb6c63b2ddb2723582a95ba1a1",
+    "03.modeling/tests/test_workflow_runtime.py": "6e904c850b8d04a8b8992c51c408cfa89bdf3e71140e24febcd5d27d245ffc92",
+    "run_checks_only.py": "85f2ac7a7445b7032aac157b807e3f27d1ad97d5e84fc5de8aa9aa3e48949c65",
+    "03.modeling/tests/test_recheck_fixes.py": "c460afadb7b457ffb20f4d33bd7da73d280b4b81d192c3ac962a0200cf179236",
+    "03.modeling/common/source_provenance.py": "ecc199b95295c5b2d1ec56fc661613e674403f7ebfc2be5c07ae670ac4d0efa1",
+    "03.modeling/tests/test_review_20261006.py": "d0867b7031a6cab4ed9d4cd71422a8983e98c988594de60a2215ad24a0c98eae",
+    "03.modeling/tests/test_decision_runtime.py": "2a62b56cb03981cbf8f505f26c8a9e8558bcc0a53ef80b74f6282089b89a01a6",
+    "03.modeling/tests/audit_logistic_runs.py": "64d0b8ca76f6e1acae50ad9acd9e2fa4ff82359ed90e786f8386d89d921c9009"
+  },
+  "run_checks": {
+    "exit_code": 0,
+    "passed": true,
+    "output": "Failed to find real location of C:\\ProgramData\\Anaconda3\\python.exe\ntest_operations.py PASS\ntest_registration_and_logistic.py PASS\ntest_existing_ocsvm.py PASS\ntest_decision_runtime.py PASS\ntest_workflow_runtime.py PASS\ntest_recheck_fixes.py PASS\ntest_review_20261006.py PASS\naudit_logistic_runs.py PASS\n{\n  \"passed\": true,\n  \"results\": [\n    {\n      \"script\": \"test_operations.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 12\n    },\n    {\n      \"script\": \"test_registration_and_logistic.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 8\n    },\n    {\n      \"script\": \"test_existing_ocsvm.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 24\n    },\n    {\n      \"script\": \"test_decision_runtime.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 58\n    },\n    {\n      \"script\": \"test_workflow_runtime.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 13\n    },\n    {\n      \"script\": \"test_recheck_fixes.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 7\n    },\n    {\n      \"script\": \"test_review_20261006.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": 10\n    },\n    {\n      \"script\": \"audit_logistic_runs.py\",\n      \"exit_code\": 0,\n      \"passed\": true,\n      \"tests\": null\n    }\n  ],\n  \"tests\": 132,\n  \"runtime_unchanged\": true,\n  \"scope\": \"132 regression/integration invocations plus saved LR audit; no field validation\",\n  \"report\": \"D:\\\\workspace\\\\kamp\\\\output\\\\test_runs\\\\20261006T040624Z-d53be7b7\"\n}\n"
+  },
+  "runtime_status_read_only": {
+    "cn7": {
+      "active": {
+        "if": "if-a7a2fcba54e54d58",
+        "rf": "rf-20261005T070541Z-eee06bbc"
+      },
+      "baseline": {
+        "valid": true,
+        "baseline": "baseline-20261005T070541Z-8461282d",
+        "versions": {
+          "if": "if-a7a2fcba54e54d58",
+          "rf": "rf-20261005T070541Z-eee06bbc"
+        },
+        "active": {
+          "if": "if-a7a2fcba54e54d58",
+          "rf": "rf-20261005T070541Z-eee06bbc"
+        },
+        "reasons": []
+      },
+      "pending": []
+    },
+    "rg3": {
+      "active": {
+        "if": "if-7e69cab8fdd04a17"
+      },
+      "baseline": {
+        "valid": false,
+        "reasons": [
+          "기준선 포인터 없음"
+        ],
+        "active": {
+          "if": "if-7e69cab8fdd04a17"
+        }
+      },
+      "pending": []
+    }
+  },
+  "runtime_validation": {
+    "passed": false,
+    "errors": [
+      {
+        "dataset": "rg3",
+        "reason": "기준선 유효성 확인 실패",
+        "details": {
+          "valid": false,
+          "reasons": [
+            "기준선 포인터 없음"
+          ],
+          "active": {
+            "if": "if-7e69cab8fdd04a17"
+          }
+        }
+      }
+    ],
+    "normal_waiting": [],
+    "pending_policy": "오류 없는 waiting/label_pending만 정상 대기; 복구 단계·근거 손상·미지 상태는 실패"
+  },
+  "exit_code": 1,
+  "passed": false,
+  "finished": "2026-10-06T13:11:50"
+}

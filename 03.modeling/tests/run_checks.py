@@ -18,7 +18,7 @@ def hashes():
             for p in (ROOT/'runtime').rglob('*') if p.is_file()}
 before=hashes();results=[]
 env=dict(os.environ,PYTHONIOENCODING='utf-8',KAMP_TEST_RUN_ID=run_id)
-for name in ['test_operations.py','test_registration_and_logistic.py','test_existing_ocsvm.py','test_decision_runtime.py','test_workflow_runtime.py','test_recheck_fixes.py','audit_logistic_runs.py']:
+for name in ['test_operations.py','test_registration_and_logistic.py','test_existing_ocsvm.py','test_decision_runtime.py','test_workflow_runtime.py','test_recheck_fixes.py','test_review_20261006.py','test_governance_runtime.py','audit_logistic_runs.py']:
     result=subprocess.run([sys.executable,str(Path(__file__).parent/name)],cwd=ROOT,env=env,
                           stdout=subprocess.PIPE,stderr=subprocess.STDOUT,encoding='utf-8',errors='replace')
     (out/(name+'.log')).write_text(result.stdout,encoding='utf-8')

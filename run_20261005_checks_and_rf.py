@@ -37,7 +37,7 @@ def main():
     try:
         import sklearn
         from pipeline_runtime import data,fit_supervised
-        from workflow_runtime import Operations
+        from governance_runtime import Operations
         ops=Operations('cn7');current=ops.active().get('rf')
         if current:
             out['rf']=dict(status='already_active',version=current)

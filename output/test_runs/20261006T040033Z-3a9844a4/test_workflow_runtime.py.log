@@ -1,0 +1,864 @@
+Failed to find real location of C:\ProgramData\Anaconda3\python.exe
+test_actual_second_process_cannot_enter_operation (__main__.WorkflowTests.test_actual_second_process_cannot_enter_operation) ... ERROR
+test_actual_second_process_cannot_enter_operation (__main__.WorkflowTests.test_actual_second_process_cannot_enter_operation) ... ERROR
+test_advice_failure_resume_uses_original_versions (__main__.WorkflowTests.test_advice_failure_resume_uses_original_versions) ... ERROR
+test_advice_failure_resume_uses_original_versions (__main__.WorkflowTests.test_advice_failure_resume_uses_original_versions) ... ERROR
+test_cn7_rf_advice_reuses_original_rf_after_transition (__main__.WorkflowTests.test_cn7_rf_advice_reuses_original_rf_after_transition) ... ERROR
+test_cn7_rf_advice_reuses_original_rf_after_transition (__main__.WorkflowTests.test_cn7_rf_advice_reuses_original_rf_after_transition) ... ERROR
+test_evaluation_fingerprint_is_recomputed (__main__.WorkflowTests.test_evaluation_fingerprint_is_recomputed) ... ERROR
+test_evaluation_fingerprint_is_recomputed (__main__.WorkflowTests.test_evaluation_fingerprint_is_recomputed) ... ERROR
+test_full_labeled_unlabeled_ct_hold_promote_rollback (__main__.WorkflowTests.test_full_labeled_unlabeled_ct_hold_promote_rollback) ... ERROR
+test_full_labeled_unlabeled_ct_hold_promote_rollback (__main__.WorkflowTests.test_full_labeled_unlabeled_ct_hold_promote_rollback) ... ERROR
+test_missing_or_corrupt_processing_is_rejected_without_resend (__main__.WorkflowTests.test_missing_or_corrupt_processing_is_rejected_without_resend) ... ERROR
+test_missing_or_corrupt_processing_is_rejected_without_resend (__main__.WorkflowTests.test_missing_or_corrupt_processing_is_rejected_without_resend) ... ERROR
+test_overlap_subset_cannot_be_final_evaluation (__main__.WorkflowTests.test_overlap_subset_cannot_be_final_evaluation) ... ERROR
+test_overlap_subset_cannot_be_final_evaluation (__main__.WorkflowTests.test_overlap_subset_cannot_be_final_evaluation) ... ERROR
+test_pointer_failure_and_rollback_failure_are_recoverable (__main__.WorkflowTests.test_pointer_failure_and_rollback_failure_are_recoverable) ... ERROR
+test_pointer_failure_and_rollback_failure_are_recoverable (__main__.WorkflowTests.test_pointer_failure_and_rollback_failure_are_recoverable) ... ERROR
+test_same_object_second_thread_cannot_reenter (__main__.WorkflowTests.test_same_object_second_thread_cannot_reenter) ... ERROR
+test_same_object_second_thread_cannot_reenter (__main__.WorkflowTests.test_same_object_second_thread_cannot_reenter) ... ERROR
+test_selection_re_registration_overlap_blocks_promotion (__main__.WorkflowTests.test_selection_re_registration_overlap_blocks_promotion) ... ERROR
+test_selection_re_registration_overlap_blocks_promotion (__main__.WorkflowTests.test_selection_re_registration_overlap_blocks_promotion) ... ERROR
+test_transition_preparation_failure_and_resume (__main__.WorkflowTests.test_transition_preparation_failure_and_resume) ... ERROR
+test_transition_preparation_failure_and_resume (__main__.WorkflowTests.test_transition_preparation_failure_and_resume) ... ERROR
+test_waiting_followup_advice_failure_is_repairable (__main__.WorkflowTests.test_waiting_followup_advice_failure_is_repairable) ... ERROR
+test_waiting_followup_advice_failure_is_repairable (__main__.WorkflowTests.test_waiting_followup_advice_failure_is_repairable) ... ERROR
+test_waiting_followup_preserves_history_and_no_resend (__main__.WorkflowTests.test_waiting_followup_preserves_history_and_no_resend) ... ERROR
+test_waiting_followup_preserves_history_and_no_resend (__main__.WorkflowTests.test_waiting_followup_preserves_history_and_no_resend) ... ERROR
+
+======================================================================
+ERROR: test_actual_second_process_cannot_enter_operation (__main__.WorkflowTests.test_actual_second_process_cannot_enter_operation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 79, in test_actual_second_process_cannot_enter_operation
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmper50x46x\\rg3'
+
+======================================================================
+ERROR: test_actual_second_process_cannot_enter_operation (__main__.WorkflowTests.test_actual_second_process_cannot_enter_operation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmper50x46x'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmper50x46x'
+
+======================================================================
+ERROR: test_advice_failure_resume_uses_original_versions (__main__.WorkflowTests.test_advice_failure_resume_uses_original_versions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 32, in test_advice_failure_resume_uses_original_versions
+    ops,x,y,old=self.ops(ds);ex,ey=sample(45,7)
+                ~~~~~~~~^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp1ga7zmsv\\cn7'
+
+======================================================================
+ERROR: test_advice_failure_resume_uses_original_versions (__main__.WorkflowTests.test_advice_failure_resume_uses_original_versions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp1ga7zmsv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp1ga7zmsv'
+
+======================================================================
+ERROR: test_cn7_rf_advice_reuses_original_rf_after_transition (__main__.WorkflowTests.test_cn7_rf_advice_reuses_original_rf_after_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 96, in test_cn7_rf_advice_reuses_original_rf_after_transition
+    ops,x,y,_=self.ops('cn7');ops.policy['cn7_decision_mode']='budget'
+              ~~~~~~~~^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpvqe2_c9d\\cn7'
+
+======================================================================
+ERROR: test_cn7_rf_advice_reuses_original_rf_after_transition (__main__.WorkflowTests.test_cn7_rf_advice_reuses_original_rf_after_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpvqe2_c9d'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpvqe2_c9d'
+
+======================================================================
+ERROR: test_evaluation_fingerprint_is_recomputed (__main__.WorkflowTests.test_evaluation_fingerprint_is_recomputed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 141, in test_evaluation_fingerprint_is_recomputed
+    ops,_,_,_=self.ops();ex,ey=sample(80,25);eid=ops.register_evaluation(ex.assign(PassOrFail=ey),'synthetic')
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpm25dmo9e\\rg3'
+
+======================================================================
+ERROR: test_evaluation_fingerprint_is_recomputed (__main__.WorkflowTests.test_evaluation_fingerprint_is_recomputed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpm25dmo9e'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpm25dmo9e'
+
+======================================================================
+ERROR: test_full_labeled_unlabeled_ct_hold_promote_rollback (__main__.WorkflowTests.test_full_labeled_unlabeled_ct_hold_promote_rollback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 159, in test_full_labeled_unlabeled_ct_hold_promote_rollback
+    ops,x,y,old=self.ops(ds);bids=[]
+                ~~~~~~~~^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp93_b1rvu\\cn7'
+
+======================================================================
+ERROR: test_full_labeled_unlabeled_ct_hold_promote_rollback (__main__.WorkflowTests.test_full_labeled_unlabeled_ct_hold_promote_rollback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp93_b1rvu'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp93_b1rvu'
+
+======================================================================
+ERROR: test_missing_or_corrupt_processing_is_rejected_without_resend (__main__.WorkflowTests.test_missing_or_corrupt_processing_is_rejected_without_resend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 122, in test_missing_or_corrupt_processing_is_rejected_without_resend
+    ops,_,_,_=self.ops();x,_=sample(8,63)
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpwq60v07a\\rg3'
+
+======================================================================
+ERROR: test_missing_or_corrupt_processing_is_rejected_without_resend (__main__.WorkflowTests.test_missing_or_corrupt_processing_is_rejected_without_resend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpwq60v07a'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpwq60v07a'
+
+======================================================================
+ERROR: test_overlap_subset_cannot_be_final_evaluation (__main__.WorkflowTests.test_overlap_subset_cannot_be_final_evaluation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 134, in test_overlap_subset_cannot_be_final_evaluation
+    ops,x,y,old=self.ops();v,a,eid=self.candidate_assessment(ops,x,y,old)
+                ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpbupr3oce\\rg3'
+
+======================================================================
+ERROR: test_overlap_subset_cannot_be_final_evaluation (__main__.WorkflowTests.test_overlap_subset_cannot_be_final_evaluation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpbupr3oce'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpbupr3oce'
+
+======================================================================
+ERROR: test_pointer_failure_and_rollback_failure_are_recoverable (__main__.WorkflowTests.test_pointer_failure_and_rollback_failure_are_recoverable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 64, in test_pointer_failure_and_rollback_failure_are_recoverable
+    ops,x,y,old=self.ops();v,a,_=self.candidate_assessment(ops,x,y,old)
+                ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp5clrnauw\\rg3'
+
+======================================================================
+ERROR: test_pointer_failure_and_rollback_failure_are_recoverable (__main__.WorkflowTests.test_pointer_failure_and_rollback_failure_are_recoverable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp5clrnauw'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp5clrnauw'
+
+======================================================================
+ERROR: test_same_object_second_thread_cannot_reenter (__main__.WorkflowTests.test_same_object_second_thread_cannot_reenter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 87, in test_same_object_second_thread_cannot_reenter
+    ops,_,_,_=self.ops()
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp49nbt9em\\rg3'
+
+======================================================================
+ERROR: test_same_object_second_thread_cannot_reenter (__main__.WorkflowTests.test_same_object_second_thread_cannot_reenter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp49nbt9em'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp49nbt9em'
+
+======================================================================
+ERROR: test_selection_re_registration_overlap_blocks_promotion (__main__.WorkflowTests.test_selection_re_registration_overlap_blocks_promotion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 150, in test_selection_re_registration_overlap_blocks_promotion
+    ops,x,y,old=self.ops();v,a,eid=self.candidate_assessment(ops,x,y,old)
+                ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp6u4kmfz0\\rg3'
+
+======================================================================
+ERROR: test_selection_re_registration_overlap_blocks_promotion (__main__.WorkflowTests.test_selection_re_registration_overlap_blocks_promotion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp6u4kmfz0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmp6u4kmfz0'
+
+======================================================================
+ERROR: test_transition_preparation_failure_and_resume (__main__.WorkflowTests.test_transition_preparation_failure_and_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 55, in test_transition_preparation_failure_and_resume
+    ops,x,y,old=self.ops('cn7');v,a,_=self.candidate_assessment(ops,x,y,old)
+                ~~~~~~~~^^^^^^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpoev9glmg\\cn7'
+
+======================================================================
+ERROR: test_transition_preparation_failure_and_resume (__main__.WorkflowTests.test_transition_preparation_failure_and_resume)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpoev9glmg'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpoev9glmg'
+
+======================================================================
+ERROR: test_waiting_followup_advice_failure_is_repairable (__main__.WorkflowTests.test_waiting_followup_advice_failure_is_repairable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 109, in test_waiting_followup_advice_failure_is_repairable
+    ops,_,_,_=self.ops();ops.ingest(sample(20,61)[0],batch_id='W',coordinates_confirmed=True)
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpz4c38i32\\rg3'
+
+======================================================================
+ERROR: test_waiting_followup_advice_failure_is_repairable (__main__.WorkflowTests.test_waiting_followup_advice_failure_is_repairable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpz4c38i32'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpz4c38i32'
+
+======================================================================
+ERROR: test_waiting_followup_preserves_history_and_no_resend (__main__.WorkflowTests.test_waiting_followup_preserves_history_and_no_resend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 43, in test_waiting_followup_preserves_history_and_no_resend
+    ops,_,_,_=self.ops();ex,_=sample(20,8)
+              ~~~~~~~~^^
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 20, in ops
+    ops=Operations(ds,self.root,dict(min_window_rows=40,min_window_patterns=30,bootstrap_repeats=20,cn7_decision_mode='threshold'))
+  File "D:\workspace\kamp\03.modeling\common\workflow_runtime.py", line 21, in __init__
+    super().__init__(*args,**kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\decision_runtime.py", line 260, in __init__
+    super().__init__(dataset,state_root,policy)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 328, in __init__
+    super().__init__(dataset,state_root)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace\kamp\03.modeling\common\pipeline_runtime.py", line 169, in __init__
+    self.state.mkdir(parents=True,exist_ok=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpedpurwb8\\rg3'
+
+======================================================================
+ERROR: test_waiting_followup_preserves_history_and_no_resend (__main__.WorkflowTests.test_waiting_followup_preserves_history_and_no_resend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 707, in _rmtree_unsafe
+    os.rmdir(path)
+    ~~~~~~~~^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpedpurwb8'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\workspace\kamp\03.modeling\tests\test_workflow_runtime.py", line 18, in tearDown
+    def tearDown(self):self.tmp.cleanup()
+                       ~~~~~~~~~~~~~~~~^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\shutil.py", line 711, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\ProgramData\Anaconda3\Lib\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다: 'C:\\Users\\User\\AppData\\Local\\Packages\\sandbox.{d93db55c-cbfd-4497-b94b-418ca2c250ea}\\AC\\Temp\\tmpedpurwb8'
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.055s
+
+FAILED (errors=26)

@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "tests": 12,
+  "failures": 0,
+  "errors": 0,
+  "scope": "synthetic technical integration only; no real deployment"
+}

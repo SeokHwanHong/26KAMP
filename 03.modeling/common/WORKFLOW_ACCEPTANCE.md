@@ -1,6 +1,8 @@
 # KAMP 7단계 운영 연결과 인수 기준
 
-2026-10-05 구현. 실제 운영 진입점은 `workflow_runtime.Operations`, `pipeline_cli.py`, `04_operations.ipynb`다.
+2026-10-06 권장안 1~5 확정 반영. 실제 운영 진입점은 `governance_runtime.Operations`, `pipeline_cli.py`, `04_operations.ipynb`다.
+승인·검사 계획·참조 갱신·학습 범위는 [GOVERNANCE_OPERATIONS.md](GOVERNANCE_OPERATIONS.md)를 따른다.
+계층은 pipeline → decision → workflow → governance이며 workflow는 버전·복구 기반 구현이다.
 `decision_runtime.py`는 재전송·검사 정책, `pipeline_runtime.py`는 학습/저장/감지의 하위 구현이며 직접 호출한 과거 테스트와 운영 계층의 검증을 구분한다.
 
 ```mermaid
@@ -10,11 +12,11 @@ flowchart TD
     C --> D[4. 재전송 검증 · 예약 · 저장 추론 · 확정]
     D --> E[5. 누적 분포 감지 · waiting/normal/watch/review]
     E --> G[CN7: exact_k 검사 우선순위 / RG3: 불확실성·검사 근거]
-    E --> F{6. review · 원인 · 실제 라벨 · 표본 충분?}
+    E --> F{6. review · 원인 · 실제 라벨 · 표본 · 담당 승인?}
     F -->|아니오| H[유지 · 자료/원인 확인 대기]
     F -->|예| I[IF/OCSVM 정상만 · LR/RF 정상/위험 전체 재학습]
     I --> J[7. 분리 평가 · 선정 자료 중복 차단]
-    J --> K{후보 기준 통과?}
+    J --> K{기준 · CN7 제품 검사 성과 · 승격 승인?}
     K -->|아니오| H
     K -->|예| L[새 모델 출력 기준선 준비 · 명시적 전환]
     L --> M[운영 모델/기준선 · 이전 버전 보존]
@@ -52,7 +54,7 @@ flowchart TD
 운영 API는 `.operation.lock`을 먼저, 내부 수집·writer 잠금을 다음으로 획득한다. 다른 프로세스/스레드의 수집·감지·전환을 동시에 허용하지 않는다.
 잠금 해제는 작업 종료 확인 후 `unlock --lock operation --reason ...`으로 명시적으로 수행한다.
 
-승격·롤백은 새 기준선을 먼저 준비한다. 입력 참조는 고정 개발 분포를 유지하고 모델 출력 구간만 새 모델로 계산한다.
+승격·롤백은 새 기준선을 먼저 준비한다. 입력 참조는 초기 개발 또는 승인된 현재 참조를 유지하고 모델 출력 구간만 새 모델로 계산한다.
 `transition_pending.json`의 preparing/prepared/completed 상태로 기록하며 부분 전환 상태에서는 추론·CT·평가를 차단한다.
 기준선 준비, 레지스트리/포인터 기록 실패는 `resume-transition`으로 같은 전환을 재개한다. 자동 현장 모델 교체는 하지 않는다.
 
@@ -64,6 +66,26 @@ flowchart TD
 
 라벨 정정 API는 구현하지 않았다. 재전송으로 기존 라벨을 변경하면 conflict다.
 향후 정정에는 원천 제품/배치 ID, 검사 출처·시각, 정정 사유·승인자, 이전/새 라벨, 영향받는 패턴·학습/평가/모델 버전 이력과 재검증 절차가 필요하다.
+
+### 2026-10-06 실행·복구 보완
+
+- 경보 연속성은 바로 이전 확정 윈도의 기준선·정책과 비교한다. A→B→A 복귀는 새 연속 구간이다.
+  `continuity_version=2`로 과거 횟수를 이어 쓰지 않으며, 소비 장부의 오래된 누락을 복구해도 최신 순서를 유지한다.
+- 새 평가 등록은 `evaluation_staging/<ID>`에서 파일·manifest·integrity를 준비·검증한 뒤 폴더를 전환한다.
+  실패 준비 폴더는 학습 보호·평가 목록에 포함되지 않는다. `evaluation-registration-status`로 조회하고 같은 입력·출처·purpose·ID로 재시도한다.
+- 구형 평가의 CSV·입력 지문을 검증해 신규 자료 등록을 막지 않도록 했다. 구형 자료와 겹치는 패턴은 `historical_followup`으로 제한한다.
+  `migrate-evaluation`은 원본을 보존하고 후속 평가 사본을 만든다. 과거 독립성이나 실행 당시 무결성을 소급 인증하지 않는다.
+- `pyarrow==23.0.1`은 저장 RF 로드 의존성으로 선언했다. 새 인터프리터 프로세스에서 현재 활성 모델의 로드·추론을 검증했다.
+- Python 소스는 LF 체크아웃을 선언한다. 과거 소스 감사는 바이트 일치 또는 LF/CRLF만의 변환을 구분해 기록한다.
+  실제 코드 변경은 실패하며 모델·평가·LR 결과 산출물은 바이트 해시 그대로 검증한다. 과거 실행 기록은 수정하지 않는다.
+
+구형 평가의 원천 파일이나 manifest까지 손상되었으면 이관을 거부한다. 독립 승격 평가에는 새 근거가 있는 분리 자료를 확보해야 한다.
+
+```powershell
+python 03.modeling/pipeline_cli.py --dataset rg3 --state-root tmp/rehearsal evaluation-registration-status
+python 03.modeling/pipeline_cli.py --dataset rg3 --state-root tmp/rehearsal register-evaluation --input new.csv --label-source "검사 출처" --evaluation-id RECOVER
+python 03.modeling/pipeline_cli.py --dataset rg3 --state-root tmp/rehearsal migrate-evaluation --evaluation-id OLD --new-evaluation-id COPY --label-source "원천 검사 출처" --reason "구형 평가 복구"
+```
 
 ## 검증의 범위
 

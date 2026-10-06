@@ -1,9 +1,11 @@
 CN7 / RG3 판단 정책 변경 (2026-10-03, Claude 2차 반영본: CN7=RF+검사 예산, RG3=드리프트 기반 불확실 구간)
 2026-10-05 팀장 검토(F01~F07) 반영: 배치 중복·재시도·판단 대기·동점 규칙·보정 캐시·평가 용도 기록
 
-운영 진입점: pipeline_cli.py와 04_operations.ipynb는 decision_runtime.Operations를 사용한다.
-pipeline_runtime.py는 기존 학습·저장 결과의 재현성을 위해 유지한 하위 모듈이다(수정하지 않음).
-새 판단 정책을 사용할 때는 from decision_runtime import Operations로 가져온다.
+2026-10-06 권장안 1~5 확정 운영 진입점: pipeline_cli.py와 04_operations.ipynb는 governance_runtime.Operations를 사용한다.
+운영 호출은 from governance_runtime import Operations를 사용한다. workflow/decision/pipeline은 하위 기반 구현이다.
+승인 담당자·RG3 검사 비율 미설정 시 실제 검사 계획·CT·승격은 보류한다. GOVERNANCE 설정과 사용법은 GOVERNANCE_OPERATIONS.md 참조.
+공식 기준은 WORKFLOW_ACCEPTANCE.md → CLI/운영 노트북 → 모델별 학습 경로 → 연구/과거 기록 순서다.
+pipeline_runtime 운영 복구 로직은 보완되었고, 과거 LR 학습 출처는 보관본·학습 정의 대조로 감사한다.
 
 데이터 유형 판정 근거 (Test 미사용)
 - 개발 4-fold OOF에서 단순 구간 위험 이력 점수가 위험 패턴을 무작위보다 잘 순위화하는지 순열 검정.
@@ -150,7 +152,8 @@ python 03.modeling/tests/report_decision_examples.py
 - 감지는 drift/<ID>.json(결과)을 먼저 저장하고 monitor.json(소비 목록·이력)을 기록한다.
   두 기록 사이에서 멈추면, 다음 감지 시작 시 또는 resume 시 이력에 없는 감지 결과를 drift ID 기준으로 한 번만 반영한다.
   → 이미 감지에 쓴 배치를 다음 윈도에서 다시 소비하지 않고, 같은 drift를 이력에 두 번 넣지 않는다.
-- 연속 초과(streak)는 같은 기준선 + 같은 경보 정책(분위수·반복 수)의 확정 윈도에서만 이어진다. 정책이 바뀌면 1부터 다시 센다.
+- 연속 초과(streak)는 바로 이전 확정 윈도의 기준선과 경보 정책이 같을 때만 이어진다. 정책/기준선 A→B→A 복귀도 1부터 다시 센다.
+- continuity_version=2로 이전 계산 규칙의 횟수를 이어 쓰지 않는다. 표본 부족 waiting은 확정 윈도로 세지 않는다.
 - 수동 복구: pipeline_cli.py --dataset <cn7|rg3> reconcile-monitor
 - 이 수정은 pipeline_runtime.py의 Operations 클래스에 들어갔다. 학습 경로 정의는 바꾸지 않았고,
   LR 감사는 03.modeling/common/provenance의 보관본으로 출처를 확인한다(provenance/README.txt).

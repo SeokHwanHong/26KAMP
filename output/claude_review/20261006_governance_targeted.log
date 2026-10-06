@@ -1,0 +1,17 @@
+Failed to find real location of C:\ProgramData\Anaconda3\python.exe
+test_approval_binding_rejects_policy_and_input_changes (__main__.GovernanceTests.test_approval_binding_rejects_policy_and_input_changes) ... ok
+test_cn7_approved_family_switch_changes_actual_inspection_model (__main__.GovernanceTests.test_cn7_approved_family_switch_changes_actual_inspection_model) ... ok
+test_cn7_product_evidence_and_approval_gate_model_role (__main__.GovernanceTests.test_cn7_product_evidence_and_approval_gate_model_role) ... ok
+test_cumulative_ct_requires_approval_and_preserves_parent_parameters (__main__.GovernanceTests.test_cumulative_ct_requires_approval_and_preserves_parent_parameters) ... ok
+test_missing_configuration_holds_plan_and_blocks_approval (__main__.GovernanceTests.test_missing_configuration_holds_plan_and_blocks_approval) ... ok
+test_real_time_requires_timezone_and_original_ids (__main__.GovernanceTests.test_real_time_requires_timezone_and_original_ids) ... ok
+test_recent_selection_preserves_risk_history_without_inventing_time (__main__.GovernanceTests.test_recent_selection_preserves_risk_history_without_inventing_time) ... ok
+test_reference_cannot_absorb_risky_batch (__main__.GovernanceTests.test_reference_cannot_absorb_risky_batch) ... ok
+test_reference_update_is_approved_and_survives_model_rebuild (__main__.GovernanceTests.test_reference_update_is_approved_and_survives_model_rebuild) ... ok
+test_sampling_does_not_use_provided_labels_and_tiny_budget_holds (__main__.GovernanceTests.test_sampling_does_not_use_provided_labels_and_tiny_budget_holds) ... ok
+test_sampling_exact_budget_disjoint_and_reproducible (__main__.GovernanceTests.test_sampling_exact_budget_disjoint_and_reproducible) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 32.574s
+
+OK

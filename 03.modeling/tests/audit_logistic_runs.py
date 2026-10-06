@@ -8,6 +8,7 @@ import joblib
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'03.modeling/common'))
 from pipeline_runtime import data,digest,read,write,library,score,metrics,fit_supervised
+from source_provenance import verify_source_digest
 import hashlib
 import ast
 
@@ -37,12 +38,15 @@ def runtime_provenance(recorded):
     """The LR run recorded the runtime source hash at run time. The source may have changed later
     (2026-10-05: drift recovery in Operations). Keep the old record unchanged and verify it against the
     archived copy; separately prove the training definitions are identical to the current file."""
-    if recorded==digest(RUNTIME):return 'current'
+    try:
+        match=verify_source_digest(RUNTIME,recorded)
+        return 'current:'+match
+    except AssertionError:pass
     archived=PROVENANCE/f'pipeline_runtime_{recorded[:12]}.py'
     assert archived.exists(),f'기록된 runtime 해시의 보관본 없음: {archived.name}'
-    assert digest(archived)==recorded,'보관본 해시가 LR 실행 기록과 다름'
+    match=verify_source_digest(archived,recorded)
     assert training_definitions(archived)==training_definitions(RUNTIME),'학습 경로 정의가 보관본과 다름: LR 재실행 필요'
-    return 'archived_source_verified+training_definitions_unchanged'
+    return 'archived_source_verified:'+match+'+training_definitions_unchanged'
 
 results=[]
 for ds in ['cn7','rg3']:
@@ -50,7 +54,7 @@ for ds in ['cn7','rg3']:
     folder=sorted(p for p in (ROOT/'output/logistic'/ds).iterdir()
                   if (p/'audit.json').exists() and (p/'registered_candidate.json').exists())[-1]
     config=read(folder/'run_config.json');audit=read(folder/'audit.json');choice=read(folder/'selection_manifest.json')['choice']
-    assert config['code_sha256']==digest(ROOT/'03.modeling/models/logistic_regression.py')
+    lr_source=verify_source_digest(ROOT/'03.modeling/models/logistic_regression.py',config['code_sha256'])
     runtime_source=runtime_provenance(config['runtime_code_sha256'])
     assert all(digest(folder/n)==h for n,h in audit['artifact_sha256'].items())
     ns=library(ds);top=[];rows=0
@@ -83,7 +87,7 @@ for ds in ['cn7','rg3']:
     np.testing.assert_allclose(score(refit,x.loc[rows_all]),score(b,x.loc[rows_all]),rtol=0,atol=1e-8)
     np.testing.assert_array_equal((score(refit,x.loc[test])>b['threshold']).astype(int),saved.prediction)
     result=dict(dataset=ds,run=str(folder.relative_to(ROOT)),passed=True,joint_trials_verified=rows,
-                candidate_selection_reproduced=True,lr_code_hash_current=True,runtime_source=runtime_source,
+                candidate_selection_reproduced=True,lr_code_hash_current=True,lr_source_match=lr_source,runtime_source=runtime_source,
                 selected_config_refit_reproduced=True,notebook_library_hash_recorded_at_run=False,
                 notebook_library=notebook_library_status(),
                 scope_note='저장 모델 예측 재현 + 선택 설정 재학습 재현. 탐색한 240개 설정 전부의 재학습 재현은 아님',

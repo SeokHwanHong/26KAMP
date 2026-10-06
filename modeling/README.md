@@ -1,6 +1,9 @@
 # OCSVM 분석 노트북
 
-현재 분석의 진입점은 데이터별 통합본입니다.
+이 폴더는 RF·관계식·스태킹 **연구 실험** 경로입니다. 아래 통합본은 실험 재현용입니다.
+현재 공식 운영 진입점은 `03.modeling/pipeline_cli.py`, `03.modeling/04_operations.ipynb`와
+`governance_runtime.Operations`이며, 기준 문서는 `03.modeling/common/WORKFLOW_ACCEPTANCE.md`와 `GOVERNANCE_OPERATIONS.md`입니다.
+실험 후보를 운영에 연결할 때는 모델 등록·변환·CT 계약을 확인해야 합니다.
 
 ## 랜덤 포레스트 결과 공유
 
