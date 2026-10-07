@@ -1,0 +1,17 @@
+﻿feature,KS,dataset
+Max_Switch_Over_Pressure,0.4205340427628338,cn7
+Clamp_Close_Time,0.5443886097152429,cn7
+Average_Back_Pressure,0.6070056163168784,cn7
+Plasticizing_Time,0.6951423785594639,cn7
+Max_Back_Pressure,0.7001675041876048,cn7
+Mold_Temperature_3,0.7066706079416691,cn7
+Mold_Temperature_4,0.7152428810720268,cn7
+Plasticizing_Position,0.7520938023450586,cn7
+Barrel_Temperature_3,0.116439066551426,rg3
+Average_Back_Pressure,0.11934312878133102,rg3
+Plasticizing_Time,0.12141745894554884,rg3
+Max_Injection_Speed,0.13130509939498708,rg3
+Mold_Temperature_3,0.14278305963699217,rg3
+Hopper_Temperature,0.14769230769230768,rg3
+Mold_Temperature_4,0.16525496974935172,rg3
+Barrel_Temperature_5,0.1848919619706137,rg3

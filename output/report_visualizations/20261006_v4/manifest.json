@@ -1,0 +1,382 @@
+{
+  "figures": [
+    {
+      "id": "eda_counts",
+      "group": "eda",
+      "title": "원본 관측치와 고유 패턴의 클래스 구성",
+      "context": "CN7·RG3 전체 라벨 자료 / 원본 및 패턴 단위 / 모델·임계값 없음",
+      "interpretation": "패턴 통합 후에도 위험 클래스가 적다. 정상만 예측하는 정확도는 위험 탐지 성능을 대표하지 않는다.",
+      "path": "output/report_visualizations/20261006_v4/eda_counts.png",
+      "data_path": "output/report_visualizations/20261006_v4/eda_counts.csv"
+    },
+    {
+      "id": "preprocess_conflicts",
+      "group": "preprocess",
+      "title": "동일 입력에 서로 다른 품질 라벨이 존재한다",
+      "context": "전체 라벨 / 패턴 CN7 606·RG3 591 / max(label) 통합 / 모델 없음",
+      "interpretation": "CN7 11개, RG3 25개 입력 패턴에서 라벨이 상충하였다. max(label)은 위험 이력을 정의하며 개별 제품의 불량 여부를 확정하지 않는다.",
+      "path": "output/report_visualizations/20261006_v4/preprocess_conflicts.png",
+      "data_path": "output/report_visualizations/20261006_v4/preprocess_conflicts.csv"
+    },
+    {
+      "id": "eda_feature_separation",
+      "group": "eda",
+      "title": "품질 라벨별 주요 변수 분포 차이",
+      "context": "전체 라벨 원본 CN7 1211·RG3 1182 / 24개 변수 / 탐색 통계, Test 성능 아님",
+      "interpretation": "CN7은 위치·배압·금형온도 관련 차이가 관측되었다. 전체 자료의 탐색 결과이므로 독립 검증이나 인과관계로 해석하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/eda_feature_separation.png",
+      "data_path": "output/report_visualizations/20261006_v4/eda_feature_separation.csv"
+    },
+    {
+      "id": "eda_correlations",
+      "group": "eda",
+      "title": "입력 변수의 순위상관 구조 (-1: 음, +1: 양)",
+      "context": "전체 고유 패턴 CN7 606·RG3 591 / 상수 열 제외 23개 / 번호는 Clamp_Open_Position을 제외한 schema 열 순서",
+      "interpretation": "시간·압력·온도 계열의 중복된 정보가 확인되었다. 높은 상관이 있는 변수를 함께 거리 계산에 사용하면 특정 공정 계열의 영향이 커질 수 있다.",
+      "path": "output/report_visualizations/20261006_v4/eda_correlations.png"
+    },
+    {
+      "id": "factors_joint",
+      "group": "factors",
+      "title": "배압과 금형온도의 결합 조건",
+      "context": "전체 패턴 CN7 606·RG3 591 / 제공 표준화 좌표 / 탐색 분석, 물리 단위 아님",
+      "interpretation": "동일 단변수 구간에서도 다른 공정값에 따라 패턴 구성이 달라진다. 표시된 좌표를 물리적 온도·압력이나 불량 원인으로 확정하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/factors_joint.png"
+    },
+    {
+      "id": "row_order_cn7",
+      "group": "row_order",
+      "title": "CN7 원본 0–374행의 입력값과 불량 관측 위치",
+      "context": "CN7 원본 부분집합 N=375 / 빨강=PassOrFail 1 / 시간축 아님 / 모델 없음",
+      "interpretation": "행 순서에 따른 값의 변화를 확인하였다. 생산시각이 없어 시간 추세, 공정 전환 또는 전후 관계로 확정할 수 없다.",
+      "path": "output/report_visualizations/20261006_v4/row_order_cn7.png",
+      "data_path": "output/report_visualizations/20261006_v4/row_order_cn7.csv"
+    },
+    {
+      "id": "selftraining_coverage",
+      "group": "self_training",
+      "title": "비라벨 자료의 입력 다양성과 학습 적격성",
+      "context": "원본 CN7 라벨1211·비라벨35239 / RG3 라벨1182·비라벨35941 / 비라벨 품질 미확인",
+      "interpretation": "비라벨 자료에는 라벨 자료에서 관측되지 않은 값과 더 많은 입력 다양성이 존재한다. 비라벨을 정상으로 간주하거나 자기학습의 성능 개선으로 해석하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/selftraining_coverage.png",
+      "data_path": "output/report_visualizations/20261006_v4/selftraining_coverage.csv"
+    },
+    {
+      "id": "split_counts",
+      "group": "split",
+      "title": "패턴 단위 고정 개발·Test 분할",
+      "context": "seed42 / Test20% / CN7 개발484·Test122 / RG3 개발472·Test119",
+      "interpretation": "패턴이 두 분할에 중복되지 않도록 고정하였다. Test의 위험 수는 CN7 3개, RG3 5개로 소표본이며 이미 관찰한 후속 평가이다.",
+      "path": "output/report_visualizations/20261006_v4/split_counts.png",
+      "data_path": "output/report_visualizations/20261006_v4/split_counts.csv"
+    },
+    {
+      "id": "split_folds",
+      "group": "split",
+      "title": "개발 자료 4-fold의 위험 표본 수",
+      "context": "StratifiedKFold 4 / seed42 / 개발 CN7 484·RG3 472 / 모델 없음",
+      "interpretation": "CN7의 검증 fold당 위험 수가 2–3개이므로 소수 표본의 탐지 여부가 선택 성능을 크게 바꾼다.",
+      "path": "output/report_visualizations/20261006_v4/split_folds.png",
+      "data_path": "output/report_visualizations/20261006_v4/split_folds.csv"
+    },
+    {
+      "id": "if_scores",
+      "group": "if",
+      "title": "IF 저장 모델의 Test 이상 점수",
+      "context": "고유 패턴 CN7 N122·위험3 / RG3 N119·위험5 / if-a7a2fcba54e54d58 ; if-7e69cab8fdd04a17",
+      "interpretation": "IF는 이상 순위이며 불량 분류 임계값이 없다.",
+      "path": "output/report_visualizations/20261006_v4/if_scores.png"
+    },
+    {
+      "id": "ocsvm_scores",
+      "group": "ocsvm",
+      "title": "OCSVM 저장 모델의 Test 점수와 고정 임계값",
+      "context": "고유 패턴 CN7 N122·위험3 / RG3 N119·위험5 / ocsvm-6bb288e7f3ba464e ; ocsvm-657078ff64fd4278",
+      "interpretation": "점수 분포와 고정 임계값을 함께 확인하였다. 위험 탐지와 정상 오탐을 별도로 평가하였다.",
+      "path": "output/report_visualizations/20261006_v4/ocsvm_scores.png"
+    },
+    {
+      "id": "ocsvm_confusion",
+      "group": "ocsvm",
+      "title": "OCSVM 고정 Test의 FN·FP",
+      "context": "같은 고정 패턴 Test / 각 저장 모델의 기존 임계값 / Test로 재선택하지 않음",
+      "interpretation": "CN7은 위험 3개를 모두 놓쳤다. RG3는 위험 5개를 탐지하였으나 정상 오탐이 많아 임계값 분류의 실용성이 제한되었다.",
+      "path": "output/report_visualizations/20261006_v4/ocsvm_confusion.png"
+    },
+    {
+      "id": "lr_scores",
+      "group": "lr",
+      "title": "LR 저장 모델의 Test 점수와 고정 임계값",
+      "context": "고유 패턴 CN7 N122·위험3 / RG3 N119·위험5 / lr-20261003T040950Z-62637750 ; lr-20261003T041011Z-d707796f",
+      "interpretation": "점수 분포와 고정 임계값을 함께 확인하였다. 위험 탐지와 정상 오탐을 별도로 평가하였다.",
+      "path": "output/report_visualizations/20261006_v4/lr_scores.png"
+    },
+    {
+      "id": "lr_confusion",
+      "group": "lr",
+      "title": "LR 고정 Test의 FN·FP",
+      "context": "같은 고정 패턴 Test / 각 저장 모델의 기존 임계값 / Test로 재선택하지 않음",
+      "interpretation": "CN7은 위험 3개를 모두 놓쳤다. RG3는 위험 5개를 탐지하였으나 정상 오탐이 많아 임계값 분류의 실용성이 제한되었다.",
+      "path": "output/report_visualizations/20261006_v4/lr_confusion.png"
+    },
+    {
+      "id": "cn7_lr_oof_test",
+      "group": "lr",
+      "title": "CN7 LR 개발 OOF와 Test의 구분",
+      "context": "output/logistic/cn7/lr-20261003T040927Z-66e8d685 / 개발484·Test122 / 기존 선택 임계값",
+      "interpretation": "개발 OOF는 입력 구성·규제 강도·가중치·임계값을 선택한 자료이다. OOF 성능을 독립 일반화 성능으로 표현하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/cn7_lr_oof_test.png"
+    },
+    {
+      "id": "cn7_lr_coefficients",
+      "group": "lr",
+      "title": "CN7 선택 LR의 주요 계수",
+      "context": "lr-20261003T040950Z-62637750 / 개발 적합 / 상위10 절대계수 / thermal 특징",
+      "interpretation": "계수 부호는 다른 입력을 포함한 모델 좌표에서의 관계이다. 물리적 원인이나 최적 공정값으로 해석하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/cn7_lr_coefficients.png",
+      "data_path": "output/report_visualizations/20261006_v4/cn7_lr_coefficients.csv"
+    },
+    {
+      "id": "rg3_lr_oof_test",
+      "group": "lr",
+      "title": "RG3 LR 개발 OOF와 Test의 구분",
+      "context": "output/logistic/rg3/lr-20261003T040950Z-8c8b16ec / 개발472·Test119 / 기존 선택 임계값",
+      "interpretation": "개발 OOF는 입력 구성·규제 강도·가중치·임계값을 선택한 자료이다. OOF 성능을 독립 일반화 성능으로 표현하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_lr_oof_test.png"
+    },
+    {
+      "id": "rg3_lr_coefficients",
+      "group": "lr",
+      "title": "RG3 선택 LR의 주요 계수",
+      "context": "lr-20261003T041011Z-d707796f / 개발 적합 / 상위10 절대계수 / thermal 특징",
+      "interpretation": "계수 부호는 다른 입력을 포함한 모델 좌표에서의 관계이다. 물리적 원인이나 최적 공정값으로 해석하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_lr_coefficients.png",
+      "data_path": "output/report_visualizations/20261006_v4/rg3_lr_coefficients.csv"
+    },
+    {
+      "id": "cn7_rf_v1_scores",
+      "group": "rf_cn7",
+      "title": "CN7 연구 RF v1의 OOF·Test 점수",
+      "context": "manual_seven_scenarios_v1 / 개발484·Test122 / t=0.222 / 추가 표준화 제거 이전 결과",
+      "interpretation": "기존 v1 결과는 수정 후 RF의 성능이 아니다. 제공 좌표를 직접 사용하는 v2의 전체 후보 탐색 결과는 아직 없다.",
+      "path": "output/report_visualizations/20261006_v4/cn7_rf_v1_scores.png"
+    },
+    {
+      "id": "cn7_rf_v1_scenarios",
+      "group": "rf_cn7",
+      "title": "CN7 연구 RF v1의 입력 구성별 선택 성능",
+      "context": "v1 / 7개 입력 구성 / 개발 OOF F1 / Test 비교·수정 후 성능 아님",
+      "interpretation": "각 입력 구성 내에서 설정과 임계값을 선택한 점수이다. 후보 탐색의 선택 편향을 포함하며 Test로 다시 선택하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/cn7_rf_v1_scenarios.png",
+      "data_path": "output/report_visualizations/20261006_v4/cn7_rf_v1_scenarios.csv"
+    },
+    {
+      "id": "cn7_rf_v1_importance",
+      "group": "rf_cn7",
+      "title": "CN7 연구 RF v1의 변수 중요도",
+      "context": "v1 최종 개발 적합 / 상위10 / 수정 후 RF 성능과 구분",
+      "interpretation": "중요도는 해당 모델의 분기 사용 정도를 나타낸다. 상관된 입력 사이에 중요도가 나뉠 수 있으며 인과적 불량 요인이 아니다.",
+      "path": "output/report_visualizations/20261006_v4/cn7_rf_v1_importance.png",
+      "data_path": "output/report_visualizations/20261006_v4/cn7_rf_v1_importance.csv"
+    },
+    {
+      "id": "rg3_rf_v1_scores",
+      "group": "rf_rg3",
+      "title": "RG3 연구 RF v1의 OOF·Test 점수",
+      "context": "manual_seven_scenarios_v1 / 개발472·Test119 / t=0.47 / 추가 표준화 제거 이전 결과",
+      "interpretation": "기존 v1 결과는 수정 후 RF의 성능이 아니다. 제공 좌표를 직접 사용하는 v2의 전체 후보 탐색 결과는 아직 없다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_rf_v1_scores.png"
+    },
+    {
+      "id": "rg3_rf_v1_scenarios",
+      "group": "rf_rg3",
+      "title": "RG3 연구 RF v1의 입력 구성별 선택 성능",
+      "context": "v1 / 7개 입력 구성 / 개발 OOF F1 / Test 비교·수정 후 성능 아님",
+      "interpretation": "각 입력 구성 내에서 설정과 임계값을 선택한 점수이다. 후보 탐색의 선택 편향을 포함하며 Test로 다시 선택하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_rf_v1_scenarios.png",
+      "data_path": "output/report_visualizations/20261006_v4/rg3_rf_v1_scenarios.csv"
+    },
+    {
+      "id": "rg3_rf_v1_importance",
+      "group": "rf_rg3",
+      "title": "RG3 연구 RF v1의 변수 중요도",
+      "context": "v1 최종 개발 적합 / 상위10 / 수정 후 RF 성능과 구분",
+      "interpretation": "중요도는 해당 모델의 분기 사용 정도를 나타낸다. 상관된 입력 사이에 중요도가 나뉠 수 있으며 인과적 불량 요인이 아니다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_rf_v1_importance.png",
+      "data_path": "output/report_visualizations/20261006_v4/rg3_rf_v1_importance.csv"
+    },
+    {
+      "id": "model_budget_curves",
+      "group": "if",
+      "title": "같은 검사 예산에서 저장 모델의 위험 발견 수",
+      "context": "고정 패턴 Test CN7 N122·위험3 / RG3 N119·위험5 / exact_k / 5–50% / 임계값 분류와 별도",
+      "interpretation": "CN7의 10% 검사량에서는 고정 RF가 3개, LR이 2개를 포함하였다. RG3에서는 IF가 2개를 포함하였다. 소표본의 후속 결과이며 현장 효과로 확정하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/model_budget_curves.png",
+      "data_path": "output/report_visualizations/20261006_v4/model_budget_curves.csv"
+    },
+    {
+      "id": "cn7_error_conditions",
+      "group": "factors",
+      "title": "CN7 실제 위험·오탐 패턴의 공정값",
+      "context": "rf-20261005T070541Z-eee06bbc / 고정 Test / t=0.5 / CN7 전체 위험3+FP8; RG3 위험5+상위점수 FP10 / 표시만 IQR 변환",
+      "interpretation": "오류 사례의 실제 입력과 점수를 대조하였다. 색상은 시각화용 상대 위치이며 모델 입력을 다시 표준화한 것이 아니다. RG3의 오탐 전수는 별도 CSV에 보존하였다.",
+      "path": "output/report_visualizations/20261006_v4/cn7_error_conditions.png",
+      "data_path": "output/report_visualizations/20261006_v4/cn7_error_conditions.csv"
+    },
+    {
+      "id": "cn7_error_joint",
+      "group": "factors",
+      "title": "CN7 TP·TN·FN·FP의 두 변수 결합 분포",
+      "context": "rf-20261005T070541Z-eee06bbc / 고정 Test N=122 / 제공 좌표 / 동일 고정 임계값",
+      "interpretation": "성공·실패 사례가 함께 분포하는 구간을 확인하였다. Test에서 관측한 구간을 새 의사결정 경계로 사용하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/cn7_error_joint.png",
+      "data_path": "output/report_visualizations/20261006_v4/cn7_error_joint.csv"
+    },
+    {
+      "id": "rg3_error_conditions",
+      "group": "ocsvm",
+      "title": "RG3 실제 위험·오탐 패턴의 공정값",
+      "context": "ocsvm-657078ff64fd4278 / 고정 Test / t=0.0398107 / CN7 전체 위험3+FP8; RG3 위험5+상위점수 FP10 / 표시만 IQR 변환",
+      "interpretation": "오류 사례의 실제 입력과 점수를 대조하였다. 색상은 시각화용 상대 위치이며 모델 입력을 다시 표준화한 것이 아니다. RG3의 오탐 전수는 별도 CSV에 보존하였다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_error_conditions.png",
+      "data_path": "output/report_visualizations/20261006_v4/rg3_error_conditions.csv"
+    },
+    {
+      "id": "rg3_error_joint",
+      "group": "ocsvm",
+      "title": "RG3 TP·TN·FN·FP의 두 변수 결합 분포",
+      "context": "ocsvm-657078ff64fd4278 / 고정 Test N=119 / 제공 좌표 / 동일 고정 임계값",
+      "interpretation": "성공·실패 사례가 함께 분포하는 구간을 확인하였다. Test에서 관측한 구간을 새 의사결정 경계로 사용하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_error_joint.png",
+      "data_path": "output/report_visualizations/20261006_v4/rg3_error_joint.csv"
+    },
+    {
+      "id": "cn7_relationship_quality",
+      "group": "relationship",
+      "title": "CN7 정상 변수 관계식의 예측 가능성",
+      "context": "20261001_relations_v1 / fixed_pattern / 정상 reference 내부 GroupKFold / 유지 기준 R²≥0.2 / 품질 판별 성능 아님",
+      "interpretation": "다른 공정값으로 각 입력을 예측하는 관계식의 정확성을 확인하였다. 정상 관계의 예측력이 높아도 위험 판별 성능이 높다는 뜻은 아니다.",
+      "path": "output/report_visualizations/20261006_v4/cn7_relationship_quality.png",
+      "data_path": "output/report_visualizations/20261006_v4/cn7_relationship_quality.csv"
+    },
+    {
+      "id": "cn7_relationship_comparison",
+      "group": "relationship",
+      "title": "CN7 관계 잔차 실험의 모든 모델 Test 결과",
+      "context": "fixed_pattern / Test CN7 122·위험3, RG3 119·위험5 / 각 검증 고정 임계값 / 초록=검증 선택 모델",
+      "interpretation": "원본 입력, 잔차 입력, 결합 입력과 비지도 점수를 동일 실험 안에서 비교하였다. 유리한 후보만 발췌하지 않았으며 기존 Test의 후속 평가이다.",
+      "path": "output/report_visualizations/20261006_v4/cn7_relationship_comparison.png",
+      "data_path": "output/report_visualizations/20261006_v4/cn7_relationship_comparison.csv"
+    },
+    {
+      "id": "rg3_relationship_quality",
+      "group": "relationship",
+      "title": "RG3 정상 변수 관계식의 예측 가능성",
+      "context": "20261001_relations_v1 / fixed_pattern / 정상 reference 내부 GroupKFold / 유지 기준 R²≥0.2 / 품질 판별 성능 아님",
+      "interpretation": "다른 공정값으로 각 입력을 예측하는 관계식의 정확성을 확인하였다. 정상 관계의 예측력이 높아도 위험 판별 성능이 높다는 뜻은 아니다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_relationship_quality.png",
+      "data_path": "output/report_visualizations/20261006_v4/rg3_relationship_quality.csv"
+    },
+    {
+      "id": "rg3_relationship_comparison",
+      "group": "relationship",
+      "title": "RG3 관계 잔차 실험의 모든 모델 Test 결과",
+      "context": "fixed_pattern / Test CN7 122·위험3, RG3 119·위험5 / 각 검증 고정 임계값 / 초록=검증 선택 모델",
+      "interpretation": "원본 입력, 잔차 입력, 결합 입력과 비지도 점수를 동일 실험 안에서 비교하였다. 유리한 후보만 발췌하지 않았으며 기존 Test의 후속 평가이다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_relationship_comparison.png",
+      "data_path": "output/report_visualizations/20261006_v4/rg3_relationship_comparison.csv"
+    },
+    {
+      "id": "stacking_same_experiment",
+      "group": "relationship",
+      "title": "동일 nested 실험 안에서 단일 모델과 결합 모델 비교",
+      "context": "20261001_nested_v1 / 외부4·내부3 fold / 개발 CN7 484·RG3 472 / Test 122·119 / 10%·동점 기대값",
+      "interpretation": "CN7 스태킹은 개발 11/11, Test 3/3을 포함하였다. RG3는 개발 4/20, Test 0/5로 이어졌다. 고정 운영 RF·IF와 다른 학습 설정이므로 성능을 합치지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/stacking_same_experiment.png",
+      "data_path": "output/report_visualizations/20261006_v4/stacking_same_experiment.csv"
+    },
+    {
+      "id": "rg3_actual_policy_comparison",
+      "group": "operations",
+      "title": "RG3 실제 정책 규칙과 IF·무작위의 동일 예산 비교",
+      "context": "고정 Test 대응 원본 N238·불량5 / 정책 함수 실제 호출·격리 폴더 / random_share0.5 / 1000회·seed42 / 수직선95% 변동 범위",
+      "interpretation": "정책 우선순위는 참조 범위 이탈·정보 부족과 ID 순서로 결정하였다. 평가 라벨은 대상 선정에 사용하지 않았다. 비율5·10·20%는 사전 예시이며 승인된 현장 정책이나 최적 예산이 아니다.",
+      "path": "output/report_visualizations/20261006_v4/rg3_actual_policy_comparison.png",
+      "data_path": "output/report_visualizations/20261006_v4/rg3_actual_policy_comparison.csv"
+    },
+    {
+      "id": "unlabeled_distribution_change",
+      "group": "operations",
+      "title": "개발 정상 참조와 실제 비라벨 자료의 입력 분포",
+      "context": "CN7 참조473·비라벨35239 / RG3 참조452·비라벨35941 / 제공 좌표 / 품질 라벨·생산시각 없음",
+      "interpretation": "실제 비라벨 분포 차이를 확인하였다. 두 자료의 최초 표준화 기준 정합이 확인되지 않아 현장 드리프트 또는 품질 악화로 확정하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/unlabeled_distribution_change.png",
+      "data_path": "output/report_visualizations/20261006_v4/unlabeled_distribution_change.csv"
+    },
+    {
+      "id": "unlabeled_score_change",
+      "group": "operations",
+      "title": "같은 IF 모델에서 참조·비라벨 점수 분포 비교",
+      "context": "고정 IF CN7 if-a7a2fcba54e54d58·RG3 if-7e69cab8fdd04a17 / 비라벨 전수 / 모델·좌표 기준 고정",
+      "interpretation": "비라벨의 점수 이동은 같은 모델에서 비교하였다. 불량 라벨이 없어 점수 변화만으로 품질 악화나 재학습 효과를 판정할 수 없다.",
+      "path": "output/report_visualizations/20261006_v4/unlabeled_score_change.png"
+    },
+    {
+      "id": "core_data_contract",
+      "group": "core",
+      "title": "입력 계약과 패턴·원본 연결",
+      "context": "현행 공통 코드와 저장 계약 / 절차도 / 성능 결과 아님",
+      "interpretation": "패턴 학습과 원본 관측치 검사 평가를 연결하였다. 품질 라벨, 원본 ID와 빈도는 예측 입력에 포함하지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/core_data_contract.png"
+    },
+    {
+      "id": "operations_ct_decision",
+      "group": "operations",
+      "title": "변화 감지부터 재학습·승격까지의 판단 절차",
+      "context": "governance_runtime·workflow_runtime / 구현 절차도 / 독립 현장 재학습 전후 결과 없음",
+      "interpretation": "변화 감지는 재학습 승인 사유의 일부이다. 실제 독립 holdout의 기존·후보 성능 자료가 없으므로 개선·유지 사례를 실증 성과로 만들지 않았다.",
+      "path": "output/report_visualizations/20261006_v4/operations_ct_decision.png"
+    },
+    {
+      "id": "selftraining_status",
+      "group": "self_training",
+      "title": "자기학습 노트북과 현행 승인 학습의 적용 상태",
+      "context": "self_training_ocsvm.ipynb의 현행 의존 경로 조사 / 상태·절차도 / 성능 그래프 아님",
+      "interpretation": "자기학습 초안의 산출물이 없어 성능 그래프를 생성하지 않았다. 비라벨 자료를 자동 정상 라벨로 바꾸는 방식은 현행 승인 운영과 구분하였다.",
+      "path": "output/report_visualizations/20261006_v4/selftraining_status.png"
+    }
+  ],
+  "notebooks": {
+    "01.EDA/01_eda.ipynb": "eda",
+    "02.preprocessing/02_preprocess.ipynb": "preprocess",
+    "02.preprocessing/03_split.ipynb": "split",
+    "03.modeling/04_operations.ipynb": "operations",
+    "03.modeling/common/00_pipeline_core.ipynb": "core",
+    "03.modeling/models/04.1_isolation_forest.ipynb": "if",
+    "03.modeling/models/05_logistic_regression.ipynb": "lr",
+    "03.modeling/models/ocsvm.ipynb": "ocsvm",
+    "26kamp.ipynb": "row_order",
+    "EDA/cn7_defect_factor_analysis.ipynb": "factors",
+    "modeling/random_forest_cn7_integrated.ipynb": "rf_cn7",
+    "modeling/random_forest_rg3_integrated.ipynb": "rf_rg3",
+    "modeling/relationship_residual_analysis.ipynb": "relationship",
+    "modeling/self_training_ocsvm.ipynb": "self_training"
+  },
+  "model_versions": {
+    "cn7": {
+      "if": "if-a7a2fcba54e54d58",
+      "ocsvm": "ocsvm-6bb288e7f3ba464e",
+      "lr": "lr-20261003T040950Z-62637750",
+      "rf": "rf-20261005T070541Z-eee06bbc"
+    },
+    "rg3": {
+      "if": "if-7e69cab8fdd04a17",
+      "ocsvm": "ocsvm-657078ff64fd4278",
+      "lr": "lr-20261003T041011Z-d707796f"
+    }
+  },
+  "helper_sha256": "e2ff0539d65ad5c6731dbc620504ba51243cffeda52371719ec26f49b43c1b40",
+  "evaluation": "historical fixed Test follow-up; not new independent field validation",
+  "model_training_performed": false,
+  "runtime_modified": false
+}

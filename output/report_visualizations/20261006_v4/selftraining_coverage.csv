@@ -1,0 +1,9 @@
+﻿feature,labeled_unique,unlabeled_unique,dataset
+Injection_Time,15,115,cn7
+Filling_Time,14,124,cn7
+Clamp_Open_Position,1,47,cn7
+Mold_Temperature_3,39,182,cn7
+Injection_Time,3,91,rg3
+Filling_Time,2,97,rg3
+Clamp_Open_Position,1,53,rg3
+Mold_Temperature_3,26,156,rg3

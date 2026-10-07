@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "notebooks": 14,
+  "figures": 40,
+  "original_cells_match_git": true,
+  "frozen_scores_match_historical": true,
+  "error_group_counts_reconcile": true,
+  "policy_budget_exact": true
+}

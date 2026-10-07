@@ -1,0 +1,107 @@
+{
+  "notebooks": [
+    {
+      "notebook": "01.EDA/01_eda.ipynb",
+      "original_cells_preserved": 207,
+      "figure_outputs": 3,
+      "execution_count": 1,
+      "original_cells_sha256": "6f4866849c7d4a34046c032676e6a1268110e45495ec98e523333844fa93c1f9"
+    },
+    {
+      "notebook": "02.preprocessing/02_preprocess.ipynb",
+      "original_cells_preserved": 17,
+      "figure_outputs": 1,
+      "execution_count": 2,
+      "original_cells_sha256": "41976eed9632476e24792aa04ce8095f086de92635f1b9b351c5e12ec46d4e05"
+    },
+    {
+      "notebook": "02.preprocessing/03_split.ipynb",
+      "original_cells_preserved": 12,
+      "figure_outputs": 2,
+      "execution_count": 3,
+      "original_cells_sha256": "b9ba63f4a137fd4c1e9b40e65b3adec0aa78b91bab6cff6767001d8b4b7f7051"
+    },
+    {
+      "notebook": "03.modeling/04_operations.ipynb",
+      "original_cells_preserved": 5,
+      "figure_outputs": 4,
+      "execution_count": 4,
+      "original_cells_sha256": "c6288a8071d8872532440f2b36d452494a9c4b94597e8ebf100e73bae7f57b2a"
+    },
+    {
+      "notebook": "03.modeling/common/00_pipeline_core.ipynb",
+      "original_cells_preserved": 11,
+      "figure_outputs": 1,
+      "execution_count": 5,
+      "original_cells_sha256": "93156e7d2ce1748ce704307ad2eae8ddd1af31f59724783d262fa7989bf2ff66"
+    },
+    {
+      "notebook": "03.modeling/models/04.1_isolation_forest.ipynb",
+      "original_cells_preserved": 10,
+      "figure_outputs": 2,
+      "execution_count": 6,
+      "original_cells_sha256": "99b569c5dab989cd38c26c614874e1c411adeb5e502b6b3a48105a2eddad033a"
+    },
+    {
+      "notebook": "03.modeling/models/05_logistic_regression.ipynb",
+      "original_cells_preserved": 7,
+      "figure_outputs": 6,
+      "execution_count": 7,
+      "original_cells_sha256": "64b9244c8e1fa34227848870fa32f4aee2bcdbdabcbf64c4efe54b98e861d4ce"
+    },
+    {
+      "notebook": "03.modeling/models/ocsvm.ipynb",
+      "original_cells_preserved": 40,
+      "figure_outputs": 4,
+      "execution_count": 8,
+      "original_cells_sha256": "a20362ec7b9d77f5ad2a86ae63cedaa154b9a4be277e75d23781b7789a9762f1"
+    },
+    {
+      "notebook": "26kamp.ipynb",
+      "original_cells_preserved": 1,
+      "figure_outputs": 1,
+      "execution_count": 9,
+      "original_cells_sha256": "1a2ef66a5eed757f84f84e563dee9185fe5bcf0d8974c57bfeed5fb6253cc16d"
+    },
+    {
+      "notebook": "EDA/cn7_defect_factor_analysis.ipynb",
+      "original_cells_preserved": 18,
+      "figure_outputs": 3,
+      "execution_count": 10,
+      "original_cells_sha256": "30a6d945a02356f6837671cb5cd6dcb0d9b80a3aab784ee1cd963411387127c5"
+    },
+    {
+      "notebook": "modeling/random_forest_cn7_integrated.ipynb",
+      "original_cells_preserved": 15,
+      "figure_outputs": 3,
+      "execution_count": 11,
+      "original_cells_sha256": "16dda3f1e4a55a8ba5933aa61b4efff1ea0a92355e01af72a72add3ced4a9b3e"
+    },
+    {
+      "notebook": "modeling/random_forest_rg3_integrated.ipynb",
+      "original_cells_preserved": 15,
+      "figure_outputs": 3,
+      "execution_count": 12,
+      "original_cells_sha256": "224f7120a2acb29b07fbbc2c1741eeb7630f619f59cac6e587d236a091599573"
+    },
+    {
+      "notebook": "modeling/relationship_residual_analysis.ipynb",
+      "original_cells_preserved": 12,
+      "figure_outputs": 5,
+      "execution_count": 13,
+      "original_cells_sha256": "5cf87d390f2c55e4613384553e917564f53c551417df439c8b37c5667b0d85b5"
+    },
+    {
+      "notebook": "modeling/self_training_ocsvm.ipynb",
+      "original_cells_preserved": 33,
+      "figure_outputs": 2,
+      "execution_count": 14,
+      "original_cells_sha256": "587d306248f1ca9fdd4b81382406161d50c754246c26c3402388cc1f80b5eb2e"
+    }
+  ],
+  "figure_outputs": 40,
+  "protected_artifacts_unchanged": 108,
+  "training_cells_executed": false,
+  "execution_python": "C:\\ProgramData\\Anaconda3\\python.exe",
+  "git_commit": "086b02891188d1a45d474482ad2afb315458f05b"
+}

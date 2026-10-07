@@ -1,0 +1,5 @@
+﻿dataset,variable,reference_n,unlabeled_n,KS
+cn7,Filling_Time,473,35239,0.21912801181806124
+cn7,Mold_Temperature_3,473,35239,0.320579549601702
+rg3,Filling_Time,452,35941,0.4180859461659509
+rg3,Mold_Temperature_3,452,35941,0.269899562532794
